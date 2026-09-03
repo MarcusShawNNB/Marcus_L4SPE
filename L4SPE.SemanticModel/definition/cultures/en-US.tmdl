@@ -7674,16 +7674,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "latest week": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
 			          "contemporary week": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -13710,16 +13700,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "latest week": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
 			          "contemporary week": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -13985,16 +13965,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "former week": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "latest week": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -52379,7 +52349,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "L4SPE_measure.sum_remaining_hours_l_5_by_week": {
+			    "L4SPE_measure.sum_remaining_hours_l_5_latest_week": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "L4SPE Measures",
@@ -52389,89 +52359,45 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "sum remaining hours l 5 by week": {
+			          "sum remaining hours l 5 latest week": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "sum_remaining_hours_l5_by_week": {
+			          "sum_remaining_hours_l5_latest_week": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
 			        },
 			        {
-			          "l 5": {
+			          "latest week": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "hours l 5": {
+			          "5 latest week": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "remaining hours l 5": {
+			          "l 5 latest week": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "sum remaining hours l 5": {
+			          "hours l 5 latest week": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "summation remaining hour l 5": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.624
-			          }
-			        },
-			        {
-			          "aggregation remaining hour l 5": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.624
-			          }
-			        },
-			        {
-			          "total remaining hour l 5": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "aggregate remaining hour l 5": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "amount remaining hour l 5": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
+			          "remaining hours l 5 latest week": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -71348,6 +71274,284 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "L4SPE_measure.rate_earned_planned": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "rate_earned_planned"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rate earned planned": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rate_earned_planned": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "degree earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "frequency earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "percentage earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "ratio earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "quotient earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "amount earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "proportion earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "speed earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "level earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "scale earned planned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.entity__earned": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "%_earned"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%_earned": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage _earned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct _earned": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.rate_productivity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "rate_productivity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rate productivity": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rate_productivity": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "productivity": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "rate efficiency": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rate production": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "rate throughput": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "efficiency": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "throughput": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "rate output": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "rate yield": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "output": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "yield": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
 			    "l4spe_measures.sum_forecast_baseline_current_week": {
 			      "Definition": {
 			        "Binding": {
@@ -73688,6 +73892,303 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_EC_have_bridge_cable_highways"
+			        }
+			      ]
+			    },
+			    "Supporting_MEH__Complete_2026_has_L4SPE_measure_rate_productivity": {
+			      "Binding": {
+			        "ConceptualEntity": "Supporting_MEH % Complete_2026"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Supporting_MEH__Complete_2026": {
+			          "Target": {
+			            "Entity": "Supporting_MEH__Complete_2026"
+			          }
+			        },
+			        "L4SPE_measure.rate_productivity": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_productivity"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Supporting_MEH__Complete_2026"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_productivity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Supporting_MEH__Complete_2026_have_rate_productivity"
+			        }
+			      ]
+			    },
+			    "fact_daily_has_L4SPE_measure_rate_productivity": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Daily"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_daily": {
+			          "Target": {
+			            "Entity": "fact_daily"
+			          }
+			        },
+			        "L4SPE_measure.rate_productivity": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_productivity"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_daily"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_productivity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_dailies_have_rate_productivity"
+			        }
+			      ]
+			    },
+			    "fact_booked_hour_has_L4SPE_measure_rate_productivity": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Booked_Hours"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_booked_hour": {
+			          "Target": {
+			            "Entity": "fact_booked_hour"
+			          }
+			        },
+			        "L4SPE_measure.rate_productivity": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_productivity"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_booked_hour"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_productivity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_booked_hours_have_rate_productivity"
+			        }
+			      ]
+			    },
+			    "Supporting_MEH__Complete_2026_has_L4SPE_measure_entity__earned": {
+			      "Binding": {
+			        "ConceptualEntity": "Supporting_MEH % Complete_2026"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Supporting_MEH__Complete_2026": {
+			          "Target": {
+			            "Entity": "Supporting_MEH__Complete_2026"
+			          }
+			        },
+			        "L4SPE_measure.entity__earned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.entity__earned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Supporting_MEH__Complete_2026"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.entity__earned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Supporting_MEH__Complete_2026_have__earned"
+			        }
+			      ]
+			    },
+			    "fact_daily_has_L4SPE_measure_entity__earned": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Daily"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_daily": {
+			          "Target": {
+			            "Entity": "fact_daily"
+			          }
+			        },
+			        "L4SPE_measure.entity__earned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.entity__earned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_daily"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.entity__earned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_dailies_have__earned"
+			        }
+			      ]
+			    },
+			    "fact_BL_forecast_L5_daily_spread_has_L4SPE_measure_entity__earned": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_BL_Forecast_L5_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_BL_forecast_L5_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_BL_forecast_L5_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.entity__earned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.entity__earned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_BL_forecast_L5_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.entity__earned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_BL_forecast_L5_daily_spreads_have__earned"
+			        }
+			      ]
+			    },
+			    "Supporting_MEH__Complete_2026_has_L4SPE_measure_rate_earned_planned": {
+			      "Binding": {
+			        "ConceptualEntity": "Supporting_MEH % Complete_2026"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Supporting_MEH__Complete_2026": {
+			          "Target": {
+			            "Entity": "Supporting_MEH__Complete_2026"
+			          }
+			        },
+			        "L4SPE_measure.rate_earned_planned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_earned_planned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Supporting_MEH__Complete_2026"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_earned_planned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Supporting_MEH__Complete_2026_have_rate_earned_planned"
+			        }
+			      ]
+			    },
+			    "fact_daily_has_L4SPE_measure_rate_earned_planned": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Daily"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_daily": {
+			          "Target": {
+			            "Entity": "fact_daily"
+			          }
+			        },
+			        "L4SPE_measure.rate_earned_planned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_earned_planned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_daily"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_earned_planned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_dailies_have_rate_earned_planned"
+			        }
+			      ]
+			    },
+			    "fact_BL_forecast_L5_daily_spread_has_L4SPE_measure_rate_earned_planned": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_BL_Forecast_L5_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_BL_forecast_L5_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_BL_forecast_L5_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.rate_earned_planned": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.rate_earned_planned"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_BL_forecast_L5_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.rate_earned_planned"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_BL_forecast_L5_daily_spreads_have_rate_earned_planned"
 			        }
 			      ]
 			    },
@@ -81261,7 +81762,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_BL_forecast_L5_daily_spread_has_L4SPE_measure_sum_remaining_hours_l_5_by_week": {
+			    "fact_BL_forecast_L5_daily_spread_has_L4SPE_measure_sum_remaining_hours_l_5_latest_week": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_BL_Forecast_L5_daily_spread"
 			      },
@@ -81272,9 +81773,9 @@ cultureInfo en-US
 			            "Entity": "fact_BL_forecast_L5_daily_spread"
 			          }
 			        },
-			        "L4SPE_measure.sum_remaining_hours_l_5_by_week": {
+			        "L4SPE_measure.sum_remaining_hours_l_5_latest_week": {
 			          "Target": {
-			            "Entity": "L4SPE_measure.sum_remaining_hours_l_5_by_week"
+			            "Entity": "L4SPE_measure.sum_remaining_hours_l_5_latest_week"
 			          }
 			        }
 			      },
@@ -81285,12 +81786,12 @@ cultureInfo en-US
 			              "Role": "fact_BL_forecast_L5_daily_spread"
 			            },
 			            "Object": {
-			              "Role": "L4SPE_measure.sum_remaining_hours_l_5_by_week"
+			              "Role": "L4SPE_measure.sum_remaining_hours_l_5_latest_week"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_BL_forecast_L5_daily_spreads_have_sum_remaining_hours_l_5_by_week"
+			          "ID": "fact_BL_forecast_L5_daily_spreads_have_sum_remaining_hours_l_5_latest_week"
 			        },
 			        {
 			          "Adjective": {
@@ -81305,12 +81806,12 @@ cultureInfo en-US
 			              }
 			            ],
 			            "Measurement": {
-			              "Role": "L4SPE_measure.sum_remaining_hours_l_5_by_week"
+			              "Role": "L4SPE_measure.sum_remaining_hours_l_5_latest_week"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "sum_remaining_hours_l_5_by_week_indicates_how_Planned_fact_BL_forecast_L5_daily_spreads_are"
+			          "ID": "sum_remaining_hours_l_5_latest_week_indicates_how_Planned_fact_BL_forecast_L5_daily_spreads_are"
 			        }
 			      ]
 			    },
