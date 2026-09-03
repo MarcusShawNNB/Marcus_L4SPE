@@ -300,7 +300,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tahoma'"
+                  "Value": "'Arial'"
                 }
               }
             }

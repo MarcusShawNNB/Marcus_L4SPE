@@ -78,7 +78,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tahoma'"
+                  "Value": "'Arial'"
                 }
               }
             },
@@ -125,7 +125,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tahoma'"
+                  "Value": "'Arial'"
                 }
               }
             },
