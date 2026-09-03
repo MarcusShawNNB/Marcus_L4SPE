@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 94.444444444444443,
     "width": 413.33333333333331,
-    "tabOrder": 9000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours_supporting_meh",
-              "nativeQueryRef": "sum_earned_hours_supporting_meh"
+              "nativeQueryRef": "sum_earned_hours_supporting_meh",
+              "displayName": "Earned"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week",
-              "nativeQueryRef": "Planned"
+              "nativeQueryRef": "Planned",
+              "displayName": "Planned"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.%_earned",
-              "nativeQueryRef": "%_earned"
+              "nativeQueryRef": "%_earned",
+              "displayName": "% Earned"
             }
           ]
         }
@@ -531,48 +534,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "30a39923b54837870e40",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_earned_hours_supporting_meh"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c5c7f6f659d2103d92e1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5b6cc88695b193a6f153",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_earned"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

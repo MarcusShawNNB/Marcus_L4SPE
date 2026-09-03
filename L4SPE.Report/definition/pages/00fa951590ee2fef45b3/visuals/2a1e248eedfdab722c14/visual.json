@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 83.75,
     "width": 206.25,
-    "tabOrder": 6000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "gauge",
@@ -45,7 +45,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours_supporting_meh",
-              "nativeQueryRef": "sum_earned_hours_supporting_meh"
+              "nativeQueryRef": "sum_earned_hours_supporting_meh",
+              "displayName": "Earned"
             }
           ]
         }

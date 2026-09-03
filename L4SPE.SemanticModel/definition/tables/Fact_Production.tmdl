@@ -1,7 +1,7 @@
 table Fact_Production
 	lineageTag: 25ce582e-7390-44be-95ca-2307393bbada
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Current % Complete' = ```
 			-- MS
 			
@@ -26,7 +26,7 @@ table Fact_Production
 		formatString: 0%;-0%;0%
 		lineageTag: 1075e237-7553-4d34-9432-3aedd2530e54
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Previous % Complete' = ```
 			-- MS
 			
@@ -65,14 +65,14 @@ table Fact_Production
 		formatString: 0%;-0%;0%
 		lineageTag: 9aecc075-90a3-49f1-a0bf-7ca3933ce99f
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Weekly % Delta' =
 			-- MS
 			[Current % Complete] - [Previous % Complete]
 		formatString: 0%;-0%;0%
 		lineageTag: e9ee2192-fb1e-4013-bc2d-b14adde046cd
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Earned Hours Week' =
 			-- MS
 			

@@ -947,62 +947,6 @@
           }
         },
         "type": "Categorical"
-      },
-      {
-        "name": "f4e4feb9c0900963d781",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_hours_earned_to4"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "31e7af1888b1044307e3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_quarterly_fc"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9aa54e6b9bde3cab2056",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "cum_%_quarterly_fc"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "89b01c1d90022195b80a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "cum_%_hours_earned"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

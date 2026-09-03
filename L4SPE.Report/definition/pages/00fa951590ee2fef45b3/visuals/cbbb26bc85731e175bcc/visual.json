@@ -4,10 +4,10 @@
   "position": {
     "x": 523,
     "y": 619,
-    "z": 10001,
+    "z": 11000,
     "height": 311,
     "width": 430,
-    "tabOrder": 9001
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -76,7 +76,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours_supporting_meh",
-              "nativeQueryRef": "sum_earned_hours_supporting_meh"
+              "nativeQueryRef": "sum_earned_hours_supporting_meh",
+              "displayName": "Earned"
             },
             {
               "field": {
@@ -90,7 +91,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_booked_hours",
-              "nativeQueryRef": "sum_booked_hours"
+              "nativeQueryRef": "sum_booked_hours",
+              "displayName": "Booked Hours"
             },
             {
               "field": {
@@ -104,7 +106,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.rate_productivity",
-              "nativeQueryRef": "rate_productivity"
+              "nativeQueryRef": "rate_productivity",
+              "displayName": "Productivity Rate"
             }
           ]
         }

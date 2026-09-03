@@ -4,10 +4,10 @@
   "position": {
     "x": 257.38058551617871,
     "y": 211.03235747303543,
-    "z": 1,
+    "z": 1000,
     "height": 508.84437596302,
     "width": 1022.6194144838212,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -264,136 +264,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ee25217b37eec1cfc742",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Supporting_MEH % Complete_2026"
-              }
-            },
-            "Property": "AC Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "be859f3139f54f8c1c0b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Supporting_MEH % Complete_2026"
-              }
-            },
-            "Property": "Dim_ECS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b814a60416c4478fb55c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Supporting_MEH % Complete_2026"
-              }
-            },
-            "Property": "Activity Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fd7554e70d0aeb44580e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Supporting_MEH % Complete_2026"
-              }
-            },
-            "Property": "SupportingMEHHours"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d405642d4deef6002ffd",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_ECS"
-                  }
-                },
-                "Hierarchy": "Adj_unit Hierarchy"
-              }
-            },
-            "Level": "Unit"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "28d83a0fe228e6a09100",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_ECS"
-                  }
-                },
-                "Hierarchy": "Adj_unit Hierarchy"
-              }
-            },
-            "Level": "Area"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "04c159d2bf72c84b88f0",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_ECS"
-                  }
-                },
-                "Hierarchy": "Adj_unit Hierarchy"
-              }
-            },
-            "Level": "Area Group"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5ea0c89ee73c34bbecc2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "P6_ID"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

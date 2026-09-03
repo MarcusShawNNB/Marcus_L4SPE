@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours_supporting_meh",
-              "nativeQueryRef": "sum_earned_hours_supporting_meh"
+              "nativeQueryRef": "sum_earned_hours_supporting_meh",
+              "displayName": "Earned"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week",
-              "nativeQueryRef": "Planned"
+              "nativeQueryRef": "Planned",
+              "displayName": "Planned"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.%_earned",
-              "nativeQueryRef": "%_earned"
+              "nativeQueryRef": "%_earned",
+              "displayName": "% Earned"
             }
           ]
         }
@@ -532,48 +535,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "a685571bda1c78204ab8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_earned_hours_supporting_meh"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d642375841cff2cb44ea",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c9d1aae7be735a5be1c6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_earned"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

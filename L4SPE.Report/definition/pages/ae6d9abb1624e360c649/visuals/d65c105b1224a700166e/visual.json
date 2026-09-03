@@ -171,23 +171,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "bd009fd4835d1a876223",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Main_Commodities"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

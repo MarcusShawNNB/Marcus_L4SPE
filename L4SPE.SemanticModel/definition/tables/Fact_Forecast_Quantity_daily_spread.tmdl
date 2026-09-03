@@ -1,7 +1,7 @@
 table Fact_Forecast_Quantity_daily_spread
 	lineageTag: 9361d62c-8dd5-48f2-9cee-3b994230d409
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure byday_count_rows = ```
 			-- MS
 			

@@ -4,10 +4,10 @@
   "position": {
     "x": 1101.9512195121952,
     "y": 3.5121951219512195,
-    "z": 12000,
+    "z": 11000,
     "height": 86.048780487804876,
     "width": 168.58536585365854,
-    "tabOrder": 19000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -263,23 +263,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1f01282451436b1b0dce",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "last_week_no_date"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

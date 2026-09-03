@@ -7,7 +7,7 @@
     "z": 0,
     "height": 117.5,
     "width": 130,
-    "tabOrder": 7000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.rate_earned_planned",
-              "nativeQueryRef": "rate_earned_planned"
+              "nativeQueryRef": "rate_earned_planned",
+              "displayName": "Earned/Planned Rate"
             },
             {
               "field": {
@@ -478,20 +479,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "6feac5096c94d885a770",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "rate_earned_planned"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

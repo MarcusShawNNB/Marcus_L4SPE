@@ -468,34 +468,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "487a3b08307f12fd2c49",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "current_week_earned_hours_earned"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bd751233bd1e13ee4115",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_remaining_hours_l5_latest_week"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

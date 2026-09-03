@@ -282,51 +282,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "bb9aff2f1ccfa0b3d86c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Date"
-              }
-            },
-            "Property": "Week Ending"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ba4c6acebb5b24cdab13",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Date"
-              }
-            },
-            "Property": "Week"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4a3c28464a46d5973249",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_remaining_hours_rolling_by_week"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

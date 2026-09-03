@@ -4,10 +4,10 @@
   "position": {
     "x": 156.41379310344828,
     "y": 11.586206896551724,
-    "z": 14001,
+    "z": 12000,
     "height": 478.34482758620692,
     "width": 1123.8620689655172,
-    "tabOrder": 14001
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -858,93 +858,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d03c7e04b1996a00ad55",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ROOM"
-              }
-            },
-            "Property": "Level"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f6a2c88922a001589c6a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ROOM"
-              }
-            },
-            "Property": "Building Code"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "59c2c99b28aebb05866d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_remaining_hours_delivered"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7fa552f85051663605ed",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_budgeted_hours_delivered"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "de188564925260b92529",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_delivered"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a30ee73b4d065378a6cc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_delivered_outstanding"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

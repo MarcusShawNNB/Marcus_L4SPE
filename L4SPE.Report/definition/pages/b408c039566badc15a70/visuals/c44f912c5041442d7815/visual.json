@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "c44f912c5041442d7815",
   "position": {
     "x": 854.44444444444446,
@@ -272,65 +272,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9312a55f01c098e8082b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "building_code"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5f45ac482dc64d79add6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_all"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ef1f5532240610c0d693",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Room"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4dda7dc87092c329a7c8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Erection_Area"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

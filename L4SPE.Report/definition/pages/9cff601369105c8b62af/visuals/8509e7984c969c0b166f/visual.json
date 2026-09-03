@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "8509e7984c969c0b166f",
   "position": {
     "x": 157,
     "y": 92,
-    "z": 26001,
+    "z": 14000,
     "height": 271,
     "width": 608,
-    "tabOrder": 25001
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -248,48 +248,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "96551c79b10f8a576b14",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Sub Area"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0d7c51be2f1467240f39",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Planning Commodity"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6313df6c10036a669486",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_actual_installed"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "bb0f389ddedb0df7a4b0",
         "field": {
           "HierarchyLevel": {
@@ -401,63 +359,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "05294eeba23c09de30ad",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Hierarchy": "Date Filter"
-              }
-            },
-            "Level": "Year_Quarter"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a0820577919bdcdad41a",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Hierarchy": "Date Filter"
-              }
-            },
-            "Level": "Month Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "19c0d88ba84901c33980",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Hierarchy": "Date Filter"
-              }
-            },
-            "Level": "Week Ending"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

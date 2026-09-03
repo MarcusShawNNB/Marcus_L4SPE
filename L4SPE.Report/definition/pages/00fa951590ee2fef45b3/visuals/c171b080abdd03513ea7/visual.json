@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "c171b080abdd03513ea7",
   "position": {
-    "x": 19.666666666666629,
-    "y": 18,
+    "x": 804.02439024390242,
+    "y": 19.695121951219512,
     "z": 4000,
-    "height": 68,
-    "width": 144,
-    "tabOrder": 5000
+    "height": 68.353658536585371,
+    "width": 132.07317073170731
   },
   "visual": {
     "visualType": "slicer",
@@ -223,23 +222,8 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0b1f6c2878b332f8687d",
   "filterConfig": {
     "filters": [
-      {
-        "name": "3e6d20c607cdcf5b035d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Date"
-              }
-            },
-            "Property": "Week Ending"
-          }
-        },
-        "type": "Categorical"
-      },
       {
         "name": "820d48584dda9af87c91",
         "field": {

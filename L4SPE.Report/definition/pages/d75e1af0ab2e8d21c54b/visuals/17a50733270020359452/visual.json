@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "17a50733270020359452",
   "position": {
     "x": 155,
     "y": 0,
-    "z": 19001,
+    "z": 14000,
     "height": 530,
     "width": 1682.5,
-    "tabOrder": 20001
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -697,20 +697,6 @@
               }
             },
             "Property": "P6_ID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "574470fa04035a049c67",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Exists_in_P6"
           }
         },
         "type": "Categorical"

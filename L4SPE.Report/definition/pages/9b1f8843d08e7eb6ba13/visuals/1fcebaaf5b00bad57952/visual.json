@@ -177,23 +177,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9c6312e7a07add6d9a42",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "building_code"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

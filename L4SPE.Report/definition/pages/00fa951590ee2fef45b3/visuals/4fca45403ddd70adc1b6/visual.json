@@ -57,7 +57,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.%_earned",
-              "nativeQueryRef": "%_earned"
+              "nativeQueryRef": "%_earned",
+              "displayName": "% Earned"
             }
           ]
         }
@@ -534,48 +535,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "16bfe31c5fc275f1f0c2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_earned_hours_supporting_meh"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6ac83e9aba660382835a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "61683227c47782302185",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "%_earned"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

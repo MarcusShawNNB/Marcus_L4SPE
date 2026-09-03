@@ -1,7 +1,7 @@
 table 'Date Filter Options'
 	lineageTag: f55dad0a-ec1e-4e12-8c61-9b2c76f93ba1
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Selected Date Filter' =
 			-- MS
 			
@@ -16,7 +16,7 @@ table 'Date Filter Options'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Selected Forecast Filtered' =
 			-- MS
 			

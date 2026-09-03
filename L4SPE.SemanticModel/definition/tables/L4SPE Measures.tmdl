@@ -1,7 +1,7 @@
 table 'L4SPE Measures'
 	lineageTag: abb2881b-eb09-439e-8ebb-b63041380eb0
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_design_quantity_installed = ```
 			
 			VAR LastActualDate =
@@ -27,7 +27,7 @@ table 'L4SPE Measures'
 		displayFolder: 1_Quantities
 		lineageTag: d64a54c8-f05a-4c5c-b478-7354f4810ee0
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity =
 			-- MS
 			CALCULATE(SUM(Dim_ECS[DesignQuantity]),USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]))
@@ -36,7 +36,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_p6_finish =
 			-- MS
 			
@@ -53,7 +53,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_sum_design_quantity =
 			-- MS
 			
@@ -69,7 +69,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_design_quantity_p6_finish =
 			-- MS
 			
@@ -85,7 +85,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_iws12_Finish =
 			-- MS
 			
@@ -98,7 +98,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_design_quantity_iws12_Finish =
 			-- MS
 			
@@ -115,7 +115,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_delivered =
 			-- MS
 			
@@ -126,7 +126,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_delivered = ```
 			-- MS
 			DIVIDE([sum_design_quantity_delivered],[sum_design_quantity_all]) 
@@ -135,7 +135,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: ec673607-18a9-4bf5-b5b0-1dd012e15dd1
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_actual_installed_inc_this_week = ```
 			-- MS
 			
@@ -146,7 +146,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_installed = ```
 			-- MS
 			DIVIDE([sum_design_quantity_actual_installed_inc_this_week],[sum_design_quantity_all]) 
@@ -155,7 +155,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 9b54f3cc-9ff8-4e74-9ae1-672b0b67bd2b
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_all =
 			-- MS
 			CALCULATE(SUM(Dim_ECS[DesignQuantity]))
@@ -164,7 +164,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_delivered_rag =
 			-- MS
 			
@@ -179,7 +179,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: d90de1f9-7440-4245-a703-9a817fa2d1fa
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_Installed_rag =
 			-- MS
 			
@@ -195,7 +195,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: bfceb441-f83d-4799-ac9e-b99d1055d6ad
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure count_ecs =
 			-- MS
 			COUNTROWS(Dim_ECS)
@@ -203,7 +203,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: 2d82a7f6-e23c-4cce-98fe-9374384e586f
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure budget_hours =
 			-- MS
 			SUM(Dim_ECS[Final_Hours])
@@ -212,7 +212,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_earned_hours_week_production =
 			-- MS
 			SUM(Fact_Production[Earned Hours Week_Production])
@@ -221,7 +221,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_earned_hours_earned_week =
 			-- MS
 			
@@ -237,14 +237,14 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure count_live_ctp =
 			-- MS
 			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date], Dim_CTP_Schedule_Data[CTP_Live_Finish]))
 		displayFolder: 6_Counts
 		lineageTag: b31f38e8-91a6-478c-b897-e85822f4f42b
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure count_iws12_ctp =
 			-- MS
 			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_IWS12_Finish]))
@@ -252,7 +252,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: 636884e8-4c16-408d-b9ee-cb8f08898b7c
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_actual_hours_installed =
 			-- MS
 			CALCULATE(SUM(Dim_ECS[Current Hours]), USERELATIONSHIP(Dim_Date[Date],Dim_ECS[actual_installed_date]))
@@ -261,7 +261,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure hours_forecast_iws12_finish = ```
 			-- MS
 			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_IWS12_Finish])) 
@@ -271,7 +271,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure hours_forecast_live_p6_finish =
 			-- MS
 			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_Live_Finish]))
@@ -280,14 +280,14 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure hours_forecast_live_finish_lm =
 			-- MS
 			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_Live_Finish LM]))
 		displayFolder: 2_Hours
 		lineageTag: eef7ef9b-e5fb-4bda-9630-bf7279527fd5
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_hours_forecast_iws12_Finish =
 			-- MS
 			
@@ -303,7 +303,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_hours_forecast_live_finish_lm =
 			-- MS
 			
@@ -319,7 +319,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_hours_forecast_live_p6_finish =
 			-- MS
 			
@@ -335,7 +335,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_actual_hours_installed =
 			-- MS
 			
@@ -357,7 +357,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_forecast_live_finish_lm =
 			-- MS
 			CALCULATE(
@@ -372,7 +372,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_hours_forecast_early_finish =
 			-- MS
 			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_ECS[LIVE - Forecast Finish Date]))
@@ -381,7 +381,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_earned_budget =
 			-- MS
 			DIVIDE([sum_actual_hours_installed],[budget_hours])
@@ -389,7 +389,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: f704df77-9c59-4d29-a9b0-03069783812c
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure live_total_float =
 			-- MS
 			MIN(Dim_ECS[Total Float])
@@ -397,7 +397,7 @@ table 'L4SPE Measures'
 		displayFolder: 2_Hours
 		lineageTag: cafe56a6-042c-4c53-b6af-b51cb34462f6
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure live_total_float_lm =
 			-- MS
 			MIN(Dim_ECS[Total Float LM])
@@ -405,7 +405,7 @@ table 'L4SPE Measures'
 		displayFolder: 2_Hours
 		lineageTag: 5d445c68-b9bb-46fc-b5ef-dcbb742b24c6
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_iws12_total_float =
 			-- MS
 			min(Dim_ECS[IWS_12 - Total Float])
@@ -413,7 +413,7 @@ table 'L4SPE Measures'
 		displayFolder: 2_Hours
 		lineageTag: 0770c9cf-f459-49c9-8ec0-8086ad96cefa
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure count_live_ctp_lm =
 			-- MS
 			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date], Dim_CTP_Schedule_Data[CTP_Live_Finish LM]))
@@ -421,7 +421,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: 8b13936c-4cf5-4ff6-b214-b41e3aa47056
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_count_iws12_ctp =
 			-- MS
 			
@@ -436,7 +436,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: c1be7158-438d-46f0-a64c-1ecb9a77f83c
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_count_live_ctp =
 			-- MS
 			
@@ -451,7 +451,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: 92b72a6e-f332-4b0f-9738-ec176821943d
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_count_live_ctp_lm =
 			-- MS
 			
@@ -466,7 +466,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: 15170800-229e-4a2d-939e-d1aa9a7450fa
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_design_quantity_forecast_live_finish_lm =
 			-- MS
 			
@@ -482,7 +482,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_daily_hours_earned =
 			-- MS
 			CALCULATE(SUM(Fact_Daily[Daily Hours Earned]),Fact_Daily[Is_Latest_Record]=TRUE(),USERELATIONSHIP(Dim_Date[Date],Fact_Daily[Reporting Week]))
@@ -491,7 +491,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_sum_daily_hours_earned =
 			-- MS
 			
@@ -507,7 +507,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure latest_day_earned_hours_earned =
 			-- MS
 			
@@ -520,7 +520,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure current_week =
 			
 			CALCULATE(
@@ -532,7 +532,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 41423a2d-763e-4591-92a3-b4c9c59b5caa
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure daily_report_date =
 			
 			CALCULATE(
@@ -543,7 +543,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: ecedf1ad-ad30-4e99-9574-f4d31ad588db
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure daily_report_latest_shift = ```
 			
 			VAR latest = 
@@ -561,7 +561,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: b10e39d7-6db2-4309-b124-c7a2fdf356f7
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_earned_current_week =
 			-- MS
 			DIVIDE([current_week_earned_hours_earned],[sum_remaining_hours_l5_latest_week])
@@ -569,7 +569,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 40ec8905-0165-4d92-a90a-3730271d47da
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_booked_hours_direct_current_week =
 			-- MS
 			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Fact_Booked_Hours[Trade Type]="Direct",Dim_Date[Current Week] = TRUE())
@@ -578,7 +578,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure rate_productivity_current_week =
 			-- MS
 			DIVIDE([current_week_earned_hours_earned],[sum_booked_hours_direct_current_week])
@@ -587,7 +587,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure rate_earned_planned_current_week =
 			-- MS
 			DIVIDE([current_week_earned_hours_earned],[sum_remaining_hours_l5_latest_week])
@@ -596,7 +596,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_planned =
 			-- MS
 			
@@ -607,7 +607,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_baseline_remaining_work =
 			-- MS
 			sum('Fact_Forecast_Baseline'[Data.Remaining Work])
@@ -616,7 +616,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Cumulative IN-PROGRESS (ROC <90%) (''PIN No. of ECS CODES)' =
 			-- MS
 			
@@ -627,7 +627,7 @@ table 'L4SPE Measures'
 		displayFolder: 4_Daily Progress
 		lineageTag: 4f6450e0-1bed-4ead-acc4-d8c0a857fa2f
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Cumulative COMPLETED (ROC >90%) (''PIN No. of ECS CODES)' =
 			-- MS
 			
@@ -639,7 +639,7 @@ table 'L4SPE Measures'
 		displayFolder: 4_Daily Progress
 		lineageTag: 2169b387-38e6-4cb5-aec0-2299bb8570ea
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)' =
 			-- MS
 			VAR IsEquip =
@@ -671,7 +671,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)' =
 			-- MS
 			
@@ -683,7 +683,7 @@ table 'L4SPE Measures'
 		displayFolder: 4_Daily Progress
 		lineageTag: efe3ddc8-82b0-4142-bde2-904c2fb9e9cf
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_booked_hours_current_week =
 			-- MS
 			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Dim_Date[Current Week] = TRUE())
@@ -692,7 +692,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure 'Cumulative IN-PROGRESS & COMPLETE (''PIN No. of ECS CODES)' =
 			-- MS
 			[Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)]+[Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)]
@@ -700,7 +700,7 @@ table 'L4SPE Measures'
 		displayFolder: 4_Daily Progress
 		lineageTag: 40d26cd5-8c3e-4c60-8694-38c163080bc6
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_to4 =
 			-- MS
 			sum(Fact_TO4_Q[Q])
@@ -709,7 +709,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_sum_design_quantity_quarterly_forecast =
 			-- MS
 			
@@ -722,7 +722,7 @@ table 'L4SPE Measures'
 		displayFolder: 1_Quantities
 		lineageTag: d5bdfced-620f-4861-95d1-94aebc18a47a
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_to4_q_weekly = ```
 			-- MS
 			
@@ -737,7 +737,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_baseline =
 			-- MS
 			
@@ -751,7 +751,7 @@ table 'L4SPE Measures'
 		displayFolder: 1_Quantities
 		lineageTag: 4c229a3a-aa94-4bc7-9b59-ae4e7fb6cc75
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_rolling = ```
 			-- MS
 			
@@ -764,7 +764,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_installed_vs_forecast =
 			-- MS
 			
@@ -774,7 +774,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure selected_forecast =
 			-- MS
 			
@@ -791,7 +791,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_remaining =
 			-- MS
 			
@@ -801,7 +801,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure to4_demand_title =
 			-- MS
 			
@@ -816,7 +816,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 5bad3a1d-a274-448e-bcc9-8d02b84480f8
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_to4_demand = ```
 			-- MS
 			
@@ -832,7 +832,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 564a1a94-12da-4cf2-9637-5354b49bd0e1
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure to4_demand_hours = ```
 			-- MS
 			
@@ -850,7 +850,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_%_to4_demand =
 			-- MS
 			
@@ -865,7 +865,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 3431810a-1e7d-478c-9b5c-5e01504dfea7
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_quarterly_fc = ```
 			-- MS
 			
@@ -879,7 +879,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: e7845c45-c917-4782-99bb-92ba8b7fd929
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure quarterly_fc_demand_hours =
 			-- MS
 			
@@ -889,7 +889,7 @@ table 'L4SPE Measures'
 		displayFolder: 2_Hours
 		lineageTag: e49978b0-5295-4fd5-961f-64a6abafcc21
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_%_quarterly_fc =
 			-- MS
 			
@@ -904,7 +904,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 8e27c537-96fa-4edc-934d-525653c6062b
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure current_week_earned_hours_earned =
 			-- MS
 			
@@ -918,7 +918,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure %_hours_earned_to4 =
 			-- MS
 			VAR _total_budget = 104980.88 * 100
@@ -932,7 +932,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: ae8bd073-2d36-4d5b-af25-d9c530855e71
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_%_hours_earned = ```
 			-- MS
 			VAR _current_week = CALCULATE(MAX(Fact_Daily[Reporting Week]), ALL(Dim_Date))
@@ -957,7 +957,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 58c91446-bfcd-4c5f-9991-3c75d11c026f
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure last_week_end_date = ```
 			-- MS
 			
@@ -973,7 +973,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 94619b22-0f46-4bd6-9189-42b92c9388c5
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure last_week_no_date = ```
 			-- MS
 			
@@ -989,7 +989,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: e7ceff2c-7977-4ec2-8145-fed35adfe6bc
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure ratio_install_delivered =
 			-- MS
 			DIVIDE( [%_installed],[%_delivered])
@@ -997,7 +997,7 @@ table 'L4SPE Measures'
 		displayFolder: 3_Percent/Ratio
 		lineageTag: 6a88437b-157f-4609-b83e-2c825e5882e7
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure is_current_week_highlight =
 			-- MS
 			
@@ -1010,7 +1010,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 03e8c802-5282-4a04-b736-ea0266e653b7
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_actual_installed = ```
 			-- MS
 			
@@ -1026,7 +1026,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure count_ecs_actual_installed =
 			-- MS
 			
@@ -1039,7 +1039,7 @@ table 'L4SPE Measures'
 		displayFolder: 6_Counts
 		lineageTag: ce1cdd75-b160-4fdd-bae6-d84c4d5d19ba
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_earned_hours_supporting_meh =
 			-- MS
 			sum('Supporting_MEH % Complete_2026'[Actual Hours])+ [current_week_earned_hours_earned]
@@ -1048,7 +1048,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure current_week_no =
 			
 			CALCULATE(
@@ -1060,7 +1060,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 819c4ba9-3f28-4326-837b-b5d692286cf1
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_hours_forecast_baseline_latest_month = ```
 			-- MS
 			
@@ -1088,7 +1088,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_dq_forecast_baseline_latest_month = ```
 			-- MS
 			
@@ -1115,7 +1115,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_hours_forecast_rolling_latest_published = ```
 			-- MS
 			
@@ -1142,7 +1142,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_dq_forecast_rolling_latest_published = ```
 			-- MS
 			
@@ -1169,7 +1169,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure dts_combined = ```
 			-- MS
 			
@@ -1191,7 +1191,7 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: ec5b8b61-d678-41f3-af97-1c3cd9221cae
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_to4_hours =
 			-- MS
 			sum(Dim_ECS[TO4_hours])
@@ -1199,7 +1199,7 @@ table 'L4SPE Measures'
 		displayFolder: 2_Hours
 		lineageTag: 1068128c-b82e-47b2-bfa9-db2420219f10
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_design_quantity_p6_by_day =
 			-- MS
 			
@@ -1214,7 +1214,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure cum_sum_design_quantity_p6_by_day =
 			-- MS
 			
@@ -1230,7 +1230,7 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_remaining_hours =
 			-- MS
 			sum(Dim_ECS[Remaining Hours])

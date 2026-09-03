@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "65c9783923664f8c36cc",
   "position": {
     "x": 157,
     "y": 246,
-    "z": 26002,
+    "z": 15000,
     "height": 422,
     "width": 669,
-    "tabOrder": 25002
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "lineChart",
@@ -422,72 +422,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "e19b8a861a904db78982",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Hierarchy": "Date Filter"
-              }
-            },
-            "Level": "Month Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e25a11b0d000a779de7f",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Hierarchy": "Date Filter"
-              }
-            },
-            "Level": "Week Ending"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "cc10625fac813264f11c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_actual_installed"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9853fd288220d3372bdb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Sub Area"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
