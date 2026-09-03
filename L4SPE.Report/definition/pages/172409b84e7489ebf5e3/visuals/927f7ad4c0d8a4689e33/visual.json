@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "927f7ad4c0d8a4689e33",
+  "position": {
+    "x": 154,
+    "y": 14,
+    "z": 1000,
+    "height": 42,
+    "width": 310,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "MEH Daily Update",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#09124f"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Cumulative Progress",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#09124f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

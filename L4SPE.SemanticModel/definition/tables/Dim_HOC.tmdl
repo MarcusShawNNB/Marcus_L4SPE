@@ -1,0 +1,44 @@
+table Dim_HOC
+	lineageTag: 43599516-5151-4224-ae11-8a6ccde3cfa1
+
+	column 'Adjusted Room Name'
+		dataType: string
+		lineageTag: 1ba0557e-54e8-4561-99bb-1c141286b3a8
+		summarizeBy: none
+		sourceColumn: Adjusted Room Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HOC Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e0ecf9c-ecc7-4c46-bbbe-54e4c9c5f302
+		summarizeBy: none
+		sourceColumn: HOC Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Dim_HOC = m
+		mode: import
+		queryGroup: Dim_Room
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/MEHProgramme-ProjectControls/Shared%20Documents/Archive/Room%20Tracker/LIVE%20-%20L4SPE%20Room%20Tracker.xlsx"), null, true),
+				    ROOM_Sheet = Source{[Item="ROOM",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(ROOM_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"ID", "Building Code", "Unit", "Building [2]", "Building [3]", "Area", "Area Group", "Sub-Area", "Erection Area", "Nominal Level (m)", "Item Name"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Removed Columns",{"Civil Handover Date#(lf)[IWS Actual]", "Adjusted Room Name"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"Adjusted Room Name", "Civil Handover Date#(lf)[IWS Actual]"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Civil Handover Date#(lf)[IWS Actual]", "HOC Date"}}),
+				    #"Sorted Rows" = Table.Sort(#"Renamed Columns",{{"HOC Date", Order.Descending}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Sorted Rows", {"Adjusted Room Name"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Duplicates",{{"HOC Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,1325 @@
+table Dim_ECS
+	excludeFromModelRefresh
+	lineageTag: 71da05dd-01e8-472d-9cbf-91d08c13b515
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: 94aa64a4-ac51-49db-9ca5-c1303628fdfb
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Final_Hours
+		dataType: double
+		lineageTag: 85270c24-3cf1-4382-91b7-f15402da56fc
+		summarizeBy: sum
+		sourceColumn: Final_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column room_description
+		dataType: string
+		lineageTag: 20472a66-5c33-40d6-9244-7b8acbb22484
+		summarizeBy: none
+		sourceColumn: room_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column area_group
+		dataType: string
+		lineageTag: 11bde835-081d-4f2d-a721-43287b7e8d63
+		summarizeBy: none
+		sourceColumn: area_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: 7221f36c-c996-4f16-be65-595469f075e0
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column building_code
+		dataType: string
+		lineageTag: f9dbd7d4-76b0-4dcf-b25c-65eb72cd6315
+		summarizeBy: none
+		sourceColumn: building_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_project_name
+		dataType: string
+		lineageTag: 42526bb5-b28c-485c-9208-8ec14a955870
+		summarizeBy: none
+		sourceColumn: final_project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_project_name_galleries
+		dataType: string
+		lineageTag: ef3ab4ce-76e5-4d1c-a886-52d54e8cea4e
+		summarizeBy: none
+		sourceColumn: final_project_name_galleries
+
+		annotation SummarizationSetBy = Automatic
+
+	column DesignQuantity
+		dataType: double
+		lineageTag: f82f5718-37eb-420f-9176-a48fe5a1f6c7
+		summarizeBy: sum
+		sourceColumn: DesignQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sourcetag
+		dataType: string
+		lineageTag: 89deac1f-edd9-4733-8182-de2c6c686eec
+		summarizeBy: none
+		sourceColumn: sourcetag
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_installed_date = ```
+			
+			VAR EquipmentThreshold = IF(SEARCH("equip", Dim_ECS[Planning Commodity], 1, 0) > 0, 1.0, 0.9)
+			
+			VAR FromProduction =
+			    CALCULATE(
+			        MIN(Fact_Production[Actuals Update]),
+			        FILTER(
+			            Fact_Production,
+			            Fact_Production[ECS Code] = Dim_ECS[ECS Code] &&
+			            Fact_Production[% Complete Capped] >= EquipmentThreshold
+			        )
+			    )
+			
+			// VAR FromDaily =
+			//     CALCULATE(
+			//         MIN(Fact_Daily[Day]),
+			//         FILTER(
+			//             Fact_Daily,
+			//             Fact_Daily[ECS Code] = Dim_ECS[ECS Code] &&
+			//             Dim_ECS[In Week % Complete] >= EquipmentThreshold
+			//         )
+			//     )
+			
+			RETURN
+			FromProduction
+			// IF(Dim_ECS[Old.ECS Code]<>BLANK(),Dim_ECS[Old.Actual Installed],FromProduction)
+			
+			```
+		formatString: Short Date
+		lineageTag: b53db566-836c-4de4-a631-5d0436a15460
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleActivity
+		dataType: string
+		lineageTag: 000bbc94-fd57-43ef-b5f6-d32ba67258aa
+		summarizeBy: none
+		sourceColumn: ScheduleActivity
+
+		annotation SummarizationSetBy = Automatic
+
+	column nominal_level__m_
+		dataType: string
+		lineageTag: 1b000f28-2227-4ec2-8661-54e8ff6b6d52
+		summarizeBy: none
+		sourceColumn: nominal_level__m_
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LIVE - Forecast Finish Date' = ```
+			
+			    VAR FC =
+			    LOOKUPVALUE(
+			        'Dim_Activity (LIVE_P6)'[Remaining Early Finish],
+			        'Dim_Activity (LIVE_P6)'[Activity ID], Dim_ECS[P6_ID]
+			    )
+			
+			VAR AC =
+			    Dim_ECS[actual_installed_date]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(AC),
+			    AC,
+			    FC
+			)
+			```
+		formatString: Long Date
+		lineageTag: 51c91ce3-cbcb-4712-ba69-eb89dc27bd68
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'IWS12 - FC Finish Date' = ```
+			
+			    VAR FC_1 =
+			    LOOKUPVALUE(
+			        'Dim_Activity (LIVE_P6)'[Remaining Early Finish],
+			        'Dim_Activity (LIVE_P6)'[Activity ID], Dim_ECS[P6_ID]
+			    )
+			VAR FC_2 =
+			    RELATED('Dim_P6_IWS12'[Remaining Early Finish])
+			
+			VAR AC =
+			    Dim_ECS[actual_installed_date]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(AC),
+			    AC,
+			    FC_2
+			)
+			```
+		formatString: General Date
+		lineageTag: 1a2946f9-e5c4-424f-9d98-a071fb4df1c0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Adj_unit =
+			Dim_ECS[UNIT]
+			//IF(LEFT(Dim_ECS[ECS Code],1) = "2", "2", "1/0/9")
+		lineageTag: 79cb9ae3-6068-41c3-9917-9bdf0b9d7eb1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Room
+		dataType: string
+		lineageTag: 53ba75af-6eca-4f19-bc20-9f5e16ec5ef3
+		summarizeBy: none
+		sourceColumn: Room
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListHO1_ECS
+		dataType: string
+		lineageTag: 195d5193-90ee-4ba9-9314-7c227ece2713
+		summarizeBy: none
+		sourceColumn: ListHO1_ECS
+
+		annotation SummarizationSetBy = Automatic
+
+	column HO1_ECS_unique
+		dataType: string
+		lineageTag: ac7749a9-f0cd-45bd-b0cd-cb83356e0bf6
+		summarizeBy: none
+		sourceColumn: HO1_ECS_unique
+
+		annotation SummarizationSetBy = Automatic
+
+	column NWD_reference
+		dataType: string
+		lineageTag: 63ef1877-5780-4f2b-9072-e5e649878643
+		summarizeBy: none
+		sourceColumn: NWD_reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3DObjectType
+		dataType: string
+		lineageTag: f02aceec-f7b2-470a-89a3-d46164639862
+		summarizeBy: none
+		sourceColumn: 3DObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubType
+		dataType: string
+		lineageTag: 891d6e02-efb5-4462-810b-9ca04e8b2d62
+		summarizeBy: none
+		sourceColumn: SubType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier
+		dataType: string
+		lineageTag: da8504cb-ebb8-4860-9a33-9e5489848a51
+		summarizeBy: none
+		sourceColumn: Supplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		lineageTag: 9e829418-143b-4a3e-b495-71894c19cc21
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diameter
+		dataType: double
+		formatString: 0
+		lineageTag: cae167de-adf1-46ba-9a7a-b878f7d4a459
+		summarizeBy: sum
+		sourceColumn: Diameter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight_kg
+		dataType: double
+		lineageTag: 3f910523-3de6-41f0-bdcd-3a4e935cdb75
+		summarizeBy: sum
+		sourceColumn: Weight_kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Dim_ECS","TableItemName":"Weight_kg (bins)","ObjectType":4},"LinkType":"UsedInGroup"},{"LinkTarget":{"TableName":"Dim_ECS","TableItemName":"Weight_kg (5kg)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Weight_UoM
+		dataType: string
+		lineageTag: 9d049055-1a2f-4634-902a-e07baa0c0fa0
+		summarizeBy: none
+		sourceColumn: Weight_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3DObjectModel
+		dataType: string
+		lineageTag: 4d5699d4-8347-4d20-9982-49419a24c66d
+		summarizeBy: none
+		sourceColumn: 3DObjectModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3DObjectModelFile
+		dataType: string
+		lineageTag: 14963a0e-bc52-45e3-a59c-688d410edf56
+		summarizeBy: none
+		sourceColumn: 3DObjectModelFile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3DObjectModelRevision
+		dataType: double
+		lineageTag: 28154721-8c6d-45db-b838-fe99164813b7
+		summarizeBy: sum
+		sourceColumn: 3DObjectModelRevision
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 4DObjectModel
+		dataType: string
+		lineageTag: 69372850-1ad2-4677-9b45-9c1940598db0
+		summarizeBy: none
+		sourceColumn: 4DObjectModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 4DObjectType
+		dataType: string
+		lineageTag: 23be953f-b932-47a7-a9e2-45e1d44422d7
+		summarizeBy: none
+		sourceColumn: 4DObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Domain
+		dataType: string
+		lineageTag: 6f2e48ea-a1c7-4112-8df5-65c3bf6341b5
+		summarizeBy: none
+		sourceColumn: Domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scope
+		dataType: string
+		lineageTag: 80a14466-edde-4a52-9cc0-abb38f7927d8
+		summarizeBy: none
+		sourceColumn: Scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column ECSUnitElementarySystemDivisionCode
+		dataType: string
+		lineageTag: 2c2bc4ca-5a27-4d32-96c4-55e631e1b3f4
+		summarizeBy: none
+		sourceColumn: ECSUnitElementarySystemDivisionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentECSIdentificationCode
+		dataType: string
+		lineageTag: 1471bfc1-63d8-483e-b5f7-09c15c7f4460
+		summarizeBy: none
+		sourceColumn: ParentECSIdentificationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceECSIdentificationCode
+		dataType: string
+		lineageTag: 9616021a-b0cc-410f-b91e-33af7700a9d4
+		summarizeBy: none
+		sourceColumn: ReferenceECSIdentificationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Long_Description_ECS
+		dataType: string
+		lineageTag: f6efe4bd-0ab2-4178-837a-2df8e77a788a
+		summarizeBy: none
+		sourceColumn: Long_Description_ECS
+
+		annotation SummarizationSetBy = Automatic
+
+	column Object_Group
+		dataType: string
+		lineageTag: 2fdd9897-2963-41da-aaab-e0926dfbf1dc
+		summarizeBy: none
+		sourceColumn: Object_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task_Group
+		dataType: string
+		lineageTag: 6a5ecbf8-a62a-4801-b10d-9e2eedd10bfa
+		summarizeBy: none
+		sourceColumn: Task_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column site_level__maod_
+		dataType: string
+		lineageTag: 07c9fb5e-4227-49ff-9f56-6017201129a5
+		summarizeBy: none
+		sourceColumn: site_level__maod_
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIT
+		dataType: string
+		lineageTag: dbc830c6-4de2-400f-a4cb-202c70e1ba92
+		summarizeBy: none
+		sourceColumn: UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Area'
+		dataType: string
+		lineageTag: db5f6deb-a28c-462d-b1fc-cf3ee751969f
+		summarizeBy: none
+		sourceColumn: Sub Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current % Complete' =
+			
+			CALCULATE(
+			    MAX(Fact_Production[% Complete Capped]), Fact_Production[Source] <> "Daily")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f37ffb4f-e5fb-456d-9eec-f061736f87ce
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hours Actual Units' = Dim_ECS[Final_Hours]*Dim_ECS[Total % Complete]
+		lineageTag: 4a02be84-e516-4f8a-a514-01b02ddd4842
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Remaining Hours' = [final_hours]-[Hours Actual Units]
+		lineageTag: bb884171-6332-4b9c-b7d8-8ec2d8f20b79
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MEH_ENG_LiveStatus = ```
+			
+			RELATED(Dim_MEH_ENG[Manufacturing Status])
+			
+			
+			```
+		lineageTag: 777f2856-a587-4d3b-93dd-72d83eac0911
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Hours' = Dim_ECS[Current % Complete]* Dim_ECS[Final_Hours]
+		lineageTag: 36bfed0f-35f8-4af3-9a48-b789edee90d7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Float' = IF(Dim_ECS[actual_installed_date]<>BLANK(),BLANK(),LOOKUPVALUE('Dim_Activity (LIVE_P6)'[Total Float], 'Dim_Activity (LIVE_P6)'[Activity ID], Dim_ECS[P6_ID]))
+		formatString: 0
+		lineageTag: d617653e-b70d-4cc9-b515-82301ddb7ea2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Float LM' = IF(Dim_ECS[actual_installed_date]<>BLANK(),BLANK(),LOOKUPVALUE('Dim_Activity (LM_LIVE_P6)'[Total Float], [Activity ID], Dim_ECS[P6_ID]))
+		formatString: 0
+		lineageTag: 2e72970c-fa5d-4c5e-97d4-7975cf489d50
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IWS_12 - Total Float' =
+			
+			IF(
+			    Dim_ECS[actual_installed_date] <> BLANK() && Dim_ECS[actual_installed_date] <= DATE(2025,11,30),
+			    BLANK(),
+			LOOKUPVALUE(Dim_P6_IWS12[Total Float],Dim_P6_IWS12[Activity ID], Dim_ECS[P6_ID]))
+		formatString: 0
+		lineageTag: 3116c129-2ee0-48fc-905f-ed189ce129a7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column building_2
+		dataType: string
+		lineageTag: 5adf8db8-6175-4588-b19a-0848780f01cf
+		summarizeBy: none
+		sourceColumn: building_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column building_3
+		dataType: string
+		lineageTag: 85a4547b-d64c-4ed6-bd78-a58712acd3be
+		summarizeBy: none
+		sourceColumn: building_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Baseline Planned Date' =
+			
+			VAR latest = MAX(Fact_Forecast_Baseline[Baseline Month Year])
+			VAR Filteredbaseline = CALCULATETABLE(Fact_Forecast_Baseline,Fact_Forecast_Baseline[Baseline Month Year] = latest)
+			VAR currentecs = Dim_ECS[ECS Code]
+			RETURN
+			
+			CALCULATE(
+			    MAX(Fact_Forecast_Baseline[Planned]),
+			    Fact_Forecast_Baseline[Baseline Month Year] = latest,
+			    Fact_Forecast_Baseline[ECS/Asset Code] = CurrentECS
+			)
+		formatString: General Date
+		lineageTag: 9aa2eda7-899e-4f2e-bba8-b8bffb093626
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Consolidated Handover Milestone' = ```
+			
+			// LOOKUPVALUE(
+			//     Dim_ROOM[Consolidated Handover milestone],  
+			//     Dim_ROOM[Adjusted Room Name],               
+			//     Dim_ECS[adjusted_room_name]                 
+			// )
+			RELATED(Dim_ROOM[Consolidated Handover milestone])
+			```
+		lineageTag: 68b5f714-e1a4-45f0-99c8-0d0b787a1487
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column QM_hours
+		dataType: double
+		lineageTag: 4f7bc62e-de2a-4785-b92d-69f25bf3cf98
+		summarizeBy: sum
+		sourceColumn: QM_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TO4_hours
+		dataType: double
+		lineageTag: 085be8a7-45cc-4bed-ba14-71104ed88dee
+		summarizeBy: sum
+		sourceColumn: TO4_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source
+		dataType: string
+		lineageTag: 3e7f1f3d-59b8-48e6-87b1-ecf61bc55cbd
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column IWS12
+		dataType: string
+		lineageTag: 26fab205-00bd-4f80-b2c6-d1fb42285a0f
+		summarizeBy: none
+		sourceColumn: IWS12
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekly % Complete' =
+			
+			CALCULATE(
+			    MAX(Fact_Daily[% Complete]),
+			    RELATEDTABLE(Fact_Daily)
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1baa7bc8-5a73-476b-ad62-77010a9f4ee5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In Week % Complete' =
+			
+			Dim_ECS[Total % Complete]-Dim_ECS[Current % Complete]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e7536336-71ac-46e4-8f55-f09804831fd0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoreSize =
+			
+			VAR Dia = Dim_ECS[Diameter]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(Dia) && Dia > 0,
+			    SWITCH(
+			        TRUE(),
+			        Dia < 25,  "SR",
+			        Dia <= 50,  "SB",
+			        Dia <= 152, "MB",
+			        Dia > 152,  "LB"
+			    )
+			)
+		lineageTag: 82358f58-acff-4ccd-8114-22b9cd7cba4c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column P6_ID =
+			
+			RELATED (ECS_Assignments[Final_Activity_ID])
+		lineageTag: e6399b49-5e0b-4449-a3f4-f2b9c40481fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'latest install date' =
+			
+			VAR prev = CALCULATE(
+			    MAX(Fact_Production[Actuals Update]),
+			    RELATEDTABLE(Fact_Production)
+			)
+			VAR this_week = IF(Dim_ECS[In Week % Complete] > 0, MAX(Fact_Daily[Reporting Week]), BLANK())
+			RETURN
+			MAXX({prev, this_week}, [Value])
+		formatString: General Date
+		lineageTag: 94049361-c32d-4857-bdce-77b193912a50
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TubeLength
+		dataType: double
+		lineageTag: 33f16925-f634-4467-86c8-38e79335ca63
+		summarizeBy: sum
+		sourceColumn: TubeLength
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Pspec
+		dataType: string
+		lineageTag: aadf1ea7-b708-4c59-8f9d-a2bb3de0974c
+		summarizeBy: none
+		sourceColumn: Pspec
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCLUDE
+		dataType: string
+		lineageTag: 60df3bfe-d9a4-440a-8460-cb0640e2827f
+		summarizeBy: none
+		sourceColumn: EXCLUDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: d252c7fb-b6eb-4711-a466-eae50af2e227
+		summarizeBy: sum
+		sourceColumn: Base_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mean_utilisation_hours_building
+		dataType: double
+		lineageTag: aac81c56-813b-431a-908a-403ff97a2128
+		summarizeBy: sum
+		sourceColumn: Mean_utilisation_hours_building
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Mean_effective_hours_building
+		dataType: double
+		lineageTag: 11f1712b-4c5b-4769-8927-f75edd829d2b
+		summarizeBy: sum
+		sourceColumn: Mean_effective_hours_building
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 3DErectionContract
+		dataType: string
+		lineageTag: f5a65631-41d3-462b-a1a1-e2ca9d72fcda
+		summarizeBy: none
+		sourceColumn: 3DErectionContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3DSupplierContract
+		dataType: string
+		lineageTag: 3f338a16-d991-4aa1-8fec-ad9ed8803019
+		summarizeBy: none
+		sourceColumn: 3DSupplierContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: e11b03e9-82ea-4b83-a70a-92fa739aefc6
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column UoM
+		dataType: string
+		lineageTag: 5208194d-6673-4ec8-af2a-d423970ff2b8
+		summarizeBy: none
+		sourceColumn: UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source_hours
+		dataType: string
+		lineageTag: 12f3ce6a-725c-4bf0-9af0-81e6b36198df
+		summarizeBy: none
+		sourceColumn: Source_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column system
+		dataType: string
+		lineageTag: 1d51c386-40f3-45da-b700-573a5bbabc98
+		summarizeBy: none
+		sourceColumn: system
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP
+		dataType: string
+		lineageTag: b3434e27-e4ee-4e01-8985-7e8e2c5e3847
+		summarizeBy: none
+		sourceColumn: CTP
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP_source
+		dataType: string
+		lineageTag: 5051df50-0b86-42bc-9b8f-59b957f75710
+		summarizeBy: none
+		sourceColumn: CTP_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTS FC' =
+			
+			VAR eq = RELATED(Dim_Equipment[MAX_DTS_FC])
+			VAR EPM = RELATED(Dim_MEH_ENG[Forecast Date])
+			RETURN
+			COALESCE(EPM,eq)
+		lineageTag: d86e9a34-ebd5-4e0a-97c5-38239f790473
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTS Status' =
+			
+			VAR eq =
+			    IF (
+			        RELATED ( Dim_Equipment[MAX_DTS_Actual] ) <> BLANK (),
+			        "DELIVERED"
+			    )
+			
+			VAR EPM =
+			    IF (
+			        RELATED ( Dim_MEH_ENG[DTS] ) <> BLANK (),
+			        "DELIVERED"
+			    )
+			
+			VAR commodities =
+			    IF (
+			        Dim_ECS[Planning Commodity] IN {
+			            "Cable Tray",
+			            "CMSS",
+			            "Clamps"
+			        }
+			        ||
+			        CONTAINSSTRING ( Dim_ECS[Planning Commodity], "coat" ),
+			        "DELIVERED"
+			    )
+			
+			RETURN
+			    COALESCE ( EPM, eq, commodities )
+		lineageTag: cd13275d-f1b1-4b20-ac13-130f14df7009
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release date' =
+			
+			VAR RoomHOC = RELATED(Dim_HOC[HOC Date])
+			VAR PlanningCommodity = [Planning Commodity]
+			VAR DTSStatus = [DTS Status]
+			VAR CutoffDate = DATE(2026, 5, 1)
+			
+			-- Inlined DTS FC logic
+			VAR DTSFC =
+			        Dim_ECS[DTS FC]
+			
+			-- Inlined Room Handover FC logic
+			VAR RoomHandoverFC =
+			    LOOKUPVALUE(
+			        'Dim_Activity (LIVE_P6)'[Finish],
+			        'Dim_Activity (LIVE_P6)'[Activity ID],
+			        Dim_ECS[Consolidated Handover Milestone]
+			    )
+			VAR Rule1 =
+			    IF(
+			        DTSStatus = "DELIVERED"
+			            && NOT ISBLANK(RoomHOC),
+			        RoomHOC
+			    )
+			
+			VAR Rule2 =
+			    IF(
+			        PlanningCommodity = "CABLE TRAY"
+			            && NOT ISBLANK(RoomHOC),
+			        RoomHOC
+			    )
+			
+			VAR Rule3 =
+			    IF(
+			        PlanningCommodity = "CABLE TRAY",
+			        RoomHandoverFC
+			    )
+			
+			VAR Rule4 =
+			    IF(
+			        DTSStatus = "DELIVERED"
+			            && NOT ISBLANK(RoomHOC),
+			        RoomHOC
+			    )
+			
+			VAR Rule5 =
+			    IF(
+			        DTSStatus = "DELIVERED",
+			        RoomHandoverFC
+			    )
+			
+			VAR Rule6 = MAX(DTSFC, RoomHandoverFC)
+			
+			VAR Result = COALESCE(Rule1, Rule2, Rule3, Rule4, Rule5, Rule6)
+			
+			RETURN
+			    DATE(YEAR(Result), MONTH(Result), DAY(Result))
+		formatString: General Date
+		lineageTag: 7cb765c2-10fd-4a51-b584-987d9c13e4d0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HOC Date' = RELATED(Dim_HOC[HOC Date])
+		formatString: General Date
+		lineageTag: f5ea6ea7-f6aa-4e4f-afe7-08ddaa32f87a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROC Start Date' = ```
+			
+			// this is the date the ecs crossed the 90% progressed, and then how many days since that happened.
+			// we need a second list to compare against, which is the re-work indicator list
+			VAR First90_Prod  = CALCULATE(MIN(Fact_Production[Actuals Update]), Fact_Production[% Complete Capped] >= 0.9)
+			VAR First90_Daily = CALCULATE(MIN(Fact_Daily[Day]),                Fact_Daily[Weekly % Complete] >= 0.9)
+			
+			// when we get the rework indiator
+			// VAR Rework_Prod   = CALCULATE(MAX(Fact_Production[Actuals Update]), Fact_Production[Activity] = "I170")
+			// VAR Rework_Daily  = CALCULATE(MAX(Fact_Daily[Day]),                Fact_Daily[Activity] = "I170")
+			//VAR LastRework    = MAXX({Rework_Prod, Rework_Daily}, [Value])
+			RETURN
+			    MINX({First90_Prod, First90_Daily}, [Value])
+			  //  MAXX({First90, LastRework}, [Value])   
+			```
+		formatString: Short Date
+		lineageTag: fe44a24e-fa17-4510-bb54-d4718000085f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days Remaining ROC' = ```
+			
+			VAR Start_ = Dim_ECS[ROC Start Date] 
+			RETURN
+			    IF( NOT ISBLANK( Start_ ), DATEDIFF( TODAY(), Start_ + 28, DAY ) )
+			```
+		formatString: 0
+		lineageTag: 4beed4c3-c3bd-4069-a77f-fac844950b60
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_earned
+		dataType: string
+		lineageTag: 3a31cf39-b388-42ca-a6a5-bd2132d46db1
+		summarizeBy: none
+		sourceColumn: Flag_earned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weight_kg (bins)' =
+			IF(
+				ISBLANK('Dim_ECS'[Weight_kg]),
+				BLANK(),
+				IF(
+					'Dim_ECS'[Weight_kg] >= 0,
+					ROUNDDOWN('Dim_ECS'[Weight_kg] / 50, 0) * 50,
+					ROUNDUP('Dim_ECS'[Weight_kg] / 50, 0) * 50
+				)
+			)
+		lineageTag: 6a334b32-e496-4374-b7ed-4a7fa10a60bf
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Dim_ECS"
+				          }
+				        },
+				        "Property": "Weight_kg"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 50.0,
+				      "unit": 0
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"Dim_ECS"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Weight_kg"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Weight_kg"}},"Size":50.0}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total % Complete' =
+			
+			CALCULATE(
+			    MAX(Fact_Production[% Complete Capped]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3cb5c80a-9896-4747-b38d-6bec868c7349
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column In_Week_earned = Dim_ECS[In Week % Complete]*Dim_ECS[Final_Hours]
+		lineageTag: 44f208bb-f934-45d7-a762-1e228babee18
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Erection_Area
+		dataType: string
+		lineageTag: f364aaeb-06e3-4050-9e67-87880c7f1f39
+		summarizeBy: none
+		sourceColumn: Erection_Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Commodity'
+		dataType: string
+		lineageTag: 495618ae-2b10-4be9-b9e2-8ba17452c2ca
+		summarizeBy: none
+		sourceColumn: Planning Commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Main_Commodities =
+			
+			dim_ecs[planning commodity] IN {
+			    "BNI Pipe",
+			    "BNI Valves",
+			    "BNI WDI",
+			    "BOP Pipe",
+			    "BOP Valves",
+			    "BOP WDI",
+			    "Cable Tray",
+			    "Electrical Supports",
+			    "HVAC Duct",
+			    "HVAC Equipment",
+			    "HVAC In-Line",
+			    "HVAC Supports",
+			    "Mechanical Equipment",
+			    "Mechanical Penetrations",
+			    "Mechanical Supports",
+			    "NSSS Equipment",
+			    "NSSS Pipe",
+			    "NSSS Supports"
+			}
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 87814347-213b-4c4b-92d5-8869f9cc684c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LM - Forecast Finish Date' = ```
+			
+			    VAR FC =
+			    LOOKUPVALUE(
+			        'Dim_Activity (LM_LIVE_P6)'[Remaining Early Finish],
+			        'Dim_Activity (LM_LIVE_P6)'[Activity ID], Dim_ECS[P6_ID]
+			    )
+			
+			VAR AC =
+			    Dim_ECS[actual_installed_date]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(AC),
+			    AC,
+			    FC
+			)
+			```
+		formatString: Long Date
+		lineageTag: 9da75ff9-8be2-41bb-9e80-989849edeb59
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'LIVE - Forecast Start Date' = ```
+			
+			    VAR FC =
+			    LOOKUPVALUE(
+			        'Dim_Activity (LIVE_P6)'[Remaining Early Start],
+			        'Dim_Activity (LIVE_P6)'[Activity ID], Dim_ECS[P6_ID]
+			    )
+			
+			VAR AC =
+			    Dim_ECS[actual_installed_date]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(AC),
+			    AC,
+			    FC
+			)
+			```
+		formatString: Long Date
+		lineageTag: 905ff609-5076-408b-b0d6-ca22086b9efc
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Q_aggregation = IF(CONTAINSSTRING(Dim_ECS[Planning Commodity],"Pipe"),LEFT(Dim_ECS[ECS Code],15),Dim_ECS[HO1_ECS_unique])
+		lineageTag: 5dc76549-69b5-4ed7-bdfa-b57d011f2f03
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DTS_ID =
+			
+			"DTS-" &
+			IF(
+			    RIGHT(Dim_ECS[P6_ID], 1) = "A",
+			    LEFT(Dim_ECS[P6_ID], LEN(Dim_ECS[P6_ID]) - 1),
+			    Dim_ECS[P6_ID]
+			)
+		lineageTag: 6371138e-45e6-4d5f-9591-38cf4af60781
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column P6_ID_source = IF(RELATED(ECS_Assignments[Final_Activity_ID])<>BLANK(),"ecs_assignment","no_ecs_assignment")
+		lineageTag: 184b2168-ddfe-4bb7-a37d-9689fcbd54be
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Erection_Contract =
+			
+			var r = RELATED(Dim_Contract[Installation Contract])
+			RETURN
+			IF(r<>BLANK(),r,Dim_ECS[3DErectionContract])
+		lineageTag: 3e0db14e-49e8-42f3-8d4e-33f519406d68
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier_Contract =
+			
+			var r = RELATED(Dim_Contract[Supplier Contract])
+			RETURN
+			IF(r<>BLANK(),r,Dim_ECS[3DSupplierContract])
+		lineageTag: 1686a742-51f1-4e8c-98eb-e32dc13e4450
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column AMI = RELATED(Dim_Contract[AMI])
+		lineageTag: 483ed54a-1713-4566-a1be-5540e579ed21
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PCR = RELATED(Dim_Contract[PCR])
+		lineageTag: bc37819b-dbd5-49ab-9b8b-311d89c23535
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWP_Key
+		dataType: string
+		lineageTag: e38b26a3-53bb-4d41-9170-46bc4aef5935
+		summarizeBy: none
+		sourceColumn: SWP_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWP_Status
+		dataType: string
+		lineageTag: fe0a0c5a-4248-42a9-a6de-7a03bd2ece55
+		summarizeBy: none
+		sourceColumn: SWP_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weight_kg (5kg)' =
+			IF(
+				ISBLANK('Dim_ECS'[Weight_kg]),
+				BLANK(),
+				IF(
+					'Dim_ECS'[Weight_kg] >= 0,
+					ROUNDDOWN('Dim_ECS'[Weight_kg] / 5, 0) * 5,
+					ROUNDUP('Dim_ECS'[Weight_kg] / 5, 0) * 5
+				)
+			)
+		lineageTag: e119fca8-b719-40dd-bcf7-661a8004a322
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Dim_ECS"
+				          }
+				        },
+				        "Property": "Weight_kg"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 5.0,
+				      "unit": 0
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"Dim_ECS"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Weight_kg"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Weight_kg"}},"Size":5.0}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Has_HOC = IF(Dim_ECS[HOC Date]<>BLANK(),TRUE(),FALSE())
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fa192cf6-8562-4db3-a91d-ab758774211d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWP_CTP
+		dataType: string
+		lineageTag: 57183b11-5637-4cc0-9e03-31cc5ff4ad2a
+		summarizeBy: none
+		sourceColumn: SWP_CTP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exists_in_P6 =
+			
+			NOT ISBLANK(
+			LOOKUPVALUE(
+			'Dim_Activity (LIVE_P6)'[Activity ID],
+			'Dim_Activity (LIVE_P6)'[Activity ID],
+			[P6_ID]
+			)
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 17e88f7c-62fd-4ce4-8a2b-da304de01aaf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column P6_Resource_ID = ```
+			
+			CALCULATE (
+			    FIRSTNONBLANK (
+			        Dim_Resource_Profile[Resource ID],
+			        1
+			    ),
+			    FILTER (
+			        Dim_Resource_Profile,
+			        Dim_Resource_Profile[Planning Commodity] = Dim_ECS[Planning Commodity]
+			    )
+			)
+			 
+			```
+		lineageTag: 71b3fa7e-24b9-43ba-8e44-2f7475e1c23a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Adj_unit Hierarchy'
+		lineageTag: 45748b43-cc06-42bb-8697-8e25b13c768d
+
+		level Unit
+			lineageTag: 064a102d-a1f1-4d8e-a4d0-68a9721b7b20
+			column: Adj_unit
+
+		level Area
+			lineageTag: 5cebf083-079c-421f-954b-35f506668ab9
+			column: area
+
+		level 'Area Group'
+			lineageTag: d6b47c50-3117-41cb-9802-60924ab8b48b
+			column: area_group
+
+	hierarchy 'Geography Breakdown'
+		lineageTag: db64443f-50d9-47a5-852d-03d722b1a0db
+
+		level Unit
+			lineageTag: a725632e-d52f-43b4-b497-e96dfb4550a9
+			column: Adj_unit
+
+		level Area
+			lineageTag: 22592101-57df-44a9-8d6a-e53787f9ed4d
+			column: area
+
+		level 'Sub Area'
+			lineageTag: 53a86970-a0e7-46db-9f1a-8a86fc145c27
+			column: 'Sub Area'
+
+		level Building
+			lineageTag: 237a6c4c-c6bd-4b9e-a2cf-ec496369f501
+			column: building_code
+
+		level Room
+			lineageTag: 23b7183f-51c9-48ad-b462-a43018fcfd85
+			column: Room
+
+		level Elevation
+			lineageTag: 26137d64-0530-43a7-9f0f-95cad619f555
+			column: nominal_level__m_
+
+	partition Dim_ECS = m
+		mode: import
+		source =
+				let
+				    Source = #"Import_TO4___RST (3)",
+				    #"Changed Type" = Table.TransformColumnTypes(Source, {
+				        {"UNIT", type text},
+				        {"DesignQuantity", type number}
+				    }),
+				    #"Cleaned ECSCode" = Table.TransformColumns(#"Changed Type", {
+				        {"ECSCode", each Text.Trim(Text.Clean(_)), type text}
+				    }),
+				    #"Removed Duplicates" = Table.Distinct(#"Cleaned ECSCode", {"ECSCode"}),
+				    #"Excluded Planning Commodities" = Table.SelectRows(#"Removed Duplicates", each
+				        [Planning_commodity] <> null and
+				        not List.Contains({
+				            "Civils", "Civils Walls", "null",
+				            "Parent BOP Pipe", "Parent Cable Tray",
+				            "Parent Civils Pipe", "Parent DMIC Pipe",
+				            "Parent HVAC Duct Unclassified", "Parent Instrumentation Pipe", "TO BE DELETED"
+				        }, [Planning_commodity])
+				    ),
+				    #"Renamed Columns" = Table.RenameColumns(#"Excluded Planning Commodities", {
+				        {"Planning_commodity", "Planning Commodity"},
+				        {"sub_area", "Sub Area"},
+				        {"ECSCode", "ECS Code"}
+				    }),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns", {
+				        {"Final_Hours", type number},
+				        {"TO4_hours", type number},
+				        {"QM_hours", type number},
+				        {"Diameter", type number},
+				        {"Weight_kg", type number}
+				    }),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type2", each [ECS Code] <> null and [ECS Code] <> "CALCULATED")
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

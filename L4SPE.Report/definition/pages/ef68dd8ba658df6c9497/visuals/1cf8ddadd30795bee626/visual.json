@@ -1,0 +1,399 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "1cf8ddadd30795bee626",
+  "position": {
+    "x": 257.38058551617871,
+    "y": 211.03235747303543,
+    "z": 1,
+    "height": 508.84437596302,
+    "width": 1022.6194144838212,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Supporting_MEH % Complete_2026"
+                    }
+                  },
+                  "Property": "Activity Name"
+                }
+              },
+              "queryRef": "Supporting_MEH % Complete_2026.Activity Name",
+              "nativeQueryRef": "ECS",
+              "displayName": "ECS"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "P6_ID"
+                }
+              },
+              "queryRef": "Dim_ECS.P6_ID",
+              "nativeQueryRef": "P6_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Supporting_MEH % Complete_2026"
+                    }
+                  },
+                  "Property": "AC Date"
+                }
+              },
+              "queryRef": "Supporting_MEH % Complete_2026.AC Date",
+              "nativeQueryRef": "Week End Date",
+              "displayName": "Week End Date"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
+                    }
+                  },
+                  "Level": "Unit"
+                }
+              },
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.Adj_unit",
+              "nativeQueryRef": "Adj_unit Hierarchy Adj_unit"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
+                    }
+                  },
+                  "Level": "Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.area",
+              "nativeQueryRef": "Adj_unit Hierarchy area"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
+                    }
+                  },
+                  "Level": "Area Group"
+                }
+              },
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.area_group",
+              "nativeQueryRef": "Adj_unit Hierarchy area_group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Supporting_MEH % Complete_2026"
+                    }
+                  },
+                  "Property": "Dim_ECS"
+                }
+              },
+              "queryRef": "Supporting_MEH % Complete_2026.Dim_ECS",
+              "nativeQueryRef": "Commodity",
+              "displayName": "Commodity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Supporting_MEH % Complete_2026"
+                    }
+                  },
+                  "Property": "Project_Final"
+                }
+              },
+              "queryRef": "Supporting_MEH % Complete_2026.Project_Final",
+              "nativeQueryRef": "Building",
+              "displayName": "Building"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Supporting_MEH % Complete_2026"
+                    }
+                  },
+                  "Property": "SupportingMEHHours"
+                }
+              },
+              "queryRef": "Supporting_MEH % Complete_2026.SupportingMEHHours",
+              "nativeQueryRef": "Hours Earned",
+              "displayName": "Hours Earned"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.5839684981405D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Supporting_MEH % Complete_2026.AC Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.04935180996415D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Supporting_MEH % Complete_2026.Dim_ECS"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ee25217b37eec1cfc742",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Supporting_MEH % Complete_2026"
+              }
+            },
+            "Property": "AC Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "be859f3139f54f8c1c0b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Supporting_MEH % Complete_2026"
+              }
+            },
+            "Property": "Dim_ECS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b814a60416c4478fb55c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Supporting_MEH % Complete_2026"
+              }
+            },
+            "Property": "Activity Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fd7554e70d0aeb44580e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Supporting_MEH % Complete_2026"
+              }
+            },
+            "Property": "SupportingMEHHours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d405642d4deef6002ffd",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Adj_unit Hierarchy"
+              }
+            },
+            "Level": "Unit"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "28d83a0fe228e6a09100",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Adj_unit Hierarchy"
+              }
+            },
+            "Level": "Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "04c159d2bf72c84b88f0",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Adj_unit Hierarchy"
+              }
+            },
+            "Level": "Area Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5ea0c89ee73c34bbecc2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "P6_ID"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

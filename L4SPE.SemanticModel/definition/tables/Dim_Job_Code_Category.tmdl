@@ -1,0 +1,73 @@
+table Dim_Job_Code_Category
+	lineageTag: 449dbbe7-cd2a-41a9-84a6-6fe51055fc38
+
+	column 'Job Code'
+		dataType: string
+		lineageTag: f78e0cfe-5a88-44f6-88af-e34c9e7ed6e1
+		summarizeBy: none
+		sourceColumn: Job Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Type'
+		dataType: string
+		lineageTag: 8e2e67fa-58a0-4e21-8953-a6f699a00e46
+		summarizeBy: none
+		sourceColumn: Match Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 1618bbec-9b80-4dd8-aca7-0d6a79ba1bde
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryGroup
+		dataType: string
+		lineageTag: fcd70cb8-c2c5-45e0-bf7b-d123bc32bd98
+		summarizeBy: none
+		sourceColumn: CategoryGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column RollupGroup
+		dataType: string
+		lineageTag: 498b22ee-cc9d-4405-847d-fa2d0755a8a4
+		summarizeBy: none
+		sourceColumn: RollupGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Active
+		dataType: string
+		lineageTag: 30464205-2a86-4161-98ad-aa655748bd17
+		summarizeBy: none
+		sourceColumn: Active
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 49a33f72-6f60-4c10-8458-23125c25b22b
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Job_Code_Category = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/01.%20L4SPE%20Dashboards/L4SPE%20-%20Power%20BI%20-/Job_Code_Category_Mapping.xlsx"), null, true),
+				    Dim_Job_Code_Category_Sheet = Source{[Item="Dim_Job_Code_Category",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Dim_Job_Code_Category_Sheet, [PromoteAllScalars=true])
+				in
+				    #"Promoted Headers"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

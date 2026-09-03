@@ -1,0 +1,209 @@
+table Fact_Forecast_Baseline
+	lineageTag: dce983c2-bcd2-45c5-98bb-710bbb84c5b6
+
+	column Name
+		dataType: string
+		lineageTag: e36571c2-7fc5-4d91-9fa1-4b5c6f6fe731
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Activity
+		dataType: string
+		lineageTag: 2afe252b-31df-45f2-88f7-cf1425e92d77
+		summarizeBy: none
+		sourceColumn: Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Work'
+		dataType: double
+		lineageTag: 1cc1b53a-69a6-4864-b8c3-0234c1b37b10
+		summarizeBy: sum
+		sourceColumn: Original Work
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Earned To Date'
+		dataType: double
+		lineageTag: 632d07aa-2df5-4661-bddb-129d12b1f22d
+		summarizeBy: sum
+		sourceColumn: Earned To Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Data.Remaining Work'
+		dataType: double
+		lineageTag: 5633b146-abbc-4995-be04-6a4bfa8c6d8a
+		summarizeBy: sum
+		sourceColumn: Data.Remaining Work
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Data.Project Plan'
+		dataType: string
+		lineageTag: 4b452eb2-7d6e-4c5c-9c5e-5ba8232357b0
+		summarizeBy: none
+		sourceColumn: Data.Project Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data.Level 4 Activity Grp'
+		dataType: string
+		lineageTag: b610855f-3847-42cd-a006-b68b36f6e595
+		summarizeBy: none
+		sourceColumn: Data.Level 4 Activity Grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: string
+		lineageTag: 042275d5-4350-4ae6-9bea-65459b264cd5
+		summarizeBy: none
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECS/Asset Code'
+		dataType: string
+		lineageTag: aab91dc3-8364-4d09-a53e-29c69eba0b4d
+		summarizeBy: none
+		sourceColumn: ECS/Asset Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Baseline Month Year'
+		dataType: string
+		lineageTag: dab3dcd7-9ea5-4858-94db-fbc192e5297b
+		summarizeBy: none
+		sourceColumn: Baseline Month Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Baseline Month Year Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 23c10c82-2b79-4d76-bb91-d1d81b4de5e4
+		summarizeBy: none
+		sourceColumn: Baseline Month Year Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Planned
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 92d4aa4f-25ac-4e33-82e3-f026278e8eaa
+		summarizeBy: none
+		sourceColumn: Planned
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column room = RELATED(Dim_ECS[Room])
+		lineageTag: 19e6d6a2-6aed-4580-9633-cbfb1c0f2a13
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_progressed_date =
+			
+			CALCULATE(
+			    MAX(Dim_ECS[latest install date]),
+			    FILTER(
+			        Dim_ECS,
+			        Dim_ECS[Room] = 'Fact_Forecast_Baseline'[room]
+			    )
+			)
+		formatString: General Date
+		lineageTag: 8b8aabb7-904a-47e2-ac6d-d7ade01800cc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Early_Finish
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: de797905-0cae-4a49-ba3f-e32abfaa4c9a
+		summarizeBy: none
+		sourceColumn: Early_Finish
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Design Quantity' = RELATED(Dim_ECS[DesignQuantity])
+		lineageTag: bbb63c66-ed03-4ec4-a81b-76dcc26b3105
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Is Max Date' =
+			
+			VAR MaxDate =
+			    CALCULATE (
+			        MAX ( 'Fact_Forecast_Baseline'[Baseline Month Year Date] ),
+			        REMOVEFILTERS ( 'Fact_Forecast_Baseline' )
+			    )
+			RETURN
+			    'Fact_Forecast_Baseline'[Baseline Month Year Date] = MaxDate
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 100b6190-4d94-4f37-a4b5-88b075eb1d05
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planned Month' = RELATED(Dim_Date[Adjusted_date])
+		formatString: General Date
+		lineageTag: 8af564fd-9c62-468c-aca7-71d34828cfe5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Early_Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cab0df6d-fe1a-4037-bc9c-9f0eaaccb72d
+		summarizeBy: none
+		sourceColumn: Early_Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Planning Commodity' = RELATED(Dim_ECS[Planning Commodity])
+		lineageTag: c8790a47-5acb-4973-a56e-48068468e86a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Forecast_Baseline = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
+				    #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="8b4ad271-ee6b-48ab-a197-cf0dc9d67525"]}[Data],
+				    #"Forecast Baseline Full Historical_" = #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525"{[entity="Forecast Baseline Full Historical",version=""]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(#"Forecast Baseline Full Historical_",{{"Early_Start", type date}, {"Early_Finish", type date}})
+				
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

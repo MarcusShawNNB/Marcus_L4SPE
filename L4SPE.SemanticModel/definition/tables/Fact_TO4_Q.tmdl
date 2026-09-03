@@ -1,0 +1,110 @@
+table Fact_TO4_Q
+	excludeFromModelRefresh
+	lineageTag: 0d64c181-9d29-4f7b-aac2-54f6514ccb0d
+
+	column 'Planning Commodity'
+		dataType: string
+		lineageTag: 0574c7d9-7e39-4ee6-a208-4301a5c7fc00
+		summarizeBy: none
+		sourceColumn: Planning Commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: dateTime
+		formatString: mmmm yyyy
+		lineageTag: 3f3337f1-92ea-43b9-924e-5fff2d64680e
+		summarizeBy: none
+		sourceColumn: Month
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Key
+		dataType: string
+		lineageTag: 40cebb9b-b767-4c01-94ca-e218a667ab3c
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column '%RT TO4 Forecast Finish'
+		dataType: string
+		lineageTag: 18d07379-4732-481f-8da3-2a428204cf56
+		summarizeBy: none
+		sourceColumn: %RT TO4 Forecast Finish
+
+		annotation SummarizationSetBy = Automatic
+
+	column G_Sub-Area
+		dataType: string
+		lineageTag: d42dd0c8-b47a-444c-a05c-0c4fff905f0a
+		summarizeBy: none
+		sourceColumn: G_Sub-Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total in Month'
+		dataType: string
+		lineageTag: 02c46214-9757-43ef-bf61-e0545be5a298
+		summarizeBy: none
+		sourceColumn: Total in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q
+		dataType: double
+		lineageTag: 2b49cf93-1ca3-44d1-b071-a1323845d783
+		summarizeBy: sum
+		sourceColumn: Q
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit '
+		dataType: string
+		lineageTag: 0b8eb46c-e14f-44cf-90cb-b41e30c67a3d
+		summarizeBy: none
+		sourceColumn: "Unit "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: 7edcd9fd-61d5-4b65-9304-ce15e2a5d348
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_TO4_Q = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				
+				    // Get Excel file from SharePoint (replaces File.Contents)
+				    Source =
+				        Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/01.%20L4SPE%20Dashboards/TO4/MEH-26%20FC.xlsx"), null, true),
+				
+				    // Select the worksheet
+				    Sheet =
+				        Source{[Item = "PBI", Kind = "Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Planning Commodity", "Month", "Key", "%RT TO4 Forecast Finish", "G_Sub-Area", "Total in Month", "Q", "Unit ", "Area"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Q", type number}}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Changed Type", {"Q"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Errors", each [Month] <> null and [Month] <> "")
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

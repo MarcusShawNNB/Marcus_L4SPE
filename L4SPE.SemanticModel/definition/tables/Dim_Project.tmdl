@@ -1,0 +1,125 @@
+table Dim_Project
+	lineageTag: d512bb7b-863b-46e5-833a-9476d1f038bf
+
+	column ProjectName
+		lineageTag: 63bd95e2-340b-43f0-9fd9-2533d311304c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ProjectName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		lineageTag: f4e31210-dd12-4c1f-a796-c3d003c8d3ed
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Source]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchStatus
+		lineageTag: 45c0e080-6099-4a1a-92cc-3fc8e4ca865f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MatchStatus]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		lineageTag: de18a1d9-b9fd-4316-8b8e-a22fa1986b44
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Unit]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		lineageTag: e44500ee-d3aa-42d5-a184-f0169302efec
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Area]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubArea
+		lineageTag: abfd96bc-2f46-4253-9a15-9cfb0c331bf7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SubArea]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ECS_RowCount_ForProject
+		formatString: 0
+		lineageTag: ae987464-1b8f-41ca-af18-86dec91ba098
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ECS_RowCount_ForProject]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Project = calculated
+		mode: import
+		source = ```
+				
+				VAR _FBH = 
+				    SELECTCOLUMNS(
+				        DISTINCT(Fact_Booked_Hours[Project Adjusted]),
+				        "ProjectName", Fact_Booked_Hours[Project Adjusted]
+				    )
+				VAR _ECS = 
+				    SELECTCOLUMNS(
+				        DISTINCT(Dim_ECS[final_project_name]),
+				        "ProjectName", Dim_ECS[final_project_name]
+				    )
+				VAR _ECS_Attributes = 
+				    SELECTCOLUMNS(
+				        Dim_ECS,
+				        "ProjectName", Dim_ECS[final_project_name],
+				        "Unit", Dim_ECS[Unit],
+				        "Area", Dim_ECS[Area],
+				        "SubArea", Dim_ECS[Sub Area]
+				    )
+				VAR _AllProjects = DISTINCT(UNION(_FBH, _ECS))
+				RETURN
+				    ADDCOLUMNS(
+				        _AllProjects,
+				        "Source",
+				            VAR _P = [ProjectName]
+				            VAR _InFBH = COUNTROWS(FILTER(_FBH, [ProjectName] = _P)) > 0
+				            VAR _InECS = COUNTROWS(FILTER(_ECS, [ProjectName] = _P)) > 0
+				            RETURN SWITCH(TRUE(), _InFBH && _InECS, "Both", _InFBH, "Fact_Booked_Hours", _InECS, "Dim_ECS", "Unknown"),
+				        "MatchStatus",
+				            VAR _P = [ProjectName]
+				            VAR _InFBH = COUNTROWS(FILTER(_FBH, [ProjectName] = _P)) > 0
+				            VAR _InECS = COUNTROWS(FILTER(_ECS, [ProjectName] = _P)) > 0
+				            RETURN IF(_InFBH && _InECS, "Matched (Both)", "Unique to Source"),
+				        "Unit",
+				            VAR _P = [ProjectName]
+				            VAR _Val = MAXX(FILTER(_ECS_Attributes, [ProjectName] = _P), [Unit])
+				            RETURN 
+				                IF(
+				                    CONTAINSSTRING(_P, "U1"),
+				                    "1/0/9",
+				                    IF(
+				                        ISBLANK(_Val) || _Val = "",
+				                        "1/0/9",
+				                        _Val
+				                    )
+				                ),
+				        "Area",
+				            VAR _P = [ProjectName]
+				            VAR _Val = MAXX(FILTER(_ECS_Attributes, [ProjectName] = _P), [Area])
+				            RETURN IF(ISBLANK(_Val) || _Val = "", "Unspecified", _Val),
+				        "SubArea",
+				            VAR _P = [ProjectName]
+				            VAR _Val = MAXX(FILTER(_ECS_Attributes, [ProjectName] = _P), [SubArea])
+				            RETURN IF(ISBLANK(_Val) || _Val = "", "Unspecified", _Val),
+				        "ECS_RowCount_ForProject",
+				            VAR _P = [ProjectName]
+				            RETURN COUNTROWS(FILTER(_ECS_Attributes, [ProjectName] = _P))
+				    )
+				```
+
+	annotation PBI_Id = 59bb8e4607004ca2b460821dffe7acd6
+

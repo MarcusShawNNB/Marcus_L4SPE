@@ -1,0 +1,22 @@
+table Dim_Sub-Area
+	lineageTag: d8320561-e71c-490b-ba06-338da90e1a92
+
+	column 'Sub Area'
+		lineageTag: 6646c543-3167-4d29-a2de-f9be7b2504ae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Sub Area]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Sub-Area = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    DISTINCT(Dim_ECS[Sub Area]),
+				    NOT ISBLANK(Dim_ECS[Sub Area])
+				)
+
+	annotation PBI_Id = 8478d54a72404eec872c97cf85aa723a
+

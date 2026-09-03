@@ -1,0 +1,17 @@
+table Dim_Trade
+	lineageTag: 645cef00-1a51-41c4-acad-a11533f07748
+
+	column Trade
+		lineageTag: b2173647-dcad-4e87-bbd9-8a33e871b25f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_Resource_Profile[Trade]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Trade = calculated
+		mode: import
+		source = DISTINCT(Dim_Resource_Profile[Trade])
+
+	annotation PBI_Id = cd6f29a468d943a0b50a41a8cebda237
+

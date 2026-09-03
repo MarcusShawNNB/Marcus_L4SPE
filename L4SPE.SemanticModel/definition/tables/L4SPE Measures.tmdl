@@ -1,0 +1,2176 @@
+table 'L4SPE Measures'
+	lineageTag: abb2881b-eb09-439e-8ebb-b63041380eb0
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_design_quantity_installed = ```
+			
+			VAR LastActualDate =
+			    CALCULATE(
+			        MAX(Dim_ECS[actual_installed_date]),
+			        ALL(Dim_Date)          -- removes date filtering
+			    )
+			
+			RETURN
+			IF(
+			    MAX(Dim_Date[Date]) <= LastActualDate,
+			    CALCULATE(
+			        [sum_design_quantity_actual_installed],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            Dim_Date[Date] <= MAX(Dim_Date[Date])
+			        )
+			    )
+			)
+			
+			```
+		formatString: 0.00
+		displayFolder: 1_Quantities
+		lineageTag: d64a54c8-f05a-4c5c-b478-7354f4810ee0
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity =
+			-- MS
+			CALCULATE(SUM(Dim_ECS[DesignQuantity]),USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]))
+		displayFolder: 1_Quantities
+		lineageTag: 8c95c33e-988e-4b24-aa44-4e982bdd830b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_p6_finish =
+			-- MS
+			
+			
+			CALCULATE(
+			    SUM(Dim_ECS[DesignQuantity]),
+			    USERELATIONSHIP(
+			        Dim_Date[Date],
+			        Dim_ECS[LIVE - Forecast Finish Date]
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: e0f6aec7-b427-4789-8dc8-9f79d20a80ac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_sum_design_quantity =
+			-- MS
+			
+			CALCULATE(
+			    [sum_design_quantity],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 24421930-3782-495d-9e9c-a188e0ae0c51
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_design_quantity_p6_finish =
+			-- MS
+			
+			CALCULATE(
+			    [sum_design_quantity_p6_finish],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 5bf18f11-caf7-4450-ba91-7d80266404db
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_iws12_Finish =
+			-- MS
+			
+			    CALCULATE(
+			        SUM(Dim_ECS[DesignQuantity]),
+			        USERELATIONSHIP(Dim_Date[Date], Dim_ECS[IWS12 - FC Finish Date]
+			    ))
+		displayFolder: 1_Quantities
+		lineageTag: 81ec0600-8003-4684-908f-d1ac7858f584
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_design_quantity_iws12_Finish =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Dim_ECS[DesignQuantity]),
+			    USERELATIONSHIP(Dim_Date[Date], Dim_ECS[IWS12 - FC Finish Date]),
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 96db4182-686f-4d49-a4f0-fb5af667e03c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_delivered =
+			-- MS
+			
+			
+			CALCULATE([sum_design_quantity_all], Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 1_Quantities
+		lineageTag: a0eba0e6-d220-4fc9-a50b-9ca8846c801a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_delivered = ```
+			-- MS
+			DIVIDE([sum_design_quantity_delivered],[sum_design_quantity_all]) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: ec673607-18a9-4bf5-b5b0-1dd012e15dd1
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_actual_installed_inc_this_week = ```
+			-- MS
+			
+			[sum_design_quantity_actual_installed] 
+			```
+		displayFolder: 1_Quantities
+		lineageTag: 6dcfad28-077f-4605-9384-6f2999ef1770
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_installed = ```
+			-- MS
+			DIVIDE([sum_design_quantity_actual_installed_inc_this_week],[sum_design_quantity_all]) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 9b54f3cc-9ff8-4e74-9ae1-672b0b67bd2b
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_all =
+			-- MS
+			CALCULATE(SUM(Dim_ECS[DesignQuantity]))
+		displayFolder: 1_Quantities
+		lineageTag: fcd2a026-495c-4344-8aa1-90c38c877fdd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_delivered_rag =
+			-- MS
+			
+			SWITCH(
+			    TRUE(),
+			    [%_delivered] < 0.2,  "#FF0000",  -- Red
+			    [%_delivered] < 0.4,  "#FF4500",  -- Red-Amber
+			    [%_delivered] < 0.6,  "#FFA500",  -- Amber
+			    [%_delivered] < 0.8,  "#ADFF2F",  -- Amber-Green
+			    "#00B050"                          -- Green
+			)
+		displayFolder: 3_Percent/Ratio
+		lineageTag: d90de1f9-7440-4245-a703-9a817fa2d1fa
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_Installed_rag =
+			-- MS
+			
+			SWITCH(
+			    TRUE(),
+			    [%_installed] = BLANK() ,"#FFFFFF",
+			    [%_installed] < 0.2,  "#FF0000",  -- Red
+			    [%_installed] < 0.4,  "#FF4500",  -- Red-Amber
+			    [%_installed] < 0.6,  "#FFA500",  -- Amber
+			    [%_installed] < 0.8,  "#ADFF2F",  -- Amber-Green (Yellow-Green)
+			    "#00B050"                          -- Green
+			)
+		displayFolder: 3_Percent/Ratio
+		lineageTag: bfceb441-f83d-4799-ac9e-b99d1055d6ad
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure count_ecs =
+			-- MS
+			COUNTROWS(Dim_ECS)
+		formatString: #,0
+		displayFolder: 6_Counts
+		lineageTag: 2d82a7f6-e23c-4cce-98fe-9374384e586f
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure budget_hours =
+			-- MS
+			SUM(Dim_ECS[Final_Hours])
+		displayFolder: 2_Hours
+		lineageTag: 236ea644-ef4e-4d82-82d5-3f8bdc13ee24
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_earned_hours_week_production =
+			-- MS
+			SUM(Fact_Production[Earned Hours Week_Production])
+		displayFolder: 2_Hours
+		lineageTag: a31bfe93-b581-4fe4-812d-03041f3997d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_earned_hours_earned_week =
+			-- MS
+			
+			CALCULATE(
+			    [sum_earned_hours_week_production],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: 1a759ba8-4dad-4310-98f4-5aead1854336
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure count_live_ctp =
+			-- MS
+			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date], Dim_CTP_Schedule_Data[CTP_Live_Finish]))
+		displayFolder: 6_Counts
+		lineageTag: b31f38e8-91a6-478c-b897-e85822f4f42b
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure count_iws12_ctp =
+			-- MS
+			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_IWS12_Finish]))
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: 636884e8-4c16-408d-b9ee-cb8f08898b7c
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_actual_hours_installed =
+			-- MS
+			CALCULATE(SUM(Dim_ECS[Current Hours]), USERELATIONSHIP(Dim_Date[Date],Dim_ECS[actual_installed_date]))
+		displayFolder: 2_Hours
+		lineageTag: f994eef4-1590-41db-8af8-7081e491eebe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure hours_forecast_iws12_finish = ```
+			-- MS
+			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_IWS12_Finish])) 
+			```
+		displayFolder: 2_Hours
+		lineageTag: d7fb3ec6-fa60-405f-94f1-90d3da5a750c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure hours_forecast_live_p6_finish =
+			-- MS
+			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_Live_Finish]))
+		displayFolder: 2_Hours
+		lineageTag: a0c984fa-14d3-43d7-af50-6a3fc397b0f3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure hours_forecast_live_finish_lm =
+			-- MS
+			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_CTP_Schedule_Data[CTP_Live_Finish LM]))
+		displayFolder: 2_Hours
+		lineageTag: eef7ef9b-e5fb-4bda-9630-bf7279527fd5
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_hours_forecast_iws12_Finish =
+			-- MS
+			
+			CALCULATE(
+			    [hours_forecast_iws12_finish] + [sum_actual_hours_installed],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: f8f2275a-4e1b-4b09-975a-f5a8ae858181
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_hours_forecast_live_finish_lm =
+			-- MS
+			
+			CALCULATE(
+			    [hours_forecast_live_finish_lm] + [sum_actual_hours_installed],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: 9157dafe-5d06-4e83-adb5-e42b8bc2e2f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_hours_forecast_live_p6_finish =
+			-- MS
+			
+			CALCULATE(
+			    [hours_forecast_live_p6_finish] + [sum_actual_hours_installed],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: 37a475f5-2cc3-4707-9e33-e9411c7d7148
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_actual_hours_installed =
+			-- MS
+			
+			VAR LastActualDate = MAX(Dim_ECS[actual_installed_date])
+			RETURN
+			IF(
+			    MAX(Dim_Date[Date]) <= LastActualDate,
+			    CALCULATE(
+			        [sum_actual_hours_installed],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            Dim_Date[Date] <= MAX(Dim_Date[Date])
+			        )
+			    ),
+			    BLANK()
+			)
+		displayFolder: 2_Hours
+		lineageTag: d9ee0581-5747-4f80-8d94-61ea48e09039
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_forecast_live_finish_lm =
+			-- MS
+			CALCULATE(
+			    SUM(Dim_ECS[DesignQuantity]),
+			    USERELATIONSHIP(
+			        Dim_Date[Date],
+			        Dim_ECS[LM - Forecast Finish Date]
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: b9eca7cf-d60f-4315-9a23-f9aa1dc2a747
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_hours_forecast_early_finish =
+			-- MS
+			CALCULATE(sum(Dim_ECS[Remaining Hours]),USERELATIONSHIP(Dim_Date[Date],Dim_ECS[LIVE - Forecast Finish Date]))
+		displayFolder: 2_Hours
+		lineageTag: e661f002-52aa-4da0-a4ff-96b73d7a06e0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_earned_budget =
+			-- MS
+			DIVIDE([sum_actual_hours_installed],[budget_hours])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: f704df77-9c59-4d29-a9b0-03069783812c
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure live_total_float =
+			-- MS
+			MIN(Dim_ECS[Total Float])
+		formatString: #,0
+		displayFolder: 2_Hours
+		lineageTag: cafe56a6-042c-4c53-b6af-b51cb34462f6
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure live_total_float_lm =
+			-- MS
+			MIN(Dim_ECS[Total Float LM])
+		formatString: #,0
+		displayFolder: 2_Hours
+		lineageTag: 5d445c68-b9bb-46fc-b5ef-dcbb742b24c6
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_iws12_total_float =
+			-- MS
+			min(Dim_ECS[IWS_12 - Total Float])
+		formatString: #,0
+		displayFolder: 2_Hours
+		lineageTag: 0770c9cf-f459-49c9-8ec0-8086ad96cefa
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure count_live_ctp_lm =
+			-- MS
+			CALCULATE(COUNTROWS(Dim_CTP_Schedule_Data), USERELATIONSHIP(Dim_Date[Date], Dim_CTP_Schedule_Data[CTP_Live_Finish LM]))
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: 8b13936c-4cf5-4ff6-b214-b41e3aa47056
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_count_iws12_ctp =
+			-- MS
+			
+			CALCULATE(
+			    [count_iws12_ctp],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: c1be7158-438d-46f0-a64c-1ecb9a77f83c
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_count_live_ctp =
+			-- MS
+			
+			CALCULATE(
+			    [count_live_ctp],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: 92b72a6e-f332-4b0f-9738-ec176821943d
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_count_live_ctp_lm =
+			-- MS
+			
+			CALCULATE(
+			    [count_live_ctp_lm],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: 15170800-229e-4a2d-939e-d1aa9a7450fa
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_design_quantity_forecast_live_finish_lm =
+			-- MS
+			
+			CALCULATE(
+			    [sum_design_quantity_forecast_live_finish_lm],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 63089867-7700-46cd-9a7a-21fbc9ee1bc9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_daily_hours_earned =
+			-- MS
+			CALCULATE(SUM(Fact_Daily[Daily Hours Earned]),Fact_Daily[Is_Latest_Record]=TRUE(),USERELATIONSHIP(Dim_Date[Date],Fact_Daily[Reporting Week]))
+		displayFolder: 2_Hours
+		lineageTag: 87104850-f5f8-47fc-ab49-96654284ae9a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_sum_daily_hours_earned =
+			-- MS
+			
+			CALCULATE(
+			    [sum_daily_hours_earned],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: cfd62614-1ab1-485a-910f-02aa0294cb99
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure latest_day_earned_hours_earned =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Fact_Daily[Daily Hours Earned]),
+			    fact_daily[DateTime] = MAX(fact_daily[DateTime])
+			)
+		displayFolder: 2_Hours
+		lineageTag: 6c0f23f4-0053-48c1-9390-745524e5885c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure current_week =
+			
+			CALCULATE(
+			    MAX(Dim_Date[Week Ending]),
+			    ALL(Dim_Date),
+			    Dim_Date[Current Week] = TRUE()
+			)
+		formatString: Short Date
+		displayFolder: 5_Helpers
+		lineageTag: 41423a2d-763e-4591-92a3-b4c9c59b5caa
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure daily_report_date =
+			
+			CALCULATE(
+			    MAX(Fact_Daily[Day]),
+			    ALL(Fact_Daily)
+			)
+		formatString: Short Date
+		displayFolder: 5_Helpers
+		lineageTag: ecedf1ad-ad30-4e99-9574-f4d31ad588db
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure daily_report_latest_shift = ```
+			
+			VAR latest = 
+			    CALCULATE(
+			        MAX(Fact_Daily[DateTime]),
+			        ALL(Fact_Daily)
+			    )
+			RETURN
+			CALCULATE(
+			    MAX(Fact_Daily[Shift]),
+			    ALL(Fact_Daily),
+			    Fact_Daily[DateTime] = latest
+			)
+			```
+		displayFolder: 5_Helpers
+		lineageTag: b10e39d7-6db2-4309-b124-c7a2fdf356f7
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_earned_current_week =
+			-- MS
+			DIVIDE([current_week_earned_hours_earned],[sum_remaining_hours_l5_latest_week])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 40ec8905-0165-4d92-a90a-3730271d47da
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_booked_hours_direct_current_week =
+			-- MS
+			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Fact_Booked_Hours[Trade Type]="Direct",Dim_Date[Current Week] = TRUE())
+		displayFolder: 2_Hours
+		lineageTag: b96533d5-2959-4b5d-a7c9-7211b711e166
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure rate_productivity_current_week =
+			-- MS
+			DIVIDE([current_week_earned_hours_earned],[sum_booked_hours_direct_current_week])
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 29f107b9-4893-46f4-8e8a-0e4d8522e6bc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure rate_earned_planned_current_week =
+			-- MS
+			DIVIDE([current_week_earned_hours_earned],[sum_remaining_hours_l5_latest_week])
+		displayFolder: 2_Hours
+		lineageTag: 77e9e3d6-27eb-41bb-bd84-a27dc539a02b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_planned =
+			-- MS
+			
+			
+			CALCULATE(SUM(Fact_Forecast_Baseline[Design Quantity]),USERELATIONSHIP(Dim_Date[Date], Fact_Forecast_Baseline[Planned]))
+		displayFolder: 1_Quantities
+		lineageTag: 108e7980-50a5-4544-be07-01c11a1ed565
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_baseline_remaining_work =
+			-- MS
+			sum('Fact_Forecast_Baseline'[Data.Remaining Work])
+		displayFolder: 2_Hours
+		lineageTag: fb57d59f-a517-45d0-991c-0ac7b0e3c285
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Cumulative IN-PROGRESS (ROC <90%) (''PIN No. of ECS CODES)' =
+			-- MS
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Daily[ECS Code]),
+			    fact_daily[Weekly % Complete] <= 0.9,USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week]))
+		formatString: #,0
+		displayFolder: 4_Daily Progress
+		lineageTag: 4f6450e0-1bed-4ead-acc4-d8c0a857fa2f
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Cumulative COMPLETED (ROC >90%) (''PIN No. of ECS CODES)' =
+			-- MS
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Daily[ECS Code]),
+			    fact_daily[Weekly % Complete] >= 0.9
+			,USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week]))
+		formatString: #,0
+		displayFolder: 4_Daily Progress
+		lineageTag: 2169b387-38e6-4cb5-aec0-2299bb8570ea
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)' =
+			-- MS
+			VAR IsEquip =
+			    CONTAINSSTRING(SELECTEDVALUE(Dim_ECS[Planning Commodity]), "equip")
+			
+			VAR BaseTable =
+			    CALCULATETABLE(
+			        SUMMARIZE(
+			            Fact_Daily,
+			            Fact_Daily[ECS Code],
+			            "MaxWeekly", MAX(Fact_Daily[% Complete]),
+			            "MaxBaseline", MAX(Fact_Daily[Baseline % Complete]),
+			            "Qty", MAX(Fact_Daily[Design Quantity])
+			        ),
+			        USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week])
+			    )
+			
+			RETURN
+			SUMX(
+			    BaseTable,
+			    IF(
+			        IsEquip,
+			        IF([MaxWeekly] = 1 && [MaxBaseline] < 1, [Qty], BLANK()),
+			        IF([MaxWeekly] >= 0.9 && [MaxBaseline] < 0.9, [Qty], BLANK())
+			    )
+			)
+		displayFolder: 4_Daily Progress
+		lineageTag: c5155bd8-5ba7-463f-af8a-20dfd0d076d4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)' =
+			-- MS
+			
+			CALCULATE(
+			    sum(Fact_Daily[Design Quantity]),
+			    fact_daily[Weekly % Complete] < 0.9
+			,USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week]))
+		formatString: #,0.00
+		displayFolder: 4_Daily Progress
+		lineageTag: efe3ddc8-82b0-4142-bde2-904c2fb9e9cf
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_booked_hours_current_week =
+			-- MS
+			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Dim_Date[Current Week] = TRUE())
+		displayFolder: 2_Hours
+		lineageTag: 4bd10d91-dbcf-4b84-a0e6-d8e3d11cd904
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Cumulative IN-PROGRESS & COMPLETE (''PIN No. of ECS CODES)' =
+			-- MS
+			[Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)]+[Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)]
+		formatString: 0
+		displayFolder: 4_Daily Progress
+		lineageTag: 40d26cd5-8c3e-4c60-8694-38c163080bc6
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_to4 =
+			-- MS
+			sum(Fact_TO4_Q[Q])
+		displayFolder: 1_Quantities
+		lineageTag: 967823af-b603-4122-b259-4f9099c8ae15
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_sum_design_quantity_quarterly_forecast =
+			-- MS
+			
+			    CALCULATE(
+			        SUM(Fact_QF_Q[Quantity]),
+			        USERELATIONSHIP(Dim_Date[Date], Fact_QF_Q[Date]
+			    )
+			)
+		formatString: #,0
+		displayFolder: 1_Quantities
+		lineageTag: d5bdfced-620f-4861-95d1-94aebc18a47a
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_to4_q_weekly = ```
+			-- MS
+			
+			    CALCULATE(
+			        SUM(Fact_TO4_Q_Weekly[Week Quantity]),
+			        USERELATIONSHIP(Dim_Date[Date], Fact_TO4_Q_Weekly[Week End Date]
+			    
+			))
+			```
+		displayFolder: 1_Quantities
+		lineageTag: faccf0d1-b01f-4a58-ac31-0ca0f23978a1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_baseline =
+			-- MS
+			
+			VAR MaxMonth = MAXX(Fact_Forecast_Baseline, Fact_Forecast_Baseline[Baseline Month Year])
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Forecast_Baseline[design quantity]),
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Forecast_Baseline[Planned]),
+			    Fact_Forecast_Baseline[Baseline Month Year] = MaxMonth
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 4c229a3a-aa94-4bc7-9b59-ae4e7fb6cc75
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_rolling = ```
+			-- MS
+			
+			
+			    SUM(Fact_Forecast_rolling[Design Quantity])
+			
+			```
+		displayFolder: 1_Quantities
+		lineageTag: b5a3b9fe-8419-42d5-bf5e-793494e7d59c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_installed_vs_forecast =
+			-- MS
+			
+			DIVIDE([sum_design_quantity_actual_installed_inc_this_week], [selected_forecast], 0) * 100
+		displayFolder: 3_Percent/Ratio
+		lineageTag: cf3c6800-500e-432a-a082-0c35ba881b89
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure selected_forecast =
+			-- MS
+			
+			SWITCH(
+			    SELECTEDVALUE('Forecast Options'[Forecast Order]),
+			    0, [sum_design_quantity_baseline],
+			    1, [sum_design_quantity_rolling],
+			    3, [sum_sum_design_quantity_quarterly_forecast],
+			    4, [sum_design_quantity_to4],
+			    [sum_sum_design_quantity_quarterly_forecast]
+			)
+		displayFolder: 5_Helpers
+		lineageTag: fca73841-dbab-49eb-8414-df6cd0b6cb1b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_remaining =
+			-- MS
+			
+			MAX(100 - [%_installed_vs_forecast], 0)
+		displayFolder: 3_Percent/Ratio
+		lineageTag: d8b78a0b-edc4-4688-9ec5-611c94a55362
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure to4_demand_title =
+			-- MS
+			
+			VAR SelectedPeriod =
+			    SELECTEDVALUE('Date Filter Options'[Filter Name], "YTD")
+			
+			VAR SelectedForecast =
+			    SELECTEDVALUE('Forecast Options'[Forecast Name], "TO4 Demand")
+			
+			RETURN
+			SelectedForecast & " - " & SelectedPeriod
+		displayFolder: 5_Helpers
+		lineageTag: 5bad3a1d-a274-448e-bcc9-8d02b84480f8
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_to4_demand = ```
+			-- MS
+			
+			
+			    CALCULATE(
+			        SUM('Fact_%S Sub-Area'[TO4 Weekly Target]),
+			        USERELATIONSHIP(Dim_Date[Date],'Fact_%S Sub-Area'[WE])
+			    ) 
+			    
+			    
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 564a1a94-12da-4cf2-9637-5354b49bd0e1
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure to4_demand_hours = ```
+			-- MS
+			
+			VAR Target = 
+			    CALCULATE(
+			        SUM('Fact_%S Sub-Area'[TO4 Weekly Target]),
+			        USERELATIONSHIP(Dim_Date[Date], 'Fact_%S Sub-Area'[WE])
+			    )
+			VAR Actual = [sum_design_quantity_actual_installed_inc_this_week]
+			RETURN
+			   Target*100*104980.88
+			```
+		displayFolder: 2_Hours
+		lineageTag: 482f11cb-6c37-4a0f-9660-c86e0ee52c72
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_%_to4_demand =
+			-- MS
+			
+			CALCULATE(
+			    [%_to4_demand],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 3431810a-1e7d-478c-9b5c-5e01504dfea7
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_quarterly_fc = ```
+			-- MS
+			
+			    CALCULATE(
+			        SUM('Fact_%S Sub-Area'[Quarterly Forecast]),
+			        USERELATIONSHIP(Dim_Date[Date],'Fact_%S Sub-Area'[WE])
+			    ) 
+			    
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: e7845c45-c917-4782-99bb-92ba8b7fd929
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure quarterly_fc_demand_hours =
+			-- MS
+			
+			
+			   [%_quarterly_fc]*10498088
+		formatString: #,0
+		displayFolder: 2_Hours
+		lineageTag: e49978b0-5295-4fd5-961f-64a6abafcc21
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_%_quarterly_fc =
+			-- MS
+			
+			CALCULATE(
+			    [%_quarterly_fc],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 8e27c537-96fa-4edc-934d-525653c6062b
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure current_week_earned_hours_earned =
+			-- MS
+			
+			CALCULATE(
+			    SUM(fact_daily[Hours Earned]),
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week]),
+			    Fact_Daily[Max Date Check]=TRUE()
+			)
+		displayFolder: 2_Hours
+		lineageTag: 696f92c6-2dd4-4c6b-acba-f718ad03aa9d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure %_hours_earned_to4 =
+			-- MS
+			VAR _total_budget = 104980.88 * 100
+			RETURN
+			
+			    DIVIDE(
+			        [sum_earned_hours_supporting_meh],
+			        _total_budget
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: ae8bd073-2d36-4d5b-af25-d9c530855e71
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_%_hours_earned = ```
+			-- MS
+			VAR _current_week = CALCULATE(MAX(Fact_Daily[Reporting Week]), ALL(Dim_Date))
+			
+			VAR _result = 
+			    CALCULATE(
+			        [%_hours_earned_to4],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Week Ending]),
+			            ISONORAFTER(Dim_Date[Week Ending], MAX(Dim_Date[Week Ending]), DESC)
+			        )
+			    )
+			
+			RETURN
+			IF(
+			    MAX(Dim_Date[Week Ending]) <= _current_week,
+			    _result,
+			    BLANK()
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 58c91446-bfcd-4c5f-9991-3c75d11c026f
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure last_week_end_date = ```
+			-- MS
+			
+			VAR _latest = 
+			    CALCULATE(
+			        MAX(Dim_Date[Date]), 
+			        FILTER(ALL(Dim_Date), Dim_Date[last Week] = TRUE)
+			    )
+			RETURN
+			_latest
+			```
+		formatString: Short Date
+		displayFolder: 5_Helpers
+		lineageTag: 94619b22-0f46-4bd6-9189-42b92c9388c5
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure last_week_no_date = ```
+			-- MS
+			
+			VAR _latest = 
+			    CALCULATE(
+			        MAX(Dim_Date[Week]), 
+			        FILTER(ALL(Dim_Date), Dim_Date[last Week] = TRUE)
+			    )
+			RETURN
+			_latest
+			```
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: e7ceff2c-7977-4ec2-8145-fed35adfe6bc
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure ratio_install_delivered =
+			-- MS
+			DIVIDE( [%_installed],[%_delivered])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 6a88437b-157f-4609-b83e-2c825e5882e7
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure is_current_week_highlight =
+			-- MS
+			
+			IF(
+			    MAX(Dim_Date[Week Ending]) = [current_week],
+			    1,
+			    0
+			)
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: 03e8c802-5282-4a04-b736-ea0266e653b7
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_actual_installed = ```
+			-- MS
+			
+			CALCULATE(
+			    SUM(Dim_ECS[DesignQuantity]),
+			    USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			    Dim_ECS[actual_installed_date] <> BLANK()
+			) 
+			
+			```
+		displayFolder: 1_Quantities
+		lineageTag: deb13787-f9c4-4907-afc8-a662a3412639
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure count_ecs_actual_installed =
+			-- MS
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Dim_ECS[ECS Code]),
+			    USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			    Dim_ECS[actual_installed_date] <> BLANK()
+			)
+		formatString: #,0
+		displayFolder: 6_Counts
+		lineageTag: ce1cdd75-b160-4fdd-bae6-d84c4d5d19ba
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_earned_hours_supporting_meh =
+			-- MS
+			sum('Supporting_MEH % Complete_2026'[Actual Hours])+ [current_week_earned_hours_earned]
+		displayFolder: 2_Hours
+		lineageTag: 3df1af88-64e8-4337-80a2-5a7f4ad1fc89
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure current_week_no =
+			
+			CALCULATE(
+			    MAX(Dim_Date[Week]),
+			    ALL(Dim_Date),
+			    Dim_Date[Current Week] = TRUE()
+			)
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: 819c4ba9-3f28-4326-837b-b5d692286cf1
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_hours_forecast_baseline_latest_month = ```
+			-- MS
+			
+			VAR LatestMonth =
+			
+			        MAX(Fact_Forecast_Baseline[Baseline Month Year])
+			VAR Latestweek =
+			CALCULATE(
+			        MAX(Dim_Date[Week Ending]), FILTER(Dim_Date, Dim_Date[Current Week] = TRUE()))
+			
+			    
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Forecast_Baseline[Data.Remaining Work]),
+			    FILTER(
+			        Fact_Forecast_Baseline,
+			       Fact_Forecast_Baseline[ECS/Asset Code] =Fact_Forecast_Baseline[ECS/Asset Code] &&
+			       Fact_Forecast_Baseline[Baseline Month Year] = LatestMonth
+			    )
+			)
+			
+			```
+		displayFolder: 2_Hours
+		lineageTag: c5e57f77-9950-42b4-bfcf-35af29657db7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_dq_forecast_baseline_latest_month = ```
+			-- MS
+			
+			VAR LatestMonth =
+			
+			        MAX(Fact_Forecast_Baseline[Baseline Month Year])
+			VAR Latestweek =
+			CALCULATE(
+			        MAX(Dim_Date[Week Ending]), FILTER(Dim_Date, Dim_Date[Current Week] = TRUE()))
+			
+			    
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Forecast_Baseline[Design Quantity]),
+			    FILTER(
+			        Fact_Forecast_Baseline,
+			       Fact_Forecast_Baseline[ECS/Asset Code] =Fact_Forecast_Baseline[ECS/Asset Code] &&
+			       Fact_Forecast_Baseline[Baseline Month Year] = LatestMonth
+			    )
+			)
+			```
+		displayFolder: 1_Quantities
+		lineageTag: 0177351c-c418-4c8d-bd0e-cb6b0caf61f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_hours_forecast_rolling_latest_published = ```
+			-- MS
+			
+			VAR maxdate =
+			
+			        TRUE()
+			VAR Latestweek =
+			CALCULATE(
+			        MAX(Dim_Date[Week Ending]), FILTER(Dim_Date, Dim_Date[Current Week] = TRUE()))
+			
+			    
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Forecast_Rolling[Remaining Work]),
+			    FILTER(
+			        Fact_Forecast_Rolling,
+			       Fact_Forecast_Rolling[ECS/Asset Code] =Fact_Forecast_Rolling[ECS/Asset Code] &&
+			       Fact_Forecast_Rolling[Is Max Week] = maxdate
+			    )
+			)
+			```
+		displayFolder: 2_Hours
+		lineageTag: d7c7c1f7-02f1-449e-9bb1-afc60e3ee2f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_dq_forecast_rolling_latest_published = ```
+			-- MS
+			
+			VAR maxdate =
+			
+			        TRUE()
+			VAR Latestweek =
+			CALCULATE(
+			        MAX(Dim_Date[Week Ending]), FILTER(Dim_Date, Dim_Date[Current Week] = TRUE()))
+			
+			    
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Forecast_Rolling[Design Quantity]),
+			    FILTER(
+			        Fact_Forecast_Rolling,
+			       Fact_Forecast_Rolling[ECS/Asset Code] =Fact_Forecast_Rolling[ECS/Asset Code] &&
+			       Fact_Forecast_Rolling[Is Max Week] = maxdate
+			    )
+			)
+			```
+		displayFolder: 1_Quantities
+		lineageTag: e358feba-53ba-43c3-874a-c379923610ed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure dts_combined = ```
+			-- MS
+			
+			VAR DTS_MEH = SELECTEDVALUE('Dim_MEH_ENG'[DTS])
+			VAR DTS_EQ =
+			    IF(
+			        NOT ISBLANK(MAX(Dim_Equipment[MAX_DTS_Actual])),
+			        "Delivered",
+			        "Not Delivered"
+			    )
+			 
+			RETURN
+			    IF(
+			        DTS_MEH = "DTS",
+			        DTS_MEH,
+			        DTS_EQ
+			    )
+			```
+		displayFolder: 5_Helpers
+		lineageTag: ec5b8b61-d678-41f3-af97-1c3cd9221cae
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_to4_hours =
+			-- MS
+			sum(Dim_ECS[TO4_hours])
+		formatString: 0
+		displayFolder: 2_Hours
+		lineageTag: 1068128c-b82e-47b2-bfa9-db2420219f10
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_design_quantity_p6_by_day =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Fact_Forecast_Quantity_daily_spread[Qty This Week]),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Start] <> BLANK(),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Finish] <> BLANK(),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Start] <> Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			)+ [sum_design_quantity_actual_installed]
+		displayFolder: 1_Quantities
+		lineageTag: 35b7033b-a98a-4460-ad3a-b71e83971cb0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure cum_sum_design_quantity_p6_by_day =
+			-- MS
+			
+			CALCULATE(
+			    [sum_design_quantity_p6_by_day],
+			    FILTER(
+			        ALLSELECTED(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 222dbbb6-760f-4e83-9432-b06ec0de27d8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure sum_remaining_hours =
+			-- MS
+			sum(Dim_ECS[Remaining Hours])
+		displayFolder: 2_Hours
+		lineageTag: 24f69d64-f902-42be-a6a5-28972460cdf6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_earned_hours =
+			-- MS
+			sum(Dim_ECS[Hours Actual Units])
+		displayFolder: 2_Hours
+		lineageTag: c5409e4e-6f73-4dbe-860d-a6ff76407fed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_hours_p6_by_day =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Fact_Forecast_Quantity_daily_spread[Hrs Per Day]),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Start] <> BLANK(),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Finish] <> BLANK(),
+			    Fact_Forecast_Quantity_daily_spread[Remaining Early Start] <> Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			)
+		displayFolder: 2_Hours
+		lineageTag: d2163582-75ad-4001-a263-daece51c68bb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure allocated_p6_hours_by_trade = ```
+			
+			SUMX(
+			    Dim_Resource_Profile,
+			    VAR TradePercent = Dim_Resource_Profile[%]
+			    RETURN
+			    
+			        [sum_remaining_hours_p6_by_day] * TradePercent
+			)
+			```
+		displayFolder: 2_Hours
+		lineageTag: eed25ab2-9ba8-4507-926e-529f35051fb5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure dynamic_people_per_day_p6 = ```
+			
+			    [allocated_p6_hours_by_trade] * [PF_Parameter Value]/(9.5*20)
+			```
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: c4479a6d-9554-48c6-8b4d-8e1b786b9a2c
+
+	measure dynamic_trades_remaining_quants =
+			
+			DIVIDE(
+			    [sum_design_quantity_p6_by_day] * [PF_Parameter Value],
+			    [HoursPerDay_Parameter Value]
+			)
+		displayFolder: 1_Quantities
+		lineageTag: fbb4d9bc-fe4a-4804-a002-13cd07ea6344
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_schedule_adherence_l5_baseline = ```
+			
+			DIVIDE(
+			    
+			     [sum_earned_hours_supporting_meh], [sum_baseline_remaining_work]
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: b277a7ce-cb17-4c71-b8d3-f296e1ae8ba8
+
+	measure schedule_adherence_p6_by_day = ```
+			
+			DIVIDE(
+			    
+			     [sum_earned_hours_supporting_meh], [sum_remaining_hours_p6_by_day]
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 6_Counts
+		lineageTag: ec7575ff-39d4-48d9-9103-6e288876199e
+
+	measure people_profile_iws = ```
+			
+			SUMX(
+			    Dim_Resource_Profile,
+			    VAR TradePercent = Dim_Resource_Profile[%]
+			    
+			    VAR TotalRemainingHours =
+			        CALCULATE(
+			            sum(Fact_Forecast_Quantity_daily_spread[People Per Day]),
+			            ALLEXCEPT(
+			                Dim_Resource_Profile,
+			                Dim_Resource_Profile[Planning Commodity]
+			            )
+			        )
+			    
+			    RETURN
+			
+			    ROUND(
+			        TotalRemainingHours * TradePercent,0))
+			```
+		formatString: #,0.00
+		displayFolder: 6_Counts
+		lineageTag: cbfd4af2-90c0-44b4-9d2c-6d1e82928bbe
+
+	measure distinct_room_forecast_baseline =
+			
+			var latestmonth = MAX('Fact_Forecast_Baseline'[Baseline Month Year])
+			RETURN
+			CALCULATE(DISTINCTCOUNT('Fact_Forecast_Baseline'[room]),'Fact_Forecast_Baseline'[Baseline Month Year] = latestmonth)
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: a1d9dd17-9e24-4fc4-9404-48e2ba6bbdb9
+
+	measure rooms_actual_installed = ```
+			-- MS
+			CALCULATE([distinct_room_forecast_baseline],
+			 
+			 USERELATIONSHIP(Dim_Date[Date],Dim_ECS[actual_installed_date]))
+			```
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: c5494599-e55f-4bd2-bce3-7e7d1ac08f9a
+
+	measure distinct_count_progressed_inmonth =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Production[room]),
+			    USERELATIONSHIP(
+			        Dim_Date[Date],
+			        Fact_Production[Actuals Update]
+			    )
+			)
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: 51c64b17-d7b7-43e4-9a21-6883eee92eb0
+
+	measure distinct_count_Rooms_Latest_Baseline_and_progressed =
+			
+			VAR MaxDate =
+			    CALCULATE(
+			        MAX('Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date]),
+			        ALL('Fact_BL_Forecast_L5_daily_spread')
+			    )
+			RETURN
+			    CALCULATE(
+			        DISTINCTCOUNT('Fact_BL_Forecast_L5_daily_spread'[room]),
+			        'Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date] = MaxDate,Fact_BL_Forecast_L5_daily_spread[last_updated]=TRUE(),USERELATIONSHIP(Dim_Date[Date],'Fact_BL_Forecast_L5_daily_spread'[Week Ending])
+			    )
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: f19b9ed4-d7f5-4120-a2c3-e295c95875dc
+
+	measure distinct_count_Rooms_Latest_Baseline =
+			
+			VAR MaxDate =
+			    CALCULATE(
+			        MAX('Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date]),
+			        ALL('Fact_BL_Forecast_L5_daily_spread')
+			    )
+			RETURN
+			    CALCULATE(
+			        DISTINCTCOUNT('Fact_BL_Forecast_L5_daily_spread'[room]),
+			        'Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date] = MaxDate,USERELATIONSHIP(Dim_Date[Date],'Fact_BL_Forecast_L5_daily_spread'[Week Ending])
+			    )
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: f71bff38-8d71-4a28-848a-08577895ac34
+
+	measure sa_progressed_planned = DIVIDE([distinct_count_Rooms_Latest_Baseline_and_progressed],[distinct_count_Rooms_Latest_Baseline])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: cc188712-0475-449a-9d43-ac80491f4b96
+
+	measure sum_hours_forecast_baseline = ```
+			-- MS
+			
+			VAR LatestMonth =
+			
+			        MAX('Fact_Forecast_Baseline'[Baseline Month Year Date])
+			   
+			RETURN
+			CALCULATE(
+			    SUM('Fact_Forecast_Baseline'[Data.Remaining Work]),'Fact_Forecast_Baseline'[Baseline Month Year Date] = LatestMonth,USERELATIONSHIP(Dim_Date[Date],'Fact_Forecast_Baseline'[Planned]
+			)
+			)
+			```
+		displayFolder: 2_Hours
+		lineageTag: 81602ce4-0ece-44e1-b776-b5cec014d37b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_booked_hours = sum(Fact_Booked_Hours[Booked Hours])
+		formatString: #,0.00
+		displayFolder: 2_Hours
+		lineageTag: 653ce982-d19b-4dc5-8e4c-3af5a015feba
+
+	measure sum_remaining_hours_l5_by_day =
+			-- MS
+			
+			    sum(Fact_BL_Forecast_L5_daily_spread[Hrs Per Day])
+		displayFolder: 2_Hours
+		lineageTag: 0671b28a-00da-4030-bcdc-7dc9d25c8fcd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure allocated_l5_hours_by_trade = ```
+			
+			SUMX(
+			    Dim_Resource_Profile,
+			    VAR TradePercent = Dim_Resource_Profile[%]
+			    
+			    VAR TotalRemainingHours =
+			        CALCULATE(
+			            [sum_remaining_hours_l5_by_day],
+			            ALLEXCEPT(
+			                Dim_Resource_Profile,
+			                Dim_Resource_Profile[Planning Commodity]
+			            )
+			        )
+			    
+			    RETURN
+			
+			        [sum_remaining_hours_l5_latest_week] * TradePercent
+			)
+			```
+		formatString: #,0.00
+		displayFolder: 2_Hours
+		lineageTag: 54592c55-c8e2-4abc-97b9-7ed4c12f1012
+
+	measure dynamic_people_per_day_l5 =
+			
+			DIVIDE(
+			    [allocated_l5_hours_by_trade],
+			    49.5
+			)
+		formatString: #,0
+		displayFolder: 6_Counts
+		lineageTag: 3e7bb14f-fa70-4eea-bd15-73ae98dc189a
+
+	measure 'DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)' =
+			-- MS
+			
+			VAR LatestDate = MAX(Fact_Daily[Day])
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Daily[Design Quantity]),
+			    Fact_Daily[Day] = LatestDate,
+			    Fact_Daily[Weekly % Complete] < 0.9,
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week])
+			)
+		displayFolder: 4_Daily Progress
+		lineageTag: 5fd7037b-4b4b-4dbf-8efa-b2bd1a4114b1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)' =
+			-- MS
+			
+			VAR LatestDate = MAX(Fact_Daily[Day])
+			RETURN
+			CALCULATE(
+			    SUM(Fact_Daily[Design Quantity]),
+			    Fact_Daily[Day] = LatestDate,
+			    Fact_Daily[Weekly % Complete] >= 0.9,
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week])
+			)
+		displayFolder: 4_Daily Progress
+		lineageTag: 9b5d2dd8-c480-44dd-aa27-84e96383febd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DAILY PROGRESS (ROC <90%)(''PIN NO. or ECS CODES IN PROGRESS)' =
+			-- MS
+			
+			VAR LatestDate = MAX(Fact_Daily[Day])
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Daily[ECS Code]),
+			    Fact_Daily[Day] = LatestDate,
+			    Fact_Daily[Weekly % Complete] < 0.9,
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week])
+			)
+		formatString: 0
+		displayFolder: 4_Daily Progress
+		lineageTag: ab4fd92c-f08f-411a-9d18-c56d8379a02c
+
+	measure 'DAILY PROGRESS (ROC >90%)(''PIN NO. or ECS CODES IN PROGRESS)' =
+			-- MS
+			
+			VAR LatestDate = MAX(Fact_Daily[Day])
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Daily[ECS Code]),
+			    Fact_Daily[Day] = LatestDate,
+			    Fact_Daily[Weekly % Complete] >= 0.9,
+			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week])
+			)
+		formatString: 0
+		displayFolder: 4_Daily Progress
+		lineageTag: 033fca8e-496c-4039-a6a2-989a8cb524f5
+
+	measure Cum_sum_earned_hours_week_production = ```
+			
+			VAR LastActualDate =
+			    CALCULATE(
+			        MAX(Dim_ECS[actual_installed_date]),
+			        ALL(Dim_Date)          -- removes date filtering
+			    )
+			
+			RETURN
+			
+			IF(
+			    MAX(Dim_Date[Date]) <= LastActualDate,
+			    CALCULATE(
+			        [sum_earned_hours_week_production],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            Dim_Date[Date] <= MAX(Dim_Date[Date])
+			        )
+			    )
+			)
+			
+			```
+		displayFolder: 2_Hours
+		lineageTag: 829cebf2-8c8f-4b4c-b3ac-b11c526c0d36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure cum_sum_remaining_hours_p6_by_day =
+			
+			CALCULATE(
+				[sum_remaining_hours_p6_by_day] + [sum_earned_hours_week_production],
+				FILTER(
+					ALLSELECTED('Dim_Date'[Date]),
+					ISONORAFTER('Dim_Date'[Date], MAX('Dim_Date'[Date]), DESC)
+				)
+			)
+		displayFolder: 2_Hours
+		lineageTag: 56f35a79-e3e8-4005-ab66-6de67ec64cd0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Cum_sum_remaing_work_l5_plan_by_day = ```
+			
+			VAR LastActualDate =
+			    CALCULATE(
+			        MAX(Dim_ECS[actual_installed_date]),
+			        ALL(Dim_Date)          -- removes date filtering
+			    )
+			
+			RETURN
+			
+			IF(
+			    MAX(Dim_Date[Date]) <= LastActualDate,
+			    CALCULATE(
+			        [sum_remaining_hours_l5_by_day] + [sum_earned_hours_week_production],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            Dim_Date[Date] <= MAX(Dim_Date[Date])
+			        )
+			    )
+			)
+			
+			```
+		displayFolder: 2_Hours
+		lineageTag: 75c71c9a-f9e6-44a6-9002-8bbc81dc6c2a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_l5_bl_by_week =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Fact_BL_Forecast_L5_daily_spread[Qty This Week]), Fact_BL_Forecast_L5_daily_spread[Is Max Date] = TRUE())
+		displayFolder: 1_Quantities
+		lineageTag: 535af0b1-8a9f-48fd-a1a7-d86bf155d2f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_hours_l5_latest_week =
+			-- MS
+			CALCULATE(
+			    sum(Fact_BL_Forecast_L5_daily_spread[Hrs This Week]), Fact_BL_Forecast_L5_daily_spread[Is Max Date] = TRUE())
+		displayFolder: 2_Hours
+		lineageTag: 0dd744b2-d2b4-485b-b127-6ccb9c2e131b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_hours_room_forecast_baseline =
+			
+			var latestmonth = MAX('Fact_Forecast_Baseline'[Baseline Month Year])
+			RETURN
+			CALCULATE(sum('Fact_Forecast_Baseline'[Data.Remaining Work]),'Fact_Forecast_Baseline'[Baseline Month Year] = latestmonth)
+		displayFolder: 2_Hours
+		lineageTag: 86214f94-c62e-47df-b3f3-a2f0add992fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_available_by_release_date =
+			
+			var remaining_hours_release = CALCULATE(sum(Dim_ECS[Remaining Hours]), USERELATIONSHIP(Dim_Date[Date], Dim_ECS[release date]))
+			return
+			DIVIDE(remaining_hours_release,10498088)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 26efd9d8-af61-4a49-9f07-b8f399d54d83
+
+	measure remaining_hours_releasedate = CALCULATE(sum(Dim_ECS[Remaining Hours]), USERELATIONSHIP( Dim_Date[Date], Dim_ECS[release date]))
+		displayFolder: 2_Hours
+		lineageTag: 418fa317-455a-49b9-bf02-921385405b85
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure counts_days_remaining_roc =
+			
+			VAR Start_ = SELECTEDVALUE( Dim_ECS[ROC Start Date] )
+			RETURN
+			    IF( NOT ISBLANK( Start_ ), DATEDIFF( TODAY(), Start_ + 28, DAY ) )
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: ede3acb9-c6b1-45a2-ab97-727bd3acd000
+
+	measure coun_ecs_remaining_roc =
+			
+			VAR Offset = SELECTEDVALUE( 'Burndown Axis'[Day Offset] )
+			RETURN
+			    CALCULATE(
+			        DISTINCTCOUNT( Dim_ECS[ECS Code] ),
+			        FILTER(
+			            ALL( Dim_ECS ),
+			            NOT ISBLANK( Dim_ECS[ROC Start Date] )
+			            && DATEDIFF( Dim_ECS[ROC Start Date], TODAY(), DAY ) = Offset
+			        )
+			    )
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: 64118c8a-039d-4040-a1a8-7bde4015fbdf
+
+	measure sum_booked_hours_summary = sum(Booked_Hours_Summary[Value])
+		displayFolder: 2_Hours
+		lineageTag: db5c4b6a-6c42-47a4-8394-498b658e42b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure distinct_people_booked =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Booked_Hours[Person Code]),Fact_Booked_Hours[Trade Type]="Direct",
+			    USERELATIONSHIP(Dim_Date[Date],Fact_Booked_Hours[Week Ending])
+			    )
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: d9be9d97-a336-4dca-a2b4-b65de1dcf2ae
+
+	measure sum_booked_hours_delay =
+			
+			
+			CALCULATE([sum_booked_hours], Fact_Booked_Hours[Delay Code]<>"D01",Fact_Booked_Hours[Delay Code]<>"I161")
+		displayFolder: 2_Hours
+		lineageTag: 73571309-9cb2-44e3-8b75-019123dd0783
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_booked_hours_no_delay =
+			
+			
+			CALCULATE([sum_booked_hours],    FILTER(
+			        'Fact_Booked_Hours',
+			        'Fact_Booked_Hours'[Delay Code] = "D01" || 'Fact_Booked_Hours'[Delay Code] = "I161"
+			    )
+			)
+		displayFolder: 2_Hours
+		lineageTag: 3ec0eb9d-8033-49cb-a67e-8c21e1fd299c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_daily_installed =
+			-- MS
+			CALCULATE(SUM(Fact_Daily[Design Quantity])
+			,Fact_Daily[% Complete]>=0.9 && Fact_Daily[Baseline % Complete]<0.9
+			,Fact_Daily[Daily Hours Earned]>0
+			,Fact_Daily[Is_Latest_Record]=TRUE()
+			,USERELATIONSHIP(Dim_Date[Date],Fact_Daily[Reporting Week]))
+		displayFolder: 1_Quantities
+		lineageTag: eeaa192f-4d2f-4235-bfb8-b2634dba7612
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_booked_hours_direct_last_day = CALCULATE([sum_booked_hours],USERELATIONSHIP(Dim_Date[Date],Fact_Booked_Hours[Booking Date]),Fact_Booked_Hours[Is_Latest_Date]=TRUE())
+		displayFolder: 2_Hours
+		lineageTag: 2463b44b-66f3-4604-9967-5fbcfdafa528
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure cum_%_hours_earned_Day = ```
+			-- MS
+			VAR _current_week = CALCULATE(MAX(Fact_Daily[Reporting Week]), ALL(Dim_Date))
+			
+			VAR _result = 
+			    CALCULATE(
+			        [%_hours_earned_to4],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            ISONORAFTER(Dim_Date[Date], MAX(Dim_Date[Date]), DESC)
+			        )
+			    )
+			
+			RETURN
+			IF(
+			    MAX(Dim_Date[Week Ending]) <= DATE(2026,7,31),
+			    _result,
+			    BLANK()
+			)
+			```
+		displayFolder: 3_Percent/Ratio
+		lineageTag: e4470e6a-e594-4ebd-96d2-a61532f86d33
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure distinct_people_booked_welders =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Fact_Booked_Hours[Person Code]),not ISBLANK(Fact_Booked_Hours[Welder_Code]),
+			    USERELATIONSHIP(Dim_Date[Date],Fact_Booked_Hours[Week Ending])
+			    )
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: a7370931-98e4-4136-b823-859d72579fe0
+
+	measure sum_design_quantity_actual_installed_assurance =
+			
+			
+			CALCULATE(
+			    SUM(Dim_ECS[DesignQuantity]),
+			    USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			    Dim_ECS[actual_installed_date] <> BLANK(),Dim_Date[IsCurrentWeek]=FALSE()
+			)
+		displayFolder: 1_Quantities
+		lineageTag: 4ecee3de-7f3a-4926-b7ee-036c1ed8583b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '_DTS_FC 75%' = ```
+			
+			VAR Base =
+			    SUMMARIZE(
+			        FILTER(
+			            Dim_ECS,
+			            (
+			                NOT ISBLANK(Dim_ECS[DTS FC]) 
+			                || Dim_ECS[DTS Status] = "DELIVERED"
+			            )
+			        ),
+			        Dim_ECS[ECS Code],
+			        "FC_Date", MAX(Dim_ECS[DTS FC])
+			    )
+			
+			VAR Pctl =
+			    PERCENTILEX.INC(
+			        Base,
+			        VALUE([FC_Date]),
+			        0.75
+			    )
+			
+			RETURN
+			DATE(1899,12,30) + Pctl
+			```
+		formatString: Short Date
+		displayFolder: 7_DTS
+		lineageTag: 407d0bfd-42bb-4904-bfed-f20c7b214dc2
+
+	measure _DTS_Status = IF([%_delivered]>=0.75,"Completed","Not Started")
+		displayFolder: 7_DTS
+		lineageTag: 8712766d-7360-4870-bd8a-a70bfcd32cae
+
+	measure _Dts_activity_type = "Finish Milestone"
+		displayFolder: 7_DTS
+		lineageTag: 14f6e303-f1ae-47af-bb13-3d365d10276d
+
+	measure _dts_actual_finish = IF([_DTS_Status]="Completed",[_DTS_FC 75%],BLANK())
+		formatString: Short Date
+		displayFolder: 7_DTS
+		lineageTag: 3a0ed568-9530-4eb2-92cb-1b3eae5a4380
+
+	measure 'Primary Constraint' = "Finish On or After"
+		displayFolder: 7_DTS
+		lineageTag: 0def0960-e94d-43ae-8cef-c37cc2d786ae
+
+	measure 'Relationship Type' = "FS"
+		displayFolder: 7_DTS
+		lineageTag: 6046f106-b2ea-458d-8baf-188cb5010b46
+
+	measure wld_dist_count = CALCULATE(DISTINCTCOUNT(Fact_Booked_Hours[MEH ID]),Fact_Booked_Hours[Skill Group]="Welder")
+		formatString: 0
+		displayFolder: 8_PR
+		lineageTag: 5f6005f0-d993-46de-9723-c34b444d71a9
+
+	measure wld_sum_booked_hours = CALCULATE([sum_booked_hours],Fact_Booked_Hours[Skill Group]="Welder")
+		displayFolder: 8_PR
+		lineageTag: 8af0a3f6-45c5-4e33-a3f7-3082d96eb40b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure wld_days_worked = CALCULATE(DISTINCTCOUNT(Fact_Booked_Hours[Booking Date]),Fact_Booked_Hours[Skill Group]="Welder")
+		formatString: 0
+		displayFolder: 8_PR
+		lineageTag: 77964b7c-bec8-4b19-ab90-5fabab361a67
+
+	measure wld_avg_production = DIVIDE([sum_design_quantity_actual_installed_inc_this_week],[wld_days_worked])
+		displayFolder: 8_PR
+		lineageTag: 58b0e182-30cf-4f9f-b32a-3f01b8650382
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure wld_prod_welder = DIVIDE([wld_avg_production],[wld_dist_count])
+		displayFolder: 8_PR
+		lineageTag: 338e0b05-2d51-4e03-8172-e4d5f718a38e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure wld_targeted_pr =
+			IF(SELECTEDVALUE(Dim_Planning_Commodity[PR_Commodity])="BNI Pipe",3.07,
+			IF(SELECTEDVALUE(Dim_Planning_Commodity[PR_Commodity])="BOP Pipe",4.34,
+			IF(SELECTEDVALUE(Dim_Planning_Commodity[PR_Commodity])="Supports",1.5,
+			IF(SELECTEDVALUE(Dim_Planning_Commodity[PR_Commodity])="Clamps",6))))
+		displayFolder: 8_PR
+		lineageTag: 97985e4a-2c27-4f29-bcbd-ef0b052993cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure PR = [wld_prod_welder]/[wld_targeted_pr]
+		displayFolder: 8_PR
+		lineageTag: 1f643a85-322c-44c6-ae50-49b93c1f62ac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_weight_actual_installed =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Dim_ECS[Weight_kg]),
+			    USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			    Dim_ECS[actual_installed_date] <> BLANK()
+			)
+		displayFolder: 8_PR
+		lineageTag: 13b3dffd-320c-4e52-ace0-86137fa8932b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_fabrication_completed =
+			-- MS
+			
+			
+			CALCULATE([sum_design_quantity_all], Dim_ECS[MEH_ENG_LiveStatus] in
+			 {"BOXED",
+			"CNPEC IN TRANSIT",
+			"DELIVERED",
+			"FABRICATION COMPLETE",
+			"MANUFACTURED",
+			"SAR READY",
+			"SAR READY - IN STORAGE"}||Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 1_Quantities
+		lineageTag: d9bf4745-99e0-4aa3-b0ce-1f4a7f2b78cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_fab_completed = ```
+			-- MS
+			DIVIDE([sum_design_quantity_fabrication_completed],[sum_design_quantity_all]) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 4164b939-be24-4acd-b7bb-db69e5a7c1e0
+
+	measure 'MultiDiscipline Room' =
+			
+			VAR DiscCount =
+			    CALCULATE(
+			        DISTINCTCOUNT('Dim_ECS'[Discipline]),
+			        FILTER(
+			            ALL('Dim_ECS'[Discipline]),
+			            CALCULATE(SUM('Fact_BL_Forecast_L5_daily_spread'[Hrs This Week])) > 0
+			        )
+			    )
+			RETURN
+			IF(DiscCount > 1, 1, 0)
+		formatString: 0
+		displayFolder: 5_Helpers
+		lineageTag: 2f525aa0-3ce8-47eb-9db7-dd790780121a
+
+	measure 'Room Background Colour' =
+			
+			IF(
+			    [MultiDiscipline Room] = 1,
+			    "#FFC7CE",    -- Light Red
+			    "#FFFFFF"     -- White
+			)
+		displayFolder: 5_Helpers
+		lineageTag: 686d0ef8-59fb-464a-a2d5-9faf21311115
+
+	measure 'Current Max Date' = CALCULATE(MAX(Dim_ECS[LIVE - Forecast Finish Date]))
+		formatString: Short Date
+		displayFolder: 5_Helpers
+		lineageTag: a2e2dfab-9ae5-41c1-a0ea-6f4f7c76a9d5
+
+	measure 'LM Max Date' = CALCULATE(MAX(Dim_ECS[LM - Forecast Finish Date]))
+		formatString: Short Date
+		displayFolder: 5_Helpers
+		lineageTag: ed7e1ba5-bf34-48eb-9b00-9664746def94
+
+	measure rooms_count =
+			-- MS
+			CALCULATE(DISTINCTCOUNT(Dim_ECS[Room]))
+		formatString: 0
+		displayFolder: 6_Counts
+		lineageTag: a0bfef44-2d63-4087-b530-739904fddaa8
+
+	measure sum_remaining_%Complete =
+			-- MS
+			[budget_hours]/10498088
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2_Hours
+		lineageTag: d3560cd7-6b29-46aa-bec5-57de1055d06b
+
+	measure sum_remaining_hours_delivered =
+			
+			
+			
+			CALCULATE([sum_remaining_hours], Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 2_Hours
+		lineageTag: 68e18372-7793-4008-b87f-118ba9dc9756
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_delivered_hours = ```
+			-- MS
+			DIVIDE([sum_remaining_hours_delivered],[sum_remaining_hours]) 
+			```
+		displayFolder: 3_Percent/Ratio
+		lineageTag: fd61d10f-93bb-494d-bc7f-39efec53cca3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_budgeted_hours_delivered =
+			
+			
+			
+			CALCULATE([budget_hours], Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 2_Hours
+		lineageTag: f85bd536-25ad-422d-8c4f-13e3c70621bb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_outstanding_delivered =
+			-- MS
+			
+			
+			CALCULATE([sum_design_quantity_all]-[sum_design_quantity_actual_installed_inc_this_week], Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 1_Quantities
+		lineageTag: c41ddfc0-b834-4047-af33-cf208d857316
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_outstanding =
+			-- MS
+			
+			
+			([sum_design_quantity_all]-[sum_design_quantity_actual_installed_inc_this_week])
+		displayFolder: 1_Quantities
+		lineageTag: 3ddad07e-b7cb-4fd0-bb23-7e8e8bb62777
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_delivered_outstanding = DIVIDE([sum_design_quantity_outstanding_delivered],[sum_design_quantity_delivered])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: c59d439a-9aa0-44c8-897d-e6edb74062f9
+
+	measure Min_Actual_Installed = MIN(Dim_ECS[actual_installed_date])
+		formatString: Short Date
+		displayFolder: 7_DTS
+		lineageTag: b533e6bb-7d0a-4364-808b-242a68c5cddb
+
+	measure Max_Actual_Installed = IF([budget_hours]=[sum_earned_hours],MAX(Dim_ECS[actual_installed_date]),BLANK())
+		formatString: Short Date
+		displayFolder: 7_DTS
+		lineageTag: b2b638b5-e32e-456e-bed2-ad793647bd57
+
+	measure sum_design_quantity_actual_installed_inc_CMPIC =
+			-- MS
+			
+			VAR CMPICStart = DATE(2026, 7, 27)
+			
+			VAR ECS_All =
+			    CALCULATE(
+			        SUM(Dim_ECS[DesignQuantity]),
+			        USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			        Dim_ECS[actual_installed_date] <> BLANK()
+			    )
+			
+			VAR ECS_CablePullingFromCMPIC =
+			    CALCULATE(
+			        SUM(Dim_ECS[DesignQuantity]),
+			        USERELATIONSHIP(Dim_Date[Date], Dim_ECS[actual_installed_date]),
+			        KEEPFILTERS(Dim_ECS[Planning Commodity] = "Cable Pulling"),
+			        KEEPFILTERS(Dim_ECS[actual_installed_date] >= CMPICStart)
+			    )
+			
+			VAR CMPIC =
+			    CALCULATE(
+			        SUM(Fact_CMPIC[Fully/Part-Pulled Length]),
+			        USERELATIONSHIP(Dim_Date[Date], Fact_CMPIC[Latest Installation Status Date]),
+			        Fact_CMPIC[Latest Installation Status Date] >= CMPICStart,
+			        TREATAS(VALUES(Dim_ECS[Planning Commodity]), Fact_CMPIC[Planning Commodity]),
+			        TREATAS(VALUES(Dim_ECS[Adj_unit]), Fact_CMPIC[Unit])
+			    )
+			
+			RETURN
+			    ECS_All - ECS_CablePullingFromCMPIC + CMPIC
+		displayFolder: 1_Quantities
+		lineageTag: 43957a25-1be8-490d-a08d-0e2edbe36c71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_hours_rolling_by_week =
+			-- MS
+			CALCULATE(
+			    sum(Fact_Rolling_Forecast_L5_daily_spread[Hrs This Week]))
+		displayFolder: 2_Hours
+		lineageTag: 1e899a15-0e57-4f37-982a-38e4f7e570a4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_design_quantity_l5_rolling_by_week =
+			-- MS
+			
+			CALCULATE(
+			    SUM(Fact_Rolling_Forecast_L5_daily_spread[Qty This Week]))
+		displayFolder: 1_Quantities
+		lineageTag: 2465b08b-dbdd-4c1e-9113-14594bf51f96
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_hours_l5rolling_by_day =
+			-- MS
+			
+			    sum(Fact_Rolling_Forecast_L5_daily_spread[Hrs Per Day])
+		displayFolder: 2_Hours
+		lineageTag: 96cb6d4a-932a-42f4-9ae6-2e48a652aafb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure allocated_l5_hours_by_trade_rolling = ```
+			
+			SUMX(
+			    Dim_Resource_Profile,
+			    VAR TradePercent = Dim_Resource_Profile[%]
+			    
+			    VAR TotalRemainingHours =
+			        CALCULATE(
+			            [sum_remaining_hours_l5rolling_by_day],
+			            ALLEXCEPT(
+			                Dim_Resource_Profile,
+			                Dim_Resource_Profile[Planning Commodity]
+			            )
+			        )
+			    
+			    RETURN
+			
+			        [sum_remaining_hours_l5rolling_by_day] * TradePercent
+			)
+			```
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 06cd8cb2-3487-41a1-bd7d-c1d0dc448e90
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure dynamic_people_per_day_l5_rolling =
+			
+			DIVIDE(
+			    [allocated_l5_hours_by_trade_rolling],
+			    49.5
+			)
+		formatString: #,0.00
+		displayFolder: 6_Counts
+		lineageTag: 1a30b95f-6dc9-4270-927e-ae9702d0cad1
+
+	measure 'Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week' =
+			-- MS
+			
+			    sum(Fact_BL_Forecast_L5_daily_spread[Hrs This Week])
+		displayFolder: 2_Hours
+		lineageTag: fcb59603-8f7b-4f42-955e-4ace5989544c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure rate_earned_planned =
+			-- MS
+			DIVIDE([sum_earned_hours_supporting_meh],[Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week])
+		displayFolder: 2_Hours
+		lineageTag: fc67cd61-e642-4b66-9d74-3d18299a74ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_earned =
+			-- MS
+			DIVIDE([sum_earned_hours_supporting_meh],[Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 2daf7f5a-518c-4bba-be23-2ffb02a35ac4
+
+	measure rate_productivity =
+			-- MS
+			DIVIDE([sum_earned_hours_supporting_meh],[sum_booked_hours])
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 3f307667-23b1-4e54-9cfa-ef0e5e818ee8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 9a6a903a-a09a-4696-95e9-380a5a22edcb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'L4SPE Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = e939d1af966f47cf8233907bba223a10
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

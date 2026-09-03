@@ -1,0 +1,456 @@
+table Fact_Daily
+	lineageTag: 3db241c9-26d2-44ca-af92-09c9dcfcc65e
+
+	measure '_% Complete' = sum(Fact_Daily[% Complete])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 65124cd2-c256-47ba-98fc-6c5bdfe869c9
+
+	column 'File Name'
+		dataType: string
+		lineageTag: 37b78cdd-c39b-47de-a1ee-0e98ffe6914f
+		summarizeBy: none
+		sourceColumn: File Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5b2a5066-1c57-4c92-aeb1-1003201a0c0e
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Shift
+		dataType: string
+		lineageTag: a436f46a-41d6-4e55-ac03-0a45cf3d86bc
+		summarizeBy: none
+		sourceColumn: Shift
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Complete'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: eb50f07d-43c1-41a6-9695-09f40eccd0ec
+		summarizeBy: sum
+		sourceColumn: % Complete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: 15e21c45-c62e-4840-8c42-558c46799eb9
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekly % Complete' = ```
+			
+			VAR CurrentECS = fact_daily[ECS Code]
+			VAR CurrentDate = fact_daily[Day]
+			
+			VAR Progress_Now = Fact_Daily[% Complete]
+			
+			VAR Baseline = 
+			    RELATED(Dim_ECS[Current % Complete])
+			
+			RETURN
+			    IF(Progress_Now - Baseline < 0, BLANK(), Progress_Now - Baseline)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8978880e-59ab-4601-b88c-b3dad49e17e0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hours Earned' = ```
+			
+			    fact_daily[Weekly % Complete] * RELATED(Dim_ECS[Final_Hours])
+			```
+		formatString: 0.00
+		lineageTag: 50907980-1d5f-4082-954d-79c76c3913f6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateTime =
+			
+			VAR BaseDate = Fact_Daily[Day]   -- your date column
+			VAR HourOffset = IF(fact_Daily[Shift] = "AM", 20, 8)  -- 8 AM or 8 PM
+			RETURN
+			    BaseDate + TIME(HourOffset, 0, 0)
+		formatString: General Date
+		lineageTag: 2259f2ac-74fd-431c-afcf-55dc101ad853
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Daily Hours Earned' = ```
+			
+			VAR CurrentECS = fact_daily[ECS Code]
+			
+			-- Find the 2 latest datetimes for this ECS Code
+			VAR LatestDateTime =
+			    CALCULATE(
+			        MAX(Fact_Daily[Day]),
+			        FILTER(ALL(fact_daily), fact_daily[ECS Code] = CurrentECS)
+			    )
+			
+			VAR PreviousDateTime =
+			    CALCULATE(
+			        MAX(Fact_Daily[Day]),
+			        FILTER(
+			            ALL(fact_daily),
+			            fact_daily[ECS Code] = CurrentECS &&
+			            Fact_Daily[Day] < LatestDateTime
+			        )
+			    )
+			
+			-- Get hours at each of those 2 datetimes
+			VAR LatestHours =
+			    CALCULATE(
+			        MAX(fact_daily[Hours Earned]),
+			        FILTER(ALL(fact_daily), fact_daily[ECS Code] = CurrentECS && Fact_Daily[Day] = LatestDateTime)
+			    )
+			
+			VAR PreviousHours =
+			    CALCULATE(
+			        MAX(fact_daily[Hours Earned]),
+			        FILTER(ALL(fact_daily), fact_daily[ECS Code] = CurrentECS && Fact_Daily[Day] = PreviousDateTime)
+			    )
+			
+			RETURN
+			
+			    IF (
+			        Fact_Daily[Day] = LatestDateTime
+			            && NOT ISBLANK ( PreviousHours ),
+			        LatestHours - PreviousHours,
+			        Fact_Daily[Hours Earned]
+			    )
+			
+			```
+		lineageTag: 50ad7ea8-93e2-475a-8eb5-29c325cb84b9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Reporting Week' = LOOKUPVALUE(Dim_Date[Week Ending],Dim_Date[Date],Fact_Daily[Day])
+		formatString: Short Date
+		lineageTag: 1cbe3eb8-0c79-4b11-8b75-787d3f0e3d37
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Design Quantity' = RELATED(Dim_ECS[DesignQuantity])
+		lineageTag: fa211204-ea96-4998-adaf-7acff606bd69
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Baseline % Complete' = ```
+			
+			    RELATED(Dim_ECS[Current % Complete])
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4913a655-f2b9-4769-a5a4-ee6822acaf70
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Final_Hours =
+			
+			IF(
+			    RELATED(Dim_ECS[KEEP_FLAG]) <> "Exclude",
+			    RELATED(Dim_ECS[Final_Hours]),
+			    BLANK()
+			)
+		formatString: 0.00
+		lineageTag: 71ee6cd0-60ae-42d6-8632-e1367d71959f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room ID'
+		dataType: string
+		lineageTag: 9eded779-a1a2-4fe5-bb32-41cc9686ba19
+		summarizeBy: none
+		sourceColumn: Room ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Level 5 Activity'
+		dataType: string
+		lineageTag: d34ecbed-b0a3-4fef-a63e-90d99865c0c4
+		summarizeBy: none
+		sourceColumn: Level 5 Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Max Date Check'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 26c65357-7980-4370-9948-e87a531ee3d2
+		summarizeBy: none
+		sourceColumn: Max Date Check
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Latest_Record =
+			
+			VAR CurrentECS = fact_daily[ECS Code]
+			VAR MaxDateTime =
+			    CALCULATE (
+			        MAX ( fact_daily[DateTime] ),
+			        FILTER (
+			            ALL ( fact_daily ),
+			            fact_daily[ECS Code] = CurrentECS
+			        )
+			    )
+			RETURN
+			    fact_daily[DateTime] = MaxDateTime
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f7c5665f-466c-41ba-bf6e-2aedc22b966d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'L6 Activity'
+		dataType: string
+		lineageTag: 4b059019-4ede-485c-a8d4-4a442b67a361
+		summarizeBy: none
+		sourceColumn: L6 Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Daily = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    // --- Step 1: Get all Excel files from the SharePoint folder ---
+				    Source = SharePoint.Files("https://edfenergynnb.sharepoint.com/sites/L4Analysts", [ApiVersion = 15]),
+				
+				    FilteredFolder = Table.SelectRows(
+				        Source,
+				        each Text.Contains([Folder Path], "Daily/Daily Progress")
+				            and [Extension] = ".xlsx"
+				            and not Text.Contains([Folder Path], "Archive")
+				    ),
+				
+				    // --- Step 2: Read each Excel file into a table of sheets ---
+				    GetSheets = Table.AddColumn(FilteredFolder, "ExcelData", each Excel.Workbook([Content], null, true)),
+				
+				    // --- Step 3: Rename sheet Name column to avoid conflict ---
+				    RenamedSheets = Table.TransformColumns(
+				        GetSheets,
+				        {"ExcelData", each Table.RenameColumns(_, {{"Name", "SheetName"}}), type table}
+				    ),
+				
+				    // --- Step 4: Expand all sheets ---
+				    ExpandedSheets = Table.ExpandTableColumn(RenamedSheets, "ExcelData", {"SheetName", "Kind", "Data"}),
+				
+				    // --- Step 5: Keep only sheets named "id" ---
+				    DailySheets = Table.SelectRows(ExpandedSheets, each [SheetName] = "id" and [Kind] = "Sheet"),
+				
+				    // --- Step 5b: Promote headers WITHIN each file's Data table individually ---
+				    // This is the fix — headers get promoted per-file, before the files are combined,
+				    // so each file's header row doesn't get carried through as a data row.
+				    PromotedPerFile = Table.TransformColumns(
+				        DailySheets,
+				        {"Data", each Table.PromoteHeaders(_, [PromoteAllScalars = true]), type table}
+				    ),
+				
+				    // --- Step 6: Expand all columns dynamically (headers already correct per file) ---
+				    DailyData = Table.ExpandTableColumn(PromotedPerFile, "Data", Table.ColumnNames(PromotedPerFile{0}[Data])),
+				
+				    #"Removed Columns" = Table.RemoveColumns(
+				        DailyData,
+				        {
+				            "Content", "Extension", "Date accessed", "Date modified",
+				            "Date created", "Attributes", "Folder Path",
+				            "SheetName", "Kind"
+				        }
+				    ),
+				
+				    // --- Force first column name to "File Name" (this is the file's [Name] column from SharePoint.Files) ---
+				    #"Force First Column Name" =
+				        Table.RenameColumns(
+				            #"Removed Columns",
+				            {
+				                { Table.ColumnNames(#"Removed Columns"){0}, "File Name" }
+				            }
+				        ),
+				
+				    #"Changed Type" = Table.TransformColumnTypes(
+				        #"Force First Column Name",
+				        {
+				            {"Project", type text}, {"Cut-Off Date", type date}, {"Sub-Area", type text},
+				            {"ECS", type text},
+				            {"Commodity", type text}, {"Rule Of Credit", type text}, {"Actual Start", type date},
+				            {"Actual Finish", type date}, {"Status", type text},
+				            {"Percentage Complete", Int64.Type}, {"Earned Hours", type number},
+				            {"Comments", type text}
+				        }
+				    ),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [ECS] <> null and [ECS] <> ""),
+				
+				    #"Added Extracted Date & Shift" =
+				        Table.AddColumn(
+				            #"Filtered Rows",
+				            "Extracted Date & Shift",
+				            each
+				                let
+				                    name = [File Name],
+				                    cleaned = Text.BeforeDelimiter(name, ".xlsx"),
+				                    removedProgress = Text.AfterDelimiter(cleaned, "Progress ", 0),
+				
+				                    Shift =
+				                        if Text.EndsWith(removedProgress, " PM") then "AM"
+				                        else "FullDay",
+				
+				                    ExtractedDateText = Text.Trim(Text.Replace(removedProgress, " PM", "")),
+				                    ExtractedDateText2 = Text.Trim(Text.Replace(ExtractedDateText, " AM", "")),
+				
+				                    DayParts = Text.Split(ExtractedDateText2, "."),
+				
+				                    ExtractedDate =
+				                        #date(
+				                            2000 + Number.FromText(DayParts{2}),
+				                            Number.FromText(DayParts{1}),
+				                            Number.FromText(DayParts{0})
+				                        )
+				                in
+				                    [Date = ExtractedDate, Shift = Shift],
+				            type record
+				        ),
+				
+				    #"Expanded Extracted Date & Shift" =
+				        Table.ExpandRecordColumn(
+				            #"Added Extracted Date & Shift",
+				            "Extracted Date & Shift",
+				            {"Date", "Shift"}
+				        ),
+				
+				    #"Removed Columns1" =
+				        Table.RemoveColumns(#"Expanded Extracted Date & Shift", {"Comments"}),
+				
+				    #"Inserted Division" =
+				        Table.AddColumn(
+				            #"Removed Columns1",
+				            "Division",
+				            each [Percentage Complete] / 100,
+				            type number
+				        ),
+				
+				    #"Changed Type1" =
+				        Table.TransformColumnTypes(#"Inserted Division", {{"Division", Percentage.Type}}),
+				
+				    #"Removed Columns2" =
+				        Table.RemoveColumns(
+				            #"Changed Type1",
+				            {
+				                "Percentage Complete", "Sub-Area",
+				                "Commodity", "Rule Of Credit",
+				                "Actual Start", "Actual Finish", "Status",
+				                "Cut-Off Date", "Project", "Earned Hours"
+				            }
+				        ),
+				
+				    #"Renamed Columns1" =
+				        Table.RenameColumns(
+				            #"Removed Columns2",
+				            {{"Date", "Day"}, {"Division", "% Complete"}}
+				        ),
+				
+				    #"Changed Type2" =
+				        Table.TransformColumnTypes(#"Renamed Columns1", {{"Day", type date}}),
+				
+				    #"Renamed Columns2" =
+				        Table.RenameColumns(#"Changed Type2", {{"ECS", "ECS Code"}}),
+				
+				    #"Added Custom" =
+				        Table.AddColumn(
+				            #"Renamed Columns2",
+				            "Custom",
+				            each
+				                let
+				                    Code = [#"ECS Code"],
+				                    FixedSPL =
+				                        if Text.EndsWith(Code, "SPL0") then Text.Replace(Code, "SPL0", "SPL00") else
+				                        if Text.EndsWith(Code, "SPL1") then Text.Replace(Code, "SPL1", "SPL01") else
+				                        if Text.EndsWith(Code, "SPL2") then Text.Replace(Code, "SPL2", "SPL02") else
+				                        if Text.EndsWith(Code, "SPL3") then Text.Replace(Code, "SPL3", "SPL03") else
+				                        if Text.EndsWith(Code, "SPL4") then Text.Replace(Code, "SPL4", "SPL04") else
+				                        if Text.EndsWith(Code, "SPL5") then Text.Replace(Code, "SPL5", "SPL05") else
+				                        if Text.EndsWith(Code, "SPL6") then Text.Replace(Code, "SPL6", "SPL06") else
+				                        if Text.EndsWith(Code, "SPL7") then Text.Replace(Code, "SPL7", "SPL07") else
+				                        if Text.EndsWith(Code, "SPL8") then Text.Replace(Code, "SPL8", "SPL08") else
+				                        if Text.EndsWith(Code, "SPL9") then Text.Replace(Code, "SPL9", "SPL09") else
+				                        Code,
+				
+				                    FinalCode =
+				                        if Text.Contains(FixedSPL, "-SPL") then Text.Replace(FixedSPL, "-SPL", "SPL")
+				                        else FixedSPL
+				                in
+				                    FinalCode
+				        ),
+				
+				    #"Removed Columns3" =
+				        Table.RemoveColumns(#"Added Custom", {"ECS Code"}),
+				
+				    #"Renamed Columns3" =
+				        Table.RenameColumns(#"Removed Columns3", {{"Custom", "ECS Code"}}),
+				
+				    #"Replaced Value" =
+				        Table.ReplaceValue(
+				            #"Renamed Columns3",
+				            "RYSPL",
+				            "RY-SPL",
+				            Replacer.ReplaceText,
+				            {"ECS Code"}
+				        ),
+				
+				    #"Max Date Check" =
+				        let
+				            MaxDate = List.Max(#"Replaced Value"[Day]),
+				
+				            MaxDateRows =
+				                Table.SelectRows(
+				                    #"Replaced Value",
+				                    each [Day] = MaxDate
+				                ),
+				
+				            PreferredShift =
+				                if List.Contains(MaxDateRows[Shift], "FullDay") then
+				                    "FullDay"
+				                else if List.Contains(MaxDateRows[Shift], "PM") then
+				                    "PM"
+				                else
+				                    "AM"
+				        in
+				            Table.AddColumn(
+				                #"Replaced Value",
+				                "Max Date Check",
+				                each [Day] = MaxDate and [Shift] = PreferredShift,
+				                type logical
+				            )
+				in
+				    #"Max Date Check"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

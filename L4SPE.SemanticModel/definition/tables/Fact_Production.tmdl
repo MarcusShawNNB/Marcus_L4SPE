@@ -1,0 +1,274 @@
+table Fact_Production
+	lineageTag: 25ce582e-7390-44be-95ca-2307393bbada
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Current % Complete' = ```
+			-- MS
+			
+			VAR SelectedDate = 
+			    IF(
+			        ISFILTERED(Dim_Date[Week Ending]),
+			        MAX(Dim_Date[Week Ending]),
+			        CALCULATE(MAX('Fact_Production'[Actuals Update]), ALL('Fact_Production'))
+			    )
+			VAR CurrentECS = SELECTEDVALUE(DIM_ECS[ECS Code])
+			
+			RETURN
+			CALCULATE(
+			    MAX('Fact_Production'[% Complete Capped]),
+			    FILTER(
+			        ALL('Fact_Production'),
+			        'Fact_Production'[ECS Code] = CurrentECS &&
+			        'Fact_Production'[Actuals Update] <= SelectedDate
+			    )
+			)
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 1075e237-7553-4d34-9432-3aedd2530e54
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Previous % Complete' = ```
+			-- MS
+			
+			VAR CurrentECS = SELECTEDVALUE(DIM_ECS[ECS Code])
+			
+			VAR SelectedDate = 
+			    IF(
+			        ISFILTERED(Dim_Date[Week Ending]),
+			        MAX(Dim_Date[Week Ending]),
+			        CALCULATE(MAX('Fact_Production'[Actuals Update]), ALL('Fact_Production'))
+			    )
+			
+			VAR PreviousResult = 
+			    CALCULATE(
+			        MAX('Fact_Production'[% Complete Capped]),
+			        FILTER(
+			            ALL('Fact_Production'),
+			            'Fact_Production'[ECS Code] = CurrentECS &&
+			            'Fact_Production'[Actuals Update] < SelectedDate
+			        )
+			    )
+			
+			VAR HasPreviousRecord =
+			    CALCULATE(
+			        COUNTROWS('Fact_Production'),
+			        FILTER(
+			            ALL('Fact_Production'),
+			            'Fact_Production'[ECS Code] = CurrentECS &&
+			            'Fact_Production'[Actuals Update] < SelectedDate
+			        )
+			    ) > 0
+			
+			RETURN 
+			    IF(HasPreviousRecord, PreviousResult, 0)
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 9aecc075-90a3-49f1-a0bf-7ca3933ce99f
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Weekly % Delta' =
+			-- MS
+			[Current % Complete] - [Previous % Complete]
+		formatString: 0%;-0%;0%
+		lineageTag: e9ee2192-fb1e-4013-bc2d-b14adde046cd
+
+	///  created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Earned Hours Week' =
+			-- MS
+			
+			[budget_hours]*[Weekly % Delta]
+		lineageTag: 03105282-1c28-4f6f-82d6-f8f2f11c3577
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure max_actuals_update = MAX(Fact_Production[Actuals Update])
+		formatString: General Date
+		lineageTag: 2601b6e2-8713-4fd2-bd65-42f0dd6548e1
+
+	measure Hours = sum(Fact_Production[Earned Hours Week_Production])+ sum(Fact_Production[Earned Hours Week_Actuals])
+		lineageTag: b32d8cb8-adf4-43f6-a0c3-49d3552ff0dd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'hours cumulatitve' = ```
+			
+			    CALCULATE(
+			        [sum_earned_hours_supporting_meh],
+			        FILTER(
+			            ALLSELECTED(Dim_Date[Date]),
+			            Dim_Date[Date] <= MAX(Dim_Date[Date])
+			        )
+			    )
+			```
+		lineageTag: e9525f55-53ba-445b-8933-1ffbeb0a1163
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '% Complete Capped'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b91ee65a-5bd0-484c-a2ec-fc9fac3a0c39
+		summarizeBy: none
+		sourceColumn: % Complete Capped
+
+		annotation SummarizationSetBy = User
+
+	column 'Previous % Complete_' = ```
+			
+			VAR CurrentECS = Fact_Production[ECS Code]
+			VAR CurrentDate = Fact_Production[Actuals Update]
+			
+			RETURN
+			
+			COALESCE(
+			    CALCULATE(
+			        MAX(Fact_Production[% Complete Capped]),
+			        FILTER(
+			            ALL(Fact_Production),
+			            Fact_Production[ECS Code] = CurrentECS &&
+			            Fact_Production[Actuals Update] < CurrentDate
+			        )
+			    ),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bb527bd0-6bdf-47b1-b2d4-9bd1a1b49801
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekly % Delta_' =
+			
+			VAR Delta = Fact_Production[% Complete Capped] - Fact_Production[Previous % Complete_]
+			VAR Result = IF(ISBLANK(Fact_Production[Previous % Complete]), Fact_Production[% Complete Capped], Delta)
+			RETURN IF(Result < 0, 0, Result)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e755299d-dd7c-47c4-a1ab-149f67e8c281
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Earned Hours Week_Production' = ```
+			
+			
+			    Fact_Production[Weekly % Delta_] * RELATED(DIM_ECS[Final_Hours])
+			```
+		lineageTag: 61e4f360-95bd-4f1f-99a7-e76670cbfbba
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Source
+		dataType: string
+		lineageTag: 917512c4-8de8-4ce4-864f-cf454dafb12b
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Earned Hours Week_Actuals' =
+			
+			IF(
+			    Fact_Production[Source] = "Actuals",
+			    Fact_Production[Weekly % Delta] * RELATED(DIM_ECS[Final_Hours]),
+			    BLANK()
+			)
+		lineageTag: 84e397b8-3ba5-4a65-82fd-1e0a64d33611
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Budget = RELATED(Dim_ECS[Final_Hours])
+		lineageTag: 103b9adb-c05b-47b1-a3f6-50f3c1bd23a3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Building = RELATED(Dim_ECS[building_code])
+		lineageTag: 5b4e2702-7046-4116-aa22-612eec746fcf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Planning_Commodity = RELATED(Dim_ECS[Planning Commodity])
+		lineageTag: d4b01831-3d0a-4cf4-807f-7b135e9391b0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: 20674ab6-96d2-4f0b-b45f-144169448054
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actuals Update'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f488b7ad-e4e5-4f50-863d-31c6154768bc
+		summarizeBy: none
+		sourceColumn: Actuals Update
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Room = ```
+			
+			 RELATED(Dim_ECS[Room])
+			```
+		lineageTag: 94c60479-e6aa-42d4-a6cc-b05576d6fac7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cc
+		dataType: string
+		lineageTag: 0516a76e-c584-4c5e-b9b2-a473835806c8
+		summarizeBy: none
+		sourceColumn: cc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Production = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    Production = Table.AddColumn(fact_production_, "Source", each "Production", type text),
+				    Actuals = Table.AddColumn(fact_actuals, "Source", each "Actuals", type text),
+				    Source = Table.Combine({Production, Actuals}),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Update", "Actuals Update"}, {"% Complete", "% Complete Capped"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","CLAMPS-SC","CLAMPS",Replacer.ReplaceText,{"ECS Code"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","CLAMPS-BC","CLAMPS",Replacer.ReplaceText,{"ECS Code"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value1",{{"Actuals Update", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Custom", each [ECS Code]&[Actuals Update]),
+				    #"Removed Duplicates" = Table.Distinct(#"Added Custom", {"Custom"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Duplicates",{"Custom"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"Actuals Update", type date}}),
+				    #"Appended Query" = Table.Combine({#"Changed Type1"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Appended Query", "ECS Code", Splitter.SplitTextByEachDelimiter({" "}, QuoteStyle.Csv, false), {"ECS Code.1", "ECS Code.2"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Split Column by Delimiter",{"ECS Code.2"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns1",{{"ECS Code.1", "ECS Code"}}),
+				    FilteredDaily = Table.SelectRows(Fact_Daily, each [Max Date Check] = true),
+				    SelectColumns = Table.SelectColumns(FilteredDaily, {"% Complete", "ECS Code", "Day"}),
+				    RenameDaily = Table.RenameColumns(SelectColumns, {{"% Complete", "% Complete Capped"}, {"Day", "Actuals Update"}}),
+				    AddSource = Table.AddColumn(RenameDaily, "Source", each "Daily", type text),
+				    FinalResult = Table.Combine({#"Renamed Columns1", AddSource})
+				in
+				    FinalResult
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

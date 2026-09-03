@@ -1,0 +1,557 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "f9742e100699d3bc3bb0",
+  "position": {
+    "x": 533.75,
+    "y": 466.25,
+    "z": 11000,
+    "height": 197.5,
+    "width": 866.25,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "ECS Code"
+                }
+              },
+              "queryRef": "Dim_ECS.ECS Code",
+              "nativeQueryRef": "ECS Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "UoM"
+                }
+              },
+              "queryRef": "Dim_ECS.UoM",
+              "nativeQueryRef": "UoM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Early Start"
+                }
+              },
+              "queryRef": "Fact_BL_Forecast_L5_daily_spread.Remaining Early Start",
+              "nativeQueryRef": "Remaining Early Start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Early Finish"
+                }
+              },
+              "queryRef": "Fact_BL_Forecast_L5_daily_spread.Remaining Early Finish",
+              "nativeQueryRef": "Remaining Early Finish"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                    }
+                  },
+                  "Property": "Total Working Days"
+                }
+              },
+              "queryRef": "Fact_BL_Forecast_L5_daily_spread.Total Working Days",
+              "nativeQueryRef": "Duration",
+              "displayName": "Duration"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                    }
+                  },
+                  "Property": "DesignQuantity"
+                }
+              },
+              "queryRef": "Fact_BL_Forecast_L5_daily_spread.DesignQuantity",
+              "nativeQueryRef": "DesignQuantity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Hours"
+                }
+              },
+              "queryRef": "Fact_BL_Forecast_L5_daily_spread.Remaining Hours",
+              "nativeQueryRef": "Remaining Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_remaining_hours_l5_latest_week"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_remaining_hours_l5_by_week",
+              "nativeQueryRef": "Hours per Week",
+              "displayName": "Hours per Week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_l5_bl_by_week"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_l5_bl_by_week",
+              "nativeQueryRef": "Quantity per Week",
+              "displayName": "Quantity per Week"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fact_BL_Forecast_L5_daily_spread"
+                  }
+                },
+                "Property": "Total Working Days"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.00001034493906D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_ECS"
+                          }
+                        },
+                        "Property": "Planning Commodity"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Mechanical Equipment'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.33334328809516D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_ECS"
+                          }
+                        },
+                        "Property": "Planning Commodity"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Mechanical Supports'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.99870988226935D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_l5_bl_by_week"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.24884573558149D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact_BL_Forecast_L5_daily_spread.Total Working Days"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tahoma'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Design Quantity Planned'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e89e028d0d04d316f1d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "ECS Code"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9bd5df5e36d7f4c501db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_BL_Forecast_L5_daily_spread"
+              }
+            },
+            "Property": "Remaining Early Start"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fd52e2adb411d8339dfb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_BL_Forecast_L5_daily_spread"
+              }
+            },
+            "Property": "Remaining Early Finish"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dc218f2d97af5289cacd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_BL_Forecast_L5_daily_spread"
+              }
+            },
+            "Property": "Total Working Days"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2445d6593dad7846ecb4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_BL_Forecast_L5_daily_spread"
+              }
+            },
+            "Property": "DesignQuantity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b03476f58630e9ae8687",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_BL_Forecast_L5_daily_spread"
+              }
+            },
+            "Property": "Remaining Hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "da515ca0eaa4ccec9560",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_l5_bl_by_week"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

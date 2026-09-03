@@ -1,0 +1,34 @@
+table NCC_Rooms
+	lineageTag: fd21c571-a36e-422f-9edb-6155bbc3f5cf
+
+	column Rooms
+		dataType: string
+		lineageTag: 09810479-63c2-4acd-aab4-ef50d05c3f19
+		summarizeBy: none
+		sourceColumn: Rooms
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class
+		dataType: string
+		lineageTag: 60b8ea8f-29e7-4e75-8783-972e473c6a3c
+		summarizeBy: none
+		sourceColumn: Class
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NCC_Rooms = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/NCC%20Rooms.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Duplicates" = Table.Distinct(#"Promoted Headers", {"Rooms"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

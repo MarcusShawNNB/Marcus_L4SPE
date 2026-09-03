@@ -1,0 +1,28 @@
+table PF_Parameter
+	lineageTag: 20022e36-fd5e-42b8-9842-915a791f6917
+
+	measure 'PF_Parameter Value' = SELECTEDVALUE('PF_Parameter'[PF_Parameter], 1)
+		lineageTag: 0a372806-45e9-4ff2-a58b-0cf5ce4b914a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PF_Parameter
+		lineageTag: 5020ca86-3309-46e9-aa15-6e95fdbba722
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition PF_Parameter = calculated
+		mode: import
+		source = GENERATESERIES(0.1, 1, 0.05)
+
+	annotation PBI_Id = 6081a8723d6b42888682025db8acacb5
+

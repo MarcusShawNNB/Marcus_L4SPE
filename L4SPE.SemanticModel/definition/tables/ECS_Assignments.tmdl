@@ -1,0 +1,51 @@
+table ECS_Assignments
+	lineageTag: 52887351-7bc7-404d-9451-727a10b6736c
+
+	column Name
+		dataType: string
+		lineageTag: bc3e65e7-fa82-4b01-b29b-ff717aa2119f
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning commodity'
+		dataType: string
+		lineageTag: d82e8351-3936-4637-8952-964b59003aa1
+		summarizeBy: none
+		sourceColumn: Planning commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Final_Activity_ID
+		dataType: string
+		lineageTag: 06eb3550-16c5-42d0-abd5-dc523e261894
+		summarizeBy: none
+		sourceColumn: Final_Activity_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: 4655fb68-572a-4750-8760-62c36ddfe3e4
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ECS_Assignments = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
+				    #"1405d106-0714-4fce-aebe-74d10320062e" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="1405d106-0714-4fce-aebe-74d10320062e"]}[Data],
+				    Query1_ = #"1405d106-0714-4fce-aebe-74d10320062e"{[entity="Query1",version=""]}[Data]
+				in
+				    Query1_
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
