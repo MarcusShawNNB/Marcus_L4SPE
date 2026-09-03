@@ -41,7 +41,7 @@
                 }
               },
               "queryRef": "L4SPE Measures.Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week",
-              "nativeQueryRef": "Sum_Fact_BL_Forecast_L5_daily_spread_Hrs This Week"
+              "nativeQueryRef": "Planned"
             },
             {
               "field": {
