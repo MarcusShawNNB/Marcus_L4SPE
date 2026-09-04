@@ -188,6 +188,15 @@ table Fact_Forecast_Baseline
 
 		annotation SummarizationSetBy = Automatic
 
+	column ECS_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a9515a4-915a-4600-b1b0-380803411c3c
+		summarizeBy: sum
+		sourceColumn: ECS_SK
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Fact_Forecast_Baseline = m
 		mode: import
 		queryGroup: Actuals
@@ -199,10 +208,11 @@ table Fact_Forecast_Baseline
 				    #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="8b4ad271-ee6b-48ab-a197-cf0dc9d67525"]}[Data],
 				    #"Forecast Baseline Full Historical_" = #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525"{[entity="Forecast Baseline Full Historical",version=""]}[Data],
 				    #"Changed Type" = Table.TransformColumnTypes(#"Forecast Baseline Full Historical_",{{"Early_Start", type date}, {"Early_Finish", type date}}),
-				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Activity] <> null and [Activity] <> "")
-				
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Activity] <> null and [Activity] <> ""),
+				    #"Merged with Dim_ECS" = Table.NestedJoin(#"Filtered Rows", {"ECS/Asset Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
+				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"})
 				in
-				    #"Filtered Rows"
+				    #"Expanded ECS_SK"
 
 	annotation PBI_NavigationStepName = Navigation
 

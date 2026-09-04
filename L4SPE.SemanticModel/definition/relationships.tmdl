@@ -172,8 +172,8 @@ relationship ed8aa942-2761-1c25-c238-858a11b2b9d4
 	toColumn: Dim_HOC.'Adjusted Room Name'
 
 relationship 87e6c8b0-575c-d98e-37a1-6f6d638cf1d4
-	fromColumn: Fact_Production.'ECS Code'
-	toColumn: Dim_ECS.'ECS Code'
+	fromColumn: Fact_Production.ECS_SK
+	toColumn: Dim_ECS.ECS_SK
 
 relationship c2990783-a6ca-7c5d-c344-d2acf465efc6
 	fromColumn: Fact_Booked_Hours.'Skill Group'
