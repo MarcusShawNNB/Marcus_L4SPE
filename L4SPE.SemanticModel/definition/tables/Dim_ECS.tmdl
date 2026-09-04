@@ -1239,6 +1239,15 @@ table Dim_ECS
 
 		annotation SummarizationSetBy = Automatic
 
+	column ECS_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: cfc6c010-ea6a-49dc-b1fb-1d712f768f90
+		summarizeBy: sum
+		sourceColumn: ECS_SK
+
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'Adj_unit Hierarchy'
 		lineageTag: 45748b43-cc06-42bb-8697-8e25b13c768d
 
@@ -1283,7 +1292,7 @@ table Dim_ECS
 
 	partition Dim_ECS = m
 		mode: import
-		source =
+		source = ```
 				let
 				    Source = #"Import_TO4___RST (3)",
 				    #"Changed Type" = Table.TransformColumnTypes(Source, {
@@ -1315,9 +1324,13 @@ table Dim_ECS
 				        {"Diameter", type number},
 				        {"Weight_kg", type number}
 				    }),
-				    #"Filtered Rows" = Table.SelectRows(#"Changed Type2", each [ECS Code] <> null and [ECS Code] <> "CALCULATED")
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type2", each [ECS Code] <> null and [ECS Code] <> "CALCULATED"),
+				    #"Added Index" = Table.AddIndexColumn(#"Filtered Rows", "ECS_SK", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index", 
+				        {"ECS_SK"} & List.RemoveItems(Table.ColumnNames(#"Added Index"), {"ECS_SK"}))
 				in
-				    #"Filtered Rows"
+				    #"Reordered Columns"
+				```
 
 	annotation PBI_NavigationStepName = Navigation
 
