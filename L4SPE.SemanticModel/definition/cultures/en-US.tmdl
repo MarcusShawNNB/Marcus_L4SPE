@@ -61377,121 +61377,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_BL_forecast_L5_daily_spread.ECS_asset_code": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Fact_BL_Forecast_L5_daily_spread",
-			          "ConceptualProperty": "ECS/Asset Code"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ECS/asset code": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "EC/asset code": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.78
-			          }
-			        },
-			        {
-			          "ECS": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "EC": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.7566
-			          }
-			        },
-			        {
-			          "ECS asset code": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "EC asset code": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.7566
-			          }
-			        },
-			        {
-			          "asset code": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "ec/asset id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.771
-			          }
-			        },
-			        {
-			          "ec asset id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.762
-			          }
-			        },
-			        {
-			          "asset id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "ec/asset key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "ec asset key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "asset key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
 			    "fact_BL_forecast_L5_daily_spread.baseline_month_year_date": {
 			      "Definition": {
 			        "Binding": {
@@ -64927,7 +64812,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Fact_BL_Forecast_L5_daily_spread",
-			          "ConceptualProperty": "last_updated"
+			          "ConceptualProperty": "Already_claimed"
 			        }
 			      },
 			      "State": "Generated",

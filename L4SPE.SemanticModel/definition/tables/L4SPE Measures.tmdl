@@ -1383,7 +1383,7 @@ table 'L4SPE Measures'
 			RETURN
 			    CALCULATE(
 			        DISTINCTCOUNT('Fact_BL_Forecast_L5_daily_spread'[room]),
-			        'Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date] = MaxDate,Fact_BL_Forecast_L5_daily_spread[last_updated]=TRUE(),USERELATIONSHIP(Dim_Date[Date],'Fact_BL_Forecast_L5_daily_spread'[Week Ending])
+			        'Fact_BL_Forecast_L5_daily_spread'[Baseline Month Year Date] = MaxDate,Fact_BL_Forecast_L5_daily_spread[Already_claimed]=TRUE(),USERELATIONSHIP(Dim_Date[Date],'Fact_BL_Forecast_L5_daily_spread'[Week Ending])
 			    )
 		formatString: 0
 		displayFolder: 6_Counts

@@ -182,14 +182,6 @@ table Fact_BL_Forecast_L5_daily_spread
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'ECS/Asset Code'
-		lineageTag: 32cf22c7-6bf8-4270-8b10-f504f1875027
-		summarizeBy: none
-		isNameInferred
-		sourceColumn: Fact_Forecast_Baseline[ECS/Asset Code]
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Baseline Month Year Date'
 		formatString: General Date
 		lineageTag: 19bac860-f1cc-46ea-944d-60143a536fff
@@ -227,18 +219,29 @@ table Fact_BL_Forecast_L5_daily_spread
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column last_updated =
-			var ac = RELATED(Dim_ECS[latest install date]) RETURN
+	column Already_claimed = ```
+			
+			var ac = RELATED(Dim_ECS[latest install date]) 
+			RETURN
 			IF(ac>=Fact_BL_Forecast_L5_daily_spread[Remaining Early Start],TRUE(),FALSE())
+			```
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 4882848c-7ab4-41ab-a304-c55d2e7a5ba3
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
+	column Activity
+		lineageTag: f0a4971c-15ba-4519-ab81-e300d0223eda
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Fact_Forecast_Baseline[Activity]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Fact_BL_Forecast_L5_daily_spread = calculated
 		mode: import
-		source =
+		source = ```
 				
 				
 				VAR _FilteredECS =
@@ -255,7 +258,7 @@ table Fact_BL_Forecast_L5_daily_spread
 				    SUMMARIZE(
 				        'Fact_Forecast_Baseline',
 				        'Fact_Forecast_Baseline'[Baseline Month Year Date],
-				        'Fact_Forecast_Baseline'[ECS/Asset Code],
+				        'Fact_Forecast_Baseline'[Activity],
 				
 				        "Remaining Early Start",
 				            MIN('Fact_Forecast_Baseline'[early_start]),
@@ -272,7 +275,7 @@ table Fact_BL_Forecast_L5_daily_spread
 				        _FilteredECS,
 				        FILTER(
 				            _ForecastSnapshots,
-				            [ECS/Asset Code] = [ECS Code]
+				            [Activity] = [ECS Code]
 				        )
 				    )
 				
@@ -283,7 +286,15 @@ table Fact_BL_Forecast_L5_daily_spread
 				    VAR _Qty = [DesignQuantity]
 				    VAR _Hrs = [Remaining Hours]
 				    VAR _Start = [Remaining Early Start]
-				    VAR _Finish = [Remaining Early Finish]
+				     // VAR _Finish = [Remaining Early Finish]
+				   
+				        VAR _RawFinish = [Remaining Early Finish]
+				VAR _Finish =
+				    IF (
+				        _RawFinish = TRUNC ( _RawFinish ),   -- true if time component is exactly 00:00:00
+				        _RawFinish - 1,                       -- roll back to the previous day (i.e. Saturday)
+				        _RawFinish
+				    )
 				
 				    VAR _WorkingDays =
 				        FILTER (
@@ -345,6 +356,7 @@ table Fact_BL_Forecast_L5_daily_spread
 				            "Hrs This Week", [Working Days in Week] * _HrsPerDay
 				        )
 				)
+				```
 
 	annotation PBI_Id = a41aeadb43734d9397d64f5a52afb17b
 

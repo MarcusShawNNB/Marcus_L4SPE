@@ -198,10 +198,11 @@ table Fact_Forecast_Baseline
 				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
 				    #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="8b4ad271-ee6b-48ab-a197-cf0dc9d67525"]}[Data],
 				    #"Forecast Baseline Full Historical_" = #"8b4ad271-ee6b-48ab-a197-cf0dc9d67525"{[entity="Forecast Baseline Full Historical",version=""]}[Data],
-				    #"Changed Type" = Table.TransformColumnTypes(#"Forecast Baseline Full Historical_",{{"Early_Start", type date}, {"Early_Finish", type date}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Forecast Baseline Full Historical_",{{"Early_Start", type date}, {"Early_Finish", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Activity] <> null and [Activity] <> "")
 				
 				in
-				    #"Changed Type"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

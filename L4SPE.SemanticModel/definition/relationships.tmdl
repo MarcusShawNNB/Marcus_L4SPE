@@ -265,14 +265,6 @@ relationship 6eaec0c4-2274-d851-34c7-2f07e52dbebe
 	fromColumn: 'Fact_%S Sub-Area'.Sub-Area
 	toColumn: Bridge_TO4_Sub-Area.'Sub Area'
 
-relationship 63e51db4-e802-2767-a959-0a35a88b551d
-	fromColumn: Fact_BL_Forecast_L5_daily_spread.'ECS Code'
-	toColumn: Dim_ECS.'ECS Code'
-
-relationship b99b2682-5420-0ea8-76b0-559b6cddfb25
-	fromColumn: Fact_BL_Forecast_L5_daily_spread.'Week Ending'
-	toColumn: Dim_Date.Date
-
 relationship 9ec57e4c-4b9b-ff4a-3c90-033429b3c931
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
@@ -341,4 +333,12 @@ relationship a1e15e1a-ca81-5b1a-916d-208e14b3ad3f
 relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
 	fromColumn: Fact_Forecast_Quantity_daily_spread.'Week Ending'
 	toColumn: Dim_Date.Date
+
+relationship b99b2682-5420-0ea8-76b0-559b6cddfb25
+	fromColumn: Fact_BL_Forecast_L5_daily_spread.'Week Ending'
+	toColumn: Dim_Date.Date
+
+relationship f0fbd908-0090-387d-596b-ddc7516d6f1e
+	fromColumn: Fact_BL_Forecast_L5_daily_spread.Activity
+	toColumn: Dim_ECS.'ECS Code'
 

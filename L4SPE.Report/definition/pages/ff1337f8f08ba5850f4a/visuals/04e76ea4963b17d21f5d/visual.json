@@ -349,5 +349,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "67250f2fc46bff4e59a7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9b57d3f62379d662e38d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "UoM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0d8664be793ffec2dfa2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_remaining_hours_l5_latest_week"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "83401b19436bf1a126a6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_l5_bl_by_week"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
