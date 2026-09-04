@@ -2110,6 +2110,7 @@ table 'L4SPE Measures'
 			)
 			```
 		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 2_Hours
 		lineageTag: 06cd8cb2-3487-41a1-bd7d-c1d0dc448e90
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
