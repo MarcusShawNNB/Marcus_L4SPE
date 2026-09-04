@@ -1243,7 +1243,7 @@ table Dim_ECS
 		dataType: int64
 		formatString: 0
 		lineageTag: cfc6c010-ea6a-49dc-b1fb-1d712f768f90
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: ECS_SK
 
 		annotation SummarizationSetBy = Automatic

@@ -239,6 +239,15 @@ table Fact_BL_Forecast_L5_daily_spread
 
 		annotation SummarizationSetBy = Automatic
 
+	column ECS_SK
+		formatString: 0
+		lineageTag: 6181fc4c-a4c5-4528-8352-bd193c955108
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ECS_SK]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Fact_BL_Forecast_L5_daily_spread = calculated
 		mode: import
 		source = ```
@@ -248,6 +257,7 @@ table Fact_BL_Forecast_L5_daily_spread
 				    SELECTCOLUMNS (
 				        Dim_ECS,
 				        "ECS Code", Dim_ECS[ECS Code],
+				        "ECS_SK", Dim_ECS[ECS_SK],
 				        "Activity_ID", Dim_ECS[P6_ID],
 				        "Planning Commodity", Dim_ECS[Planning Commodity],
 				        "DesignQuantity", Dim_ECS[DesignQuantity],

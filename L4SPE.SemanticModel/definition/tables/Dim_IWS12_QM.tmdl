@@ -513,6 +513,15 @@ table Dim_IWS12_QM
 
 		annotation SummarizationSetBy = Automatic
 
+	column ECS_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 43a59324-1409-4055-bd30-70eda9ab43ce
+		summarizeBy: none
+		sourceColumn: ECS_SK
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_IWS12_QM = m
 		mode: import
 		queryGroup: Actuals
@@ -522,11 +531,13 @@ table Dim_IWS12_QM
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
 				    #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"]}[Data],
-				    IWS12_QM_ = #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"{[entity="IWS12_QM",version=""]}[Data]
+				    IWS12_QM_ = #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"{[entity="IWS12_QM",version=""]}[Data],
+				    #"Merged with Dim_ECS" = Table.NestedJoin(IWS12_QM_, {"ECS Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
+				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"})
 				in
-				    IWS12_QM_
+				    #"Expanded ECS_SK"
 
 	annotation PBI_NavigationStepName = Navigation
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

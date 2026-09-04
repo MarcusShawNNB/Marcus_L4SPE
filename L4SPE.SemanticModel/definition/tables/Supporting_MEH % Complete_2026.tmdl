@@ -104,6 +104,15 @@ table 'Supporting_MEH % Complete_2026'
 
 		annotation SummarizationSetBy = Automatic
 
+	column ECS_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: df0ffa8b-59ae-4878-9787-ea86a822d575
+		summarizeBy: sum
+		sourceColumn: ECS_SK
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Supporting_MEH % Complete_2026' = m
 		mode: import
 		queryGroup: Actuals
@@ -113,9 +122,11 @@ table 'Supporting_MEH % Complete_2026'
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
 				    #"400c9e91-4657-4f2e-a8ac-9a13ca9e5edb" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="400c9e91-4657-4f2e-a8ac-9a13ca9e5edb"]}[Data],
-				    #"Supporting_MEH % Complete_2026_" = #"400c9e91-4657-4f2e-a8ac-9a13ca9e5edb"{[entity="Supporting_MEH % Complete_2026",version=""]}[Data]
+				    #"Supporting_MEH % Complete_2026_" = #"400c9e91-4657-4f2e-a8ac-9a13ca9e5edb"{[entity="Supporting_MEH % Complete_2026",version=""]}[Data],
+				    #"Merged with Dim_ECS" = Table.NestedJoin(#"Supporting_MEH % Complete_2026_", {"Activity Name"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
+				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"})
 				in
-				    #"Supporting_MEH % Complete_2026_"
+				    #"Expanded ECS_SK"
 
 	annotation PBI_NavigationStepName = Navigation
 
