@@ -89,10 +89,6 @@ relationship 3c7236e1-6294-b633-9ddd-dda6e1c7807e
 	fromColumn: 'Supporting_MEH % Complete_2026'.'AC Date'
 	toColumn: Dim_Date.Date
 
-relationship 1faa1878-0e26-1f4a-ddf6-c0c47954be1e
-	fromColumn: Fact_Forecast_Rolling.ECS_SK
-	toColumn: Dim_ECS.ECS_SK
-
 relationship 50816054-2183-e782-fe0d-e455fd99267e
 	isActive: false
 	fromColumn: Dim_ROOM.'Consolidated Handover milestone'
@@ -186,10 +182,6 @@ relationship a2948b75-7a2e-1aa7-e12b-7b2de185656d
 relationship d5f0145d-790d-a039-3838-ea0368192b91
 	fromColumn: Fact_%S.WE
 	toColumn: Dim_Date.Date
-
-relationship a1ee04c1-0551-9d64-ae8d-fc98a6c17f8d
-	fromColumn: Dim_ECS.'ECS Code'
-	toColumn: Dim_IWS12_QM.'ECS Code'
 
 relationship 83b254f7-40dd-2b73-52e7-8c68e8aba52b
 	fromColumn: Dim_ECS.'ECS Code'
@@ -315,8 +307,8 @@ relationship 9173b711-d3a3-8b5a-bbe8-596c0f9136f3
 	toColumn: ECS_Assignments.'ECS Code'
 
 relationship f2ec6485-2a56-9e52-ee85-8d30bb6c081c
-	fromColumn: 'Supporting_MEH % Complete_2026'.'Activity Name'
-	toColumn: Dim_ECS.'ECS Code'
+	fromColumn: 'Supporting_MEH % Complete_2026'.ECS_SK
+	toColumn: Dim_ECS.ECS_SK
 
 relationship 60883ad6-b0f5-8652-510f-fdb445f535d1
 	fromColumn: Fact_Rolling_Forecast_L5_daily_spread.'ECS Code'
@@ -331,8 +323,8 @@ relationship b99b2682-5420-0ea8-76b0-559b6cddfb25
 	toColumn: Dim_Date.Date
 
 relationship f0fbd908-0090-387d-596b-ddc7516d6f1e
-	fromColumn: Fact_BL_Forecast_L5_daily_spread.Activity
-	toColumn: Dim_ECS.'ECS Code'
+	fromColumn: Fact_BL_Forecast_L5_daily_spread.ECS_SK
+	toColumn: Dim_ECS.ECS_SK
 
 relationship a1e15e1a-ca81-5b1a-916d-208e14b3ad3f
 	fromColumn: Fact_Forecast_Quantity_daily_spread.'ECS Code'
@@ -341,4 +333,14 @@ relationship a1e15e1a-ca81-5b1a-916d-208e14b3ad3f
 relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
 	fromColumn: Fact_Forecast_Quantity_daily_spread.'Week Ending'
 	toColumn: Dim_Date.Date
+
+relationship 9042e8be-29fc-e5a1-86ef-ac7517cb585c
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_ECS.ECS_SK
+	toColumn: Dim_IWS12_QM.ECS_SK
+
+relationship 92508c6e-9350-1e2a-9ca6-62f713466cd7
+	fromColumn: Fact_Forecast_Rolling.ECS_SK
+	toColumn: Dim_ECS.ECS_SK
 

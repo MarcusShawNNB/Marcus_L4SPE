@@ -90,7 +90,7 @@ table Fact_Forecast_Rolling
 
 	column 'Design Quantity' = RELATED(Dim_ECS[DesignQuantity])
 		lineageTag: fdab1842-f990-4a1b-8884-6d7e3def62a0
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -138,7 +138,7 @@ table Fact_Forecast_Rolling
 		dataType: int64
 		formatString: 0
 		lineageTag: 3e29573e-f276-420c-8bfe-1528d63e6769
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: ECS_SK
 
 		annotation SummarizationSetBy = Automatic

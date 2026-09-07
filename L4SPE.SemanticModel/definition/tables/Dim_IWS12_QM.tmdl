@@ -14,7 +14,7 @@ table Dim_IWS12_QM
 		dataType: int64
 		formatString: 0
 		lineageTag: faf686ea-7572-45a1-8e94-aaa4bee40246
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Design Quantity
 
 		annotation SummarizationSetBy = Automatic
@@ -86,7 +86,7 @@ table Dim_IWS12_QM
 	column Elevation
 		dataType: double
 		lineageTag: d3f276d6-7d80-4c7a-9289-392203d6119b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Elevation
 
 		annotation SummarizationSetBy = Automatic
@@ -128,7 +128,7 @@ table Dim_IWS12_QM
 	column 'Budgeted Hours'
 		dataType: double
 		lineageTag: c2cc23a9-e65d-422b-89ae-22094ecb5035
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Budgeted Hours
 
 		annotation SummarizationSetBy = Automatic
@@ -146,7 +146,7 @@ table Dim_IWS12_QM
 	column 'Remaining Hours'
 		dataType: double
 		lineageTag: 874ee74c-60da-4207-8fe7-09cd0cc85830
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Remaining Hours
 
 		annotation SummarizationSetBy = Automatic
@@ -499,7 +499,7 @@ table Dim_IWS12_QM
 		dataType: int64
 		formatString: 0
 		lineageTag: 74e44ba8-2029-4117-8e6b-76a132cc8a71
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Supply Contract
 
 		annotation SummarizationSetBy = Automatic
@@ -508,7 +508,7 @@ table Dim_IWS12_QM
 		dataType: int64
 		formatString: 0
 		lineageTag: 47677cbc-7259-47e8-b586-5cb257a1c9a1
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Install Contract
 
 		annotation SummarizationSetBy = Automatic
@@ -533,9 +533,10 @@ table Dim_IWS12_QM
 				    #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"]}[Data],
 				    IWS12_QM_ = #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"{[entity="IWS12_QM",version=""]}[Data],
 				    #"Merged with Dim_ECS" = Table.NestedJoin(IWS12_QM_, {"ECS Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
-				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"})
+				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded ECS_SK", each [ECS_SK] <> null)
 				in
-				    #"Expanded ECS_SK"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 
