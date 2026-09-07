@@ -841,7 +841,7 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 292.5,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -1367,7 +1367,7 @@
         }
       ],
       "name": "ECS Layout",
-      "zoomValue": 40,
+      "zoomValue": 70,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
