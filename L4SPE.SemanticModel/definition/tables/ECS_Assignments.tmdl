@@ -41,9 +41,11 @@ table ECS_Assignments
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
 				    #"1405d106-0714-4fce-aebe-74d10320062e" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="1405d106-0714-4fce-aebe-74d10320062e"]}[Data],
-				    Query1_ = #"1405d106-0714-4fce-aebe-74d10320062e"{[entity="Query1",version=""]}[Data]
+				    Query1_ = #"1405d106-0714-4fce-aebe-74d10320062e"{[entity="Query1",version=""]}[Data],
+				    #"Cleaned Text" = Table.TransformColumns(Query1_,{{"ECS Code", each Text.Upper(Text.Trim(Text.Clean(_))), type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Cleaned Text", {"ECS Code"})
 				in
-				    Query1_
+				    #"Removed Duplicates"
 
 	annotation PBI_ResultType = Table
 

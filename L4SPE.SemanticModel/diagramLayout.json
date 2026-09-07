@@ -841,8 +841,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 0,
-        "y": 0
+        "x": 485.71428571428572,
+        "y": 430
       },
       "nodes": [
         {
@@ -2024,8 +2024,49 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 10,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 200,
+            "y": 189
+          },
+          "nodeIndex": "ECS_Assignments",
+          "nodeLineageTag": "52887351-7bc7-404d-9451-727a10b6736c",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 660,
+            "y": 225
+          },
+          "nodeIndex": "Dim_ECS",
+          "nodeLineageTag": "71da05dd-01e8-472d-9cbf-91d08c13b515",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Layout 8",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "ECS Layout",
+  "selectedDiagram": "Layout 8",
   "defaultDiagram": "All tables"
 }
