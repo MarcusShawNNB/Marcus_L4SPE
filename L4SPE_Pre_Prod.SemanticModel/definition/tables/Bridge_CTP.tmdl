@@ -1,0 +1,38 @@
+table Bridge_CTP
+	lineageTag: 52adeb82-e45b-47b1-8458-708307ef35aa
+
+	column CTP
+		lineageTag: 559845bc-8e72-410f-90d3-85b030a7538d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CTP]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECS Code'
+		lineageTag: 65b77de5-2f65-477a-9ae8-bfc9f818a37c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ECS Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_CTP = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    DISTINCT(
+				        SELECTCOLUMNS(
+				            Dim_ECS,
+				            "CTP", Dim_ECS[CTP],
+				            "ECS Code", Dim_ECS[ECS Code]
+				           // "ECS_Key", Dim_ECS[Index]
+				        )
+				    ),
+				    NOT ISBLANK([CTP]) &&
+				    NOT ISBLANK([ECS Code])
+				)
+
+	annotation PBI_Id = a4800f75f88e4959832881c24f3bd619
+

@@ -306,10 +306,6 @@ relationship 9173b711-d3a3-8b5a-bbe8-596c0f9136f3
 	fromColumn: Dim_ECS.HO1_ECS_unique
 	toColumn: ECS_Assignments.'ECS Code'
 
-relationship f2ec6485-2a56-9e52-ee85-8d30bb6c081c
-	fromColumn: 'Supporting_MEH % Complete_2026'.ECS_SK
-	toColumn: Dim_ECS.ECS_SK
-
 relationship 60883ad6-b0f5-8652-510f-fdb445f535d1
 	fromColumn: Fact_Rolling_Forecast_L5_daily_spread.'ECS Code'
 	toColumn: Dim_ECS.'ECS Code'
@@ -334,13 +330,17 @@ relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
 	fromColumn: Fact_Forecast_Quantity_daily_spread.'Week Ending'
 	toColumn: Dim_Date.Date
 
-relationship 9042e8be-29fc-e5a1-86ef-ac7517cb585c
+relationship 92508c6e-9350-1e2a-9ca6-62f713466cd7
+	fromColumn: Fact_Forecast_Rolling.ECS_SK
+	toColumn: Dim_ECS.ECS_SK
+
+relationship 472a6d83-e26c-18b2-5870-810db6baf3fd
+	fromColumn: 'Supporting_MEH % Complete_2026'.'Activity Name'
+	toColumn: Dim_ECS.'ECS Code'
+
+relationship 88fb2f79-8b02-ead4-3d71-2e6557c20785
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: Dim_ECS.ECS_SK
 	toColumn: Dim_IWS12_QM.ECS_SK
-
-relationship 92508c6e-9350-1e2a-9ca6-62f713466cd7
-	fromColumn: Fact_Forecast_Rolling.ECS_SK
-	toColumn: Dim_ECS.ECS_SK
 

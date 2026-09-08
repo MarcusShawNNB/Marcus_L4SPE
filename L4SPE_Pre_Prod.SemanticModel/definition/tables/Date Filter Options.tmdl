@@ -1,0 +1,61 @@
+table 'Date Filter Options'
+	lineageTag: f55dad0a-ec1e-4e12-8c61-9b2c76f93ba1
+
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Selected Date Filter' =
+			-- MS
+			
+			SWITCH(
+			    SELECTEDVALUE('Date Filter Options'[Filter Order]),
+			    0, CALCULATE([sum_design_quantity_actual_installed_inc_CMPIC], Dim_Date[Current Week] = TRUE()),
+			    1, CALCULATE([sum_design_quantity_actual_installed_inc_CMPIC], Dim_Date[IsCurrentMonth] = TRUE()),
+			    2, CALCULATE([sum_design_quantity_actual_installed_inc_CMPIC], Dim_Date[IsYTD] = TRUE()),
+			    [sum_design_quantity_actual_installed_inc_CMPIC]
+			)
+		lineageTag: 961433db-32dc-4641-85d0-baf7e3a7babc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure 'Selected Forecast Filtered' =
+			-- MS
+			
+			SWITCH(
+			    SELECTEDVALUE('Date Filter Options'[Filter Order]),
+			    0, CALCULATE([selected_forecast], Dim_Date[Current Week] = TRUE()),
+			    1, CALCULATE([selected_forecast], Dim_Date[IsCurrentMonth] = TRUE()),
+			    2, CALCULATE([selected_forecast], Dim_Date[IsYTD] = TRUE()),
+			    [selected_forecast]
+			)
+		formatString: 0
+		lineageTag: 3d8ec257-4ff8-4c3a-8e90-4926444d351f
+
+	column 'Filter Name'
+		lineageTag: 496a3d57-3969-4891-9d95-e5b4e2841c52
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Filter Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Filter Order'
+		formatString: 0
+		lineageTag: baf08abf-7bf4-4a3b-bf25-dcfef35f52ec
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Filter Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date Filter Options' = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    ROW("Filter Name", "Week to Date",  "Filter Order", 0),
+				    ROW("Filter Name", "Month to Date", "Filter Order", 1),
+				    ROW("Filter Name", "Year to Date",  "Filter Order", 2)
+				)
+
+	annotation PBI_Id = fe97b30e31ca44c09a2e23f1a7d5115c
+

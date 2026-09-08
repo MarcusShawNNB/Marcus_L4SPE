@@ -1,0 +1,25 @@
+table Displine_mapping
+	lineageTag: ec804c50-3f3d-45c0-a7f7-b8f4c3dbe791
+
+	column 'Planning Commodity'
+		lineageTag: 7a94b011-2479-4324-a691-eab4099d2ae5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Planning Commodity]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		lineageTag: c0cca1f2-e250-466e-b61e-38a5b04cc8a2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Discipline]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Displine_mapping = calculated
+		mode: import
+		source = SUMMARIZECOLUMNS(Dim_ECS[Planning Commodity], Dim_ECS[Discipline])
+
+	annotation PBI_Id = 2d66af771c814d78a0d8fd46f1466736
+

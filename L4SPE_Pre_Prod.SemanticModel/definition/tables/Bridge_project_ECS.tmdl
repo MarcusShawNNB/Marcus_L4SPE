@@ -1,0 +1,73 @@
+table Bridge_project_ECS
+	lineageTag: 183ab0a2-18c6-4f0e-a4fb-bae9eed982db
+
+	column 'ECS Code'
+		lineageTag: f9702359-df78-4932-aea4-0f0d6cf1ab9a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[ECS Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectName_Final
+		lineageTag: 764503df-a845-4a74-b380-0e9a4f8d365f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ProjectName_Final]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_project_ECS = calculated
+		mode: import
+		source = ```
+				
+				VAR _WithFallback = 
+				    ADDCOLUMNS(
+				        Dim_ECS,
+				        "ProjectName_Step1", 
+				            IF(
+				                NOT(ISBLANK(Dim_ECS[final_project_name])) && 
+				                Dim_ECS[final_project_name] <> "" &&
+				                LOWER(Dim_ECS[final_project_name]) <> "null",
+				                Dim_ECS[final_project_name],
+				                IF(
+				                    NOT(ISBLANK(Dim_ECS[building_code])) && 
+				                    Dim_ECS[building_code] <> "" &&
+				                    LOWER(Dim_ECS[building_code]) <> "null",
+				                    "U" & Dim_ECS[building_code],
+				                    BLANK()
+				                )
+				            )
+				    )
+				VAR _WithFinalFallback =
+				    ADDCOLUMNS(
+				        _WithFallback,
+				        "ProjectName_Final",
+				            VAR _CurrentUnit = Dim_ECS[Adj_unit]
+				            VAR _Step1 = [ProjectName_Step1]
+				            RETURN
+				                IF(
+				                    NOT(ISBLANK(_Step1)),
+				                    _Step1,
+				                    CALCULATE(
+				                        FIRSTNONBLANK(Dim_ECS[final_project_name], 1),
+				                        FILTER(
+				                            ALL(Dim_ECS),
+				                            Dim_ECS[Adj_unit] = _CurrentUnit &&
+				                            Dim_ECS[final_project_name] <> BLANK() &&
+				                            Dim_ECS[final_project_name] <> "" &&
+				                            LOWER(Dim_ECS[final_project_name]) <> "null"
+				                        )
+				                    )
+				                )
+				    )
+				RETURN
+				    SUMMARIZE(
+				        _WithFinalFallback,
+				        Dim_ECS[ECS Code],
+				        [ProjectName_Final]
+				    )
+				```
+
+	annotation PBI_Id = 8197f22c52ec4432b47fbb2aaa37607e
+

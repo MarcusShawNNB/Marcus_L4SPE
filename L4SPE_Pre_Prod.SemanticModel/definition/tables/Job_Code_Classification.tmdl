@@ -1,0 +1,31 @@
+table Job_Code_Classification
+	lineageTag: 75049c80-5ed9-4768-b1b1-797c61c502be
+
+	column 'Job Code'
+		lineageTag: 65fa8871-a54f-4e52-91b2-003731e32bc2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Fact_Booked_Hours[Job Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trade Type'
+		lineageTag: 0b82f86b-09d4-48e8-bf05-8b2bb4c1a227
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_Skill_Group[Trade Type]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Job_Code_Classification = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    Fact_Booked_Hours,
+				    Fact_Booked_Hours[Job Code],
+				    Dim_Skill_Group[Trade Type]
+				)
+
+	annotation PBI_Id = d2365509a4444ec288fcf940ede15e91
+

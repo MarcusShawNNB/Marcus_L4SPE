@@ -1,0 +1,49 @@
+table Old
+	lineageTag: 6bda6ea5-827c-495d-b1af-556646fb708a
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: e58004cc-9a49-4121-9b58-7b8e80902354
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Installed'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d6cf06f6-3d1a-445e-b56a-900e4c09f18a
+		summarizeBy: none
+		sourceColumn: Actual Installed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Installation % Complete'
+		dataType: double
+		lineageTag: d135ceeb-f5e6-40cb-8024-3ab2a4fae192
+		summarizeBy: sum
+		sourceColumn: Installation % Complete
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Old = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Old.xlsx"), null, true),
+				    Export_Sheet = Source{[Item="Export",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Export_Sheet, [PromoteAllScalars=true]),
+				    #"Filtered Rows" = Table.SelectRows(#"Promoted Headers", each [ECS Code] <> null and [ECS Code] <> ""),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"ECS Code", "Actual Installed", "Installation % Complete"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Installation % Complete", type number}, {"Actual Installed", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

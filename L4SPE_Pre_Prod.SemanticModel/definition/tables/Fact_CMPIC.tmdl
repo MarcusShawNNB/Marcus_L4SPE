@@ -1,0 +1,110 @@
+table Fact_CMPIC
+	lineageTag: e7fffa6e-cad1-422f-9a73-395f2fc70146
+
+	column 'Cable ID'
+		dataType: string
+		lineageTag: 343b7b9d-b9c0-4db2-b2e0-373c5df39108
+		summarizeBy: none
+		sourceColumn: Cable ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Installation Status Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4bc059c2-d4c1-446a-8c44-80945cbc942e
+		summarizeBy: none
+		sourceColumn: Latest Installation Status Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fully/Part-Pulled Length'
+		dataType: double
+		lineageTag: e609acf5-c91a-4493-a2d3-53645a3989ff
+		summarizeBy: sum
+		sourceColumn: Fully/Part-Pulled Length
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Planning Commodity'
+		dataType: string
+		lineageTag: 4ef7e3c6-532b-406b-afbf-b016a58fdf11
+		summarizeBy: none
+		sourceColumn: Planning Commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		dataType: string
+		lineageTag: 3fea3e04-644e-46b5-ad2d-e957a9327440
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_CMPIC = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    Source = SharePoint.Files("https://edfenergynnb.sharepoint.com/sites/L4Analysts", [ApiVersion = 15]),
+				
+				    FilteredFolder = Table.SelectRows(
+				        Source,
+				        each Text.Contains([Folder Path], "Daily/Daily Progress/CMPIC")
+				            and [Extension] = ".xlsx"
+				            and not Text.Contains([Folder Path], "Archive")
+				    ),
+				
+				    // --- Pick the file (first match in that folder) ---
+				    FileContent = FilteredFolder{0}[Content],
+				
+				    Workbook = Excel.Workbook(FileContent, null, true),
+				
+				    // --- First sheet by position, not by name ---
+				    SheetsOnly = Table.SelectRows(Workbook, each [Kind] = "Sheet"),
+				    FirstSheet = SheetsOnly{0}[Data],
+				
+				    // --- Find which column holds "Fully/Part-Pulled Length" on row 2 ---
+				    Row1 = FirstSheet{0},
+				    Row2 = FirstSheet{1},
+				    TargetCol = List.First(
+				        List.Select(
+				            Table.ColumnNames(FirstSheet),
+				            each try Text.Contains(Text.From(Record.Field(Row2, _)), "Fully/Part-Pulled Length") otherwise false
+				        )
+				    ),
+				
+				    // --- Overwrite that cell in row 1 with the row 2 label ---
+				    NewRow1 = Record.TransformFields(Row1, {TargetCol, each Record.Field(Row2, TargetCol)}),
+				    Rebuilt = Table.InsertRows(Table.Skip(FirstSheet, 1), 0, {NewRow1}),
+				
+				    Promoted = Table.PromoteHeaders(Rebuilt, [PromoteAllScalars = true]),
+				
+				    // --- Drop the leftover old row 2 (now the first data row) ---
+				    RemovedSubHeader = Table.Skip(Promoted, 1),
+				
+				    SelectedColumns = Table.SelectColumns(
+				        RemovedSubHeader,
+				        {"Fully/Part-Pulled Length", "Latest Installation Status Date", "Cable ID"}
+				    ),
+				    #"Reordered Columns" = Table.ReorderColumns(SelectedColumns,{"Cable ID", "Latest Installation Status Date", "Fully/Part-Pulled Length"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"Fully/Part-Pulled Length", type number}, {"Latest Installation Status Date", type datetime}}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Changed Type", {"Cable ID", "Latest Installation Status Date", "Fully/Part-Pulled Length"}),
+				#"Added Custom" = Table.AddColumn(#"Removed Errors", "Planning Commodity", each "Cable Pulling"),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each [Cable ID] <> null and [Cable ID] <> ""),
+				    #"Added Unit" = Table.AddColumn(
+				        #"Filtered Rows",
+				        "Unit",
+				        each if Text.StartsWith(Text.From([Cable ID]), "2") then "2" else "1/0/9",
+				        type text
+				    )
+				in
+				    #"Added Unit"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,95 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Actuals
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup Dim_Room
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Dim_ECS","AdjDates","Dim_Date","Dim_Activities","Dim_Activity (LIVE_P6)","Dim_Activity (LM_LIVE_P6)","Dim_P6_IWS12","fact_actuals","Fact_Daily","fact_production_","Equipment List (update 24/03)","Fact_Production","Fact_Booked_Hours","Fact_TO4_Q","Fact_QF_Q","Fact_%S","Fact_%S Sub-Area","Supporting_MEH % Complete_2026","Import_TO4___RST (3)","Dim_MEH_ENG","Dim_CTP_Schedule_Data","Bridge_Cable_Highways","Dim_Cable_Highways_Routes","Dim_ROOM","Dim_MCW","Dim_HOC","Dim_QLIK","Bridge_commodity_map","Fact_Forecast_Rolling","Dim_IWS12_QM","Dim_Equipment","Fact_TO4_Q_Weekly","Dim_WeldEye","Dim_Resource_Profile","Fact_Forecast_Baseline","Coatings Status","Commodity Mapping Table","Dynamic Dates","Dim_Skill_Group","commodity_mapping","Old","Welders","Dim_Contract","NCC_Rooms","Fact_CMPIC","ECS_Assignments","Dim_Job_Code_Category"]
+
+annotation PBI_ProTooling = ["CalcGroup","DevMode"]
+
+annotation __TEdtr = 1
+
+ref table Dim_ECS
+ref table 'L4SPE Measures'
+ref table 'Time Intel'
+ref table Dim_Date
+ref table Dim_P6_IWS12
+ref table Dim_Activities
+ref table 'Dim_Activity (LIVE_P6)'
+ref table Dim_Planning_Commodity
+ref table Dim_location
+ref table 'Equipment List (update 24/03)'
+ref table Fact_Production
+ref table Dim_MEH_ENG
+ref table Dim_ROOM
+ref table Dim_QLIK
+ref table Dim_HOC
+ref table Dim_CTP_Schedule_Data
+ref table 'Dim_Activity (LM_LIVE_P6)'
+ref table Bridge_Cable_Highways
+ref table Dim_Cable_Highways_Routes
+ref table Fact_Daily
+ref table Fact_Booked_Hours
+ref table Fact_TO4_Q
+ref table Bridge_Commodity_ECS
+ref table Commodities_Fact_TO4_Q
+ref table Bridge_commodity_map
+ref table Fact_QF_Q
+ref table 'Forecast Options'
+ref table 'Date Filter Options'
+ref table 'Fact_%S Sub-Area'
+ref table Fact_%S
+ref table 'Supporting_MEH % Complete_2026'
+ref table Fact_Forecast_Rolling
+ref table Dim_Sub-Area
+ref table Dim_IWS12_QM
+ref table Dim_Equipment
+ref table Fact_Forecast_Quantity_daily_spread
+ref table Fact_TO4_Q_Weekly
+ref table measure_select
+ref table Dim_WeldEye
+ref table Dim_Resource_Profile
+ref table PF_Parameter
+ref table HoursPerDay_Parameter
+ref table Fact_Forecast_Baseline
+ref table Rooms_Latest_Baseline
+ref table 'Commodity Mapping Table'
+ref table Fact_BL_Forecast_L5_daily_spread
+ref table 'Dynamic Dates'
+ref table 'Skyline Toggle'
+ref table 'Burndown Axis'
+ref table Dim_Skill_Group
+ref table Job_Code_Classification
+ref table commodity_mapping
+ref table Projects
+ref table Old
+ref table Dim_Project
+ref table Bridge_project_ECS
+ref table Dim_Trade
+ref table Bridge_TO4_Sub-Area
+ref table Welders
+ref table Dim_Contract
+ref table NCC_Rooms
+ref table Fact_CMPIC
+ref table ECS_Assignments
+ref table Fact_Rolling_Forecast_L5_daily_spread
+ref table Bridge_CTP
+ref table Dim_Job_Code_Category
+ref table Displine_mapping
+
+ref cultureInfo en-US
+

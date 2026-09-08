@@ -1,0 +1,41 @@
+table Dim_Planning_Commodity
+	lineageTag: f120dd18-0490-4dfc-92f5-0b1b2a594ffe
+
+	column 'Planning Commodity'
+		lineageTag: a65fc43e-4bf6-4a19-a4f9-c9d1f18724fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Planning Commodity]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PR_Commodity =
+			
+			SWITCH (
+			    Dim_Planning_Commodity[Planning Commodity],
+			
+			    "BNI WDI", "BNI Pipe",
+			    "BOP WDI", "BOP Pipe",
+			
+			    "Electrical Supports", "Supports",
+			    "Mechanical Supports", "Supports",
+			    "HVAC Supports", "Supports",
+			
+			    Dim_Planning_Commodity[Planning Commodity]
+			)
+		lineageTag: 753a630b-e771-47fe-b6cb-a93ddfcebb20
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Planning_Commodity = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    DISTINCT(Dim_ECS[Planning Commodity]),
+				    NOT ISBLANK(Dim_ECS[Planning Commodity])
+				)
+
+	annotation PBI_Id = 95a5ba77fb1e48a0a8901cbb2633bf2b
+

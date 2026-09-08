@@ -1,0 +1,43 @@
+table Rooms_Latest_Baseline
+	lineageTag: 8d4faf93-2a22-4aef-ba53-98f9f2f44c0d
+
+	column room
+		lineageTag: 086c40ca-2e73-4ce1-8cec-2f92ed7682c0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Fact_Forecast_Baseline[room]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Remaining Hours'
+		lineageTag: 711201c2-5806-477f-b46e-2a0f3511da6f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Remaining Hours]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Rooms_Latest_Baseline = calculated
+		mode: import
+		source =
+				
+				VAR MaxDate =
+				    CALCULATE(
+				        MAX('Fact_Forecast_Baseline'[Baseline Month Year Date]),
+				        ALL('Fact_Forecast_Baseline')
+				    )
+				RETURN
+				    SUMMARIZE(
+				        FILTER(
+				            'Fact_Forecast_Baseline',
+				            'Fact_Forecast_Baseline'[Baseline Month Year Date] = MaxDate
+				        ),
+				        'Fact_Forecast_Baseline'[room],
+				        "Remaining Hours",
+				        SUM('Fact_Forecast_Baseline'[Data.Remaining Work])
+				    )
+
+	annotation PBI_Id = 7c85b328e7974c2c9482fc90abb39a81
+

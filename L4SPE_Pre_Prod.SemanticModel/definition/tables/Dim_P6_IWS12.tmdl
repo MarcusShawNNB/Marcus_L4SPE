@@ -1,0 +1,145 @@
+table Dim_P6_IWS12
+	excludeFromModelRefresh
+	lineageTag: 8a7d62a5-b44f-4587-ab96-fa22eb0877af
+
+	column 'Project ID'
+		dataType: string
+		lineageTag: 432fcfd0-6878-4a86-9143-39b75d4c8163
+		summarizeBy: none
+		sourceColumn: Project ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity ID'
+		dataType: string
+		lineageTag: be752583-059c-4a59-acb0-6f9c72864ff3
+		summarizeBy: none
+		sourceColumn: Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Name'
+		dataType: string
+		lineageTag: 3f0d3419-0ec9-47ed-a827-8721a81439c6
+		summarizeBy: none
+		sourceColumn: Activity Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 30a37a22-7123-4a8f-a9d7-a5b9db7894b2
+		summarizeBy: none
+		sourceColumn: Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Finish
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e2d4e9b-5446-4c62-a20d-c1d66e19c892
+		summarizeBy: none
+		sourceColumn: Finish
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Remaining Early Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 87e0e5bb-7e7d-405b-a517-f9eddfe670ca
+		summarizeBy: none
+		sourceColumn: Remaining Early Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Remaining Early Finish'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5efeee8f-5d42-4c42-b8ec-b8dba2d86b51
+		summarizeBy: none
+		sourceColumn: Remaining Early Finish
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Late Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cce62fce-55f1-48cd-b0c5-ad1a01ef457b
+		summarizeBy: none
+		sourceColumn: Late Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Late Finish'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 94eda419-59a1-4d3d-8c55-094bcfc49c41
+		summarizeBy: none
+		sourceColumn: Late Finish
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Free Float'
+		dataType: int64
+		formatString: 0
+		lineageTag: 31e96a0d-c21b-4daa-b41c-0213bd94e856
+		summarizeBy: none
+		sourceColumn: Free Float
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Float'
+		dataType: int64
+		formatString: 0
+		lineageTag: bcedbf32-fbe4-4231-8418-5b4cf2899474
+		summarizeBy: none
+		sourceColumn: Total Float
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_P6_IWS12 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/01.%20L4SPE%20Dashboards/IWS12/PBI%20_QTY_IWS12.xlsX"), null, true),
+				    Activities_Sheet = Source{[Item="Activities-iws12",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Activities_Sheet, [PromoteAllScalars=true]),
+				    #"Promoted Headers1" = Table.PromoteHeaders(#"Promoted Headers", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers1",{{"Project ID", type text}, {"Activity ID", type text}, {"Activity Name", type text}, {"Original Duration", type number}, {"Remaining Duration", Int64.Type}, {"Start", type text}, {"Finish", type text}, {"Remaining Early Start", type text}, {"Budgeted Labor Units", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1"," A","",Replacer.ReplaceText,{"Finish"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Replaced Value",{"Project ID", "Activity ID", "Activity Name", "Original Duration", "Remaining Duration", "Remaining Early Start", "Finish", "Budgeted Labor Units"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Reordered Columns",{{"Remaining Early Start", type date}, {"Finish", type date}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type2",{"Budgeted Labor Units", "Original Duration", "Remaining Duration"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Remaining Late Finish", type date}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Changed Type"," A","",Replacer.ReplaceText,{"Start"}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Replaced Value1",{{"Start", type date}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type3",{{"Remaining Late Finish", "Late Finish"}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Renamed Columns1", {"Activity ID"}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Removed Duplicates",{"Project ID", "Activity ID", "Activity Name", "Start", "Finish", "Remaining Early Start", "Remaining Early Finish", "Remaining Late Start", "Late Finish", "Free Float", "Total Float", "Column15"}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Reordered Columns1",{{"Remaining Early Finish", type date}, {"Remaining Late Start", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type4",{{"Remaining Late Start", "Late Start"}}),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Renamed Columns",{{"Total Float", Int64.Type}, {"Free Float", Int64.Type}}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Changed Type5", {"Activity ID"}),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates1", "Index", 1, 1, Int64.Type),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Index", each [Index] <> 2225 and [Index] <> 2079),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Column15", "Index"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

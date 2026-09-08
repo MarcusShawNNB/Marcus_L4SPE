@@ -911,7 +911,7 @@ table 'L4SPE Measures'
 			CALCULATE(
 			    SUM(fact_daily[Hours Earned]),
 			    USERELATIONSHIP(Dim_Date[Date], Fact_Daily[Reporting Week]),
-			    Fact_Daily[Max Date Check]=TRUE()
+			    Fact_Daily[Is_Latest_Record]=TRUE()
 			)
 		displayFolder: 2_Hours
 		lineageTag: 696f92c6-2dd4-4c6b-acba-f718ad03aa9d

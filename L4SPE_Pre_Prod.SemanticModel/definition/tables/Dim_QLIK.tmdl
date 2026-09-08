@@ -1,0 +1,76 @@
+table Dim_QLIK
+	excludeFromModelRefresh
+	lineageTag: fd5892e6-fb08-483d-848e-df108ef13c93
+
+	column RoomID
+		dataType: string
+		lineageTag: f438f4a3-dab4-4fc0-84f4-a9b16945c166
+		summarizeBy: none
+		sourceColumn: RoomID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Coating Scope'
+		dataType: string
+		lineageTag: 9341c062-1c61-49bb-8839-16eff94b46bf
+		summarizeBy: none
+		sourceColumn: Coating Scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'M2 Actual'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 807ba545-23e6-434b-a94a-0a126a101ebc
+		summarizeBy: none
+		sourceColumn: M2 Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'M3 Forecast'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 70df4b43-268e-47f2-9f30-fea1fde4f756
+		summarizeBy: none
+		sourceColumn: M3 Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'M3 Actual'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d7f51523-0586-46e5-acff-c3407c712e0f
+		summarizeBy: none
+		sourceColumn: M3 Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Dim_QLIK = m
+		mode: import
+		queryGroup: Dim_Room
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Room%20Tracker/QLIK%20-%20LIVE.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"RoomID", "Coating Scope","M2 Actual", "M3 Forecast", "M3 Actual"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Other Columns",{{"M2 Actual", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1","-","",Replacer.ReplaceText,{"M2 Actual"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Value",{{"M2 Actual", type date}, {"M3 Forecast", type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Changed Type2","-","",Replacer.ReplaceText,{"M3 Forecast"}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Replaced Value1",{{"M3 Forecast", type date}, {"M3 Actual", type text}}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Changed Type3","-","",Replacer.ReplaceText,{"M3 Actual"}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Replaced Value2",{{"M3 Actual", type date}})
+				in
+				    #"Changed Type4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

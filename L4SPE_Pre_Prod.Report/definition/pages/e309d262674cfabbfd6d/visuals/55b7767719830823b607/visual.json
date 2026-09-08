@@ -1,0 +1,420 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "55b7767719830823b607",
+  "position": {
+    "x": 156.25,
+    "y": 18.75,
+    "z": 1000,
+    "height": 701.25,
+    "width": 1343.75,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Unit"
+                }
+              },
+              "queryRef": "Dim_ROOM.Unit",
+              "nativeQueryRef": "Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Area"
+                }
+              },
+              "queryRef": "Dim_ROOM.Area",
+              "nativeQueryRef": "Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Sub-Area"
+                }
+              },
+              "queryRef": "Dim_ROOM.Sub-Area",
+              "nativeQueryRef": "Sub-Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Area Group"
+                }
+              },
+              "queryRef": "Dim_ROOM.Area Group",
+              "nativeQueryRef": "Area Group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Building [2]"
+                }
+              },
+              "queryRef": "Dim_ROOM.Building [2]",
+              "nativeQueryRef": "Building [2]"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Building [3]"
+                }
+              },
+              "queryRef": "Dim_ROOM.Building [3]",
+              "nativeQueryRef": "Building [3]"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Erection Area"
+                }
+              },
+              "queryRef": "Dim_ROOM.Erection Area",
+              "nativeQueryRef": "Erection Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Adjusted Room Name"
+                }
+              },
+              "queryRef": "Dim_ROOM.Adjusted Room Name",
+              "nativeQueryRef": "Adjusted Room Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Nominal Level (m)"
+                }
+              },
+              "queryRef": "Dim_ROOM.Nominal Level (m)",
+              "nativeQueryRef": "Nominal Level (m)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Consolidated Handover milestone"
+                }
+              },
+              "queryRef": "Dim_ROOM.Consolidated Handover milestone",
+              "nativeQueryRef": "Consolidated Handover milestone"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "TO3 Demand"
+                }
+              },
+              "queryRef": "Dim_ROOM.TO3 Demand",
+              "nativeQueryRef": "TO3 Demand"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Published Room FC"
+                }
+              },
+              "queryRef": "Dim_ROOM.Published Room FC",
+              "nativeQueryRef": "Published Room FC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_HOC"
+                    }
+                  },
+                  "Property": "HOC Date"
+                }
+              },
+              "queryRef": "Dim_HOC.HOC Date",
+              "nativeQueryRef": "HOC Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_QLIK"
+                    }
+                  },
+                  "Property": "M3 Actual"
+                }
+              },
+              "queryRef": "Dim_QLIK.M3 Actual",
+              "nativeQueryRef": "M3 Actual"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_QLIK"
+                    }
+                  },
+                  "Property": "M3 Forecast"
+                }
+              },
+              "queryRef": "Dim_QLIK.M3 Forecast",
+              "nativeQueryRef": "M3 Forecast"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "MEH"
+                }
+              },
+              "queryRef": "Dim_ROOM.MEH",
+              "nativeQueryRef": "MEH"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_HOC"
+                  }
+                },
+                "Property": "HOC Date"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Room View'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

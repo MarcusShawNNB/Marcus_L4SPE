@@ -1,0 +1,154 @@
+table Dim_CTP_Schedule_Data
+	excludeFromModelRefresh
+	lineageTag: 4cc962af-0a17-417b-a6b9-eb065b21f5fc
+
+	column Mandatory
+		dataType: string
+		lineageTag: e20255b5-247f-4ca0-8e94-901ab4419260
+		summarizeBy: none
+		sourceColumn: Mandatory
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MILESTONE
+		dataType: string
+		lineageTag: b4c829b3-8908-48aa-90b7-45bbaa4b1268
+		summarizeBy: none
+		sourceColumn: MILESTONE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Commissioning Nuclear Grading'
+		dataType: string
+		lineageTag: e5099b55-361c-4df0-9816-f5922443878a
+		summarizeBy: none
+		sourceColumn: Commissioning Nuclear Grading
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Building Location'
+		dataType: string
+		lineageTag: 60da3fe9-5435-4bfa-b263-c30df8b50f75
+		summarizeBy: none
+		sourceColumn: Building Location
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OBS
+		dataType: string
+		lineageTag: 4551315b-cbf3-4e28-bc9f-b8dc24f21b0e
+		summarizeBy: none
+		sourceColumn: OBS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		dataType: string
+		lineageTag: 02a4c141-6ea9-4a6f-9349-0f41b7e0fcdc
+		summarizeBy: none
+		sourceColumn: Unit
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTP Description'
+		dataType: string
+		lineageTag: 2b9091aa-6f96-4024-ae5e-3d979db8c7de
+		summarizeBy: none
+		sourceColumn: CTP Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revised_Milestone
+		dataType: string
+		lineageTag: 267afde2-b3e9-407c-b58e-da7fc7e9361b
+		summarizeBy: none
+		sourceColumn: Revised_Milestone
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SD ID'
+		dataType: string
+		lineageTag: 7a4cc776-c303-44b6-916f-d320cf6b284a
+		summarizeBy: none
+		sourceColumn: SD ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OIM ID'
+		dataType: string
+		lineageTag: 5fab3ae6-c51b-4a0f-977b-b67747e40342
+		summarizeBy: none
+		sourceColumn: OIM ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP
+		dataType: string
+		lineageTag: d2026cd0-9e64-4bf4-9ae3-9d7a55c0be05
+		summarizeBy: none
+		sourceColumn: CTP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP_Live_Finish = RELATED('Dim_Activity (LIVE_P6)'[Remaining Early Finish])
+		formatString: Short Date
+		lineageTag: f93444ca-db8f-4a2e-80f5-29938eef659d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP_IWS12_Finish = RELATED('dim_P6_IWS12'[Finish])
+		formatString: Short Date
+		lineageTag: 54281250-3218-4935-9807-effcca076e95
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTP_Live_Finish LM' = RELATED('Dim_Activity (LM_LIVE_P6)'[Finish])
+		formatString: Short Date
+		lineageTag: c7461fa6-7690-46f7-ac26-6524ba5abb27
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_CTP_Schedule_Data = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/CTP/CTP%20Need%20Date%20List.xlsx"), null, true),
+				    #"CTP Schedule Data_Sheet" = Source{[Item="CTP Schedule Data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"CTP Schedule Data_Sheet", [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Mandatory", "MILESTONE", "Commissioning #(lf)Nuclear Grading", "Building Location", "OBS", "Unit", "CTP Description","Revised_Milestone", "SD ID", "OIM ID", "CTP"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Other Columns","#N/A",null,Replacer.ReplaceValue,{"Building Location"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","#N/A",null,Replacer.ReplaceValue,{"CTP Description"})
+				in
+				    #"Replaced Value1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

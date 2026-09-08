@@ -1,0 +1,36 @@
+table Bridge_Cable_Highways
+	excludeFromModelRefresh
+	lineageTag: 3ca9716f-6d77-472d-addc-f04601a69e3e
+
+	column Room
+		dataType: string
+		lineageTag: 6c0d1a65-eaa6-4bba-97e6-692fcbba06ff
+		summarizeBy: none
+		sourceColumn: Room
+
+		annotation SummarizationSetBy = Automatic
+
+	column Route
+		dataType: string
+		lineageTag: f2cd7e69-4295-47fd-85f6-91ab42939f1e
+		summarizeBy: none
+		sourceColumn: Route
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_Cable_Highways = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Cabling%20Highways.xlsx"), null, true),
+				    CH_RoomtoRoute_Sheet = Source{[Item="CH_RoomtoRoute",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(CH_RoomtoRoute_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Room", type text}, {"Route", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Room", Text.Trim, type text}})
+				in
+				    #"Trimmed Text"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

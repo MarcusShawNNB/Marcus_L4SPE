@@ -1,0 +1,27 @@
+table Bridge_TO4_Sub-Area
+	lineageTag: 52c2d2a7-7c23-48be-b9c8-f4db8f031596
+
+	column 'Sub Area'
+		lineageTag: 188395bb-317c-4d63-b883-2b9f3ed62e20
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Sub Area]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_TO4_Sub-Area = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE(
+				    FILTER(
+				        dim_Ecs,
+				        Dim_ECS[Planning Commodity] <> BLANK() && 
+				        Dim_ECS[Planning Commodity] <> ""
+				    ),
+				    Dim_ECS[Sub Area]
+				)
+				```
+
+	annotation PBI_Id = 97076fa64d6549c2bb57b9add3a17e27
+

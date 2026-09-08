@@ -1,0 +1,345 @@
+table Dim_Date
+	excludeFromModelRefresh
+	lineageTag: 73d41b5a-1896-47ed-b0a4-cb37c2682854
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2c93ab19-1c27-403d-ba90-1c613a922d79
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Ending'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ef79bc43-3e7f-4457-8abe-a733227de930
+		summarizeBy: none
+		sourceColumn: Week Ending
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7709a3f8-4bb4-4f5e-a330-2f5fd6e0da8c
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c8bc526-6d53-4e21-abac-f7df8f41b7ab
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: f6b9ec1e-c343-4056-995b-f33b204fdf41
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: 489747b3-8dad-4de4-a181-a04c0f36abea
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week =
+			
+			VAR CurrentYear = YEAR(Dim_Date[Week Ending])
+			VAR FirstDayOfYear = DATE(CurrentYear, 1, 1)
+			VAR DaysSinceYearStart = Dim_Date[Week Ending] - FirstDayOfYear
+			RETURN
+			INT(DaysSinceYearStart / 7) + 1
+		formatString: 0
+		lineageTag: 9e3b4b40-7e20-428c-b9fb-0978e8817094
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Week' = ```
+			
+			 var latestreportingweek = MAX(Fact_Daily[Reporting Week])
+			 RETURN
+			 IF(Dim_Date[Week Ending]=latestreportingweek,TRUE, FALSE)
+			```
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 896e148c-7a21-4733-97ae-83bf018593db
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentMonth =
+			
+			IF(
+			    MONTH(Dim_Date[Adjusted_date]) = MONTH(TODAY()) &&
+			    YEAR(Dim_Date[Adjusted_date]) = YEAR(TODAY()) ,
+			    TRUE,
+			    FALSE
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 28e5fe55-256d-4fb3-aa64-cedf187cf797
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsYTD =
+			
+			VAR LastRefDate = MAX(Fact_Daily[Reporting Week])
+			VAR NextSunday = LastRefDate + (7 - WEEKDAY(LastRefDate, 2))  // Next Sunday
+			RETURN
+			IF(
+			    YEAR(Dim_Date[Adjusted_date]) = YEAR(LastRefDate) &&
+			    Dim_Date[Adjusted_date] <= NextSunday,
+			    TRUE(),
+			    FALSE()
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b8153b47-327c-4da9-9105-fa23efe94817
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'last Week' =
+			
+			VAR latestreportingweek = MAX(Fact_Daily[Reporting Week]) - 7
+			RETURN
+			IF(Dim_Date[Week Ending] = latestreportingweek, TRUE, FALSE)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6bc4e373-8f4f-4b12-84cb-944dcc01c526
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Iscurrentyear =
+			
+			VAR LastRefDate = MAX(Fact_Daily[Reporting Week])
+			VAR NextSunday = LastRefDate + (7 - WEEKDAY(LastRefDate, 2))  // Next Sunday
+			RETURN
+			IF(
+			    YEAR(Dim_Date[Adjusted_date]) = YEAR(LastRefDate),
+			    TRUE(),
+			    FALSE()
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6102b1d6-18ca-444b-ae8b-97ba86ae39ea
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkingDay =
+			
+			IF(
+			    WEEKDAY(Dim_Date[Date], 2) <= 5,  -- 2 = Monday=1, Sunday=7
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 406912ff-5368-4ba8-8785-03da1711fda8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year_Quarter =
+			
+			FORMAT(Dim_Date[Date], "YYYY") & " Q" & FORMAT(Dim_Date[Week Ending], "Q")
+		lineageTag: 30e25a9b-a469-4ff5-a7bf-36c60e8853f2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: ed7e680d-78e0-4a65-ad79-f3ec9dc12c05
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Adjusted_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 45d8f081-a9bf-4bac-8c76-b5c331ee7c7f
+		summarizeBy: none
+		sourceColumn: Adjusted_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsCurrentWeek =
+			
+			VAR latestreportingweek = MAX(Fact_Daily[Reporting Week])
+			RETURN
+			IF(Dim_Date[Week Ending] = latestreportingweek, TRUE, FALSE)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fffdf4fe-a3b4-4e89-afb6-440209e09bc0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_Ending_Y_M
+		dataType: string
+		lineageTag: 8b03f821-c959-4f74-80fa-b02e0d8b2f4d
+		summarizeBy: none
+		sourceColumn: Week_Ending_Y_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 1142adec-8d57-4cce-9e87-d1e2d881491f
+		summarizeBy: sum
+		sourceColumn: IsWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'week commencing' =
+			
+			Dim_Date[Week Ending]-6
+		formatString: Short Date
+		lineageTag: fce2b6e7-1272-452a-8685-9faefb073b43
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Year-Month
+		lineageTag: eba43869-125f-4a51-ba40-edc42a124787
+
+		level Year
+			lineageTag: 8d35637f-b656-45bb-94c8-325ded1dc20a
+			column: Year
+
+		level Month
+			lineageTag: b11b840f-ddf8-4813-af28-c787cd37c65b
+			column: 'Month Name'
+
+	hierarchy 'Date Filter'
+		lineageTag: 89a6cf2e-0443-4619-a1ec-d1e8950ee294
+
+		level Year
+			lineageTag: 92a11481-68c4-4754-a2f4-55117de3805b
+			column: Year
+
+		level Year_Quarter
+			lineageTag: 216d3f30-cd91-42b7-a0f9-880497ba56c8
+			column: Year_Quarter
+
+		level 'Month Name'
+			lineageTag: 7b0e7653-fe9f-4f86-b7ef-fabe70538205
+			column: 'Month Name'
+
+		level 'Week Ending'
+			lineageTag: ef87f3d5-5617-42df-ac33-f5e0eefaf1ad
+			column: 'Week Ending'
+
+	partition Dim_Date = m
+		mode: import
+		source =
+				let
+				    Source = #"Dim_Activity (LIVE_P6)",
+				
+				    MinDate = #date(2023, 1, 1),
+				    MaxDate = #date(2029, 12, 31),
+				    DateList = List.Dates(
+				        MinDate,
+				        Duration.Days(MaxDate - MinDate) + 1,
+				        #duration(1, 0, 0, 0)
+				    ),
+				    ToTable = Table.FromList(DateList, Splitter.SplitByNothing(), {"Date"}),
+				    ChangeType = Table.TransformColumnTypes(ToTable, {{"Date", type date}}),
+				    AddWeekEnding = Table.AddColumn(ChangeType, "Week Ending", each Date.AddDays([Date], 6 - Number.Mod(Date.DayOfWeek([Date], Day.Monday), 7))),
+				
+				    #"Merged Queries" = Table.NestedJoin(
+				        AddWeekEnding,
+				        {"Date"},
+				        AdjDates,
+				        {"Dates"},
+				        "AdjDates",
+				        JoinKind.LeftOuter
+				    ),
+				    #"Expanded AdjDates" = Table.ExpandTableColumn(
+				        #"Merged Queries",
+				        "AdjDates",
+				        {"Adj_Date"},
+				        {"Adjusted_date"}
+				    ),
+				
+				    #"Added Year" = Table.AddColumn(
+				        #"Expanded AdjDates",
+				        "Year",
+				        each if [Adjusted_date] <> null then Date.Year([Adjusted_date]) else null,
+				        Int64.Type
+				    ),
+				    #"Added Month" = Table.AddColumn(
+				        #"Added Year",
+				        "Month",
+				        each if [Adjusted_date] <> null then Date.Month([Adjusted_date]) else null,
+				        Int64.Type
+				    ),
+				    #"Added Month Name" = Table.AddColumn(
+				        #"Added Month",
+				        "Month Name",
+				        each if [Adjusted_date] <> null then Date.ToText([Adjusted_date], "MMMM") else null,
+				        type text
+				    ),
+				    #"Added YearMonth" = Table.AddColumn(
+				        #"Added Month Name",
+				        "YearMonth",
+				        each if [Adjusted_date] <> null then Date.ToText([Adjusted_date], "yyyy-MM") else null,
+				        type text
+				    ),
+				    #"Added Quarter" = Table.AddColumn(
+				        #"Added YearMonth",
+				        "Quarter",
+				        each if [Adjusted_date] <> null then "Q" & Text.From(Date.QuarterOfYear([Adjusted_date])) else null,
+				        type text
+				    ),
+				
+				    #"Merged Queries1" = Table.NestedJoin(#"Added Quarter", {"Date"}, AdjDates, {"Dates"}, "AdjDates", JoinKind.LeftOuter),
+				    #"Expanded AdjDates1" = Table.ExpandTableColumn(#"Merged Queries1", "AdjDates", {"Adj_Date"}, {"AdjDates.Adj_Date"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Expanded AdjDates1", {"Adjusted_date"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns", {{"AdjDates.Adj_Date", "Adjusted_date"}}),
+				
+				    // Add Week_Ending_Y_M
+				    #"Dim_Date_WithMonthCol" = Table.AddColumn(
+				        #"Renamed Columns",
+				        "Week_Ending_Y_M",
+				        each Date.ToText([Week Ending], "MMM yyyy"),
+				        type text
+				    ),
+				
+				    // Add IsWorkingDay (weekday flag — adjust logic if you have a holiday calendar to exclude too)
+				    #"Added IsWorkingDay" = Table.AddColumn(
+				        #"Dim_Date_WithMonthCol",
+				        "IsWorkingDay",
+				        each if Date.DayOfWeek([Date], Day.Monday) < 5 then 1 else 0,
+				        Int64.Type
+				    )
+				in
+				    #"Added IsWorkingDay"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

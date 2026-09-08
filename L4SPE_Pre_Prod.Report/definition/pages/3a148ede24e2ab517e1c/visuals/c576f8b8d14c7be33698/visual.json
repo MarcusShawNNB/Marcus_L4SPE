@@ -1,0 +1,1511 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c576f8b8d14c7be33698",
+  "position": {
+    "x": 21.666666666666668,
+    "y": 131.66666666666669,
+    "z": 2000,
+    "height": 1231.6666666666667,
+    "width": 1378.3333333333335,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Unit"
+                }
+              },
+              "queryRef": "Dim_ECS.Summary Breakdown.Unit",
+              "nativeQueryRef": "Summary Breakdown Unit",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Sub Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Summary Breakdown.sub_area",
+              "nativeQueryRef": "Summary Breakdown sub_area",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_ECS.Planning_Commodity",
+              "nativeQueryRef": "Planning_Commodity",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "count_ecs"
+                }
+              },
+              "queryRef": "L4SPE Measures.count_ecs",
+              "nativeQueryRef": "Counts of ECS",
+              "displayName": "Counts of ECS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_planned"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_planned",
+              "nativeQueryRef": "Planned (Quants)",
+              "displayName": "Planned (Quants)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_booked_hours_current_week"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_booked_hours_current_week",
+              "nativeQueryRef": "Planned (Hours)",
+              "displayName": "Planned (Hours)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)"
+                }
+              },
+              "queryRef": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)",
+              "nativeQueryRef": "Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)"
+                }
+              },
+              "queryRef": "L4SPE Measures.Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)",
+              "nativeQueryRef": "Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)"
+                }
+              },
+              "queryRef": "L4SPE Measures.Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)",
+              "nativeQueryRef": "Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)"
+                }
+              },
+              "queryRef": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)",
+              "nativeQueryRef": "Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_daily_hours_earned"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_daily_hours_earned",
+              "nativeQueryRef": "Cumulative EARNED (HOURS)",
+              "displayName": "Cumulative EARNED (HOURS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)"
+                }
+              },
+              "queryRef": "L4SPE Measures.DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)",
+              "nativeQueryRef": "DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)"
+                }
+              },
+              "queryRef": "L4SPE Measures.DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)",
+              "nativeQueryRef": "DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)"
+                }
+              },
+              "queryRef": "L4SPE Measures.DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)",
+              "nativeQueryRef": "DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)"
+                }
+              },
+              "queryRef": "L4SPE Measures.DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)",
+              "nativeQueryRef": "DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "latest_day_earned_hours_earned"
+                }
+              },
+              "queryRef": "L4SPE Measures.latest_day_earned_hours_earned",
+              "nativeQueryRef": "DAILY EARNED (Hours)",
+              "displayName": "DAILY EARNED (Hours)"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim_ECS.Summary Breakdown.Unit"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.Summary Breakdown.sub_area"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.Planning_Commodity"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.00000095516685D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_planned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.count_ecs"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_daily_hours_earned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.66667423475525D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.66665852528831D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.33336347414826D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.66663831568081D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.00000988995308D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_booked_hours_current_week"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.33332116107678D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.latest_day_earned_hours_earned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.00002344731013D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.99998412797277D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.66665114056434D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "119.66665157998233D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.count_ecs"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_planned"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#003300'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_daily_hours_earned"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_booked_hours_current_week"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#003300'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#003300'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12501A'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12501A'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#006699'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#006699'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2D7DCE'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2D7DCE'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#006699'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.latest_day_earned_hours_earned"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ab148c5f8474005a57d8",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "count_ecs"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1bcf6dc73cbbd4027a57",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Daily"
+              }
+            },
+            "Property": "Daily Hours Earned"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "Fact_Daily",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "Daily Hours Earned"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "9338b1eb9cc12d6056da",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Current Week"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "2dc04f76a5bad317107e",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_daily_hours_earned"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ff0c5c56cbee3362c491",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_baseline_remaining_work"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "dbb84e5a4be648074adf",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_planned"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4e36313cd159a5543a3f",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8964e8e2a9e904936059",
+        "ordinal": 7,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Sub Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3145358a66c0ff3230a7",
+        "ordinal": 8,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Unit"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4d872d5fe83369ed4e07",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_booked_hours_current_week"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "681c7a0357ed2600185a",
+        "ordinal": 10,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "Cumulative IN-PROGRESS (ROC <90%) (Quants - METERS or NO.)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3b30f99595d3bccebbd5",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "Cumulative COMPLETE (ROC >90%) (Quants - METERS or NO.)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "20f71f0b6ca8e3ec107d",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "Cumulative COMPLETED (ROC >90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d6878e643feb7412143",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "Cumulative IN-PROGRESS (ROC <90%) ('PIN No. of ECS CODES)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bb48847ed2593ad1b032",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "DAILY PROGRESS (ROC <90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bbe9541b1ca0c1b20307",
+        "ordinal": 15,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "DAILY PROGRESS (ROC >90%) (NO. OR METERS IN PROGRESS)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "622f4c0fc3c958126aa5",
+        "ordinal": 16,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "DAILY PROGRESS (ROC <90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c1988ed8c50875941986",
+        "ordinal": 17,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "DAILY PROGRESS (ROC >90%)('PIN NO. or ECS CODES IN PROGRESS)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "20ab3c4688132282f236",
+        "ordinal": 18,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "latest_day_earned_hours_earned"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

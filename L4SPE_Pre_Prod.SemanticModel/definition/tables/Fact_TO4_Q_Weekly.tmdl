@@ -1,0 +1,199 @@
+table Fact_TO4_Q_Weekly
+	lineageTag: 636ba324-502a-4c44-85cb-699556fd5a84
+
+	column 'Planning Commodity'
+		dataType: string
+		lineageTag: a6085d31-cda8-4c1f-8f84-7db51c4aa9a6
+		summarizeBy: none
+		sourceColumn: Planning Commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: a66b0c08-9120-42be-bfaa-fc98400d61e2
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Key
+		dataType: string
+		lineageTag: 20f4346b-be53-4a9f-95d1-8169c33c1ff9
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column '%RT TO4 Forecast Finish'
+		dataType: string
+		lineageTag: 34a63d1c-2005-4180-ad8f-5887a6982feb
+		summarizeBy: none
+		sourceColumn: %RT TO4 Forecast Finish
+
+		annotation SummarizationSetBy = Automatic
+
+	column G_Sub-Area
+		dataType: string
+		lineageTag: 76e8c741-e835-4622-8aa5-a52cb3768641
+		summarizeBy: none
+		sourceColumn: G_Sub-Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total in Month'
+		dataType: string
+		lineageTag: 1681af01-115a-4d1f-a2e3-1ab61177b413
+		summarizeBy: none
+		sourceColumn: Total in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q
+		dataType: double
+		lineageTag: 47844dc0-6fd7-413c-88fe-851fce18dffd
+		summarizeBy: sum
+		sourceColumn: Q
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit '
+		dataType: string
+		lineageTag: 58234ee1-592d-4c3a-9d23-741b4391bb94
+		summarizeBy: none
+		sourceColumn: "Unit "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: fc577394-d2bc-4c17-8a7e-b9950469d77a
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthDays
+		dataType: double
+		lineageTag: 8476e96a-6608-463e-8c2e-2f7d9e88a3cf
+		summarizeBy: sum
+		sourceColumn: MonthDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Working Weekend'
+		dataType: string
+		lineageTag: 1f9f9636-76b0-45bf-9958-f86f87317579
+		summarizeBy: none
+		sourceColumn: Working Weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Working Days'
+		dataType: int64
+		formatString: 0
+		lineageTag: 078e4cd9-6d82-40ec-a178-c13a9bc891b7
+		summarizeBy: sum
+		sourceColumn: Working Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week End Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5e6c5bec-efe9-40ca-ba07-9612a400b838
+		summarizeBy: none
+		sourceColumn: Week End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Quantity'
+		dataType: double
+		lineageTag: 4efed60c-0657-44f0-b26c-9829c961171b
+		summarizeBy: sum
+		sourceColumn: Week Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Fact_TO4_Q_Weekly = m
+		mode: import
+		source =
+				let
+				    // --- Source tables (adjust these step references to match your query) ---
+				    Source_TO4_Q   = Fact_TO4_Q,
+				    Source_S       = #"Fact_%S",
+				
+				    // --- Check actual column names first ---
+				    // MonthCol_Q = the Month column name in fact_TO4_Q
+				    // MonthCol_S = the Month column name in Fact_%S
+				
+				    // --- Calculate MonthDays: total working days per Month in Fact_%S ---
+				    MonthDaysTable = Table.Group(
+				        Source_S,
+				        {"Month"},
+				        {{"MonthDays", each List.Sum([Working Days]), type number}}
+				    ),
+				
+				    // --- Join fact_TO4_Q with MonthDays first ---
+				    WithMonthDays = Table.NestedJoin(
+				        Source_TO4_Q,
+				        {"Month"},
+				        MonthDaysTable,
+				        {"Month"},
+				        "MonthDaysLookup",
+				        JoinKind.LeftOuter
+				    ),
+				    ExpandMonthDays = Table.ExpandTableColumn(
+				        WithMonthDays,
+				        "MonthDaysLookup",
+				        {"MonthDays"},
+				        {"MonthDays"}
+				    ),
+				
+				    // --- Join with Fact_%S to get week-level rows ---
+				    WithWeeks = Table.NestedJoin(
+				        ExpandMonthDays,
+				        {"Month"},
+				        Source_S,
+				        {"Month"},
+				        "WeekLookup",
+				        JoinKind.Inner
+				    ),
+				    ExpandWeeks = Table.ExpandTableColumn(
+				        WithWeeks,
+				        "WeekLookup",
+				        {"Working Weekend", "Working Days", "WE"},
+				        {"Working Weekend", "Working Days", "Week End Date"}
+				    ),
+				
+				    // --- Calculate Week Quantity ---
+				    WithWeekQty = Table.AddColumn(
+				        ExpandWeeks,
+				        "Week Quantity",
+				        each
+				            let
+				                MonthQty  = [Q],
+				                MonthDays = [MonthDays],
+				                WeekDays  = [Working Days]
+				            in
+				                if MonthDays <> null and MonthDays > 0
+				                then MonthQty / MonthDays * WeekDays
+				                else 0,
+				        type number
+				    )
+				
+				in
+				    WithWeekQty
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

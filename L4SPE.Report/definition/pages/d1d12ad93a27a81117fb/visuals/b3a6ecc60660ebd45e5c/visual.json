@@ -187,5 +187,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e31475998b121c338360",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Adj_unit"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

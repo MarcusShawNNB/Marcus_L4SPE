@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "b7df039f91ad416c30b2",
+  "position": {
+    "x": 170.72886297376095,
+    "y": 0,
+    "z": 12000,
+    "height": 720.23323615160359,
+    "width": 994.51895043731781,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Date"
+                    }
+                  },
+                  "Property": "Week Ending"
+                }
+              },
+              "queryRef": "Dim_Date.Week Ending",
+              "nativeQueryRef": "Week Ending",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "distinct_count_Rooms_Latest_Baseline"
+                }
+              },
+              "queryRef": "L4SPE Measures.distinct_count_Rooms_Latest_Baseline",
+              "nativeQueryRef": "distinct_count_Rooms_Latest_Baseline"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "distinct_count_progressed_inmonth"
+                }
+              },
+              "queryRef": "L4SPE Measures.distinct_count_progressed_inmonth",
+              "nativeQueryRef": "distinct_count_progressed_inmonth"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "distinct_count_Rooms_Latest_Baseline_and_progressed"
+                }
+              },
+              "queryRef": "L4SPE Measures.distinct_count_Rooms_Latest_Baseline_and_progressed",
+              "nativeQueryRef": "distinct_count_Rooms_Latest_Baseline_and_progressed"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

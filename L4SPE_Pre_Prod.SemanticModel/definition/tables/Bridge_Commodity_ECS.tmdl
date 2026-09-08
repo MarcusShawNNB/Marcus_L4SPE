@@ -1,0 +1,36 @@
+table Bridge_Commodity_ECS
+	lineageTag: 8ecde0dd-7ddc-4872-9e0b-1fdac231c637
+
+	column 'ECS Code'
+		lineageTag: 7ca4ed37-f767-4010-a7aa-fb2ca2db9fe9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[ECS Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Commodity'
+		lineageTag: 7b7c2965-7f55-4e6b-9cee-e70fdd8cf0b0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_ECS[Planning Commodity]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_Commodity_ECS = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE(
+				    FILTER(
+				        dim_Ecs,
+				        Dim_ECS[Planning Commodity] <> BLANK() && 
+				        Dim_ECS[Planning Commodity] <> ""
+				    ),
+				    dim_Ecs[ECS Code],
+				    Dim_ECS[Planning Commodity]
+				)
+				```
+
+	annotation PBI_Id = 9fb1360ac38747f7802cab5c8e37347b
+

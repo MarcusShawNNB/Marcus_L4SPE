@@ -1,0 +1,305 @@
+table Fact_Forecast_Quantity_daily_spread
+	lineageTag: 9361d62c-8dd5-48f2-9cee-3b994230d409
+
+	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
+	measure byday_count_rows = ```
+			-- MS
+			
+			```
+		lineageTag: c057c1b0-39ea-4e4c-b2b9-90372e67b011
+
+	measure sum_people = ```
+			sum(Fact_Forecast_Quantity_daily_spread[People Per Day]) 
+			```
+		lineageTag: 0122ae1f-73b2-4b50-aadc-827cd1a8791e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure resource_profile = [sum_people]/HoursPerDay_Parameter[HoursPerDay_Parameter Value]
+		lineageTag: 3bc87d65-cf45-4e21-902e-27b61e6f5c5c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Quantity'
+		lineageTag: 70029c32-3d1d-441b-93ff-46d628faca5c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Quantity]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Working Days'
+		formatString: 0
+		lineageTag: e110d910-5826-4878-ac64-e24df07fad63
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Working Days]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qty Per Day'
+		lineageTag: 21ad3cf1-f2b8-4fb9-b744-4cbffb89fe76
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Qty Per Day]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Qty This Week'
+		lineageTag: ed0cfd27-bcba-470d-ac6a-954b22481a46
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Qty This Week]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Remaining Early Start'
+		formatString: General Date
+		lineageTag: a0232090-4d6c-400b-8b67-aab9d1a4581a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Remaining Early Start]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Remaining Early Finish'
+		formatString: General Date
+		lineageTag: ef12ae6c-6361-4990-8f8a-2dcf6d9f09e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Remaining Early Finish]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Activity_ID
+		lineageTag: d9d61408-5523-46eb-aac9-8a51c51b7cf6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Activity_ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Commodity'
+		lineageTag: 8c2f91ca-9a32-410c-9610-f0bc61ef8441
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Planning Commodity]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DesignQuantity
+		lineageTag: 1a9bb978-f35b-4d98-a47d-fa82e476ee68
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DesignQuantity]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'ECS Code'
+		lineageTag: cc6dc019-05a4-4136-a0f4-0f92c646e5b1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ECS Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_Float
+		formatString: 0
+		lineageTag: 6e1c9c78-40fd-4749-990f-a24778044977
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total_Float]
+
+		annotation SummarizationSetBy = Automatic
+
+	column RemainingHours
+		lineageTag: 2eba175f-9ad3-428a-a7e3-3b9931941810
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [RemainingHours]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Hrs Per Day'
+		lineageTag: fa8cb32b-b0a6-485b-91af-f73d996aeb16
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Hrs Per Day]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'People Per Day' = ```
+			
+			DIVIDE( 
+			    Fact_Forecast_Quantity_daily_spread[Hrs Per Day], 
+			    9.5
+			) / (Fact_Forecast_Quantity_daily_spread[Working Days in Week]*Fact_Forecast_Quantity_daily_spread[Weeks in Month])
+			```
+		lineageTag: 49b0bbda-d9d5-47c2-bdab-9212e1b931ec
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Week Ending'
+		formatString: General Date
+		lineageTag: 6da1cd55-ca31-4a72-8f01-b99b54cf25a3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_Date[Week Ending]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Working Days in Week'
+		formatString: 0
+		lineageTag: 9a2bd582-627c-4579-97cb-55b2ddfa3cb9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Working Days in Week]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weeks in Month'
+		formatString: 0
+		lineageTag: 3ecd18ee-1bd8-4cd0-b9dc-017cd8d3776d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Weeks in Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_Ending_Y_M
+		lineageTag: cebd1da5-ed29-4a99-87f3-c4ca9fa34b7d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_Date[Week_Ending_Y_M]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ECS_SK
+		formatString: 0
+		lineageTag: 38398990-2979-4563-8578-15eae6c204d5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ECS_SK]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Forecast_Quantity_daily_spread = calculated
+		mode: import
+		source = ```
+				
+				 
+				VAR _FilteredECS =
+				    SELECTCOLUMNS(
+				        FILTER(
+				            'Dim_ECS',
+				            ISBLANK( 'Dim_ECS'[actual_installed_date] )
+				        ),
+				        "ECS Code",             'Dim_ECS'[ECS Code],
+				        "ECS_SK",             'Dim_ECS'[ECS_SK],
+				        "Activity_ID",          'Dim_ECS'[P6_ID],
+				        "Planning Commodity",   'Dim_ECS'[Planning Commodity],
+				        "DesignQuantity",       'Dim_ECS'[DesignQuantity],
+				        "RemainingHours",       'Dim_ECS'[Remaining Hours],
+				        "Total_Float",          'Dim_ECS'[Total Float]
+				    )
+				 
+				VAR _BaseTable =
+				    ADDCOLUMNS(
+				        _FilteredECS,
+				        "Remaining Early Start",
+				            LOOKUPVALUE(
+				                'Dim_Activity (LIVE_P6)'[Remaining Early Start],
+				                'Dim_Activity (LIVE_P6)'[Activity ID], [Activity_ID]
+				            ),
+				        "Remaining Early Finish",
+				            LOOKUPVALUE(
+				                'Dim_Activity (LIVE_P6)'[Remaining Early Finish],
+				                'Dim_Activity (LIVE_P6)'[Activity ID], [Activity_ID]
+				            )
+				    )
+				 
+				RETURN
+				GENERATE(
+				    _BaseTable,
+				 
+				    VAR _Qty        = [DesignQuantity]
+				    VAR _rminghrs   = [RemainingHours]
+				    VAR _Start      = [Remaining Early Start]
+				   // VAR _Finish     = [Remaining Early Finish]
+				    VAR _RawFinish = [Remaining Early Finish]
+				VAR _Finish =
+				    IF (
+				        _RawFinish = TRUNC ( _RawFinish ),   -- true if time component is exactly 00:00:00
+				        _RawFinish - 1,                       -- roll back to the previous day (i.e. Saturday)
+				        _RawFinish
+				    )
+				 
+				    VAR _WorkingDays =
+				        FILTER(
+				            'Dim_Date',
+				            'Dim_Date'[Date] >= _Start
+				                && 'Dim_Date'[Date] <= _Finish
+				                && 'Dim_Date'[WorkingDay] = 1
+				        )
+				 
+				    VAR _TotalWorkingDays = COUNTROWS( _WorkingDays )
+				    VAR _QtyPerDay        = DIVIDE( _Qty, _TotalWorkingDays )
+				    VAR _hrsperday        = DIVIDE( _rminghrs, _TotalWorkingDays )
+				 
+				    VAR _WeeklyBreakdown =
+				        SUMMARIZE(
+				            _WorkingDays,
+				            'Dim_Date'[Week_Ending_Y_M],
+				            'Dim_Date'[Week Ending],
+				            "Working Days in Week",
+				                COUNTROWS(
+				                    FILTER(
+				                        _WorkingDays,
+				                        'Dim_Date'[Week Ending] = EARLIER('Dim_Date'[Week Ending])
+				                    )
+				                )
+				        )
+				 
+				    -- For each weekly row, count how many distinct weeks share the same month
+				    VAR _WeeklyWithMonthCount =
+				        ADDCOLUMNS(
+				            _WeeklyBreakdown,
+				            "Weeks in Month",
+				                COUNTROWS(
+				                    FILTER(
+				                        _WeeklyBreakdown,
+				                        [Week_Ending_Y_M] = EARLIER( [Week_Ending_Y_M] )
+				                    )
+				                )
+				        )
+				 
+				    RETURN
+				    ADDCOLUMNS(
+				        _WeeklyWithMonthCount,
+				        "Total Quantity",       _Qty,
+				        "Total Working Days",   _TotalWorkingDays,
+				        "Qty Per Day",          _QtyPerDay,
+				        "Hrs Per Day",          [Working Days in Week] * _hrsperday,      
+				        "Qty This Week",        [Working Days in Week] * _QtyPerDay
+				    )
+				)
+				 
+				```
+
+	annotation PBI_Id = ad73e86285d7459ebe23bc908b77d09d
+

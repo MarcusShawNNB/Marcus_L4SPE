@@ -1,0 +1,83 @@
+table Dim_Equipment
+	excludeFromModelRefresh
+	lineageTag: 11ab59f2-32af-4cdb-8673-f834e9672044
+
+	column 'L4SPETRN_Priority_HPC.ID.ContractNumberAssetSupply'
+		dataType: string
+		lineageTag: 5e4f557d-c6ee-4610-8419-3d72f334df25
+		summarizeBy: none
+		sourceColumn: L4SPETRN_Priority_HPC.ID.ContractNumberAssetSupply
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HPC.ID.ECSCode'
+		dataType: string
+		lineageTag: de07b12f-c3c5-4c3a-940c-8add24800336
+		summarizeBy: none
+		sourceColumn: HPC.ID.ECSCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column MIN_SND_FC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 91465055-fdd7-4b90-82bd-8195d0f3f103
+		summarizeBy: none
+		sourceColumn: MIN_SND_FC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MIN_INSTALL_FC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 56eea405-263f-4df9-ad51-4487983da0e7
+		summarizeBy: none
+		sourceColumn: MIN_INSTALL_FC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_DTS_FC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0daedd64-6ac6-440d-b497-6945acbf35a1
+		summarizeBy: none
+		sourceColumn: MAX_DTS_FC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_DTS_Actual
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 11b31d72-94d8-44e5-bac1-acd197aaf2e3
+		summarizeBy: none
+		sourceColumn: MAX_DTS_Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Dim_Equipment = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Equipment/Equipment.csv"),[Delimiter=",", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"L4SPETRN_Priority_HPC.ID.ContractNumberAssetSupply", type text}, {"HPC.ID.ECSCode", type text}, {"MIN_SND_FC", type date}, {"MIN_INSTALL_FC", type date}, {"MAX_DTS_FC", type date}, {"MAX_DTS_Actual", type date}, {"INSTALL_BASLINE_TASKCODES", type text}, {"INSTALL_FORECAST_TASKCODES", type text}, {"DTS_FORECAST_TASKCODES", type text}, {"DTS_ACTUAL_TASKCODES", type text}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"L4SPETRN_Priority_HPC.ID.ContractNumberAssetSupply", "HPC.ID.ECSCode", "MIN_SND_FC", "MIN_INSTALL_FC", "MAX_DTS_FC", "MAX_DTS_Actual"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each ([HPC.ID.ECSCode] <> "")),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows", {"HPC.ID.ECSCode"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Duplicates", each [HPC.ID.ECSCode] <> null)
+				in
+				    #"Filtered Rows1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,707 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "17a50733270020359452",
+  "position": {
+    "x": 155,
+    "y": 0,
+    "z": 14000,
+    "height": 530,
+    "width": 1682.5,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Exists_in_P6"
+                }
+              },
+              "queryRef": "Dim_ECS.Exists_in_P6",
+              "nativeQueryRef": "Exists_in_P6"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "ECS Code"
+                }
+              },
+              "queryRef": "Dim_ECS.ECS Code",
+              "nativeQueryRef": "ECS Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "P6_ID"
+                }
+              },
+              "queryRef": "Dim_ECS.P6_ID",
+              "nativeQueryRef": "Final_Activity_ID",
+              "displayName": "Final_Activity_ID"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Unit"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Unit",
+              "nativeQueryRef": "Geography Breakdown Unit"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.area",
+              "nativeQueryRef": "Geography Breakdown area"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Sub Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Sub Area",
+              "nativeQueryRef": "Geography Breakdown Sub Area"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Building"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.building_code",
+              "nativeQueryRef": "Geography Breakdown building_code"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Room"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Room",
+              "nativeQueryRef": "Geography Breakdown Room"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Elevation"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.nominal_level__m_",
+              "nativeQueryRef": "Geography Breakdown nominal_level__m_"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Erection_Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Erection_Area",
+              "nativeQueryRef": "Erection_Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_ECS.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "BoreSize"
+                }
+              },
+              "queryRef": "Dim_ECS.BoreSize",
+              "nativeQueryRef": "BoreSize"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "budget_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.budget_hours",
+              "nativeQueryRef": "budget_hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_remaining_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_remaining_hours",
+              "nativeQueryRef": "sum_remaining_hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_earned_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_earned_hours",
+              "nativeQueryRef": "sum_earned_hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "%_earned_budget"
+                }
+              },
+              "queryRef": "L4SPE Measures.%_earned_budget",
+              "nativeQueryRef": "%_earned_budget"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.00000039717642D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.ECS Code"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Geography Breakdown.nominal_level__m_"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "30a867938f8a7d9a3257",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "675be6b239546b7d43df",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Daily"
+              }
+            },
+            "Property": "DateTime"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "302dd90eae3658fce07d",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Daily"
+              }
+            },
+            "Property": "Hours Earned"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "37a414cbf3e454e13433",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "ECS Code"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "925c6336be30e71b82b2",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e107ddf4be9678488178",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_daily_hours_earned"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "e5b2c5d0a802d9c6a963",
+        "ordinal": 6,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Unit"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9c2b855ec76fe50ba83b",
+        "ordinal": 7,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1e9143c0b4dcfaa8c754",
+        "ordinal": 8,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Sub Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2afac7fc3d5d31c7e75d",
+        "ordinal": 9,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Building"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dfc8e7daec660f11c2ce",
+        "ordinal": 10,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Room"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "024c14bcf7843eadbb69",
+        "ordinal": 11,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Hierarchy": "Geography Breakdown"
+              }
+            },
+            "Level": "Elevation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1af165a8dabcdb8aa26c",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Current % Complete"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "da216edf86cca17e9ea0",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "latest_day_earned_hours_earned"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "444550618d2c0635cecd",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Weekly % Complete"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "245a5f7be5421d0a92a8",
+        "ordinal": 15,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "budget_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2016ed69603f756cf5a4",
+        "ordinal": 16,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_remaining_hours"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "c52648d6a69deca5d607",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Erection_Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1b61bae6dd8d70739e04",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "BoreSize"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "787fbe742e2c788e1026",
+        "ordinal": 19,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_earned_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c690f3920c8520d20403",
+        "ordinal": 20,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_earned_budget"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2a85a1199656ad3e4900",
+        "ordinal": 21,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "P6_ID"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

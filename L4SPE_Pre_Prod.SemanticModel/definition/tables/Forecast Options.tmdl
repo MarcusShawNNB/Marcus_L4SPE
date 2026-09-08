@@ -1,0 +1,33 @@
+table 'Forecast Options'
+	lineageTag: ce4b4fa2-68e2-4fce-97e9-d33fb1d3e820
+
+	column 'Forecast Name'
+		lineageTag: 6fb069c4-fc8a-494f-9447-9bac3f70bb65
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Forecast Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecast Order'
+		formatString: 0
+		lineageTag: efbaba88-91f3-4df4-9d6e-87016b20a5e8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Forecast Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Forecast Options' = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    ROW("Forecast Name", "Baseline",     "Forecast Order", 0),
+				    ROW("Forecast Name", "Rolling",      "Forecast Order", 1),
+				    ROW("Forecast Name", "Quarterly FC",       "Forecast Order", 3),
+				    ROW("Forecast Name", "TO4 FC",       "Forecast Order", 4)
+				)
+
+	annotation PBI_Id = e592cf6d17464f4296fa60148cbae764
+

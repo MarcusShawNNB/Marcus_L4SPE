@@ -93,7 +93,7 @@
               },
               "queryRef": "Dim_Date.Year Hierarchy.Week Ending",
               "nativeQueryRef": "Year Hierarchy Week Ending",
-              "active": false
+              "active": true
             }
           ]
         }
@@ -190,7 +190,29 @@
                       }
                     }
                   ],
-                  "isToggled": true
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'August'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    },
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'September'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
                 }
               ]
             }
@@ -298,16 +320,6 @@
                               },
                               "Property": "Year"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Year_Quarter"
-                            }
                           }
                         ],
                         "Values": [
@@ -315,11 +327,6 @@
                             {
                               "Literal": {
                                 "Value": "2026L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'2026 Q3'"
                               }
                             }
                           ]
@@ -343,21 +350,6 @@
                               },
                               "Level": "Year"
                             }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim_Date"
-                                    }
-                                  },
-                                  "Hierarchy": "Date Filter"
-                                }
-                              },
-                              "Level": "Year_Quarter"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -368,15 +360,6 @@
                                   {
                                     "Literal": {
                                       "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026 Q3'"
                                     }
                                   }
                                 ]
@@ -395,25 +378,12 @@
                                   "Property": "Year"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim_Date"
-                                    }
-                                  },
-                                  "Property": "Year_Quarter"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2026",
-                            "1": "2026 Q3"
+                            "0": "2026"
                           }
                         ]
                       }
@@ -521,5 +491,85 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "140b7abbb8a920200657",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "693ea8dad6647b535432",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year_Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b1917d606b001344b811",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Month Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db571342bc7364d789a6",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Week Ending"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -1,0 +1,544 @@
+table Dim_IWS12_QM
+	excludeFromModelRefresh
+	lineageTag: 0b578886-3e2c-450a-9ac7-261c42d04e55
+
+	column 'ECS Code'
+		dataType: string
+		lineageTag: 71ff4ac2-2191-4896-88d6-eb35cac0ee41
+		summarizeBy: none
+		sourceColumn: ECS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Design Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: faf686ea-7572-45a1-8e94-aaa4bee40246
+		summarizeBy: sum
+		sourceColumn: Design Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UoM
+		dataType: string
+		lineageTag: c568ada8-f56a-48c2-b8c1-5276f5018511
+		summarizeBy: none
+		sourceColumn: UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column HO1
+		dataType: string
+		lineageTag: 2785869d-75f2-48ea-b589-515acb00ceac
+		summarizeBy: none
+		sourceColumn: HO1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISO
+		dataType: string
+		lineageTag: e2147b61-daec-4e32-a2d3-f5cbc5ca5fae
+		summarizeBy: none
+		sourceColumn: ISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		dataType: string
+		lineageTag: f6508b90-4f9d-4108-83fa-5347d8e6bfd3
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: ce5794ad-7ac5-4953-ba42-492a7ec67177
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sub-Area
+		dataType: string
+		lineageTag: dad9ebab-ecba-4e4c-b8ec-60b9b434c3ce
+		summarizeBy: none
+		sourceColumn: Sub-Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Building
+		dataType: string
+		lineageTag: 2ff63513-4e70-4b39-92ea-284be4a057d7
+		summarizeBy: none
+		sourceColumn: Building
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Erection Area'
+		dataType: string
+		lineageTag: 33e1ab8b-e9cd-4b27-8f3b-1ba80a4b7387
+		summarizeBy: none
+		sourceColumn: Erection Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Elevation
+		dataType: double
+		lineageTag: d3f276d6-7d80-4c7a-9289-392203d6119b
+		summarizeBy: sum
+		sourceColumn: Elevation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Room
+		dataType: string
+		lineageTag: ac5f1051-011e-4997-bb7d-f4f91baf3a97
+		summarizeBy: none
+		sourceColumn: Room
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: 687c080c-81e1-4ec0-87e7-acca346f9ca2
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Commodity'
+		dataType: string
+		lineageTag: 47cd3c6a-f054-4e25-9f77-f7692c339c4a
+		summarizeBy: none
+		sourceColumn: Planning Commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity ID'
+		dataType: string
+		lineageTag: 5941620a-71ec-4b4f-b0ae-876e79b849b3
+		summarizeBy: none
+		sourceColumn: Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budgeted Hours'
+		dataType: double
+		lineageTag: c2cc23a9-e65d-422b-89ae-22094ecb5035
+		summarizeBy: sum
+		sourceColumn: Budgeted Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Installation % Complete'
+		dataType: string
+		lineageTag: 870bdaf0-80d0-4ce6-ad05-a90a2be08242
+		summarizeBy: none
+		sourceColumn: Installation % Complete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Remaining Hours'
+		dataType: double
+		lineageTag: 874ee74c-60da-4207-8fe7-09cd0cc85830
+		summarizeBy: sum
+		sourceColumn: Remaining Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Hours Actual Units'
+		dataType: string
+		lineageTag: 38361948-d3a2-4567-a7f3-b3e4bb27a81f
+		summarizeBy: none
+		sourceColumn: Hours Actual Units
+
+		annotation SummarizationSetBy = Automatic
+
+	column P45_E+E
+		dataType: string
+		lineageTag: 3ddc4a90-2091-4721-a900-4a377598cf61
+		summarizeBy: none
+		sourceColumn: P45_E+E
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room Handover Milestone'
+		dataType: string
+		lineageTag: 82a2a455-cf32-4c4b-859a-574b835d7a53
+		summarizeBy: none
+		sourceColumn: Room Handover Milestone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room - Available'
+		dataType: string
+		lineageTag: 89176b93-d3ed-400c-8d23-0268406ebf84
+		summarizeBy: none
+		sourceColumn: Room - Available
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room - MS3 Actual'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0fc2cdd1-0a77-4823-8b19-4df3b25b5c40
+		summarizeBy: none
+		sourceColumn: Room - MS3 Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room - MS3 FC'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 279b1a11-729a-4464-8f7a-a5d66bcb941b
+		summarizeBy: none
+		sourceColumn: Room - MS3 FC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room Handover FC'
+		dataType: string
+		lineageTag: bb284f4c-898a-47de-aeca-b48153592159
+		summarizeBy: none
+		sourceColumn: Room Handover FC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Room - HOC Date'
+		dataType: string
+		lineageTag: 63ba30d8-4179-471a-9e86-9801c4147a3e
+		summarizeBy: none
+		sourceColumn: Room - HOC Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Published Date - Installation Start'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 99fb9876-d887-4b26-bf0c-a8009db08f2f
+		summarizeBy: none
+		sourceColumn: Last Published Date - Installation Start
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Published Date - Installation Finish'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cc72a92d-5e5d-48da-8fae-c303e0b0e4b0
+		summarizeBy: none
+		sourceColumn: Last Published Date - Installation Finish
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Installed'
+		dataType: string
+		lineageTag: 2d3bb90f-f490-4419-8585-865ecef78d02
+		summarizeBy: none
+		sourceColumn: Actual Installed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'L5 Planned - Baseline'
+		dataType: string
+		lineageTag: f9c36b11-009a-48fe-8a5a-438bbf286cd3
+		summarizeBy: none
+		sourceColumn: L5 Planned - Baseline
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'L5 Planned - Rolling'
+		dataType: string
+		lineageTag: 70152f0a-7cb8-464b-8527-d65fd6813c9c
+		summarizeBy: none
+		sourceColumn: L5 Planned - Rolling
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IWS_11.1 - Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5c9a0487-71d1-44a7-be7d-7d33b271c0de
+		summarizeBy: none
+		sourceColumn: IWS_11.1 - Start Date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'IWS_11.1 - Finish Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6b4e4123-c5ca-452d-8557-79ed44b6b8a6
+		summarizeBy: none
+		sourceColumn: IWS_11.1 - Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IWS_12 -  Start Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 687095fa-4b77-4714-8919-68bebd6c36ab
+		summarizeBy: none
+		sourceColumn: IWS_12 -  Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IWS_12 -  Finish Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f430be69-65e0-4c9c-a2b1-88b2b8a69677
+		summarizeBy: none
+		sourceColumn: IWS_12 -  Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IWS_12 - SND'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3607b71f-545b-4da5-b9b1-916fae3eb266
+		summarizeBy: none
+		sourceColumn: IWS_12 - SND
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EPM Milestone'
+		dataType: string
+		lineageTag: f5e493eb-2647-4a73-8f2e-e0f9cd05c77e
+		summarizeBy: none
+		sourceColumn: EPM Milestone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTS - Forecast'
+		dataType: string
+		lineageTag: 45fdc6ad-b385-4c6f-8cf4-0a3bbbe92920
+		summarizeBy: none
+		sourceColumn: DTS - Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTS - Actual'
+		dataType: string
+		lineageTag: 978456a0-1709-4c8d-831c-52c61d085b76
+		summarizeBy: none
+		sourceColumn: DTS - Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTS - Status'
+		dataType: string
+		lineageTag: 90b35425-9272-40be-b1aa-92fc71f0eeb5
+		summarizeBy: none
+		sourceColumn: DTS - Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column System
+		dataType: string
+		lineageTag: 4854ae45-f0bc-4c92-95bf-b34efe161cb0
+		summarizeBy: none
+		sourceColumn: System
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bore
+		dataType: string
+		lineageTag: b9d95be0-18b1-48bf-abfb-63e36caa8050
+		summarizeBy: none
+		sourceColumn: Bore
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydrotesting_Activity ID'
+		dataType: string
+		lineageTag: e1071d10-98fb-47f9-918e-76f0dc41d6ce
+		summarizeBy: none
+		sourceColumn: Hydrotesting_Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydrotesting Start Date'
+		dataType: string
+		lineageTag: ec39a322-4397-433b-88a1-fc0a1cf1cbb3
+		summarizeBy: none
+		sourceColumn: Hydrotesting Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydrotesting Finish Date'
+		dataType: string
+		lineageTag: d3b72bf4-f9aa-4ac0-a5fd-008b7b029ed7
+		summarizeBy: none
+		sourceColumn: Hydrotesting Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP
+		dataType: string
+		lineageTag: 5892d715-67da-4567-81ea-cc9659c277da
+		summarizeBy: none
+		sourceColumn: CTP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTP_Activity ID'
+		dataType: string
+		lineageTag: 13264cce-013f-40c8-ae28-e92901cbfd83
+		summarizeBy: none
+		sourceColumn: CTP_Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTP_EESR Handover Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: afb4d942-f401-49fa-a5fe-92e3f232d398
+		summarizeBy: none
+		sourceColumn: CTP_EESR Handover Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP_Milestone
+		dataType: string
+		lineageTag: a72f835e-511b-466f-b470-0e8034ca22cc
+		summarizeBy: none
+		sourceColumn: CTP_Milestone
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTP_OBS
+		dataType: string
+		lineageTag: 05f36c16-5d9f-4e01-914c-5e67c46c5000
+		summarizeBy: none
+		sourceColumn: CTP_OBS
+
+		annotation SummarizationSetBy = Automatic
+
+	column IPCM
+		dataType: string
+		lineageTag: 8fcf5bd3-a687-4f16-9090-5df92e5bf91b
+		summarizeBy: none
+		sourceColumn: IPCM
+
+		annotation SummarizationSetBy = Automatic
+
+	column AT_Location
+		dataType: string
+		lineageTag: 719dce39-22f4-4d8a-83fe-a68f0f501b2c
+		summarizeBy: none
+		sourceColumn: AT_Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column AT_LocationC
+		dataType: string
+		lineageTag: 64dfa9f6-1eb2-4606-818c-9cb54de939f1
+		summarizeBy: none
+		sourceColumn: AT_LocationC
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreCon_Hopper
+		dataType: string
+		lineageTag: 5fa0fb11-4e21-4dcd-8412-e9b3103564b8
+		summarizeBy: none
+		sourceColumn: PreCon_Hopper
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valve Type'
+		dataType: string
+		lineageTag: 6d6f7f4d-c378-402d-852d-e9fe0e072f83
+		summarizeBy: none
+		sourceColumn: Valve Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valve TG Call-Off'
+		dataType: string
+		lineageTag: a588c034-1bed-4b0b-8ca7-4ab73c1f93d2
+		summarizeBy: none
+		sourceColumn: Valve TG Call-Off
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valve Delivered'
+		dataType: string
+		lineageTag: bceaef6e-51d4-435d-8601-64540b08072c
+		summarizeBy: none
+		sourceColumn: Valve Delivered
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quality_Class
+		dataType: string
+		lineageTag: 4363b6d7-2af3-45c0-948b-2de07525c255
+		summarizeBy: none
+		sourceColumn: Quality_Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Safety_Class
+		dataType: string
+		lineageTag: c3e4f748-bb25-41dd-b686-dfb6e9672540
+		summarizeBy: none
+		sourceColumn: Safety_Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Supply Contract'
+		dataType: int64
+		formatString: 0
+		lineageTag: 74e44ba8-2029-4117-8e6b-76a132cc8a71
+		summarizeBy: sum
+		sourceColumn: Supply Contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Install Contract'
+		dataType: int64
+		formatString: 0
+		lineageTag: 47677cbc-7259-47e8-b586-5cb257a1c9a1
+		summarizeBy: sum
+		sourceColumn: Install Contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column ECS_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 43a59324-1409-4055-bd30-70eda9ab43ce
+		summarizeBy: none
+		sourceColumn: ECS_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_IWS12_QM = m
+		mode: import
+		queryGroup: Actuals
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"08b2498c-771b-444f-8d6c-866ef825ad96" = Workspaces{[workspaceId="08b2498c-771b-444f-8d6c-866ef825ad96"]}[Data],
+				    #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215" = #"08b2498c-771b-444f-8d6c-866ef825ad96"{[dataflowId="1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"]}[Data],
+				    IWS12_QM_ = #"1fc0d6bc-e6df-4a6d-bf52-3a085f97e215"{[entity="IWS12_QM",version=""]}[Data],
+				    #"Merged with Dim_ECS" = Table.NestedJoin(IWS12_QM_, {"ECS Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
+				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded ECS_SK", each [ECS_SK] <> null)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

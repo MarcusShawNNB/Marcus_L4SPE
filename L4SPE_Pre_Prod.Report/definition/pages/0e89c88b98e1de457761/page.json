@@ -1,0 +1,500 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "0e89c88b98e1de457761",
+  "displayName": "TO4 Quants Performance",
+  "displayOption": "FitToPage",
+  "height": 1000,
+  "width": 1320,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "61b390e16d174606d593",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "22ac810f3905ae83a6bf",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Bridge_Cable_Highways"
+              }
+            },
+            "Property": "Room"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "6f9e4b0bd7ba07dce9b0",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Cable_Highways_Routes"
+              }
+            },
+            "Property": "Route number"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "bc07de422bbef2ede03b",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "RelativeDate",
+        "howCreated": "User",
+        "isHiddenInViewMode": true
+      },
+      {
+        "name": "456e88edc25ff07f49cf",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "1735da9996881e12e207",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Planning_Commodity"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dim_Planning_Commodity",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Planning Commodity"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'BNI Pipe'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'BOP Pipe'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'BOP WDI'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Cable Pulling'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Cable Tray'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Clamps'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Electrical Equipment'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Electrical Supports'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'HVAC Duct'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'HVAC Equipment'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'HVAC In-Line'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'HVAC Supports'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'IED - Cable Pulling'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Mechanical Equipment'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Mechanical Penetrations'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Mechanical Supports'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'BNI WDI'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true
+      },
+      {
+        "name": "b228373384062e7343cb",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Adj_unit"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dim_ECS",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Adj_unit"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'1/0/9'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "337L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "e35564fe7dbda99217fd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "e9a962be24299f6c85d1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "8d829092fbc4b127e156",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "80493653cb1f9d845f1f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "080011f5dba4ccd4e516",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "534f3b567101fb42a80f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "fd8837315ef33949d1df",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "9a0c361d55bf7389fa7f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "3e7b9a437dae8ae0af3b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "6e84ef83f5c85d8eec36",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "5f2d905791e35c6faef5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "4edeadcf076ba2cb7607",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "0a8916bf0d4be5576a2d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "9589b0021adc6defc439",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "62c868ece33b56aedec7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "2ca87714f8728a93ffb4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "6087cedd11c09ec17a05",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5dba6b439a980e54e77e",
+      "target": "9ffd44b9d0d62573fcf6",
+      "type": "NoFilter"
+    }
+  ]
+}

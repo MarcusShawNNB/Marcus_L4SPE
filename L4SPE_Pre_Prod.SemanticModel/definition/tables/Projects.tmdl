@@ -1,0 +1,24 @@
+table Projects
+	lineageTag: 287ab2d1-f70a-438f-b224-d19da5030598
+
+	column Project
+		lineageTag: 5bd032b2-7368-452e-90d1-f08a96d44202
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Project]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Projects = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    UNION(
+				        SELECTCOLUMNS(Fact_Booked_Hours, "Project", Fact_Booked_Hours[Project Adjusted]),
+				        SELECTCOLUMNS(Dim_ROOM, "Project",Dim_ROOM[Final_Project_Name])
+				    )
+				)
+
+	annotation PBI_Id = deb4d2e648c344b4accbed635fd3b7d3
+

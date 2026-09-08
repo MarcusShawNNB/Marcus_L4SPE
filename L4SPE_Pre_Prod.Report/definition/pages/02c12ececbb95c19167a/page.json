@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "02c12ececbb95c19167a",
+  "displayName": "Appendix 2",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6545f2508adfc74ceab9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Daily"
+              }
+            },
+            "Property": "Weekly % Complete"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "35cfd6270f8e21707362",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "d23460206000a95f2495",
+        "boundFilter": "6545f2508adfc74ceab9",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Daily"
+              }
+            },
+            "Property": "Weekly % Complete"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -298,16 +298,6 @@
                               },
                               "Property": "Year"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Year_Quarter"
-                            }
                           }
                         ],
                         "Values": [
@@ -315,11 +305,6 @@
                             {
                               "Literal": {
                                 "Value": "2026L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'2026 Q3'"
                               }
                             }
                           ]
@@ -343,21 +328,6 @@
                               },
                               "Level": "Year"
                             }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim_Date"
-                                    }
-                                  },
-                                  "Hierarchy": "Date Filter"
-                                }
-                              },
-                              "Level": "Year_Quarter"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -368,15 +338,6 @@
                                   {
                                     "Literal": {
                                       "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026 Q3'"
                                     }
                                   }
                                 ]
@@ -395,25 +356,12 @@
                                   "Property": "Year"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim_Date"
-                                    }
-                                  },
-                                  "Property": "Year_Quarter"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2026",
-                            "1": "2026 Q3"
+                            "0": "2026"
                           }
                         ]
                       }
