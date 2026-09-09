@@ -1,4 +1,5 @@
 table Welders
+	excludeFromModelRefresh
 	lineageTag: 986ca991-9e5b-48c1-8d0b-be99501af9e8
 
 	column Code

@@ -397,7 +397,7 @@
           "width": {
             "expr": {
               "Literal": {
-                "Value": "337L"
+                "Value": "330L"
               }
             }
           }

@@ -1,4 +1,5 @@
 table Dim_Contract
+	excludeFromModelRefresh
 	lineageTag: 0b1044b0-41e8-41ad-ae09-6f7b244440a8
 
 	column ECS

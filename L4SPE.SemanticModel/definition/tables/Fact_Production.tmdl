@@ -156,7 +156,7 @@ table Fact_Production
 			    Fact_Production[Weekly % Delta_] * RELATED(DIM_ECS[Final_Hours])
 			```
 		lineageTag: 61e4f360-95bd-4f1f-99a7-e76670cbfbba
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -178,7 +178,7 @@ table Fact_Production
 			    BLANK()
 			)
 		lineageTag: 84e397b8-3ba5-4a65-82fd-1e0a64d33611
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -186,7 +186,7 @@ table Fact_Production
 
 	column Budget = RELATED(Dim_ECS[Final_Hours])
 		lineageTag: 103b9adb-c05b-47b1-a3f6-50f3c1bd23a3
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -240,15 +240,6 @@ table Fact_Production
 
 		annotation SummarizationSetBy = Automatic
 
-	column ECS_SK
-		dataType: int64
-		formatString: 0
-		lineageTag: 43f45ea7-8fb9-4669-9095-d48692ad278f
-		summarizeBy: sum
-		sourceColumn: ECS_SK
-
-		annotation SummarizationSetBy = Automatic
-
 	partition Fact_Production = m
 		mode: import
 		queryGroup: Actuals
@@ -273,13 +264,11 @@ table Fact_Production
 				    SelectColumns = Table.SelectColumns(FilteredDaily, {"% Complete", "ECS Code", "Day"}),
 				    RenameDaily = Table.RenameColumns(SelectColumns, {{"% Complete", "% Complete Capped"}, {"Day", "Actuals Update"}}),
 				    AddSource = Table.AddColumn(RenameDaily, "Source", each "Daily", type text),
-				    FinalResult = Table.Combine({#"Renamed Columns1", AddSource}),
-				    #"Merged with Dim_ECS" = Table.NestedJoin(FinalResult, {"ECS Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.LeftOuter),
-				    #"Expanded ECS_SK" = Table.ExpandTableColumn(#"Merged with Dim_ECS", "Dim_ECS", {"ECS_SK"}, {"ECS_SK"})
+				    FinalResult = Table.Combine({#"Renamed Columns1", AddSource})
 				in
-				    #"Expanded ECS_SK"
+				    FinalResult
 
 	annotation PBI_NavigationStepName = Navigation
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

@@ -267,7 +267,6 @@ table Dim_MEH_ENG
 				        }
 				    ),
 				    #"Removed Duplicates" = Table.Distinct(#"Combined Tables", {"ECS Code"})
-				
 				in
 				    #"Removed Duplicates"
 

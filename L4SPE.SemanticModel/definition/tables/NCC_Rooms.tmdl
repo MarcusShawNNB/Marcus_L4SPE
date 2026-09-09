@@ -1,4 +1,5 @@
 table NCC_Rooms
+	excludeFromModelRefresh
 	lineageTag: fd21c571-a36e-422f-9edb-6155bbc3f5cf
 
 	column Rooms

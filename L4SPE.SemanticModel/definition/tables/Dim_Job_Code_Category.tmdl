@@ -1,4 +1,5 @@
 table Dim_Job_Code_Category
+	excludeFromModelRefresh
 	lineageTag: 449dbbe7-cd2a-41a9-84a6-6fe51055fc38
 
 	column 'Job Code'

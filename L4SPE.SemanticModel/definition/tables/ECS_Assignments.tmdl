@@ -1,4 +1,5 @@
 table ECS_Assignments
+	excludeFromModelRefresh
 	lineageTag: 52887351-7bc7-404d-9451-727a10b6736c
 
 	column Name

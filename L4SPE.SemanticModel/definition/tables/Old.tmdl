@@ -1,4 +1,5 @@
 table Old
+	excludeFromModelRefresh
 	lineageTag: 6bda6ea5-827c-495d-b1af-556646fb708a
 
 	column 'ECS Code'

@@ -16239,6 +16239,166 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "ebe85332ebda37dc29b7",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "26570c67056d05e07b8a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year_Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "23fb055f61dbc8277187",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Month Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9a38a09408b70e843dd2",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Week Ending"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4d56411343e4c96beb6c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3abf0aee020680e321a5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_to4_q_weekly"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a733c1d7b6224350ad72",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_sum_design_quantity_quarterly_forecast"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "01db6ab910456da6d6ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_baseline"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c98535a0a01d04a3bc71",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_rolling"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "24241a80dd82bc0008d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_actual_installed_inc_CMPIC"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -96,7 +96,7 @@ table Dim_ECS
 			        FILTER(
 			            Fact_Production,
 			            Fact_Production[ECS Code] = Dim_ECS[ECS Code] &&
-			            Fact_Production[% Complete Capped] >= EquipmentThreshold
+			            Fact_Production[% Complete Capped] >= EquipmentThreshold 
 			        )
 			    )
 			
@@ -111,8 +111,8 @@ table Dim_ECS
 			//     )
 			
 			RETURN
-			FromProduction
-			// IF(Dim_ECS[Old.ECS Code]<>BLANK(),Dim_ECS[Old.Actual Installed],FromProduction)
+			//FromProduction
+			IF(Dim_ECS[Old.ECS Code]<>BLANK(),Dim_ECS[Old.Actual Installed],FromProduction)
 			
 			```
 		formatString: Short Date
@@ -1239,15 +1239,6 @@ table Dim_ECS
 
 		annotation SummarizationSetBy = Automatic
 
-	column ECS_SK
-		dataType: int64
-		formatString: 0
-		lineageTag: cfc6c010-ea6a-49dc-b1fb-1d712f768f90
-		summarizeBy: none
-		sourceColumn: ECS_SK
-
-		annotation SummarizationSetBy = Automatic
-
 	column Index
 		dataType: int64
 		formatString: 0
@@ -1385,13 +1376,9 @@ table Dim_ECS
 				            else "Include",
 				        type text
 				    ),
-				    #"Filtered Rows" = Table.SelectRows(#"Added KEEP_FLAG", each ([KEEP_FLAG] <> "Exclude") and ([Planning Commodity] <> "17.360454176718513")),
-				
-				    #"Added Surrogate Key" = Table.AddIndexColumn(#"Filtered Rows", "ECS_SK", 1, 1, Int64.Type),
-				    #"Reordered Columns" = Table.ReorderColumns(#"Added Surrogate Key",
-				        {"ECS_SK"} & List.RemoveItems(Table.ColumnNames(#"Added Surrogate Key"), {"ECS_SK"}))
+				    #"Filtered Rows" = Table.SelectRows(#"Added KEEP_FLAG", each ([KEEP_FLAG] <> "Exclude") and ([Planning Commodity] <> "17.360454176718513"))
 				in
-				    #"Reordered Columns"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

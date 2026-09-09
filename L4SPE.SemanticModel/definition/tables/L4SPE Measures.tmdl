@@ -1675,12 +1675,6 @@ table 'L4SPE Measures'
 		displayFolder: 5_Helpers
 		lineageTag: 64118c8a-039d-4040-a1a8-7bde4015fbdf
 
-	measure sum_booked_hours_summary = sum(Booked_Hours_Summary[Value])
-		displayFolder: 2_Hours
-		lineageTag: db5c4b6a-6c42-47a4-8394-498b658e42b6
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure distinct_people_booked =
 			
 			CALCULATE(

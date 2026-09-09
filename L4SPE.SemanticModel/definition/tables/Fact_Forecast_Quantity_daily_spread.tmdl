@@ -189,15 +189,6 @@ table Fact_Forecast_Quantity_daily_spread
 
 		annotation SummarizationSetBy = Automatic
 
-	column ECS_SK
-		formatString: 0
-		lineageTag: 38398990-2979-4563-8578-15eae6c204d5
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [ECS_SK]
-
-		annotation SummarizationSetBy = Automatic
-
 	column '25% Complete' =
 			
 			VAR StartDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Start]
@@ -243,7 +234,6 @@ table Fact_Forecast_Quantity_daily_spread
 				            ISBLANK( 'Dim_ECS'[actual_installed_date] )
 				        ),
 				        "ECS Code",             'Dim_ECS'[ECS Code],
-				        "ECS_SK",             'Dim_ECS'[ECS_SK],
 				        "Activity_ID",          'Dim_ECS'[P6_ID],
 				        "Planning Commodity",   'Dim_ECS'[Planning Commodity],
 				        "DesignQuantity",       'Dim_ECS'[DesignQuantity],
