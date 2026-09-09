@@ -322,14 +322,6 @@ relationship f0fbd908-0090-387d-596b-ddc7516d6f1e
 	fromColumn: Fact_BL_Forecast_L5_daily_spread.ECS_SK
 	toColumn: Dim_ECS.ECS_SK
 
-relationship a1e15e1a-ca81-5b1a-916d-208e14b3ad3f
-	fromColumn: Fact_Forecast_Quantity_daily_spread.'ECS Code'
-	toColumn: Dim_ECS.'ECS Code'
-
-relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
-	fromColumn: Fact_Forecast_Quantity_daily_spread.'Week Ending'
-	toColumn: Dim_Date.Date
-
 relationship 92508c6e-9350-1e2a-9ca6-62f713466cd7
 	fromColumn: Fact_Forecast_Rolling.ECS_SK
 	toColumn: Dim_ECS.ECS_SK
@@ -343,4 +335,12 @@ relationship 88fb2f79-8b02-ead4-3d71-2e6557c20785
 	fromCardinality: one
 	fromColumn: Dim_ECS.ECS_SK
 	toColumn: Dim_IWS12_QM.ECS_SK
+
+relationship a1e15e1a-ca81-5b1a-916d-208e14b3ad3f
+	fromColumn: Fact_Forecast_Quantity_daily_spread.'ECS Code'
+	toColumn: Dim_ECS.'ECS Code'
+
+relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
+	fromColumn: Fact_Forecast_Quantity_daily_spread.'Week Ending'
+	toColumn: Dim_Date.Date
 

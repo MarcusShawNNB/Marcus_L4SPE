@@ -1,0 +1,215 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "44abcac1b95cd9a9e8b7",
+  "position": {
+    "x": 0,
+    "y": 127.14285714285715,
+    "z": 0,
+    "height": 497.14285714285717,
+    "width": 1128.5714285714287,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Room"
+                }
+              },
+              "queryRef": "Dim_ECS.Room",
+              "nativeQueryRef": "Room"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_ECS.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Early Start"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.Remaining Early Start",
+              "nativeQueryRef": "Remaining Early Start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Total % Complete"
+                }
+              },
+              "queryRef": "Dim_ECS.Total % Complete",
+              "nativeQueryRef": "Total % Complete"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Early Finish"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.Remaining Early Finish",
+              "nativeQueryRef": "Remaining Early Finish"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parameter"
+                    }
+                  },
+                  "Property": "Date at % selected"
+                }
+              },
+              "queryRef": "Parameter.DateAtPercent",
+              "nativeQueryRef": "Date at % selected"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parameter"
+                    }
+                  },
+                  "Property": "Qty at % selected"
+                }
+              },
+              "queryRef": "Parameter.Qty at % selected",
+              "nativeQueryRef": "Qty at % selected"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ECS"
+                  }
+                },
+                "Property": "Total % Complete"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "77f9826b0d7a52249054",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact_Forecast_Quantity_daily_spread"
+              }
+            },
+            "Property": "Remaining Early Start"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "Fact_Forecast_Quantity_daily_spread",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
+                              }
+                            },
+                            "Property": "Remaining Early Start"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

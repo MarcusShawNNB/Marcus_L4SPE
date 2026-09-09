@@ -1,0 +1,44 @@
+table Parameter
+	lineageTag: 5e02c805-f8d1-47e0-bb4a-d349f0d7dea4
+
+	measure 'Parameter Value' = SELECTEDVALUE('Parameter'[% Selector], 100)
+		formatString: 0
+		lineageTag: 7995dff3-b169-497d-9576-ac2c5f5afd39
+
+	measure 'Date at % selected' =
+			
+			VAR StartDate = SELECTEDVALUE(Fact_Forecast_Quantity_daily_spread[Remaining Early Start])
+			VAR FinishDate = SELECTEDVALUE(Fact_Forecast_Quantity_daily_spread[Remaining Early Finish])
+			VAR Pct = SELECTEDVALUE(Parameter[% Selector])
+			RETURN StartDate + (FinishDate - StartDate) * Pct
+		formatString: Short Date
+		lineageTag: 644b7c66-d937-4bca-9475-2876a426038a
+
+	measure 'Qty at % selected' =
+			
+			VAR qty = SELECTEDVALUE(Fact_Forecast_Quantity_daily_spread[DesignQuantity])
+			VAR Pct = SELECTEDVALUE(Parameter[% Selector])
+			RETURN qty * Pct
+		lineageTag: 876b3d87-507e-4fbd-94e4-24016861cfb5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '% Selector'
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f2d0cce8-dd02-4f2e-93bf-f2b49f3aa2c2
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition Parameter = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.25)
+
+	annotation PBI_Id = 3b080f278a124cbda44682a4645aeccd
+

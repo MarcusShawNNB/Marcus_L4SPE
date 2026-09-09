@@ -90,6 +90,7 @@ ref table Fact_Rolling_Forecast_L5_daily_spread
 ref table Bridge_CTP
 ref table Dim_Job_Code_Category
 ref table Displine_mapping
+ref table Parameter
 
 ref cultureInfo en-US
 

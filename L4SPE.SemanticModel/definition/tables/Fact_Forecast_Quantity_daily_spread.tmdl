@@ -60,7 +60,7 @@ table Fact_Forecast_Quantity_daily_spread
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Remaining Early Start'
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: a0232090-4d6c-400b-8b67-aab9d1a4581a
 		summarizeBy: none
 		isNameInferred
@@ -69,7 +69,7 @@ table Fact_Forecast_Quantity_daily_spread
 		annotation SummarizationSetBy = Automatic
 
 	column 'Remaining Early Finish'
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: ef12ae6c-6361-4990-8f8a-2dcf6d9f09e6
 		summarizeBy: none
 		isNameInferred
@@ -198,6 +198,39 @@ table Fact_Forecast_Quantity_daily_spread
 
 		annotation SummarizationSetBy = Automatic
 
+	column '25% Complete' =
+			
+			VAR StartDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Start]
+			VAR FinishDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			RETURN StartDate + (FinishDate - StartDate) * 0.25
+		formatString: Short Date
+		lineageTag: 7106fb45-c4ae-4704-ba64-7632d734a942
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '50% Complete' =
+			
+			VAR StartDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Start]
+			VAR FinishDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			RETURN StartDate + (FinishDate - StartDate) * 0.50
+		formatString: Short Date
+		lineageTag: 6df292ac-380c-42eb-83f5-370d5f17f56c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '75% Complete' =
+			
+			VAR StartDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Start]
+			VAR FinishDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			RETURN StartDate + (FinishDate - StartDate) * 0.75
+		formatString: Short Date
+		lineageTag: f6c35cb3-f72c-43fc-bcd9-0b12c229d180
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Fact_Forecast_Quantity_daily_spread = calculated
 		mode: import
 		source = ```
@@ -230,8 +263,7 @@ table Fact_Forecast_Quantity_daily_spread
 				            LOOKUPVALUE(
 				                'Dim_Activity (LIVE_P6)'[Remaining Early Finish],
 				                'Dim_Activity (LIVE_P6)'[Activity ID], [Activity_ID]
-				            )
-				    )
+				            ))
 				 
 				RETURN
 				GENERATE(
