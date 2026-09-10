@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a6ac38f1a5daa14bc8b4",
+  "position": {
+    "x": 157.05521472392638,
+    "y": 0,
+    "z": 22001,
+    "height": 87.116564417177926,
+    "width": 342.3312883435583,
+    "tabOrder": 22001
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Schedule Overview",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#09124f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

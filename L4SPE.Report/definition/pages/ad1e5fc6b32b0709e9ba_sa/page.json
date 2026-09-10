@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "ad1e5fc6b32b0709e9ba_sa",
-  "displayName": "To5 workstream - Schedule Analysis",
+  "displayName": "Schedule Analysis",
   "displayOption": "FitToPage",
   "height": 1500,
   "width": 2000,
