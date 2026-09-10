@@ -92,23 +92,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d6990672dc0c3403788d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Parameter"
-              }
-            },
-            "Property": "% Selector"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

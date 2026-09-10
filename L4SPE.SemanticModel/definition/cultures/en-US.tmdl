@@ -9907,6 +9907,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Earned": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Earned Hours": {
 			            "State": "Suggested",
 			            "Source": {
@@ -30735,6 +30745,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Actual Installed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Actual - Installed Quantity": {
 			            "State": "Suggested",
 			            "Source": {
@@ -39390,6 +39410,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "AC+FC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -43294,6 +43324,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "Forecast": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -52177,6 +52217,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Cumulative YE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Cum. Remaining Hours": {
 			            "State": "Suggested",
 			            "Source": {
@@ -53467,16 +53517,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "Forecast": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "TO4 Demand": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

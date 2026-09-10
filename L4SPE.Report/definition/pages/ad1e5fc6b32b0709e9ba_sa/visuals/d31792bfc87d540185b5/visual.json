@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d31792bfc87d540185b5",
+  "position": {
+    "x": 170,
+    "y": 0,
+    "z": 19000,
+    "height": 51.25,
+    "width": 277.5,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_ECS.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

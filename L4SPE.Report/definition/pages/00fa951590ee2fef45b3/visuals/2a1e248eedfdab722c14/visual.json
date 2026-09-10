@@ -4,10 +4,10 @@
   "position": {
     "x": 537.77777777777771,
     "y": 236.11111111111111,
-    "z": 4000,
+    "z": 6000,
     "height": 83.75,
     "width": 206.25,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "gauge",

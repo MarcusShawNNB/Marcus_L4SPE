@@ -1,0 +1,698 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "14c499ff17945d4d8b22",
+  "position": {
+    "x": 0,
+    "y": 1145.7142857142858,
+    "z": 22000,
+    "height": 354.28571428571433,
+    "width": 1028.5714285714287,
+    "tabOrder": 22000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Year-Month"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "Dim_Date.Year-Month.Year",
+              "nativeQueryRef": "Year-Month Year",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Year-Month"
+                    }
+                  },
+                  "Level": "Month"
+                }
+              },
+              "queryRef": "Dim_Date.Year-Month.Month",
+              "nativeQueryRef": "Year-Month Month",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Area",
+              "nativeQueryRef": "Geography Breakdown Area",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Sub Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Sub Area",
+              "nativeQueryRef": "Geography Breakdown Sub Area",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Geography Breakdown"
+                    }
+                  },
+                  "Level": "Building"
+                }
+              },
+              "queryRef": "Dim_ECS.Geography Breakdown.Building",
+              "nativeQueryRef": "Geography Breakdown Building",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Level"
+                }
+              },
+              "queryRef": "Dim_ROOM.Level",
+              "nativeQueryRef": "Level",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "nominal_level__m_"
+                }
+              },
+              "queryRef": "Dim_ECS.nominal_level__m_",
+              "nativeQueryRef": "nominal_level__m_",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Room"
+                }
+              },
+              "queryRef": "Dim_ECS.Room",
+              "nativeQueryRef": "Room",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_p6_by_day"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_p6_by_day",
+              "nativeQueryRef": "sum_design_quantity_p6_by_day"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_ROOM"
+                  }
+                },
+                "Property": "Level"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim_ECS.Geography Breakdown.Area"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "area"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.Geography Breakdown.Sub Area"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Sub Area"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.Geography Breakdown.Building"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "building_code"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ROOM.Level"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ROOM"
+                    }
+                  },
+                  "Property": "Level"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.nominal_level__m_"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_ECS.Room"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'NI'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'N1'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'1HKX'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "roles": [
+          "Columns"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim_Date.Year-Month.Year"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim_Date.Year-Month.Month"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "L4SPE Measures"
+                            }
+                          },
+                          "Property": "sum_design_quantity_p6_by_day"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'minColor'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'maxColor'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'noColor'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "L4SPE Measures.sum_design_quantity_p6_by_day"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quantities'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tahoma'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "facbe9ef984928891b1a",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Time Intel"
+              }
+            },
+            "Property": "Calculation group column"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "08e73834d5ed53de50e7",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "de2a3f0b10e8416307b9",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Time Intel"
+              }
+            },
+            "Property": "Calculation group column"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "0befb03861b07a48e007",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_p6_finish"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "afb127c1395dd4ba027b",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "1b1430dd1704d3d92a2a",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Adjusted_date"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "08008816c363c087688d",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Time Intel"
+              }
+            },
+            "Property": "Calculation group column"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "46c096f0ce4e4bae8036",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "RelativeDate",
+        "howCreated": "User"
+      },
+      {
+        "name": "14af63ae124e3105e606",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Date"
+              }
+            },
+            "Property": "YearMonth"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "b6bed3729453a99ba166",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_actual_hours_installed"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}
