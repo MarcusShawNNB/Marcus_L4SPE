@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "75568a8bb3c036d416ba",
   "position": {
-    "x": 156.25,
-    "y": 87.5,
+    "x": 157.37203972498091,
+    "y": 94.728800611153559,
     "z": 19000,
-    "height": 358.75,
-    "width": 1123.75,
+    "height": 359.05271199388847,
+    "width": 899.9236058059588,
     "tabOrder": 19000
   },
   "visual": {
@@ -71,7 +71,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed",
-              "nativeQueryRef": "sum_design_quantity_actual_installed"
+              "nativeQueryRef": "Design Quantity Installed",
+              "displayName": "Design Quantity Installed"
             },
             {
               "field": {
@@ -85,7 +86,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_design_quantity_p6_by_day",
-              "nativeQueryRef": "sum_design_quantity_p6_by_day"
+              "nativeQueryRef": "Design Quantity P6 by Day",
+              "displayName": "Design Quantity P6 by Day"
             }
           ]
         },
@@ -103,7 +105,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.cum_sum_design_quantity_p6_by_day",
-              "nativeQueryRef": "cum_sum_design_quantity_p6_by_day"
+              "nativeQueryRef": "Cum. Design Quantity P6 by Day",
+              "displayName": "Cum. Design Quantity P6 by Day"
             },
             {
               "field": {
@@ -117,7 +120,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.cum_design_quantity_installed",
-              "nativeQueryRef": "cum_design_quantity_installed"
+              "nativeQueryRef": "Cum. Design Quantity Installed",
+              "displayName": "Cum. Design Quantity Installed"
             }
           ]
         }

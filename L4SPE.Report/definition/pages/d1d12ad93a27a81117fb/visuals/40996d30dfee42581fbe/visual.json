@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "40996d30dfee42581fbe",
   "position": {
-    "x": 162.72727272727272,
-    "y": 144.54545454545453,
+    "x": 162.75862068965517,
+    "y": 144.36781609195404,
     "z": 9000,
-    "height": 232.72727272727272,
-    "width": 581.81818181818176,
+    "height": 232.64367816091956,
+    "width": 582.06896551724139,
     "tabOrder": 11000
   },
   "visual": {
@@ -53,7 +53,7 @@
               },
               "queryRef": "Dim_ECS.Summary Breakdown.sub_area",
               "nativeQueryRef": "Summary Breakdown sub_area",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -171,7 +171,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'1/0/9'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -222,7 +235,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

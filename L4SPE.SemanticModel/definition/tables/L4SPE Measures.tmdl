@@ -572,7 +572,7 @@ table 'L4SPE Measures'
 	/// created by marcus shaw | marcus.shaw@nnb-edfenergy.com
 	measure sum_booked_hours_direct_current_week =
 			-- MS
-			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Fact_Booked_Hours[Trade Type]="Direct",Dim_Date[Current Week] = TRUE())
+			CALCULATE(sum(Fact_Booked_Hours[Booked Hours]),Fact_Booked_Hours[Trade Type]="Direct",Dim_Date[IsCurrentWeek]= TRUE())
 		displayFolder: 2_Hours
 		lineageTag: b96533d5-2959-4b5d-a7c9-7211b711e166
 

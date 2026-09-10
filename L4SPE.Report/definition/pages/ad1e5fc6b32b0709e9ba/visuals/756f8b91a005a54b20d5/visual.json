@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "756f8b91a005a54b20d5",
   "position": {
-    "x": 156.25,
-    "y": 460,
+    "x": 157.37203972498091,
+    "y": 459.89304812834229,
     "z": 12000,
-    "height": 340,
-    "width": 973.75,
+    "height": 525.59205500381972,
+    "width": 829.64094728800615,
     "tabOrder": 13000
   },
   "visual": {
@@ -71,7 +71,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours_week_production",
-              "nativeQueryRef": "sum_earned_hours_week_production"
+              "nativeQueryRef": "Earned Hours",
+              "displayName": "Earned Hours"
             },
             {
               "field": {
@@ -85,7 +86,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_remaining_hours_p6_by_day",
-              "nativeQueryRef": "sum_remaining_hours_p6_by_day"
+              "nativeQueryRef": "Remaining Hours",
+              "displayName": "Remaining Hours"
             }
           ]
         },
@@ -103,7 +105,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.cum_sum_remaining_hours_p6_by_day",
-              "nativeQueryRef": "cum_sum_remaining_hours_p6_by_day"
+              "nativeQueryRef": "Cum. Remaining Hours",
+              "displayName": "Cum. Remaining Hours"
             },
             {
               "field": {
@@ -117,7 +120,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.Cum_sum_earned_hours_week_production",
-              "nativeQueryRef": "Cum_sum_earned_hours_week_production"
+              "nativeQueryRef": "Cum. Earned Hours",
+              "displayName": "Cum. Earned Hours"
             }
           ]
         }

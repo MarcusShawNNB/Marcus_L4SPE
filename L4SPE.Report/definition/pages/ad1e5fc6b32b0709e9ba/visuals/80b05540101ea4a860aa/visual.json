@@ -1,19 +1,19 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "80b05540101ea4a860aa",
   "position": {
-    "x": 1300,
-    "y": 87.5,
+    "x": 1000.7639419404126,
+    "y": 461.4209320091673,
     "z": 17000,
-    "height": 358.75,
-    "width": 700,
+    "height": 524.06417112299471,
+    "width": 985.485103132162,
     "tabOrder": 17000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Columns": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -27,13 +27,8 @@
                 }
               },
               "queryRef": "Dim_ECS.Planning Commodity",
-              "nativeQueryRef": "Planning Commodity",
-              "active": true
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+              "nativeQueryRef": "Planning Commodity"
+            },
             {
               "field": {
                 "Measure": {
@@ -60,9 +55,9 @@
                   "Property": "sum_design_quantity_actual_installed_inc_this_week"
                 }
               },
-              "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed",
-              "nativeQueryRef": "Actual Installed",
-              "displayName": "Actual Installed"
+              "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed_inc_this_week",
+              "nativeQueryRef": "Design Quantity Installed",
+              "displayName": "Design Quantity Installed"
             },
             {
               "field": {
@@ -90,9 +85,9 @@
                   "Property": "sum_design_quantity_delivered"
                 }
               },
-              "queryRef": "L4SPE Measures.Sum_delivered",
-              "nativeQueryRef": "Delivered",
-              "displayName": "Delivered"
+              "queryRef": "L4SPE Measures.sum_design_quantity_delivered",
+              "nativeQueryRef": "Design Quantity Delivered",
+              "displayName": "Design Quantity Delivered"
             },
             {
               "field": {
@@ -171,6 +166,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "L4SPE Measures"
+                  }
+                },
+                "Property": "budget_hours"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -187,6 +199,104 @@
           },
           "selector": {
             "metadata": "L4SPE Measures.sum_design_quantity_actual_installed"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.16345260550096D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_actual_installed_inc_this_week"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.33077002536527D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.%_installed"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.94039791648876D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_delivered"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.35706596897117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.budget_hours"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.47211581179745D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_all"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "206.77311217238355D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Planning Commodity"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.30481815355921D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_remaining_hours"
           }
         }
       ],
@@ -208,37 +318,9 @@
           }
         }
       ],
-      "subTotals": [
-        {
-          "properties": {
-            "rowSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "columnSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "values": [
         {
-          "properties": {
-            "valuesOnRow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "columnHeaders": [

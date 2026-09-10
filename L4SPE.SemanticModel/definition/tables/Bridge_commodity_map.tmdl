@@ -10,11 +10,11 @@ table Bridge_commodity_map
 
 		annotation SummarizationSetBy = Automatic
 
-	column dim_ecs
+	column 'Planning Commodity'
 		dataType: string
 		lineageTag: 90ad41a6-7923-4bdf-82f5-4a1ccedf8db6
 		summarizeBy: none
-		sourceColumn: dim_ecs
+		sourceColumn: Planning Commodity
 
 		annotation SummarizationSetBy = Automatic
 
@@ -25,9 +25,10 @@ table Bridge_commodity_map
 				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Bridge_Commotidy_map.xlsx"), null, true),
 				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
-				    #"Trimmed Text" = Table.TransformColumns(#"Promoted Headers",{{"Fact_TO4_Q", Text.Trim, type text}})
+				    #"Trimmed Text" = Table.TransformColumns(#"Promoted Headers",{{"Fact_TO4_Q", Text.Trim, type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Trimmed Text",{{"dim_ecs", "Planning Commodity"}})
 				in
-				    #"Trimmed Text"
+				    #"Renamed Columns"
 
 	annotation PBI_ResultType = Table
 

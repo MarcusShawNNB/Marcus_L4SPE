@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "f9db4edefb6bcb2c8bd2",
   "position": {
-    "x": 157.28813559322035,
-    "y": 10.24482109227872,
+    "x": 157.24137931034485,
+    "y": 10.114942528735632,
     "z": 10000,
-    "height": 324.82109227871939,
-    "width": 1113.0696798493409,
+    "height": 324.59770114942529,
+    "width": 554.48275862068965,
     "tabOrder": 11000
   },
   "visual": {
@@ -25,14 +25,54 @@
                           "Entity": "Dim_Date"
                         }
                       },
-                      "Hierarchy": "Year-Month"
+                      "Hierarchy": "Date Filter"
                     }
                   },
                   "Level": "Year"
                 }
               },
-              "queryRef": "Dim_Date.Year-Month.Year",
-              "nativeQueryRef": "Year-Month Year",
+              "queryRef": "Dim_Date.Date Filter.Year",
+              "nativeQueryRef": "Date Filter Year",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Date Filter"
+                    }
+                  },
+                  "Level": "Year_Quarter"
+                }
+              },
+              "queryRef": "Dim_Date.Date Filter.Year_Quarter",
+              "nativeQueryRef": "Date Filter Year_Quarter",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Date Filter"
+                    }
+                  },
+                  "Level": "Month Name"
+                }
+              },
+              "queryRef": "Dim_Date.Date Filter.Month Name",
+              "nativeQueryRef": "Date Filter Month Name",
               "active": true
             },
             {
@@ -45,64 +85,15 @@
                           "Entity": "Dim_Date"
                         }
                       },
-                      "Hierarchy": "Year-Month"
+                      "Hierarchy": "Date Filter"
                     }
                   },
-                  "Level": "Month"
+                  "Level": "Week Ending"
                 }
               },
-              "queryRef": "Dim_Date.Year-Month.Month",
-              "nativeQueryRef": "Year-Month Month",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Date"
-                    }
-                  },
-                  "Property": "YearMonth"
-                }
-              },
-              "queryRef": "Dim_Date.YearMonth",
-              "nativeQueryRef": "YearMonth",
+              "queryRef": "Dim_Date.Date Filter.Week Ending",
+              "nativeQueryRef": "Date Filter Week Ending",
               "active": false
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "L4SPE Measures"
-                    }
-                  },
-                  "Property": "sum_design_quantity_actual_installed"
-                }
-              },
-              "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed",
-              "nativeQueryRef": "Actuals",
-              "displayName": "Actuals"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "L4SPE Measures"
-                    }
-                  },
-                  "Property": "sum_design_quantity_p6_by_day"
-                }
-              },
-              "queryRef": "L4SPE Measures.sum_design_quantity_p6_by_day",
-              "nativeQueryRef": "Forecast",
-              "displayName": "Forecast"
             }
           ]
         },
@@ -140,23 +131,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Date"
-                  }
-                },
-                "Property": "YearMonth"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
@@ -179,7 +153,7 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -215,25 +189,6 @@
         }
       ],
       "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "L4SPE Measures.sum_design_quantity_actual_installed"
-          }
-        },
         {
           "properties": {
             "fill": {
@@ -280,7 +235,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quantity Curves'"
+                  "Value": "'Cumulative Quantity Curves'"
                 }
               }
             },

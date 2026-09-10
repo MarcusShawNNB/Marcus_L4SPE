@@ -398,6 +398,12 @@
     ],
     "filterSortOrder": "Custom"
   },
+  "pageBinding": {
+    "name": "de619e6ed6bdca1e00e7",
+    "type": "Default",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
   "objects": {
     "background": [
       {

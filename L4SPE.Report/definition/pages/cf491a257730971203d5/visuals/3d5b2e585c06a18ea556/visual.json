@@ -384,6 +384,90 @@
             }
           ]
         }
+      },
+      {
+        "name": "1ce75580a6d21869186a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ROOM"
+              }
+            },
+            "Property": "Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6cff97b91bebd335ea8c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ROOM"
+              }
+            },
+            "Property": "Sub-Area"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1e746b25e500303d7850",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ROOM"
+              }
+            },
+            "Property": "Building Code"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "656124b57e021155b280",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "current_week_earned_hours_earned"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "616b9e4c33b2d62c200c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_booked_hours_direct_current_week"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ee07f7d037ec0aa9b54d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "rate_productivity_current_week"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

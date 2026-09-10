@@ -104,36 +104,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_ECS"
+                      "Entity": "Dim_Planning_Commodity"
                     }
                   },
                   "Property": "Planning Commodity"
                 }
               },
-              "queryRef": "Dim_ECS.Planning_Commodity",
-              "nativeQueryRef": "Planning Commodity",
-              "active": true,
-              "displayName": "Planning Commodity"
+              "queryRef": "Dim_Planning_Commodity.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity1",
+              "active": true
             }
           ]
         },
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "L4SPE Measures"
-                    }
-                  },
-                  "Property": "sum_design_quantity_to4_q_weekly"
-                }
-              },
-              "queryRef": "L4SPE Measures.sum_design_quantity_to4_q_weekly",
-              "nativeQueryRef": "TO4 Demand",
-              "displayName": "TO4 Demand"
-            },
             {
               "field": {
                 "Measure": {
@@ -163,36 +147,6 @@
               "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed_inc_CMPIC",
               "nativeQueryRef": "Installed",
               "displayName": "Installed"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "L4SPE Measures"
-                    }
-                  },
-                  "Property": "sum_design_quantity_baseline"
-                }
-              },
-              "queryRef": "L4SPE Measures.sum_design_quantity_baseline",
-              "nativeQueryRef": "Baseline",
-              "displayName": "Baseline"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "L4SPE Measures"
-                    }
-                  },
-                  "Property": "sum_design_quantity_rolling"
-                }
-              },
-              "queryRef": "L4SPE Measures.sum_design_quantity_rolling",
-              "nativeQueryRef": "Rolling",
-              "displayName": "Rolling"
             }
           ],
           "fieldParameters": [
@@ -208,7 +162,7 @@
                 }
               },
               "index": 0,
-              "length": 5
+              "length": 2
             }
           ]
         }
@@ -1578,20 +1532,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "144D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Dim_ECS.Planning_Commodity"
           }
         },
         {
@@ -16315,90 +16255,6 @@
           }
         },
         "type": "Categorical"
-      },
-      {
-        "name": "4d56411343e4c96beb6c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Planning Commodity"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3abf0aee020680e321a5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_to4_q_weekly"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a733c1d7b6224350ad72",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_sum_design_quantity_quarterly_forecast"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "01db6ab910456da6d6ee",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_baseline"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c98535a0a01d04a3bc71",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_rolling"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "24241a80dd82bc0008d9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "sum_design_quantity_actual_installed_inc_CMPIC"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

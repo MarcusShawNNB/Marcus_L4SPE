@@ -618,9 +618,15 @@ table Dim_ECS
 
 		annotation SummarizationSetBy = Automatic
 
-	column P6_ID =
+	column P6_ID = ```
 			
-			RELATED (ECS_Assignments[Final_Activity_ID])
+			var a = RELATED (ECS_Assignments[Final_Activity_ID])
+			var b = RELATED(Dim_IWS12_QM[Activity ID])
+			 
+			RETURN
+			COALESCE(a,b)
+			 
+			```
 		lineageTag: e6399b49-5e0b-4449-a3f4-f2b9c40481fb
 		summarizeBy: none
 

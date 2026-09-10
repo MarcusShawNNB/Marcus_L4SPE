@@ -160,7 +160,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.budget_hours",
-              "nativeQueryRef": "budget_hours"
+              "nativeQueryRef": "Budget Hours",
+              "displayName": "Budget Hours"
             },
             {
               "field": {
@@ -174,7 +175,8 @@
                 }
               },
               "queryRef": "L4SPE Measures.sum_earned_hours",
-              "nativeQueryRef": "sum_earned_hours"
+              "nativeQueryRef": "Earned Hours",
+              "displayName": "Earned Hours"
             }
           ]
         }
@@ -211,6 +213,20 @@
           },
           "selector": {
             "metadata": "L4SPE Measures.sum_design_quantity_actual_installed"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "157.9999953398393D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Planning_Commodity"
           }
         }
       ],

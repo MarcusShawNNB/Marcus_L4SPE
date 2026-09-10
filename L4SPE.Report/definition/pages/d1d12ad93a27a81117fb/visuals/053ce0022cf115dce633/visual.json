@@ -10,25 +10,70 @@
     "tabOrder": 13000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_ECS"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
                     }
                   },
-                  "Property": "Sub Area"
+                  "Level": "Unit"
                 }
               },
-              "queryRef": "Dim_ECS.Sub Area",
-              "nativeQueryRef": "Sub Area",
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.Unit",
+              "nativeQueryRef": "Adj_unit Hierarchy Unit",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
+                    }
+                  },
+                  "Level": "Area"
+                }
+              },
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.Area",
+              "nativeQueryRef": "Adj_unit Hierarchy Area",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_ECS"
+                        }
+                      },
+                      "Hierarchy": "Adj_unit Hierarchy"
+                    }
+                  },
+                  "Level": "Area Group"
+                }
+              },
+              "queryRef": "Dim_ECS.Adj_unit Hierarchy.Area Group",
+              "nativeQueryRef": "Adj_unit Hierarchy Area Group",
+              "active": false
             }
           ]
         },
@@ -71,16 +116,57 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "HierarchyLevel": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "L4SPE Measures"
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim_ECS"
+                      }
+                    },
+                    "Hierarchy": "Adj_unit Hierarchy"
                   }
                 },
-                "Property": "%_installed"
+                "Level": "Unit"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim_ECS"
+                      }
+                    },
+                    "Hierarchy": "Adj_unit Hierarchy"
+                  }
+                },
+                "Level": "Area"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim_ECS"
+                      }
+                    },
+                    "Hierarchy": "Adj_unit Hierarchy"
+                  }
+                },
+                "Level": "Area Group"
+              }
+            },
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true

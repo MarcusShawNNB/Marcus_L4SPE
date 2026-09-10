@@ -58,12 +58,6 @@ relationship e7a38c01-6820-fb26-dbbd-35802bd829ce
 	fromColumn: Fact_Booked_Hours.'Week Ending'
 	toColumn: Dim_Date.Date
 
-relationship 4245e072-4179-908d-8a31-efdffd29fdae
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: Dim_ECS.'ECS Code'
-	toColumn: Bridge_Commodity_ECS.'ECS Code'
-
 relationship 738650f8-662d-b72b-647b-7d95e5a3d51f
 	fromColumn: Fact_TO4_Q.'Planning Commodity'
 	toColumn: Bridge_commodity_map.Fact_TO4_Q
@@ -216,12 +210,6 @@ relationship a802f0df-baf2-d2e2-797f-2257c1607c1d
 	fromColumn: Fact_TO4_Q.'Planning Commodity'
 	toColumn: Dim_Planning_Commodity.'Planning Commodity'
 
-relationship 6aaa278a-db69-4bc9-826e-a8c9085324ed
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: Bridge_commodity_map.dim_ecs
-	toColumn: Bridge_Commodity_ECS.'Planning Commodity'
-
 relationship 1d9ae538-f80a-8234-58e8-1e015e8336fc
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
@@ -336,5 +324,11 @@ relationship 3e130bc2-863d-4101-2fcd-fba7e67a5742
 
 relationship d9c15e4a-bf00-bfcd-87d4-1c0c1f2e1669
 	fromColumn: Fact_BL_Forecast_L5_daily_spread.'ECS Code'
+	toColumn: Dim_ECS.'ECS Code'
+
+relationship 38c84238-600b-3ce7-d97c-e509299b8dde
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_IWS12_QM.'ECS Code'
 	toColumn: Dim_ECS.'ECS Code'
 

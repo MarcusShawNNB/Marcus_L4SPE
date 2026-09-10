@@ -45,7 +45,6 @@ ref table Dim_Cable_Highways_Routes
 ref table Fact_Daily
 ref table Fact_Booked_Hours
 ref table Fact_TO4_Q
-ref table Bridge_Commodity_ECS
 ref table Commodities_Fact_TO4_Q
 ref table Bridge_commodity_map
 ref table Fact_QF_Q

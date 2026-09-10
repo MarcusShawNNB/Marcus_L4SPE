@@ -496,11 +496,6 @@
         }
       ]
     },
-    "syncGroup": {
-      "groupName": "Year",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
   }
 }

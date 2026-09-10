@@ -93,7 +93,7 @@
               },
               "queryRef": "Dim_Date.Year Hierarchy.Week Ending",
               "nativeQueryRef": "Year Hierarchy Week Ending",
-              "active": true
+              "active": false
             }
           ]
         }
@@ -190,19 +190,7 @@
                       }
                     }
                   ],
-                  "isToggled": true,
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'July'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
+                  "isToggled": true
                 },
                 {
                   "identityValues": [
@@ -212,7 +200,6 @@
                       }
                     }
                   ],
-                  "isToggled": true,
                   "children": [
                     {
                       "identityValues": [
@@ -496,11 +483,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Year",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

@@ -266,9 +266,10 @@ table Dim_MEH_ENG
 				            #"Duplicated Rows"
 				        }
 				    ),
-				    #"Removed Duplicates" = Table.Distinct(#"Combined Tables", {"ECS Code"})
+				    #"Removed Duplicates" = Table.Distinct(#"Combined Tables", {"ECS Code"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"ECS Code"}, Dim_ECS, {"ECS Code"}, "Dim_ECS", JoinKind.Inner)
 				in
-				    #"Removed Duplicates"
+				    #"Merged Queries"
 
 	annotation PBI_NavigationStepName = Navigation
 

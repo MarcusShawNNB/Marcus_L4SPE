@@ -275,18 +275,6 @@
         },
         {
           "location": {
-            "x": 12181.194551567627,
-            "y": 303.61319918573838
-          },
-          "nodeIndex": "Bridge_Commodity_ECS",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 12465.194551567627,
             "y": 303.61319918573838
           },
@@ -860,8 +848,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 935,
-        "y": 750
+        "x": 1493.3333333333335,
+        "y": 0
       },
       "nodes": [
         {
@@ -875,7 +863,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 23
+          "zIndex": 21
         },
         {
           "location": {
@@ -888,7 +876,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 25
+          "zIndex": 35
         },
         {
           "location": {
@@ -901,12 +889,12 @@
             "height": 261.90476190476193,
             "width": 184
           },
-          "zIndex": 15
+          "zIndex": 36
         },
         {
           "location": {
-            "x": 2699.602487800712,
-            "y": 661.04590052739536
+            "x": 2834.602487800712,
+            "y": 579.37923386072862
           },
           "nodeIndex": "Dim_Planning_Commodity",
           "nodeLineageTag": "f120dd18-0490-4dfc-92f5-0b1b2a594ffe",
@@ -914,7 +902,7 @@
             "height": 145,
             "width": 298.28571428571422
           },
-          "zIndex": 33
+          "zIndex": 39
         },
         {
           "location": {
@@ -927,7 +915,7 @@
             "height": 388.07142857142856,
             "width": 339
           },
-          "zIndex": 38
+          "zIndex": 37
         },
         {
           "location": {
@@ -940,7 +928,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 21
+          "zIndex": 19
         },
         {
           "location": {
@@ -953,7 +941,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 20
+          "zIndex": 18
         },
         {
           "location": {
@@ -966,7 +954,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 12
         },
         {
           "location": {
@@ -979,7 +967,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 24
+          "zIndex": 22
         },
         {
           "location": {
@@ -992,7 +980,7 @@
             "height": 145,
             "width": 281.33333333333348
           },
-          "zIndex": 18
+          "zIndex": 16
         },
         {
           "location": {
@@ -1005,7 +993,7 @@
             "height": 145,
             "width": 310.66666666666652
           },
-          "zIndex": 19
+          "zIndex": 17
         },
         {
           "location": {
@@ -1018,12 +1006,12 @@
             "height": 579.286495811361,
             "width": 221.14285714285734
           },
-          "zIndex": 14
+          "zIndex": 13
         },
         {
           "location": {
-            "x": 2697.3740221892708,
-            "y": 1635.4216695321013
+            "x": 2690.7073555226043,
+            "y": 1783.7550028654346
           },
           "nodeIndex": "Fact_Booked_Hours",
           "nodeLineageTag": "d05b4e57-52fe-4eea-8481-7979dec901fa",
@@ -1031,12 +1019,12 @@
             "height": 709.8266037318981,
             "width": 257.33333333333348
           },
-          "zIndex": 31
+          "zIndex": 27
         },
         {
           "location": {
-            "x": 3195.3886820139533,
-            "y": 1194.924593267403
+            "x": 3263.7220153472863,
+            "y": 1229.9245932674032
           },
           "nodeIndex": "Fact_TO4_Q",
           "nodeLineageTag": "0d64c181-9d29-4f7b-aac2-54f6514ccb0d",
@@ -1044,25 +1032,12 @@
             "height": 296,
             "width": 234
           },
-          "zIndex": 22
+          "zIndex": 20
         },
         {
           "location": {
-            "x": 3357.2610271944641,
-            "y": 485.33099561450666
-          },
-          "nodeIndex": "Bridge_Commodity_ECS",
-          "nodeLineageTag": "8ecde0dd-7ddc-4872-9e0b-1fdac231c637",
-          "size": {
-            "height": 175.5,
-            "width": 276.5
-          },
-          "zIndex": 12
-        },
-        {
-          "location": {
-            "x": 3375.6618003305143,
-            "y": 838.418047849741
+            "x": 3323.9951336638474,
+            "y": 845.08471451640764
           },
           "nodeIndex": "Bridge_commodity_map",
           "nodeLineageTag": "f0556219-4623-4fbf-843f-74e43fb8d0d1",
@@ -1070,20 +1045,20 @@
             "height": 161.75,
             "width": 270.25
           },
-          "zIndex": 28
+          "zIndex": 38
         },
         {
           "location": {
-            "x": 2924.0471578578554,
-            "y": 1208.0389790664019
+            "x": 2965.7138245245219,
+            "y": 1259.7056457330686
           },
           "nodeIndex": "Fact_QF_Q",
           "nodeLineageTag": "f8c5232c-08af-4587-a3fb-dece7be2dac1",
           "size": {
-            "height": 208.58914560509106,
+            "height": 278.58914560509106,
             "width": 229.29811620927785
           },
-          "zIndex": 27
+          "zIndex": 24
         },
         {
           "location": {
@@ -1109,7 +1084,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 17
+          "zIndex": 15
         },
         {
           "location": {
@@ -1122,7 +1097,7 @@
             "height": 272,
             "width": 234
           },
-          "zIndex": 26
+          "zIndex": 23
         },
         {
           "location": {
@@ -1135,7 +1110,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 16
+          "zIndex": 14
         },
         {
           "location": {
@@ -1174,12 +1149,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 36
+          "zIndex": 31
         },
         {
           "location": {
-            "x": 3489.1904761904761,
-            "y": 1192.8571428571431
+            "x": 3589.1904761904757,
+            "y": 1201.1904761904764
           },
           "nodeIndex": "Fact_TO4_Q_Weekly",
           "nodeLineageTag": "636ba324-502a-4c44-85cb-699556fd5a84",
@@ -1230,8 +1205,8 @@
         },
         {
           "location": {
-            "x": 2680.9548533714992,
-            "y": 1134.3729884288953
+            "x": 2662.6215200381662,
+            "y": 1289.3729884288953
           },
           "nodeIndex": "Commodity Mapping Table",
           "nodeLineageTag": "cfdf3fd9-6b97-4fa2-9134-5665c59adfbd",
@@ -1239,7 +1214,7 @@
             "height": 233.01420497343383,
             "width": 234
           },
-          "zIndex": 34
+          "zIndex": 29
         },
         {
           "location": {
@@ -1252,7 +1227,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 30
+          "zIndex": 26
         },
         {
           "location": {
@@ -1265,7 +1240,7 @@
             "height": 201.1111111111112,
             "width": 342.88888888888869
           },
-          "zIndex": 29
+          "zIndex": 25
         },
         {
           "location": {
@@ -1278,7 +1253,7 @@
             "height": 320,
             "width": 238.76190476190459
           },
-          "zIndex": 39
+          "zIndex": 33
         },
         {
           "location": {
@@ -1291,7 +1266,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 37
+          "zIndex": 32
         },
         {
           "location": {
@@ -1343,7 +1318,7 @@
             "height": 563.16969686170546,
             "width": 234
           },
-          "zIndex": 32
+          "zIndex": 28
         },
         {
           "location": {
@@ -1356,7 +1331,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 35
+          "zIndex": 30
         },
         {
           "location": {
@@ -1382,11 +1357,11 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 40
+          "zIndex": 34
         }
       ],
       "name": "ECS Layout",
-      "zoomValue": 40,
+      "zoomValue": 60,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
