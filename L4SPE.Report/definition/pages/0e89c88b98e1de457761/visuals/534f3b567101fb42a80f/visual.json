@@ -546,8 +546,63 @@
         "type": "Advanced"
       },
       {
-        "name": "700cb70b39c5ae2b356b",
+        "name": "0197befca3a5b30d248c",
         "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Planning Commodity (26)"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "b",
+              "Entity": "Planning Commodity (26)",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "b"
+                          }
+                        },
+                        "Property": "Planning Commodity"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Electrical Equipment'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "700cb70b39c5ae2b356b",
+        "ordinal": 6,
         "field": {
           "Measure": {
             "Expression": {

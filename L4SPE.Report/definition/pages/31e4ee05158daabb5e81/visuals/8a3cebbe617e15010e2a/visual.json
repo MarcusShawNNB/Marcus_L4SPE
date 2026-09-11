@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "Dim_Planning_Commodity.Planning Commodity",
-              "nativeQueryRef": "Planning Commodity",
+              "nativeQueryRef": "Planning Commodity1",
               "active": true
             }
           ]

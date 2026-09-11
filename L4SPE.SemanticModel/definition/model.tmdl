@@ -17,7 +17,7 @@ queryGroup Dim_Room
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["Dim_ECS","AdjDates","Dim_Date","Dim_Activities","Dim_Activity (LIVE_P6)","Dim_Activity (LM_LIVE_P6)","Dim_P6_IWS12","fact_actuals","Fact_Daily","fact_production_","Equipment List (update 24/03)","Fact_Production","Fact_Booked_Hours","Fact_TO4_Q","Fact_QF_Q","Fact_%S","Fact_%S Sub-Area","Supporting_MEH % Complete_2026","Import_TO4___RST (3)","Dim_MEH_ENG","Dim_CTP_Schedule_Data","Bridge_Cable_Highways","Dim_Cable_Highways_Routes","Dim_ROOM","Dim_MCW","Dim_HOC","Dim_QLIK","Bridge_commodity_map","Fact_Forecast_Rolling","Dim_IWS12_QM","Dim_Equipment","Fact_TO4_Q_Weekly","Dim_WeldEye","Dim_Resource_Profile","Fact_Forecast_Baseline","Coatings Status","Commodity Mapping Table","Dynamic Dates","Dim_Skill_Group","commodity_mapping","Old","Welders","Dim_Contract","NCC_Rooms","Fact_CMPIC","ECS_Assignments","Dim_Job_Code_Category"]
+annotation PBI_QueryOrder = ["Dim_ECS","AdjDates","Dim_Date","Dim_Activities","Dim_Activity (LIVE_P6)","Dim_Activity (LM_LIVE_P6)","Dim_P6_IWS12","fact_actuals","Fact_Daily","fact_production_","Equipment List (update 24/03)","Fact_Production","Fact_Booked_Hours","Fact_TO4_Q","Fact_QF_Q","Fact_%S","Fact_%S Sub-Area","Supporting_MEH % Complete_2026","Import_TO4___RST (3)","Dim_MEH_ENG","Dim_CTP_Schedule_Data","Bridge_Cable_Highways","Dim_Cable_Highways_Routes","Dim_ROOM","Dim_MCW","Dim_HOC","Dim_QLIK","Planning Commodity (26)","Fact_Forecast_Rolling","Dim_IWS12_QM","Dim_Equipment","Fact_TO4_Q_Weekly","Dim_WeldEye","Dim_Resource_Profile","Fact_Forecast_Baseline","Coatings Status","Commodity Mapping Table","Dynamic Dates","Dim_Skill_Group","commodity_mapping","Old","Welders","Dim_Contract","NCC_Rooms","Fact_CMPIC","ECS_Assignments","Dim_Job_Code_Category"]
 
 annotation PBI_ProTooling = ["CalcGroup","DevMode"]
 
@@ -46,7 +46,7 @@ ref table Fact_Daily
 ref table Fact_Booked_Hours
 ref table Fact_TO4_Q
 ref table Commodities_Fact_TO4_Q
-ref table Bridge_commodity_map
+ref table 'Planning Commodity (26)'
 ref table Fact_QF_Q
 ref table 'Forecast Options'
 ref table 'Date Filter Options'

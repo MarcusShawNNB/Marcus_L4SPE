@@ -104,13 +104,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Planning_Commodity"
+                      "Entity": "Planning Commodity (26)"
                     }
                   },
                   "Property": "Planning Commodity"
                 }
               },
-              "queryRef": "Dim_Planning_Commodity.Planning Commodity",
+              "queryRef": "Bridge_commodity_map.Planning Commodity",
               "nativeQueryRef": "Planning Commodity1",
               "active": true
             }
@@ -16179,6 +16179,183 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "3dcbcde928738398e750",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d31cb5304eda4177b38c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Year_Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ebcc481cdb8dc31dc0ce",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Month Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b2638eebe1a40b60940d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Date"
+                  }
+                },
+                "Hierarchy": "Date Filter"
+              }
+            },
+            "Level": "Week Ending"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2dabc1d446050cd41e10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_sum_design_quantity_quarterly_forecast"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "680a9ed1886ed5e7bd02",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_actual_installed_inc_CMPIC"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "68b059456d06db175705",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Planning Commodity (26)"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "b",
+              "Entity": "Planning Commodity (26)",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "b"
+                              }
+                            },
+                            "Property": "Planning Commodity"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "isHiddenInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

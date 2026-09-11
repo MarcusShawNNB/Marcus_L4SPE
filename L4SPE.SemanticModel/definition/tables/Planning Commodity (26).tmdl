@@ -1,14 +1,6 @@
-table Bridge_commodity_map
+table 'Planning Commodity (26)'
 	excludeFromModelRefresh
 	lineageTag: f0556219-4623-4fbf-843f-74e43fb8d0d1
-
-	column Fact_TO4_Q
-		dataType: string
-		lineageTag: e6ac8e51-ef45-4a3c-8ad7-c62168509c23
-		summarizeBy: none
-		sourceColumn: Fact_TO4_Q
-
-		annotation SummarizationSetBy = Automatic
 
 	column 'Planning Commodity'
 		dataType: string
@@ -18,7 +10,7 @@ table Bridge_commodity_map
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Bridge_commodity_map = m
+	partition 'Planning Commodity (26)' = m
 		mode: import
 		source =
 				let
@@ -26,9 +18,10 @@ table Bridge_commodity_map
 				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
 				    #"Trimmed Text" = Table.TransformColumns(#"Promoted Headers",{{"Fact_TO4_Q", Text.Trim, type text}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Trimmed Text",{{"dim_ecs", "Planning Commodity"}})
+				    #"Renamed Columns" = Table.RenameColumns(#"Trimmed Text",{{"dim_ecs", "Planning Commodity"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Fact_TO4_Q"})
 				in
-				    #"Renamed Columns"
+				    #"Removed Columns"
 
 	annotation PBI_ResultType = Table
 

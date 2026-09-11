@@ -28474,7 +28474,7 @@ cultureInfo en-US
 			    "bridge_commodity_map": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Bridge_commodity_map"
+			          "ConceptualEntity": "Planning Commodity (26)"
 			        }
 			      },
 			      "State": "Generated",
@@ -28599,39 +28599,10 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "bridge_commodity_map.fact_TO4_Q": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Bridge_commodity_map",
-			          "ConceptualProperty": "Fact_TO4_Q"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "fact TO4 Q": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Fact_TO4_Q": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "TO4 Q": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "bridge_commodity_map.planning_commodity": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Bridge_commodity_map",
+			          "ConceptualEntity": "Planning Commodity (26)",
 			          "ConceptualProperty": "Planning Commodity"
 			        }
 			      },
@@ -30745,16 +30716,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Actual Installed": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Actual - Installed Quantity": {
 			            "State": "Suggested",
 			            "Source": {
@@ -30766,6 +30727,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Actual - Installed Q": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual Installed": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -92943,7 +92914,7 @@ cultureInfo en-US
 			    },
 			    "bridge_commodity_map_has_planning_commodity": {
 			      "Binding": {
-			        "ConceptualEntity": "Bridge_commodity_map"
+			        "ConceptualEntity": "Planning Commodity (26)"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -92976,7 +92947,7 @@ cultureInfo en-US
 			    },
 			    "bridge_commodity_map_has_fact_TO4_Q": {
 			      "Binding": {
-			        "ConceptualEntity": "Bridge_commodity_map"
+			        "ConceptualEntity": "Planning Commodity (26)"
 			      },
 			      "State": "Generated",
 			      "Roles": {

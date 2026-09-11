@@ -28,6 +28,12 @@ table Dim_Planning_Commodity
 
 		annotation SummarizationSetBy = Automatic
 
+	column Dim_Planning_Commodity = LOOKUPVALUE('Planning Commodity (26)'[Planning Commodity],'Planning Commodity (26)'[Planning Commodity],Dim_Planning_Commodity[Planning Commodity])
+		lineageTag: 735f556a-23ed-424d-af5c-258eb519f3c4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_Planning_Commodity = calculated
 		mode: import
 		source =

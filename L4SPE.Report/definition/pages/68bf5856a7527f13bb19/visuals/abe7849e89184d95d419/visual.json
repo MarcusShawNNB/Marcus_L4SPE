@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "abe7849e89184d95d419",
   "position": {
     "x": 6.6666666666666661,
@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "Dim_Planning_Commodity.Planning Commodity",
-              "nativeQueryRef": "Planning Commodity",
+              "nativeQueryRef": "Planning Commodity1",
               "active": true
             }
           ]

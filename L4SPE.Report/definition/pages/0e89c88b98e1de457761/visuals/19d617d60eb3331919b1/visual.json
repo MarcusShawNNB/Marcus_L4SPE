@@ -89,7 +89,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Week to Date'"
+                                "Value": "'Year to Date'"
                               }
                             }
                           ]
@@ -107,6 +107,13 @@
         {
           "properties": {
             "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "strictSingleSelect": {
               "expr": {
                 "Literal": {
                   "Value": "true"

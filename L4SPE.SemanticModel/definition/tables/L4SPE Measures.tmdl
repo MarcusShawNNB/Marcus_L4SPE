@@ -2151,6 +2151,133 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure Qty_75pct_Date_p6 = ```
+			
+			VAR Base =
+			    ADDCOLUMNS(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        "@CumQty",
+			        VAR CurDate = Dim_Date[Date]
+			        RETURN
+			            CALCULATE(
+			                [sum_design_quantity_p6_by_day],  
+			                ALLSELECTED( Dim_Date[Date] ),
+			                Dim_Date[Date] <= CurDate
+			            )
+			    )
+			VAR TotalQty = MAXX( Base, [@CumQty] )
+			VAR TargetQty = TotalQty * 0.75
+			RETURN
+			    MINX(
+			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        Dim_Date[Date]
+			    )
+			```
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: 370c0cc1-bd43-48ee-a5a9-c85a62fbf20b
+
+	measure Qty_50pct_Date_p6 = ```
+			
+			VAR Base =
+			    ADDCOLUMNS(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        "@CumQty",
+			        VAR CurDate = Dim_Date[Date]
+			        RETURN
+			            CALCULATE(
+			                [sum_design_quantity_p6_by_day],  
+			                ALLSELECTED( Dim_Date[Date] ),
+			                Dim_Date[Date] <= CurDate
+			            )
+			    )
+			VAR TotalQty = MAXX( Base, [@CumQty] )
+			VAR TargetQty = TotalQty * 0.50
+			RETURN
+			    MINX(
+			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        Dim_Date[Date]
+			    )
+			```
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: d46012fc-7236-4e88-b76f-bdb1ffc3e24f
+
+	measure Qty_25pct_Date_p6 = ```
+			
+			VAR Base =
+			    ADDCOLUMNS(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        "@CumQty",
+			        VAR CurDate = Dim_Date[Date]
+			        RETURN
+			            CALCULATE(
+			                [sum_design_quantity_p6_by_day],  
+			                ALLSELECTED( Dim_Date[Date] ),
+			                Dim_Date[Date] <= CurDate
+			            )
+			    )
+			VAR TotalQty = MAXx( Base, [@CumQty] )
+			VAR TargetQty = TotalQty * 0.25
+			RETURN
+			    MINX(
+			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        Dim_Date[Date]
+			    )
+			```
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: 8ec05864-0f94-4a41-b0df-0e4f992875ba
+
+	measure Actual_Installed_Date =
+			
+			CALCULATE(
+			    MAX( Dim_ECS[actual_installed_date] ),
+			    USERELATIONSHIP( Dim_Date[Date], Dim_ECS[actual_installed_date] )
+			)
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: 02f80c54-908e-49d7-8126-734d25583d71
+
+	measure Qty_25pct_Date_Actual =
+			
+			VAR Base =
+			    ADDCOLUMNS(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        "@CumQty",
+			        VAR CurDate = Dim_Date[Date]
+			        RETURN
+			            CALCULATE(
+			                [Actual_Installed_Date],
+			                ALLSELECTED( Dim_Date[Date] ),
+			                Dim_Date[Date] <= CurDate
+			            )
+			    )
+			VAR TotalQty =
+			    CALCULATE( SUM( Dim_ECS[DesignQuantity] ), ALLSELECTED( Dim_ECS ) )  -- fixed to full plan, not floating
+			VAR TargetQty = TotalQty * 0.25
+			RETURN
+			    MINX(
+			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        Dim_Date[Date]
+			    )
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: 7ae0f787-c0f3-4729-a3ab-7f40dd38c5b8
+
+	measure Qty_25pct_Date_Display =
+			
+			VAR ActualDate = [Qty_25pct_Date_Actual]
+			RETURN
+			    IF(
+			        NOT ISBLANK( ActualDate ),
+			        ActualDate,       -- 25% has actually been achieved — show real date
+			        [Qty_25pct_Date_p6]   -- not there yet — show planned/FC date
+			    )
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: 960a3b41-5b00-4f0d-9cee-40466ed2eaf3
+
 	column Column
 		isHidden
 		formatString: 0

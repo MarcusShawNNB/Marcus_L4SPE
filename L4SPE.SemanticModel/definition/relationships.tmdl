@@ -58,17 +58,9 @@ relationship e7a38c01-6820-fb26-dbbd-35802bd829ce
 	fromColumn: Fact_Booked_Hours.'Week Ending'
 	toColumn: Dim_Date.Date
 
-relationship 738650f8-662d-b72b-647b-7d95e5a3d51f
-	fromColumn: Fact_TO4_Q.'Planning Commodity'
-	toColumn: Bridge_commodity_map.Fact_TO4_Q
-
 relationship 776c81ad-4d68-a3e5-9fb4-626b96b87485
 	fromColumn: Fact_QF_Q.Date
 	toColumn: Dim_Date.Date
-
-relationship 468f2fa3-2690-549a-5d6e-5cb032edf650
-	fromColumn: Fact_QF_Q.'Planning Commodity'
-	toColumn: Bridge_commodity_map.Fact_TO4_Q
 
 relationship d85b61bc-b0d2-0249-5c00-a42f6d0fb570
 	fromColumn: 'Fact_%S Sub-Area'.WE
@@ -103,10 +95,6 @@ relationship fdf1d087-55a8-6710-0073-d3c19bad4abd
 relationship d72f0eaa-a7b4-3777-15ec-ca33cd094a0e
 	fromColumn: Dim_ECS.'ECS Code'
 	toColumn: Dim_Equipment.'HPC.ID.ECSCode'
-
-relationship 2bc89022-5af8-b816-2351-43ca0694efdc
-	fromColumn: Fact_TO4_Q_Weekly.'Planning Commodity'
-	toColumn: Bridge_commodity_map.Fact_TO4_Q
 
 relationship 3152765d-4e57-a298-8675-bbfbf013e5d3
 	fromColumn: Fact_TO4_Q_Weekly.'Week End Date'
@@ -194,20 +182,8 @@ relationship fad67a3f-f0ea-50e9-75b1-1c28433253ab
 	fromColumn: Dim_ECS.'Planning Commodity'
 	toColumn: Dim_Planning_Commodity.'Planning Commodity'
 
-relationship 02d0040d-2111-368d-e639-3aa62ffa14db
-	fromColumn: Fact_QF_Q.'Planning Commodity'
-	toColumn: Dim_Planning_Commodity.'Planning Commodity'
-
 relationship b8228f1e-1ab9-f411-519a-284c04b4409f
 	fromColumn: 'Commodity Mapping Table'.'Fact - Commodity'
-	toColumn: Dim_Planning_Commodity.'Planning Commodity'
-
-relationship 41ac9879-b396-d2bc-ce3b-27dfbde009b4
-	fromColumn: Fact_TO4_Q_Weekly.'Planning Commodity'
-	toColumn: Dim_Planning_Commodity.'Planning Commodity'
-
-relationship a802f0df-baf2-d2e2-797f-2257c1607c1d
-	fromColumn: Fact_TO4_Q.'Planning Commodity'
 	toColumn: Dim_Planning_Commodity.'Planning Commodity'
 
 relationship 1d9ae538-f80a-8234-58e8-1e015e8336fc
@@ -331,4 +307,25 @@ relationship 38c84238-600b-3ce7-d97c-e509299b8dde
 	fromCardinality: one
 	fromColumn: Dim_IWS12_QM.'ECS Code'
 	toColumn: Dim_ECS.'ECS Code'
+
+relationship 380ca2c7-38ca-cdf6-47be-22e03e0ffda8
+	fromColumn: Fact_TO4_Q.Month
+	toColumn: Dim_Date.Date
+
+relationship bcd402ae-fa44-cf16-4e56-9399f86c63a1
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Planning_Commodity.'Planning Commodity'
+	toColumn: 'Planning Commodity (26)'.'Planning Commodity'
+
+relationship 7703a004-b2a6-4ee1-13eb-f991e9cad2e9
+	fromColumn: Fact_QF_Q.'Planning Commodity'
+	toColumn: 'Planning Commodity (26)'.'Planning Commodity'
+
+relationship 79b580a4-3f61-d7bc-f7bf-196655fa2ba9
+	fromColumn: Fact_TO4_Q.'Planning Commodity'
+	toColumn: 'Planning Commodity (26)'.'Planning Commodity'
+
+relationship d41bd799-2286-bd96-de30-7902e8e78127
+	fromColumn: Fact_TO4_Q_Weekly.'Planning Commodity'
+	toColumn: 'Planning Commodity (26)'.'Planning Commodity'
 

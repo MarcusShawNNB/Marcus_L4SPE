@@ -531,8 +531,63 @@
         "howCreated": "User"
       },
       {
-        "name": "ed577945a88625a62a93",
+        "name": "727c81f500b008926203",
         "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Planning Commodity (26)"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "b",
+              "Entity": "Planning Commodity (26)",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "b"
+                          }
+                        },
+                        "Property": "Planning Commodity"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Cable Tray'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "ed577945a88625a62a93",
+        "ordinal": 5,
         "field": {
           "Measure": {
             "Expression": {
@@ -547,7 +602,7 @@
       },
       {
         "name": "700cb70b39c5ae2b356b",
-        "ordinal": 5,
+        "ordinal": 6,
         "field": {
           "Measure": {
             "Expression": {
