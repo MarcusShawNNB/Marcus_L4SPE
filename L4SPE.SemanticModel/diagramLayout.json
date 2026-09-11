@@ -848,8 +848,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 2296,
-        "y": 400
+        "x": 578,
+        "y": 644
       },
       "nodes": [
         {
@@ -876,7 +876,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 32
+          "zIndex": 31
         },
         {
           "location": {
@@ -889,7 +889,7 @@
             "height": 261.90476190476193,
             "width": 184
           },
-          "zIndex": 33
+          "zIndex": 32
         },
         {
           "location": {
@@ -902,7 +902,7 @@
             "height": 166.66666666666663,
             "width": 386.61904761904771
           },
-          "zIndex": 37
+          "zIndex": 36
         },
         {
           "location": {
@@ -915,7 +915,7 @@
             "height": 388.07142857142856,
             "width": 339
           },
-          "zIndex": 34
+          "zIndex": 33
         },
         {
           "location": {
@@ -1045,7 +1045,7 @@
             "height": 278.58914560509106,
             "width": 229.29811620927785
           },
-          "zIndex": 35
+          "zIndex": 34
         },
         {
           "location": {
@@ -1201,7 +1201,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 36
+          "zIndex": 35
         },
         {
           "location": {
@@ -1331,7 +1331,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 31
+          "zIndex": 38
         },
         {
           "location": {
@@ -1344,7 +1344,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 38
+          "zIndex": 37
         }
       ],
       "name": "ECS Layout",
