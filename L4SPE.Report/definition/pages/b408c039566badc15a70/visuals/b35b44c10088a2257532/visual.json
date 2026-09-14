@@ -169,5 +169,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "159af36c1953b1587de4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Planning_Commodity"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -1291,6 +1291,19 @@ table Dim_ECS
 
 		annotation SummarizationSetBy = Automatic
 
+	column Summary_PC =
+			
+			IF (
+			    CONTAINSSTRING ( Dim_ECS[Planning Commodity], "Pipe" )
+			        && Dim_ECS[boresize] = "LB",
+			    Dim_ECS[Planning Commodity] & " LB",
+			    Dim_ECS[Planning Commodity]
+			)
+		lineageTag: b357fd84-e20b-4dac-8d88-26a2fb17e77d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'Adj_unit Hierarchy'
 		lineageTag: 45748b43-cc06-42bb-8697-8e25b13c768d
 

@@ -9251,6 +9251,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "planning commodity": {
@@ -16387,14 +16390,15 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "dim planning commodity": {
-			            "State": "Generated"
+			            "State": "Generated",
+			            "Weight": 0.87
 			          }
 			        },
 			        {
 			          "Dim_Planning_Commodity": {
 			            "Type": "Noun",
 			            "State": "Generated",
-			            "Weight": 0.99
+			            "Weight": 0.8613
 			          }
 			        },
 			        {
@@ -28471,7 +28475,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "bridge_commodity_map": {
+			    "planning_commodity_26": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Planning Commodity (26)"
@@ -28480,126 +28484,13 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "bridge commodity map": {
+			          "planning commodity (26)": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Bridge_commodity_map": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "commodity map": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "bridge commodity atlas": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "commodity atlas": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "bridge commodity chart": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "bridge commodity plot": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "bridge commodity plan": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "bridge commodity record": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "bridge commodity drawing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "bridge commodity diagram": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.492
-			          }
-			        },
-			        {
-			          "commodity chart": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "commodity plot": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
 			          }
 			        }
 			      ]
 			    },
-			    "bridge_commodity_map.planning_commodity": {
+			    "planning_commodity_26.planning_commodity": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Planning Commodity (26)",
@@ -30716,6 +30607,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Actual Installed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Actual - Installed Quantity": {
 			            "State": "Suggested",
 			            "Source": {
@@ -30727,16 +30628,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "Actual - Installed Q": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Actual Installed": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -60807,6 +60698,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "RH Delivered": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -61039,6 +60940,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.605
 			          }
+			        },
+			        {
+			          "Outstanding Q, Delivered": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -61179,6 +61090,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "Remaining Quantities": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -67624,6 +67545,1010 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "L4SPE_measure.qty_7_5pct_date_p_6": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Qty_75pct_Date_p6"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qty 7 5pct date p 6": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Qty_75pct_Date_p6": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "L4SPE_measure.qty_5_0pct_date_p_6": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Qty_50pct_Date_p6"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qty 5 0pct date p 6": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Qty_50pct_Date_p6": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "L4SPE_measure.qty_2_5pct_date_p_6": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Qty_25pct_Date_p6"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qty 2 5pct date p 6": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Qty_25pct_Date_p6": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "L4SPE_measure.actual_installed_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Actual_Installed_Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "actual installed date": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Actual_Installed_Date": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "actual installed moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "actual installed period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "real installed date": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "existent installed date": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "tangible installed date": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "L4SPE_measure.qty_2_5pct_date_actual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Qty_25pct_Date_Actual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qty 2 5pct date actual": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Qty_25pct_Date_Actual": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "qty 2 5pct date real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "qty 2 5pct date existent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "qty 2 5pct date tangible": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "qty 2 5pct moment actual": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "qty 2 5pct period actual": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "L4SPE_measure.qty_2_5pct_date_display": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "Qty_25pct_Date_Display"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qty 2 5pct date display": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Qty_25pct_Date_Display": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "qty 2 5pct moment display": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "qty 2 5pct period display": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "qty 2 5pct date exhibition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date presentation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date demonstration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date spectacle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date ceremony": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date pageant": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "qty 2 5pct date show": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "qty 2 5pct date parade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_planning_commodity.dim_planning_commodity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Planning_Commodity",
+			          "ConceptualProperty": "Dim_Planning_Commodity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim planning commodity": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Planning_Commodity": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "dim planning product": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "dim planning service": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity.mehp_com": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Planning_Commodity",
+			          "ConceptualProperty": "MEHP_COM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mehp com": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MEHP_COM": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity.discipline": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Planning_Commodity",
+			          "ConceptualProperty": "Discipline"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "discipline": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "punishment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "correction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "chastisement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "castigation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "restraint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "regulation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "strictness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "mastery": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "continence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "self-control": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity.skyline_com": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Planning_Commodity",
+			          "ConceptualProperty": "Skyline_Com"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "skyline com": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Skyline_Com": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "com": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_IWS12_QM.activity_ID": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IWS12_QM",
+			          "ConceptualProperty": "Activity ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "activity ID": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "activity identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "activity identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "activity identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "activity credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.complete": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "% Complete"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% complete": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage complete": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "pct complete": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.sum_outstanding_design_quantity_rf_C": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "sum_outstanding_design_quantity_RfC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum outstanding design quantity rf C": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sum_outstanding_design_quantity_RfC": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "RfC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.sum_remaining_design_quantity_fabrication_completed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "sum_remaining_design_quantity_fabrication_completed"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum remaining design quantity fabrication completed": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Outstanding Q, Fab Completed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_EC.summary_PC": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_ECS",
+			          "ConceptualProperty": "Summary_PC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "summary PC": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Summary_PC": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "PC": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "synopsis pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "explanation pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "extraction pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "summarisation pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "review pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "abstract pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "outline pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overview pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "paraphrase pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "recap pc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "L4SPE_measure.sum_remaining_hours_fabrication_completed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "L4SPE Measures",
+			          "ConceptualProperty": "sum_remaining_hours_fabrication_completed"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum remaining hours fabrication completed": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sum_remaining_hours_fabrication_completed": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation remaining hour fabrication completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "aggregation remaining hour fabrication completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "total remaining hour fabrication completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "aggregate remaining hour fabrication completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "amount remaining hour fabrication completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "sum remaining hour construction completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "sum remaining hour production completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "sum remaining hour assembly completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "sum remaining hour creation completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "sum remaining hour manufacture completed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "Remaining Hours_Fab Completed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
 			    "l4spe_measures.sum_forecast_baseline_current_week": {
 			      "Definition": {
 			        "Binding": {
@@ -67647,52 +68572,6 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
-			    "fact_rolling_forecast_L5_daily_spread_has_dim_EC": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Rolling_Forecast_L5_daily_spread"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_rolling_forecast_L5_daily_spread": {
-			          "Target": {
-			            "Entity": "fact_rolling_forecast_L5_daily_spread"
-			          }
-			        },
-			        "dim_EC": {
-			          "Target": {
-			            "Entity": "dim_EC"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_rolling_forecast_L5_daily_spread"
-			            },
-			            "Object": {
-			              "Role": "dim_EC"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_rolling_forecast_L5_daily_spreads_have_dim_EC"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_EC"
-			            },
-			            "Object": {
-			              "Role": "fact_rolling_forecast_L5_daily_spread"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_EC_have_fact_rolling_forecast_L5_daily_spreads"
-			        }
-			      ]
-			    },
 			    "ECS_assignment_has_dim_EC": {
 			      "Binding": {
 			        "ConceptualEntity": "ECS_Assignments"
@@ -68179,6 +69058,59 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "fact_TO4_Q_weekly_has_planning_commodity_26": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_TO4_Q_Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_TO4_Q_weekly": {
+			          "Target": {
+			            "Entity": "fact_TO4_Q_weekly"
+			          }
+			        },
+			        "planning_commodity_26": {
+			          "Target": {
+			            "Entity": "planning_commodity_26"
+			          },
+			          "Nouns": [
+			            {
+			              "planning commodity": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_TO4_Q_weekly"
+			            },
+			            "Object": {
+			              "Role": "planning_commodity_26"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_TO4_Q_weeklies_have_planning_commodity_26"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "planning_commodity_26"
+			            },
+			            "Object": {
+			              "Role": "fact_TO4_Q_weekly"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "planning_commodity_26_have_fact_TO4_Q_weeklies"
+			        }
+			      ]
+			    },
 			    "fact_TO4_Q_weekly_has_bridge_TO4_sub_area": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_TO4_Q_Weekly"
@@ -68225,59 +69157,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_TO4_Q_weekly_has_dim_planning_commodity": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_TO4_Q_Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_TO4_Q_weekly": {
-			          "Target": {
-			            "Entity": "fact_TO4_Q_weekly"
-			          }
-			        },
-			        "dim_planning_commodity": {
-			          "Target": {
-			            "Entity": "dim_planning_commodity"
-			          },
-			          "Nouns": [
-			            {
-			              "planning commodity": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_TO4_Q_weekly"
-			            },
-			            "Object": {
-			              "Role": "dim_planning_commodity"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_TO4_Q_weeklies_have_dim_planning_commodities"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_planning_commodity"
-			            },
-			            "Object": {
-			              "Role": "fact_TO4_Q_weekly"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_planning_commodities_have_fact_TO4_Q_weeklies"
-			        }
-			      ]
-			    },
 			    "fact_TO4_Q_weekly_has_dim_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_TO4_Q_Weekly"
@@ -68321,59 +69200,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_dates_have_fact_TO4_Q_weeklies"
-			        }
-			      ]
-			    },
-			    "fact_TO4_Q_weekly_has_bridge_commodity_map": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_TO4_Q_Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_TO4_Q_weekly": {
-			          "Target": {
-			            "Entity": "fact_TO4_Q_weekly"
-			          }
-			        },
-			        "bridge_commodity_map": {
-			          "Target": {
-			            "Entity": "bridge_commodity_map"
-			          },
-			          "Nouns": [
-			            {
-			              "planning commodity": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_TO4_Q_weekly"
-			            },
-			            "Object": {
-			              "Role": "bridge_commodity_map"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_TO4_Q_weeklies_have_bridge_commodity_maps"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "bridge_commodity_map"
-			            },
-			            "Object": {
-			              "Role": "fact_TO4_Q_weekly"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "bridge_commodity_maps_have_fact_TO4_Q_weeklies"
 			        }
 			      ]
 			    },
@@ -68824,7 +69650,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_QF_Q_has_dim_planning_commodity": {
+			    "fact_QF_Q_has_planning_commodity_26": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_QF_Q"
 			      },
@@ -68835,9 +69661,9 @@ cultureInfo en-US
 			            "Entity": "fact_QF_Q"
 			          }
 			        },
-			        "dim_planning_commodity": {
+			        "planning_commodity_26": {
 			          "Target": {
-			            "Entity": "dim_planning_commodity"
+			            "Entity": "planning_commodity_26"
 			          },
 			          "Nouns": [
 			            {
@@ -68855,17 +69681,17 @@ cultureInfo en-US
 			              "Role": "fact_QF_Q"
 			            },
 			            "Object": {
-			              "Role": "dim_planning_commodity"
+			              "Role": "planning_commodity_26"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_QF_Q_have_dim_planning_commodities"
+			          "ID": "fact_QF_Q_have_planning_commodity_26"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_planning_commodity"
+			              "Role": "planning_commodity_26"
 			            },
 			            "Object": {
 			              "Role": "fact_QF_Q"
@@ -68873,60 +69699,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_planning_commodities_have_fact_QF_Q"
-			        }
-			      ]
-			    },
-			    "fact_QF_Q_has_bridge_commodity_map": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_QF_Q"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_QF_Q": {
-			          "Target": {
-			            "Entity": "fact_QF_Q"
-			          }
-			        },
-			        "bridge_commodity_map": {
-			          "Target": {
-			            "Entity": "bridge_commodity_map"
-			          },
-			          "Nouns": [
-			            {
-			              "planning commodity": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_QF_Q"
-			            },
-			            "Object": {
-			              "Role": "bridge_commodity_map"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_QF_Q_have_bridge_commodity_maps"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "bridge_commodity_map"
-			            },
-			            "Object": {
-			              "Role": "fact_QF_Q"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "bridge_commodity_maps_have_fact_QF_Q"
+			          "ID": "planning_commodity_26_have_fact_QF_Q"
 			        }
 			      ]
 			    },
@@ -68976,7 +69749,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_TO4_Q_has_dim_planning_commodity": {
+			    "fact_TO4_Q_has_planning_commodity_26": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_TO4_Q"
 			      },
@@ -68987,9 +69760,9 @@ cultureInfo en-US
 			            "Entity": "fact_TO4_Q"
 			          }
 			        },
-			        "dim_planning_commodity": {
+			        "planning_commodity_26": {
 			          "Target": {
-			            "Entity": "dim_planning_commodity"
+			            "Entity": "planning_commodity_26"
 			          },
 			          "Nouns": [
 			            {
@@ -69007,17 +69780,17 @@ cultureInfo en-US
 			              "Role": "fact_TO4_Q"
 			            },
 			            "Object": {
-			              "Role": "dim_planning_commodity"
+			              "Role": "planning_commodity_26"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_TO4_Q_have_dim_planning_commodities"
+			          "ID": "fact_TO4_Q_have_planning_commodity_26"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_planning_commodity"
+			              "Role": "planning_commodity_26"
 			            },
 			            "Object": {
 			              "Role": "fact_TO4_Q"
@@ -69025,11 +69798,11 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_planning_commodities_have_fact_TO4_Q"
+			          "ID": "planning_commodity_26_have_fact_TO4_Q"
 			        }
 			      ]
 			    },
-			    "fact_TO4_Q_has_bridge_commodity_map": {
+			    "fact_TO4_Q_has_dim_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_TO4_Q"
 			      },
@@ -69040,13 +69813,13 @@ cultureInfo en-US
 			            "Entity": "fact_TO4_Q"
 			          }
 			        },
-			        "bridge_commodity_map": {
+			        "dim_date": {
 			          "Target": {
-			            "Entity": "bridge_commodity_map"
+			            "Entity": "dim_date"
 			          },
 			          "Nouns": [
 			            {
-			              "planning commodity": {
+			              "month": {
 			                "State": "Generated"
 			              }
 			            }
@@ -69060,17 +69833,17 @@ cultureInfo en-US
 			              "Role": "fact_TO4_Q"
 			            },
 			            "Object": {
-			              "Role": "bridge_commodity_map"
+			              "Role": "dim_date"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_TO4_Q_have_bridge_commodity_maps"
+			          "ID": "fact_TO4_Q_have_dim_dates"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "bridge_commodity_map"
+			              "Role": "dim_date"
 			            },
 			            "Object": {
 			              "Role": "fact_TO4_Q"
@@ -69078,7 +69851,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "bridge_commodity_maps_have_fact_TO4_Q"
+			          "ID": "dim_dates_have_fact_TO4_Q"
 			        }
 			      ]
 			    },
@@ -69783,6 +70556,59 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_dates_have_fact_productions"
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity_has_planning_commodity_26": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Planning_Commodity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity"
+			          }
+			        },
+			        "planning_commodity_26": {
+			          "Target": {
+			            "Entity": "planning_commodity_26"
+			          },
+			          "Nouns": [
+			            {
+			              "planning commodity": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_planning_commodity"
+			            },
+			            "Object": {
+			              "Role": "planning_commodity_26"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_planning_commodities_have_planning_commodity_26"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "planning_commodity_26"
+			            },
+			            "Object": {
+			              "Role": "dim_planning_commodity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "planning_commodity_26_have_dim_planning_commodities"
 			        }
 			      ]
 			    },
@@ -70518,6 +71344,831 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_EC_have_bridge_cable_highways"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_sum_remaining_hours_fabrication_completed": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.sum_remaining_hours_fabrication_completed": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.sum_remaining_hours_fabrication_completed"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.sum_remaining_hours_fabrication_completed"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_sum_remaining_hours_fabrication_completed"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_summary_PC": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "dim_EC.summary_PC": {
+			          "Target": {
+			            "Entity": "dim_EC.summary_PC"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "dim_EC.summary_PC"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_summary_PCs"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_sum_remaining_design_quantity_fabrication_completed": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.sum_remaining_design_quantity_fabrication_completed": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.sum_remaining_design_quantity_fabrication_completed"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.sum_remaining_design_quantity_fabrication_completed"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_sum_remaining_design_quantity_fabrication_completed"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_sum_outstanding_design_quantity_rf_C": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.sum_outstanding_design_quantity_rf_C": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.sum_outstanding_design_quantity_rf_C"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.sum_outstanding_design_quantity_rf_C"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_sum_outstanding_design_quantity_rf_C"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_complete": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.complete": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.complete"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.complete"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have__complete"
+			        }
+			      ]
+			    },
+			    "dim_IWS12_QM_has_activity_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_IWS12_QM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_IWS12_QM": {
+			          "Target": {
+			            "Entity": "dim_IWS12_QM"
+			          }
+			        },
+			        "dim_IWS12_QM.activity_ID": {
+			          "Target": {
+			            "Entity": "dim_IWS12_QM.activity_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_IWS12_QM"
+			            },
+			            "Object": {
+			              "Role": "dim_IWS12_QM.activity_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_IWS12_QMs_have_activity_ID"
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity_has_skyline_com": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Planning_Commodity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity"
+			          }
+			        },
+			        "dim_planning_commodity.skyline_com": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity.skyline_com"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_planning_commodity"
+			            },
+			            "Object": {
+			              "Role": "dim_planning_commodity.skyline_com"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_planning_commodities_have_skyline_com"
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity_has_discipline": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Planning_Commodity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity"
+			          }
+			        },
+			        "dim_planning_commodity.discipline": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity.discipline"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_planning_commodity"
+			            },
+			            "Object": {
+			              "Role": "dim_planning_commodity.discipline"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_planning_commodities_have_disciplines"
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity_has_mehp_com": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Planning_Commodity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity"
+			          }
+			        },
+			        "dim_planning_commodity.mehp_com": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity.mehp_com"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_planning_commodity"
+			            },
+			            "Object": {
+			              "Role": "dim_planning_commodity.mehp_com"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_planning_commodities_have_mehp_com"
+			        }
+			      ]
+			    },
+			    "dim_planning_commodity_has_dim_planning_commodity": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Planning_Commodity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity"
+			          }
+			        },
+			        "dim_planning_commodity.dim_planning_commodity": {
+			          "Target": {
+			            "Entity": "dim_planning_commodity.dim_planning_commodity"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_planning_commodity"
+			            },
+			            "Object": {
+			              "Role": "dim_planning_commodity.dim_planning_commodity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_planning_commodities_have_dim_planning_commodities"
+			        }
+			      ]
+			    },
+			    "fact_forecast_quantity_daily_spread_has_L4SPE_measure_qty_2_5pct_date_display": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Forecast_Quantity_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_forecast_quantity_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_forecast_quantity_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_display": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_display"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_forecast_quantity_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_display"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_forecast_quantity_daily_spreads_have_qty_2_5pct_date_display"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_qty_2_5pct_date_display": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_display": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_display"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_display"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_qty_2_5pct_date_display"
+			        }
+			      ]
+			    },
+			    "dim_date_has_L4SPE_measure_qty_2_5pct_date_display": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_display": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_display"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_display"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_qty_2_5pct_date_display"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_qty_2_5pct_date_actual": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_actual": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_actual"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_actual"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_qty_2_5pct_date_actual"
+			        }
+			      ]
+			    },
+			    "dim_date_has_L4SPE_measure_qty_2_5pct_date_actual": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_actual": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_actual"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_actual"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_qty_2_5pct_date_actual"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_actual_installed_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.actual_installed_date": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.actual_installed_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.actual_installed_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_actual_installed_date"
+			        }
+			      ]
+			    },
+			    "fact_forecast_quantity_daily_spread_has_L4SPE_measure_qty_2_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Forecast_Quantity_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_forecast_quantity_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_forecast_quantity_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_forecast_quantity_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_forecast_quantity_daily_spreads_have_qty_2_5pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_qty_2_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_qty_2_5pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_date_has_L4SPE_measure_qty_2_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "L4SPE_measure.qty_2_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_2_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_2_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_qty_2_5pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "fact_forecast_quantity_daily_spread_has_L4SPE_measure_qty_5_0pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Forecast_Quantity_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_forecast_quantity_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_forecast_quantity_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.qty_5_0pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_5_0pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_forecast_quantity_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_5_0pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_forecast_quantity_daily_spreads_have_qty_5_0pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_qty_5_0pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.qty_5_0pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_5_0pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_5_0pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_qty_5_0pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_date_has_L4SPE_measure_qty_5_0pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "L4SPE_measure.qty_5_0pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_5_0pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_5_0pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_qty_5_0pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "fact_forecast_quantity_daily_spread_has_L4SPE_measure_qty_7_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Forecast_Quantity_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_forecast_quantity_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_forecast_quantity_daily_spread"
+			          }
+			        },
+			        "L4SPE_measure.qty_7_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_7_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_forecast_quantity_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_7_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_forecast_quantity_daily_spreads_have_qty_7_5pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_EC_has_L4SPE_measure_qty_7_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.qty_7_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_7_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_7_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_qty_7_5pct_date_p_6"
+			        }
+			      ]
+			    },
+			    "dim_date_has_L4SPE_measure_qty_7_5pct_date_p_6": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "L4SPE_measure.qty_7_5pct_date_p_6": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.qty_7_5pct_date_p_6"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "L4SPE_measure.qty_7_5pct_date_p_6"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_qty_7_5pct_date_p_6"
 			        }
 			      ]
 			    },
@@ -84214,871 +85865,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dim_IWS12_QM_has_install_contract": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.install_contract": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.install_contract"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.install_contract"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_install_contracts"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_supply_contract": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.supply_contract": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.supply_contract"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.supply_contract"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_supply_contracts"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_safety_class": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.safety_class": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.safety_class"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.safety_class"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_safety_classes"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_quality_class": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.quality_class": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.quality_class"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.quality_class"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_quality_classes"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_valve_delivered": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.valve_delivered": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.valve_delivered"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.valve_delivered"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_valve_delivered"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_valve_TG_calloff": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.valve_TG_calloff": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.valve_TG_calloff"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.valve_TG_calloff"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_valve_TG_calloff"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_valve_type": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.valve_type": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.valve_type"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.valve_type"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_valve_types"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_pre_con_hopper": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.pre_con_hopper": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.pre_con_hopper"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.pre_con_hopper"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_pre_con_hoppers"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_AT_location_C": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.AT_location_C": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.AT_location_C"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location_C"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_AT_location_C"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "AT": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location_C"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_AT_AT_location_C"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_AT_location": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.AT_location": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.AT_location"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_AT_location"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "AT": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_AT_AT_location"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_ipcm": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.ipcm": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.ipcm"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.ipcm"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_ipcms"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_ctp_ob": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.ctp_ob": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.ctp_ob"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.ctp_ob"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_ctp_ob"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_CTP_milestone": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.CTP_milestone": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.CTP_milestone"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.CTP_milestone"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_CTP_milestones"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_CTP_EESR_handover_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.CTP_EESR_handover_date": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.CTP_EESR_handover_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.CTP_EESR_handover_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_CTP_EESR_handover_dates"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_CTP_Activity_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.CTP_Activity_ID": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.CTP_Activity_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.CTP_Activity_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_CTP_Activity_ID"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_ctp": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.ctp": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.ctp"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.ctp"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_ctp"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_hydrotesting_finish_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.hydrotesting_finish_date": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.hydrotesting_finish_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.hydrotesting_finish_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_hydrotesting_finish_dates"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_hydrotesting_start_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.hydrotesting_start_date": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.hydrotesting_start_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.hydrotesting_start_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_hydrotesting_start_dates"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_Hydrotesting_Activity_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.Hydrotesting_Activity_ID": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.Hydrotesting_Activity_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.Hydrotesting_Activity_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_Hydrotesting_Activity_ID"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_bore": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.bore": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.bore"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.bore"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_bores"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_system": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.system": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.system"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.system"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_systems"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_DTS__status": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.DTS__status": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.DTS__status"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.DTS__status"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_DTS__statuses"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_DTS__actual": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.DTS__actual": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.DTS__actual"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.DTS__actual"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_DTS__actuals"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_DTS__forecast": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.DTS__forecast": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.DTS__forecast"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.DTS__forecast"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_DTS__forecasts"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_EPM_milestone": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.EPM_milestone": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.EPM_milestone"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.EPM_milestone"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_EPM_milestones"
-			        }
-			      ]
-			    },
 			    "dim_IWS12_QM_has_iws_12__snd": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_IWS12_QM"
@@ -85241,996 +86027,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_IWS12_QMs_have_IWS_11_1__start_dates"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_L5_planned__rolling": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.L5_planned__rolling": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.L5_planned__rolling"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.L5_planned__rolling"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_L5_planned__rolling"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_L5_planned__baseline": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.L5_planned__baseline": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.L5_planned__baseline"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.L5_planned__baseline"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_L5_planned__baselines"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_actual_installed": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.actual_installed": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.actual_installed"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.actual_installed"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_actual_installed"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_last_published_date__installation_finish": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.last_published_date__installation_finish": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.last_published_date__installation_finish"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.last_published_date__installation_finish"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_last_published_date__installation_finishes"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_last_published_date__installation_start": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.last_published_date__installation_start": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.last_published_date__installation_start"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.last_published_date__installation_start"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_last_published_date__installation_starts"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room__HOC_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room__HOC_date": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room__HOC_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room__HOC_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room__HOC_dates"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room_handover_FC": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room_handover_FC": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room_handover_FC"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room_handover_FC"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room_handover_FC"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room__MS3_FC": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room__MS3_FC": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room__MS3_FC"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room__MS3_FC"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room__MS3_FC"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room__MS3_actual": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room__MS3_actual": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room__MS3_actual"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room__MS3_actual"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room__MS3_actuals"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room__available": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room__available": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room__available"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room__available"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room__available"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room_handover_milestone": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room_handover_milestone": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room_handover_milestone"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room_handover_milestone"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_room_handover_milestones"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_p45_ee": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.p45_ee": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.p45_ee"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.p45_ee"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_p45_ee"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_hours_actual_unit": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.hours_actual_unit": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.hours_actual_unit"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.hours_actual_unit"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_hours_actual_units"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_remaining_hour": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.remaining_hour": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.remaining_hour"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.remaining_hour"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_remaining_hours"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_installation__complete": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.installation__complete": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.installation__complete"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.installation__complete"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_installation__complete"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_budgeted_hour": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.budgeted_hour": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.budgeted_hour"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.budgeted_hour"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_budgeted_hours"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_activity_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.activity_ID": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.activity_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.activity_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_activity_ID"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_planning_commodity": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.planning_commodity": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.planning_commodity"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.planning_commodity"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_planning_commodities"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_discipline": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.discipline": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.discipline"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.discipline"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_disciplines"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_room": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.room": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.room"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.room"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_rooms"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_elevation": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.elevation": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.elevation"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.elevation"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_elevations"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_erection_area": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.erection_area": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.erection_area"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.erection_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_erection_areas"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_building": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.building": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.building"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.building"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_building"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_subarea": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.subarea": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.subarea"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.subarea"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_subareas"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_area": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.area": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.area"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_areas"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_unit": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.unit": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.unit"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.unit"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_units"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_iso": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.iso": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.iso"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.iso"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_iso"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_ho_1": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.ho_1": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.ho_1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.ho_1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_ho_1"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_uo_M": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.uo_M": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.uo_M"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.uo_M"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_uo_M"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_has_design_quantity": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.design_quantity": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.design_quantity"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Object": {
-			              "Role": "dim_IWS12_QM.design_quantity"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_have_design_quantities"
 			        }
 			      ]
 			    },
@@ -88366,20 +88162,20 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "bridge_commodity_map_has_planning_commodity": {
+			    "planning_commodity_26_has_planning_commodity": {
 			      "Binding": {
 			        "ConceptualEntity": "Planning Commodity (26)"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "bridge_commodity_map": {
+			        "planning_commodity_26": {
 			          "Target": {
-			            "Entity": "bridge_commodity_map"
+			            "Entity": "planning_commodity_26"
 			          }
 			        },
-			        "bridge_commodity_map.planning_commodity": {
+			        "planning_commodity_26.planning_commodity": {
 			          "Target": {
-			            "Entity": "bridge_commodity_map.planning_commodity"
+			            "Entity": "planning_commodity_26.planning_commodity"
 			          }
 			        }
 			      },
@@ -88387,48 +88183,15 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "bridge_commodity_map"
+			              "Role": "planning_commodity_26"
 			            },
 			            "Object": {
-			              "Role": "bridge_commodity_map.planning_commodity"
+			              "Role": "planning_commodity_26.planning_commodity"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "bridge_commodity_maps_have_planning_commodities"
-			        }
-			      ]
-			    },
-			    "bridge_commodity_map_has_fact_TO4_Q": {
-			      "Binding": {
-			        "ConceptualEntity": "Planning Commodity (26)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "bridge_commodity_map": {
-			          "Target": {
-			            "Entity": "bridge_commodity_map"
-			          }
-			        },
-			        "bridge_commodity_map.fact_TO4_Q": {
-			          "Target": {
-			            "Entity": "bridge_commodity_map.fact_TO4_Q"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "bridge_commodity_map"
-			            },
-			            "Object": {
-			              "Role": "bridge_commodity_map.fact_TO4_Q"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "bridge_commodity_maps_have_fact_TO4_Q1"
+			          "ID": "planning_commodity_26_have_planning_commodities"
 			        }
 			      ]
 			    },
@@ -96222,6 +95985,26 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_productions_have_sum_earned_hours_week_production"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_production"
+			            },
+			            "Adjectives": [
+			              {
+			                "Earned": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "L4SPE_measure.sum_earned_hours_week_production"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "sum_earned_hours_week_production_indicates_how_Earned_fact_productions_are"
 			        }
 			      ]
 			    },
@@ -96354,39 +96137,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "date_filter_options_have_filter_names"
-			        }
-			      ]
-			    },
-			    "dim_planning_commodity_has_planning_commodity": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Planning_Commodity"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_planning_commodity": {
-			          "Target": {
-			            "Entity": "dim_planning_commodity"
-			          }
-			        },
-			        "dim_planning_commodity.planning_commodity": {
-			          "Target": {
-			            "Entity": "dim_planning_commodity.planning_commodity"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_planning_commodity"
-			            },
-			            "Object": {
-			              "Role": "dim_planning_commodity.planning_commodity"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_planning_commodities_have_planning_commodities"
 			        }
 			      ]
 			    },
@@ -100473,231 +100223,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dim_IWS12_QM_in_AT_location_C": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.AT_location_C": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.AT_location_C"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_IWS12_QM.AT_location_C"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location_C"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_in_AT_location_C"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_in_AT_location": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.AT_location": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.AT_location"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_IWS12_QM.AT_location"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.AT_location"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_in_AT_location"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_in_erection_area": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.erection_area": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.erection_area"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_IWS12_QM.erection_area"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.erection_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_in_erection_areas"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_in_subarea": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.subarea": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.subarea"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_IWS12_QM.subarea"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.subarea"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_in_subareas"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_in_area": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.area": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.area"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_IWS12_QM.area"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_IWS12_QM"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM.area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_IWS12_QMs_are_in_areas"
-			        }
-			      ]
-			    },
 			    "dim_sub_area_in_sub_area": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_Sub-Area"
@@ -101460,6 +100985,48 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_EC_are_in_area_groups1"
+			        }
+			      ]
+			    },
+			    "dim_EC_is_installed_on_L4SPE_measure_actual_installed_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_ECS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        },
+			        "L4SPE_measure.actual_installed_date": {
+			          "Target": {
+			            "Entity": "L4SPE_measure.actual_installed_date"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "L4SPE_measure.actual_installed_date"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "install": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_EC"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.9,
+			          "ID": "dim_EC_are_installed_on_actual_installed_date"
 			        }
 			      ]
 			    },
@@ -102266,90 +101833,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dim_IWS12_QM_is_published_on_last_published_date__installation_finish": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.last_published_date__installation_finish": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.last_published_date__installation_finish"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "When": {
-			          "Role": "dim_IWS12_QM.last_published_date__installation_finish"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Verb": {
-			            "Verbs": [
-			              {
-			                "publish": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.9,
-			          "ID": "dim_IWS12_QMs_are_published_on_last_published_date__installation_finishes"
-			        }
-			      ]
-			    },
-			    "dim_IWS12_QM_is_published_on_last_published_date__installation_start": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_IWS12_QM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_IWS12_QM": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM"
-			          }
-			        },
-			        "dim_IWS12_QM.last_published_date__installation_start": {
-			          "Target": {
-			            "Entity": "dim_IWS12_QM.last_published_date__installation_start"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "When": {
-			          "Role": "dim_IWS12_QM.last_published_date__installation_start"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Verb": {
-			            "Verbs": [
-			              {
-			                "publish": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_IWS12_QM"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.9,
-			          "ID": "dim_IWS12_QMs_are_published_on_last_published_date__installation_starts"
-			        }
-			      ]
-			    },
 			    "dim_EC_is_planned_on_latest_baseline_planned_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_ECS"
@@ -102738,6 +102221,52 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_fact_BL_forecast_L5_daily_spreads_are_already_claimed_fact_BL_forecast_L5_daily_spreads"
+			        }
+			      ]
+			    },
+			    "fact_rolling_forecast_L5_daily_spread_has_dim_EC": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Rolling_Forecast_L5_daily_spread"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_rolling_forecast_L5_daily_spread": {
+			          "Target": {
+			            "Entity": "fact_rolling_forecast_L5_daily_spread"
+			          }
+			        },
+			        "dim_EC": {
+			          "Target": {
+			            "Entity": "dim_EC"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_rolling_forecast_L5_daily_spread"
+			            },
+			            "Object": {
+			              "Role": "dim_EC"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_rolling_forecast_L5_daily_spreads_have_dim_EC"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_EC"
+			            },
+			            "Object": {
+			              "Role": "fact_rolling_forecast_L5_daily_spread"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_EC_have_fact_rolling_forecast_L5_daily_spreads"
 			        }
 			      ]
 			    },

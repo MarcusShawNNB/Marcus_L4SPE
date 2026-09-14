@@ -176,5 +176,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7ca5967605db6605e0d9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Room"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

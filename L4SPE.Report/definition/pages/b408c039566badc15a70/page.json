@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "b408c039566badc15a70",
   "displayName": "Duplicate of Summary",
-  "displayOption": "FitToPage",
+  "displayOption": "ActualSize",
   "height": 720,
-  "width": 1280,
+  "width": 1600,
   "filterConfig": {
     "filters": [
       {
@@ -20,45 +20,6 @@
           }
         },
         "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "Dim_ECS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "LIVE - Forecast Finish Date"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "null"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       },
       {
@@ -74,41 +35,29 @@
           }
         },
         "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "Dim_ECS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 3,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "Total % Complete"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "0.9D"
-                    }
-                  }
-                }
+        "howCreated": "User"
+      },
+      {
+        "name": "911c7170b6d4c16000a9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
               }
+            },
+            "Property": "BoreSize"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   },

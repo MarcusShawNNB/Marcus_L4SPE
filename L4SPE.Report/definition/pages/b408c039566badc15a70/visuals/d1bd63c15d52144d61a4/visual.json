@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d1bd63c15d52144d61a4",
   "position": {
-    "x": 156.66666666666666,
-    "y": 386.66666666666663,
+    "x": 156,
+    "y": 0,
     "z": 19000,
-    "height": 333.33333333333331,
-    "width": 1116.6666666666667,
+    "height": 290,
+    "width": 1118,
     "tabOrder": 19000
   },
   "visual": {
@@ -26,7 +26,7 @@
                   "Property": "Planning Commodity"
                 }
               },
-              "queryRef": "Dim_ECS.Planning_Commodity",
+              "queryRef": "Dim_ECS.Planning Commodity",
               "nativeQueryRef": "Planning Commodity"
             },
             {
@@ -160,7 +160,52 @@
                 }
               },
               "queryRef": "L4SPE Measures.budget_hours",
-              "nativeQueryRef": "budget_hours"
+              "nativeQueryRef": "Budget",
+              "displayName": "Budget"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_remaining_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_remaining_hours",
+              "nativeQueryRef": "Remaining Hours",
+              "displayName": "Remaining Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_earned_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_earned_hours",
+              "nativeQueryRef": "Earned",
+              "displayName": "Earned"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "% Complete"
+                }
+              },
+              "queryRef": "L4SPE Measures.% Complete",
+              "nativeQueryRef": "% Complete"
             }
           ]
         }
@@ -180,6 +225,34 @@
           },
           "selector": {
             "metadata": "L4SPE Measures.sum_design_quantity_actual_installed"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.13041002617189D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_earned_hours"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_fabrication_completed"
           }
         }
       ],
@@ -343,5 +416,191 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "efe3782e1ac9640862c4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a6aea03d559e7e6beee0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "UoM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "094d0123b05812d2a906",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_all"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9097f830bc0bb59b2414",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_delivered"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d60480939c5b93326d2a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_delivered"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ea434af18746401b0068",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_fabrication_completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5b736670e13467c05a25",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_fab_completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ed91352d1705bb4b888",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_actual_installed_inc_this_week"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca48c76d8b67a19b44d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_installed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cff1bf1bdd78bd96de19",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "budget_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9920dfa4273ea7060cd9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_remaining_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d98993c283a71c62be00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_earned_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "69b70e9f91310040346a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "% Complete"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

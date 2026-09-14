@@ -1,0 +1,606 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "dd971cc00cc981532a15",
+  "position": {
+    "x": 156.25,
+    "y": 0,
+    "z": 14000,
+    "height": 200,
+    "width": 1186.25,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_ECS.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_ECS"
+                    }
+                  },
+                  "Property": "UoM"
+                }
+              },
+              "queryRef": "Dim_ECS.UoM",
+              "nativeQueryRef": "UoM"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_all"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_all",
+              "nativeQueryRef": "All Quantity",
+              "displayName": "All Quantity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_delivered"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_delivered",
+              "nativeQueryRef": "Delivered",
+              "displayName": "Delivered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "%_delivered"
+                }
+              },
+              "queryRef": "L4SPE Measures.%_delivered",
+              "nativeQueryRef": "% Delivered",
+              "displayName": "% Delivered"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_fabrication_completed"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_fabrication_completed",
+              "nativeQueryRef": "Fabrication Completed",
+              "displayName": "Fabrication Completed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "%_fab_completed"
+                }
+              },
+              "queryRef": "L4SPE Measures.%_fab_completed",
+              "nativeQueryRef": "% Fabricated",
+              "displayName": "% Fabricated"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_actual_installed_inc_this_week"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed_inc_this_week",
+              "nativeQueryRef": "Installed",
+              "displayName": "Installed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "%_installed"
+                }
+              },
+              "queryRef": "L4SPE Measures.%_installed",
+              "nativeQueryRef": "% installed",
+              "displayName": "% installed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "budget_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.budget_hours",
+              "nativeQueryRef": "Budget",
+              "displayName": "Budget"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_remaining_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_remaining_hours",
+              "nativeQueryRef": "Remaining Hours",
+              "displayName": "Remaining Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_earned_hours"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_earned_hours",
+              "nativeQueryRef": "Earned",
+              "displayName": "Earned"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "% Complete"
+                }
+              },
+              "queryRef": "L4SPE Measures.% Complete",
+              "nativeQueryRef": "% Complete"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.39415425847328D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_actual_installed"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.13041002617189D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_earned_hours"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_fabrication_completed"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Summary'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6E6E6'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8073fcd0da454446bb00",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8a2d988d4d568eee0363",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "UoM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2d2a391389abd10cc0c6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_all"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "81f4ddb20052574ec605",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_delivered"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "502e837dc0813705444c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_delivered"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c244a741d1a4ae82c475",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_fabrication_completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f620f070210d0eb0908e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_fab_completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "512977fb5a2bc1795922",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_design_quantity_actual_installed_inc_this_week"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d7baadc52782c0ad0eba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "%_installed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "52267a39b40000934c77",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "budget_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25e072b0a1775d3d08b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_remaining_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c45f9467c628d900de5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "sum_earned_hours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25e3dfa171d9ae369a1a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "L4SPE Measures"
+              }
+            },
+            "Property": "% Complete"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

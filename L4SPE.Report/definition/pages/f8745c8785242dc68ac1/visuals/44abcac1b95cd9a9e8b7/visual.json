@@ -252,48 +252,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "324c0c7b072a63d22785",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Room"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c7ada9e699119a0555c3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Planning Commodity"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c5222a0d9310b760090c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "Qty_25pct_Date_p6"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

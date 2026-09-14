@@ -34,6 +34,111 @@ table Dim_Planning_Commodity
 
 		annotation SummarizationSetBy = Automatic
 
+	column MEHP_COM =
+			
+			IF (
+			    'Dim_Planning_Commodity'[Planning Commodity] IN {
+			        "A222",
+			        "Cabling GT",
+			        "Cable Testing",
+			        "BNI Pipe",
+			        "Cable Pulling",
+			        "Clamps",
+			        "Mechanical Supports",
+			        "Cable Tray",
+			        "Electrical Supports",
+			        "E&B - Secondary",
+			        "E&B - Primary",
+			        "BOP Pipe",
+			        "BOP Valves",
+			        "BNI Valves",
+			        "Electrical Equipment",
+			        "Mechanical Equipment",
+			        "HVAC Duct",
+			        "HVAC In-Line",
+			        "In-Line Piping Equipment",
+			        "HVAC Equipment",
+			        "Instrumentation",
+			        "Mechanical Penetrations",
+			        "Electrical Penetrations",
+			        "HVAC Supports",
+			        "CMSS",
+			        "IED"
+			    },
+			    TRUE(),
+			    FALSE()
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 84601338-ebe7-46ca-a175-0839224dabee
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline = ```
+			
+			SWITCH (
+			    'Dim_Planning_Commodity'[Dim_Planning_Commodity],
+			
+			    "A222", "Mechanical",
+			    "BNI Pipe", "Mechanical",
+			    "Clamps", "Mechanical",
+			    "Mechanical Supports", "Mechanical",
+			    "Electrical Supports", "Mechanical",
+			    "BOP Pipe", "Mechanical",
+			    "BOP Valves", "Mechanical",
+			    "BNI Valves", "Mechanical",
+			    "Mechanical Equipment", "Mechanical",
+			    "In-Line Piping Equipment", "Mechanical",
+			    "Mechanical Penetrations", "Mechanical",
+			    "HVAC Supports", "Mechanical",
+			    "CMSS", "Mechanical",
+			
+			    "Cabling GT", "Electrical",
+			    "Cable Testing", "Electrical",
+			    "Cable Pulling", "Electrical",
+			    "Cable Tray", "Electrical",
+			    "E&B - Secondary", "Electrical",
+			    "E&B - Primary", "Electrical",
+			    "Electrical Equipment", "Electrical",
+			    "Instrumentation", "Electrical",
+			    "Electrical Penetrations", "Electrical",
+			    "IED", "Electrical",
+			
+			    "HVAC Duct", "HVAC",
+			    "HVAC In-Line", "HVAC",
+			    "HVAC Equipment", "HVAC",
+			
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 7d8d94af-630f-4d9e-8fee-de4ad7488059
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Skyline_Com = ```
+			
+			SWITCH(
+			    'Dim_Planning_Commodity'[Planning Commodity],
+			
+			    "Cable Tray", "E",
+			    "BNI Pipe", "P",
+			    "Mechanical Supports", "S",
+			    "Electrical Supports", "S",
+			    "BOP Pipe", "P",
+			    "HVAC Duct", "H",
+			    "HVAC Supports", "S",
+			
+			    BLANK()
+			)
+			
+			```
+		lineageTag: e294faf9-47c1-4c47-b6a2-ced4827a63d0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_Planning_Commodity = calculated
 		mode: import
 		source =

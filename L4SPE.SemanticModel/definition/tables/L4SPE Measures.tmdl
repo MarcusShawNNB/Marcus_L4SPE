@@ -2278,6 +2278,69 @@ table 'L4SPE Measures'
 		displayFolder: 9_Date
 		lineageTag: 960a3b41-5b00-4f0d-9cee-40466ed2eaf3
 
+	measure '% Complete' = DIVIDE([sum_earned_hours],[budget_hours])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3_Percent/Ratio
+		lineageTag: 49ec2d2f-4565-4934-8d59-09b53a00014b
+
+	measure sum_outstanding_design_quantity_RfC =
+			-- MS
+			
+			
+			CALCULATE([sum_design_quantity_outstanding], Dim_MEH_ENG[RfC]="RfC")
+		lineageTag: b8355819-2edf-49e0-8d5d-cbb34c4adb92
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_design_quantity_fabrication_completed =
+			-- MS
+			
+			
+			CALCULATE([sum_design_quantity_outstanding], Dim_ECS[MEH_ENG_LiveStatus] in
+			 {"BOXED",
+			"CNPEC IN TRANSIT",
+			"DELIVERED",
+			"FABRICATION COMPLETE",
+			"MANUFACTURED",
+			"SAR READY",
+			"SAR READY - IN STORAGE"}||Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 1_Quantities
+		lineageTag: ba37ebae-8647-4286-b029-6c9268ea22d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_remaining_hours_fabrication_completed =
+			-- MS
+			
+			
+			CALCULATE([sum_remaining_hours], Dim_ECS[MEH_ENG_LiveStatus] in
+			 {"BOXED",
+			"CNPEC IN TRANSIT",
+			"DELIVERED",
+			"FABRICATION COMPLETE",
+			"MANUFACTURED",
+			"SAR READY",
+			"SAR READY - IN STORAGE"}||Dim_ECS[DTS Status]="DELIVERED")
+		displayFolder: 2_Hours
+		lineageTag: e4fd2e34-6db1-4211-ade4-11113bd5e74e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure sum_RH_RfC =
+			-- MS
+			
+			
+			CALCULATE([sum_remaining_hours], Dim_MEH_ENG[RfC]="RfC")
+		displayFolder: 2_Hours
+		lineageTag: d4c6009a-0c2a-44b3-85fc-24ae95558932
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure rfc_%Complete = [sum_RH_RfC]/10500000
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2_Hours
+		lineageTag: fab716bd-cc14-4ab1-a4cf-214786de49e5
+
 	column Column
 		isHidden
 		formatString: 0

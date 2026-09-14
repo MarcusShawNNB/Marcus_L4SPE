@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_ECS"
+                      "Entity": "Dim_Planning_Commodity"
                     }
                   },
-                  "Property": "Main_Commodities"
+                  "Property": "MEHP_COM"
                 }
               },
-              "queryRef": "Dim_ECS.Main_Commodities",
-              "nativeQueryRef": "Main_Commodities",
+              "queryRef": "Dim_Planning_Commodity.MEHP_COM",
+              "nativeQueryRef": "MEHP_COM",
               "active": true
             }
           ]
@@ -109,7 +109,7 @@
                 "From": [
                   {
                     "Name": "d",
-                    "Entity": "Dim_ECS",
+                    "Entity": "Dim_Planning_Commodity",
                     "Type": 0
                   }
                 ],
@@ -125,7 +125,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "Main_Commodities"
+                              "Property": "MEHP_COM"
                             }
                           }
                         ],

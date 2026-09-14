@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "def46500fbaedfe6eb47",
   "position": {
-    "x": 157.08126036484245,
+    "x": 157,
     "y": 0,
     "z": 1000,
-    "height": 719.60199004975129,
-    "width": 1122.9187396351576,
+    "height": 720,
+    "width": 1123,
     "tabOrder": 0
   },
   "visual": {
@@ -889,13 +889,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim_ECS"
+                    "Entity": "L4SPE Measures"
                   }
                 },
-                "Property": "HOC Date"
+                "Property": "sum_design_quantity_all"
               }
             },
             "direction": "Descending"
@@ -1148,7 +1148,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "170.14277730522235D"
+                  "Value": "140.16757028229435D"
                 }
               }
             }
@@ -1162,7 +1162,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "60.759532451481604D"
+                  "Value": "53.73072586711947D"
                 }
               }
             }
@@ -1218,7 +1218,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.00000475907764D"
+                  "Value": "68.66668463679615D"
                 }
               }
             }
@@ -1232,13 +1232,125 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "149.6363641891558D"
+                  "Value": "65.25871907635545D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Dim_ECS.Planning Commodity"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "43.15070497472732D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.count_ecs"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "37.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Geography Breakdown.Sub Area"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.449895793247116D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Weekly % Complete"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56.49130434782609D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_ECS.Total % Complete"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.47596884237642D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.budget_hours"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.30660945105917D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_remaining_hours"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.7820437018661D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_design_quantity_all"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58.36235172674129D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "L4SPE Measures.sum_earned_hours"
           }
         }
       ],
@@ -1519,101 +1631,7 @@
             "Level": "Unit"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "Dim_ECS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Adj_unit"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'1/0/9'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              },
-              "Annotations": {
-                "filterExpressionMetadata": {
-                  "expressions": [
-                    {
-                      "HierarchyLevel": {
-                        "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "Dim_ECS"
-                              }
-                            },
-                            "Hierarchy": "Geography Breakdown"
-                          }
-                        },
-                        "Level": "Unit"
-                      }
-                    }
-                  ],
-                  "decomposedIdentities": {
-                    "values": [
-                      [
-                        {
-                          "0": [
-                            {
-                              "Literal": {
-                                "Value": "'1/0/9'"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    ],
-                    "columns": [
-                      {
-                        "value": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "Dim_ECS"
-                              }
-                            },
-                            "Property": "Adj_unit"
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "valueMap": [
-                    {
-                      "0": "1/0/9"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
+        "type": "Categorical"
       },
       {
         "name": "7a3832df7ade2c7608a3",
@@ -2291,6 +2309,258 @@
               }
             },
             "Property": "latest install date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c6e0c1b0b8842309350e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "UoM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3d7d4efbc2b96e6a1503",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Weekly % Complete"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8a61c871288002c9e99e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "HOC Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5660df974938a4721098",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "LIVE - Forecast Start Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6f30a21e83367e83730e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "LIVE - Forecast Finish Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9190a4dfc080e16acbb6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "LM - Forecast Finish Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "89fb0cfe731e0bc1694a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Total Float"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "652a12b67cd30570c370",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "BoreSize"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "22b4f3be80e6c2dc15a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Pspec"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e6c457b3c6e9100617ad",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "system"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e5bd26e6c5ab0403ce6e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Erection_Contract"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "10ca7390ae94734b3dce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "Supplier_Contract"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d6fb2481a0887790593b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Contract"
+              }
+            },
+            "Property": "AMI"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2335032706e32a29a18d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Contract"
+              }
+            },
+            "Property": "PCR"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a56150dce25521002048",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "CTP"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b4514ee18972429adb23",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_ECS"
+              }
+            },
+            "Property": "CTP_source"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e6c7e8d0e1c26280a01a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_CTP_Schedule_Data"
+              }
+            },
+            "Property": "MILESTONE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8904dc8545bb7e6a6ddd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_CTP_Schedule_Data"
+              }
+            },
+            "Property": "Revised_Milestone"
           }
         },
         "type": "Categorical"
