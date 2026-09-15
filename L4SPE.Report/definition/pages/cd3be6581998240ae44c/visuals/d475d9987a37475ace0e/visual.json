@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "a4923663d06010524b70",
+  "name": "d475d9987a37475ace0e",
   "position": {
-    "x": 146.66666666666669,
-    "y": 13.333333333333334,
+    "x": 41.379310344827587,
+    "y": 20.689655172413794,
     "z": 1000,
-    "height": 150,
-    "width": 300,
+    "height": 96.551724137931046,
+    "width": 356.89655172413796,
     "tabOrder": 1000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Planning_Commodity"
+                      "Entity": "Dim_ECS"
                     }
                   },
-                  "Property": "Planning Commodity"
+                  "Property": "Room"
                 }
               },
-              "queryRef": "Dim_Planning_Commodity.Planning Commodity",
-              "nativeQueryRef": "Planning Commodity",
+              "queryRef": "Dim_ECS.Room",
+              "nativeQueryRef": "Room",
               "active": true
             }
           ]
@@ -41,7 +41,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }

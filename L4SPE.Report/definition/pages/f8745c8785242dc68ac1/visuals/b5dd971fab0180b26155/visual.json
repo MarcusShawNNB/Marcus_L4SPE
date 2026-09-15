@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "b5dd971fab0180b26155",
+  "position": {
+    "x": 410.34482758620692,
+    "y": 20.689655172413794,
+    "z": 2,
+    "height": 96.551724137931046,
+    "width": 356.89655172413796,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Planning_Commodity"
+                    }
+                  },
+                  "Property": "Planning Commodity"
+                }
+              },
+              "queryRef": "Dim_Planning_Commodity.Planning Commodity",
+              "nativeQueryRef": "Planning Commodity",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8457797856b7ea80610e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Planning_Commodity"
+              }
+            },
+            "Property": "Planning Commodity"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

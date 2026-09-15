@@ -1,0 +1,39 @@
+table Unique_Room
+	excludeFromModelRefresh
+	lineageTag: 180995e5-1e8d-4f89-aba3-15ff4d7c066c
+
+	column 'Adjusted Room Name'
+		dataType: string
+		lineageTag: 08b13eef-a17f-453e-bad1-87f8d5c4a5ae
+		summarizeBy: none
+		sourceColumn: Adjusted Room Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Unique_Room = m
+		mode: import
+		queryGroup: Dim_Room
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://edfenergynnb.sharepoint.com/sites/L4Analysts/Shared%20Documents/L4%20Analysts/00.%20Quantities/Room%20Tracker/ROOM%20TRACKER%20-%20LIVE.xlsx"), null, true),
+				    ROOM_Sheet = Source{[Item="ROOM",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(ROOM_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"ID", "Final_Project_Name_Galleries", "Final_Project_Name", "Building Code", "Unit", "Building [2]", "Building [3]", "Area", "Area Group", "Sub-Area", "Item Name", "Adjusted Room Name", "Room Description", "PDMS :3D-ErectionArea", "Space Type", "Room Volume (m3)", "Room Floor Area (m2)", "Room Wall Area (m2)", "Room Zmin (m)", "Room Zmax (m)", "Erection Area", "Nominal Level (m)", "Level", "HOC AC", "M3 Requirement", "M3 Actual", "M3 Forecast", "Room Status", "Consolidated Handover milestone", "Final Date"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Final Date", type date}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type1",{{"M3 Forecast", type date}, {"M3 Actual", type date}, {"HOC AC", type date}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type", {{"Nominal Level (m)", null}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Replaced Errors",{{"HOC AC", "zzz_HOC AC"}, {"M3 Requirement", "zzz_M3 Requirement"}, {"M3 Actual", "zzz_M3 Actual"}, {"M3 Forecast", "zzz_M3 Forecast"}, {"Room Status", "zzz_Room Status"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([Final_Project_Name_Galleries] <> null)),
+				    #"Merged Queries" = Table.NestedJoin(#"Filtered Rows", {"Adjusted Room Name"}, Dim_MCW, {"Adjusted Room Name"}, "Dim_MCW", JoinKind.LeftOuter),
+				    #"Expanded Dim_MCW" = Table.ExpandTableColumn(#"Merged Queries", "Dim_MCW", {"TO3 Forecast", "TO4 Forecast"}, {"Dim_MCW.TO3 Forecast", "Dim_MCW.TO4 Forecast"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded Dim_MCW",{{"Dim_MCW.TO3 Forecast", "TO3 Demand"}, {"Dim_MCW.TO4 Forecast", "TO4 Forecast"}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Renamed Columns1", {"Adjusted Room Name"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Duplicates", each [Adjusted Room Name] <> null and [Adjusted Room Name] <> ""),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Filtered Rows1",{"Adjusted Room Name"})
+				in
+				    #"Removed Other Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

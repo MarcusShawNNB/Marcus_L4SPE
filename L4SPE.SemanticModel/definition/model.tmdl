@@ -17,7 +17,7 @@ queryGroup Dim_Room
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["Dim_ECS","AdjDates","Dim_Date","Dim_Activities","Dim_Activity (LIVE_P6)","Dim_Activity (LM_LIVE_P6)","Dim_P6_IWS12","fact_actuals","Fact_Daily","fact_production_","Equipment List (update 24/03)","Fact_Production","Fact_Booked_Hours","Fact_TO4_Q","Fact_QF_Q","Fact_%S","Fact_%S Sub-Area","Supporting_MEH % Complete_2026","Import_TO4___RST (3)","Dim_MEH_ENG","Dim_CTP_Schedule_Data","Bridge_Cable_Highways","Dim_Cable_Highways_Routes","Dim_ROOM","Dim_MCW","Dim_HOC","Dim_QLIK","Planning Commodity (26)","Fact_Forecast_Rolling","Dim_IWS12_QM","Dim_Equipment","Fact_TO4_Q_Weekly","Dim_WeldEye","Dim_Resource_Profile","Fact_Forecast_Baseline","Coatings Status","Commodity Mapping Table","Dynamic Dates","Dim_Skill_Group","commodity_mapping","Old","Welders","Dim_Contract","NCC_Rooms","Fact_CMPIC","ECS_Assignments","Dim_Job_Code_Category"]
+annotation PBI_QueryOrder = ["Dim_ECS","AdjDates","Dim_Date","Dim_Activities","Dim_Activity (LIVE_P6)","Dim_Activity (LM_LIVE_P6)","Dim_P6_IWS12","fact_actuals","Fact_Daily","fact_production_","Equipment List (update 24/03)","Fact_Production","Fact_Booked_Hours","Fact_TO4_Q","Fact_QF_Q","Fact_%S","Fact_%S Sub-Area","Supporting_MEH % Complete_2026","Import_TO4___RST (3)","Dim_MEH_ENG","Dim_CTP_Schedule_Data","Bridge_Cable_Highways","Dim_Cable_Highways_Routes","Dim_ROOM","Dim_MCW","Dim_HOC","Dim_QLIK","Planning Commodity (26)","Fact_Forecast_Rolling","Dim_IWS12_QM","Dim_Equipment","Fact_TO4_Q_Weekly","Dim_WeldEye","Dim_Resource_Profile","Fact_Forecast_Baseline","Coatings Status","Commodity Mapping Table","Dynamic Dates","Dim_Skill_Group","commodity_mapping","Old","Welders","Dim_Contract","NCC_Rooms","Fact_CMPIC","ECS_Assignments","Dim_Job_Code_Category","Unique_Room"]
 
 annotation PBI_ProTooling = ["CalcGroup","DevMode"]
 
@@ -76,8 +76,6 @@ ref table Job_Code_Classification
 ref table commodity_mapping
 ref table Projects
 ref table Old
-ref table Dim_Project
-ref table Bridge_project_ECS
 ref table Dim_Trade
 ref table Bridge_TO4_Sub-Area
 ref table Welders
@@ -90,6 +88,9 @@ ref table Bridge_CTP
 ref table Dim_Job_Code_Category
 ref table Displine_mapping
 ref table Parameter
+ref table CumDesignQtyByDate
+ref table Dim_Project_Commodity
+ref table Unique_Room
 
 ref cultureInfo en-US
 

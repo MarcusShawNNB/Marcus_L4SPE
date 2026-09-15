@@ -44,7 +44,7 @@ table measure_select
 				    ("Quarterly FC", NAMEOF([sum_sum_design_quantity_quarterly_forecast]), 1),
 				    ("Installed", NAMEOF('L4SPE Measures'[sum_design_quantity_actual_installed_inc_CMPIC]), 2),
 				        ("Baseline", NAMEOF([sum_design_quantity_baseline]), 3),
-				                ("Rolling", NAMEOF([sum_design_quantity_rolling]), 4)
+				                ("Rolling", NAMEOF([sum_design_quantity_l5_rolling_by_week]), 4)
 				}
 
 	annotation PBI_Id = d61eb6f6674340c6b2917b88b9952665

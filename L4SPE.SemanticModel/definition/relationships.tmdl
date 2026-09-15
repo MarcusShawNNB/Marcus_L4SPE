@@ -165,10 +165,6 @@ relationship 74fff4c9-06f1-212d-72fb-c2eee1438b83
 	fromColumn: Fact_Production.'Actuals Update'
 	toColumn: Dim_Date.Date
 
-relationship 62dc293f-2671-15aa-08ab-24825630ca1a
-	fromColumn: Fact_Booked_Hours.Commodity
-	toColumn: 'Commodity Mapping Table'.'Code - Booked Hours '
-
 relationship ba98d36c-edff-448a-da45-36330be57803
 	isActive: false
 	fromColumn: Fact_Booked_Hours.'Booking Date'
@@ -185,16 +181,6 @@ relationship fad67a3f-f0ea-50e9-75b1-1c28433253ab
 relationship b8228f1e-1ab9-f411-519a-284c04b4409f
 	fromColumn: 'Commodity Mapping Table'.'Fact - Commodity'
 	toColumn: Dim_Planning_Commodity.'Planning Commodity'
-
-relationship 1d9ae538-f80a-8234-58e8-1e015e8336fc
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: Bridge_project_ECS.'ECS Code'
-	toColumn: Dim_ECS.'ECS Code'
-
-relationship ba8fa79f-ae90-f4fb-f5a0-e37635b69ca1
-	fromColumn: Fact_Booked_Hours.Room
-	toColumn: Dim_ROOM.'Adjusted Room Name'
 
 relationship 170fa130-b577-e2bd-995d-be63936347d2
 	isActive: false
@@ -218,20 +204,6 @@ relationship 9ec57e4c-4b9b-ff4a-3c90-033429b3c931
 	fromCardinality: one
 	fromColumn: Dim_ECS.'ECS Code'
 	toColumn: Dim_Contract.ECS
-
-relationship b717e144-5c4e-adb4-02fd-4906de5c1f70
-	crossFilteringBehavior: bothDirections
-	fromColumn: Bridge_project_ECS.ProjectName_Final
-	toColumn: Dim_Project.ProjectName
-
-relationship f697f9d2-7747-27e6-2e4a-452313dd9670
-	isActive: false
-	fromColumn: 'Supporting_MEH % Complete_2026'.Project_Final
-	toColumn: Dim_Project.ProjectName
-
-relationship 5037499e-3e58-51e4-ffa3-c4469e5789d6
-	fromColumn: Fact_Booked_Hours.'Project Adjusted'
-	toColumn: Dim_Project.ProjectName
 
 relationship e66faf9c-5984-9666-72f6-50c427887a09
 	fromColumn: Fact_Booked_Hours.'MEH ID'
@@ -328,4 +300,16 @@ relationship 79b580a4-3f61-d7bc-f7bf-196655fa2ba9
 relationship d41bd799-2286-bd96-de30-7902e8e78127
 	fromColumn: Fact_TO4_Q_Weekly.'Planning Commodity'
 	toColumn: 'Planning Commodity (26)'.'Planning Commodity'
+
+relationship 7f2a976a-5034-f81d-f796-683e7d7ab1f9
+	fromColumn: 'Supporting_MEH % Complete_2026'.ProjectCommodityKey
+	toColumn: Dim_Project_Commodity.ProjectCommodityKey
+
+relationship d1a351d9-5688-54ed-008d-4c6109f059b0
+	fromColumn: Fact_Booked_Hours.ProjectCommodityKey
+	toColumn: Dim_Project_Commodity.ProjectCommodityKey
+
+relationship c10ffb69-b3ab-12a7-c587-639f140649d8
+	fromColumn: Fact_Booked_Hours.Room
+	toColumn: Dim_ROOM.'Adjusted Room Name'
 

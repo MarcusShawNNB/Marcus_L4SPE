@@ -257,13 +257,17 @@ table Fact_Booked_Hours
 
 	column Room =
 			
-			VAR DotPos = SEARCH(".", 'Fact_Booked_Hours'[Job Code], 1, 0)
+			VAR _JobCode = Fact_Booked_Hours[Job Code]
 			RETURN
-			IF(
-			    DotPos > 0,
-			    LEFT('Fact_Booked_Hours'[Job Code], DotPos - 1),
-			    'Fact_Booked_Hours'[Job Code]
-			)
+			    CALCULATE(
+			        MAXX(
+			            FILTER(
+			                Unique_Room,  -- your room master list table
+			                LEFT( _JobCode, LEN( Unique_Room[Adjusted Room Name] ) ) = Unique_Room[Adjusted Room Name]
+			            ),
+			            Unique_Room[Adjusted Room Name]
+			        )
+			    )
 		lineageTag: 927b5701-c70e-4a91-8528-8b7524a2a39a
 		summarizeBy: none
 
@@ -396,6 +400,14 @@ table Fact_Booked_Hours
 				}
 
 		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"f","Entity":"Fact_Booked_Hours"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"Delay Code"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Delay","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"Delay Code"}}],"Values":[[{"Literal":{"Value":"'I010'"}}],[{"Literal":{"Value":"'I011'"}}],[{"Literal":{"Value":"'I012'"}}],[{"Literal":{"Value":"'I013'"}}],[{"Literal":{"Value":"'I020'"}}],[{"Literal":{"Value":"'I021'"}}],[{"Literal":{"Value":"'I022'"}}],[{"Literal":{"Value":"'I030'"}}],[{"Literal":{"Value":"'I040'"}}],[{"Literal":{"Value":"'I041'"}}],[{"Literal":{"Value":"'I042'"}}],[{"Literal":{"Value":"'I043'"}}],[{"Literal":{"Value":"'I050'"}}],[{"Literal":{"Value":"'I051'"}}],[{"Literal":{"Value":"'I060'"}}],[{"Literal":{"Value":"'I061'"}}],[{"Literal":{"Value":"'I062'"}}],[{"Literal":{"Value":"'I063'"}}],[{"Literal":{"Value":"'I064'"}}],[{"Literal":{"Value":"'I065'"}}],[{"Literal":{"Value":"'I070'"}}],[{"Literal":{"Value":"'I071'"}}],[{"Literal":{"Value":"'I072'"}}],[{"Literal":{"Value":"'I073'"}}],[{"Literal":{"Value":"'I074'"}}],[{"Literal":{"Value":"'I075'"}}],[{"Literal":{"Value":"'I076'"}}],[{"Literal":{"Value":"'I077'"}}],[{"Literal":{"Value":"'I078'"}}],[{"Literal":{"Value":"'I080'"}}],[{"Literal":{"Value":"'I081'"}}],[{"Literal":{"Value":"'I090'"}}],[{"Literal":{"Value":"'I091'"}}],[{"Literal":{"Value":"'I092'"}}],[{"Literal":{"Value":"'I100'"}}],[{"Literal":{"Value":"'I110'"}}],[{"Literal":{"Value":"'I111'"}}],[{"Literal":{"Value":"'I112'"}}],[{"Literal":{"Value":"'I120'"}}],[{"Literal":{"Value":"'I121'"}}],[{"Literal":{"Value":"'I130'"}}],[{"Literal":{"Value":"'I131'"}}],[{"Literal":{"Value":"'I132'"}}],[{"Literal":{"Value":"'I133'"}}],[{"Literal":{"Value":"'I134'"}}],[{"Literal":{"Value":"'I135'"}}],[{"Literal":{"Value":"'I136'"}}],[{"Literal":{"Value":"'I140'"}}],[{"Literal":{"Value":"'I141'"}}],[{"Literal":{"Value":"'I142'"}}],[{"Literal":{"Value":"'I150'"}}],[{"Literal":{"Value":"'I151'"}}],[{"Literal":{"Value":"'I152'"}}],[{"Literal":{"Value":"'I160'"}}],[{"Literal":{"Value":"'I161'"}}],[{"Literal":{"Value":"'I162'"}}],[{"Literal":{"Value":"'I163'"}}],[{"Literal":{"Value":"'I200'"}}]]}}},{"DisplayName":"Direct","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"Delay Code"}}],"Values":[[{"Literal":{"Value":"'D01'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectCommodityKey =
+			
+			Fact_Booked_Hours[Project Adjusted] & "|" & Fact_Booked_Hours[Commodity]
+		lineageTag: de4fb969-b989-4a1c-8ed6-8c6fe4087cd1
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

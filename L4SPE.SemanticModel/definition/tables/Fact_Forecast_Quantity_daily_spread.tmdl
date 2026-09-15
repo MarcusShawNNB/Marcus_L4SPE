@@ -222,6 +222,19 @@ table Fact_Forecast_Quantity_daily_spread
 
 		annotation SummarizationSetBy = Automatic
 
+	column Max_Finish =
+			
+			VAR IsCompleted = NOT ISBLANK( [actual_installed_date] )
+			VAR ActualDate = [actual_installed_date]
+			VAR ForecastDate = Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]
+			RETURN
+			    IF( IsCompleted, ActualDate, ForecastDate )
+		formatString: Short Date
+		lineageTag: 592df995-cd8d-4773-928f-255df3a79c56
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Fact_Forecast_Quantity_daily_spread = calculated
 		mode: import
 		source = ```

@@ -126,6 +126,21 @@
                       "Entity": "L4SPE Measures"
                     }
                   },
+                  "Property": "sum_design_quantity_to4_q_weekly"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_to4_q_weekly",
+              "nativeQueryRef": "TO4 Demand",
+              "displayName": "TO4 Demand"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
                   "Property": "sum_sum_design_quantity_quarterly_forecast"
                 }
               },
@@ -147,6 +162,36 @@
               "queryRef": "L4SPE Measures.sum_design_quantity_actual_installed_inc_CMPIC",
               "nativeQueryRef": "Installed",
               "displayName": "Installed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_baseline"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_baseline",
+              "nativeQueryRef": "Baseline",
+              "displayName": "Baseline"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "L4SPE Measures"
+                    }
+                  },
+                  "Property": "sum_design_quantity_l5_rolling_by_week"
+                }
+              },
+              "queryRef": "L4SPE Measures.sum_design_quantity_l5_rolling_by_week",
+              "nativeQueryRef": "Rolling",
+              "displayName": "Rolling"
             }
           ],
           "fieldParameters": [
@@ -162,7 +207,7 @@
                 }
               },
               "index": 0,
-              "length": 2
+              "length": 5
             }
           ]
         }

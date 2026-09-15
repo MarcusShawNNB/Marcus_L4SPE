@@ -2151,80 +2151,89 @@ table 'L4SPE Measures'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure Qty_75pct_Date_p6 = ```
+	measure Design_75pct_Date =
 			
+			VAR RelevantDates =
+			    FILTER(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        Dim_Date[Date] >= [Scope_Start_Date] &&
+			        Dim_Date[Date] <= [Scope_End_Date]
+			    )
 			VAR Base =
 			    ADDCOLUMNS(
-			        ALLSELECTED( Dim_Date[Date] ),
-			        "@CumQty",
-			        VAR CurDate = Dim_Date[Date]
-			        RETURN
-			            CALCULATE(
-			                [sum_design_quantity_p6_by_day],  
-			                ALLSELECTED( Dim_Date[Date] ),
-			                Dim_Date[Date] <= CurDate
-			            )
+			        RelevantDates,
+			        "CumQty", CALCULATE( [cum_sum_design_quantity_p6_by_day] )
 			    )
-			VAR TotalQty = MAXX( Base, [@CumQty] )
-			VAR TargetQty = TotalQty * 0.75
+			VAR TotalQty =
+			    MAXX( Base, [CumQty] )
+			VAR TargetQty =
+			    TotalQty * 0.75
 			RETURN
 			    MINX(
-			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        FILTER(
+			            Base,
+			            [CumQty] >= TargetQty
+			        ),
 			        Dim_Date[Date]
 			    )
-			```
 		formatString: Short Date
 		displayFolder: 9_Date
 		lineageTag: 370c0cc1-bd43-48ee-a5a9-c85a62fbf20b
 
-	measure Qty_50pct_Date_p6 = ```
+	measure Design_25pct_Date =
 			
+			VAR RelevantDates =
+			    FILTER(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        Dim_Date[Date] >= [Scope_Start_Date] &&
+			        Dim_Date[Date] <= [Scope_End_Date]
+			    )
 			VAR Base =
 			    ADDCOLUMNS(
-			        ALLSELECTED( Dim_Date[Date] ),
-			        "@CumQty",
-			        VAR CurDate = Dim_Date[Date]
-			        RETURN
-			            CALCULATE(
-			                [sum_design_quantity_p6_by_day],  
-			                ALLSELECTED( Dim_Date[Date] ),
-			                Dim_Date[Date] <= CurDate
-			            )
+			        RelevantDates,
+			        "CumQty", CALCULATE( [cum_sum_design_quantity_p6_by_day] )
 			    )
-			VAR TotalQty = MAXX( Base, [@CumQty] )
-			VAR TargetQty = TotalQty * 0.50
+			VAR TotalQty =
+			    MAXX( Base, [CumQty] )
+			VAR TargetQty =
+			    TotalQty * 0.25
 			RETURN
 			    MINX(
-			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        FILTER(
+			            Base,
+			            [CumQty] >= TargetQty
+			        ),
 			        Dim_Date[Date]
 			    )
-			```
 		formatString: Short Date
 		displayFolder: 9_Date
 		lineageTag: d46012fc-7236-4e88-b76f-bdb1ffc3e24f
 
-	measure Qty_25pct_Date_p6 = ```
+	measure Design_50pct_Date =
 			
+			VAR RelevantDates =
+			    FILTER(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        Dim_Date[Date] >= [Scope_Start_Date] &&
+			        Dim_Date[Date] <= [Scope_End_Date]
+			    )
 			VAR Base =
 			    ADDCOLUMNS(
-			        ALLSELECTED( Dim_Date[Date] ),
-			        "@CumQty",
-			        VAR CurDate = Dim_Date[Date]
-			        RETURN
-			            CALCULATE(
-			                [sum_design_quantity_p6_by_day],  
-			                ALLSELECTED( Dim_Date[Date] ),
-			                Dim_Date[Date] <= CurDate
-			            )
+			        RelevantDates,
+			        "CumQty", CALCULATE( [cum_sum_design_quantity_p6_by_day] )
 			    )
-			VAR TotalQty = MAXx( Base, [@CumQty] )
-			VAR TargetQty = TotalQty * 0.25
+			VAR TotalQty =
+			    MAXX( Base, [CumQty] )
+			VAR TargetQty =
+			    TotalQty * 0.50
 			RETURN
 			    MINX(
-			        FILTER( Base, [@CumQty] >= TargetQty ),
+			        FILTER(
+			            Base,
+			            [CumQty] >= TargetQty
+			        ),
 			        Dim_Date[Date]
 			    )
-			```
 		formatString: Short Date
 		displayFolder: 9_Date
 		lineageTag: 8ec05864-0f94-4a41-b0df-0e4f992875ba
@@ -2239,41 +2248,55 @@ table 'L4SPE Measures'
 		displayFolder: 9_Date
 		lineageTag: 02f80c54-908e-49d7-8126-734d25583d71
 
-	measure Qty_25pct_Date_Actual =
+	measure Max_Finish =
 			
+			VAR IsCompleted =
+			    CALCULATE(
+			        NOT ISBLANK( MAX( Dim_ECS[actual_installed_date] ) ),
+			        USERELATIONSHIP( Dim_Date[Date], Dim_ECS[actual_installed_date] )
+			    )
+			VAR ActualDate =
+			    CALCULATE(
+			        MAX( Dim_ECS[actual_installed_date] ),
+			        USERELATIONSHIP( Dim_Date[Date], Dim_ECS[actual_installed_date] )
+			    )
+			VAR RelevantDates =
+			    FILTER(
+			        ALLSELECTED( Dim_Date[Date] ),
+			        Dim_Date[Date] >= [Scope_Start_Date] &&
+			        Dim_Date[Date] <= [Scope_End_Date]
+			    )
 			VAR Base =
 			    ADDCOLUMNS(
-			        ALLSELECTED( Dim_Date[Date] ),
+			        RelevantDates,
 			        "@CumQty",
 			        VAR CurDate = Dim_Date[Date]
 			        RETURN
 			            CALCULATE(
-			                [Actual_Installed_Date],
-			                ALLSELECTED( Dim_Date[Date] ),
+			                [cum_sum_design_quantity_p6_by_day],
+			                RelevantDates,
 			                Dim_Date[Date] <= CurDate
 			            )
 			    )
-			VAR TotalQty =
-			    CALCULATE( SUM( Dim_ECS[DesignQuantity] ), ALLSELECTED( Dim_ECS ) )  -- fixed to full plan, not floating
-			VAR TargetQty = TotalQty * 0.25
-			RETURN
+			VAR TotalQty = MAXX( Base, [@CumQty] )
+			VAR TargetQty = TotalQty  -- 100% of total
+			VAR ForecastDate =
 			    MINX(
 			        FILTER( Base, [@CumQty] >= TargetQty ),
 			        Dim_Date[Date]
 			    )
+			RETURN
+			    IF( IsCompleted, ActualDate, ForecastDate )
 		formatString: Short Date
 		displayFolder: 9_Date
 		lineageTag: 7ae0f787-c0f3-4729-a3ab-7f40dd38c5b8
 
-	measure Qty_25pct_Date_Display =
+	measure Scope_Start_Date =
 			
-			VAR ActualDate = [Qty_25pct_Date_Actual]
-			RETURN
-			    IF(
-			        NOT ISBLANK( ActualDate ),
-			        ActualDate,       -- 25% has actually been achieved — show real date
-			        [Qty_25pct_Date_p6]   -- not there yet — show planned/FC date
-			    )
+			CALCULATE(
+			    MIN( Fact_Forecast_Quantity_daily_spread[Remaining Early Start]),
+			    ALLSELECTED( Dim_Date[Date] )
+			)
 		formatString: Short Date
 		displayFolder: 9_Date
 		lineageTag: 960a3b41-5b00-4f0d-9cee-40466ed2eaf3
@@ -2340,6 +2363,31 @@ table 'L4SPE Measures'
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 2_Hours
 		lineageTag: fab716bd-cc14-4ab1-a4cf-214786de49e5
+
+	measure Earliest_Start_Date =
+			
+			CALCULATE(
+			    MAX( Fact_BL_Forecast_L5_daily_spread[Remaining Early Start] ),
+			    USERELATIONSHIP( Dim_Date[Date], Dim_ECS[actual_installed_date] ),
+			    FILTER(
+			        ALL( Dim_Date[Date] ),
+			        Dim_Date[Date] >= [Scope_Start_Date] &&
+			        Dim_Date[Date] <= [Scope_End_Date]
+			    )
+			)
+		formatString: Short Date
+		displayFolder: 9_Date
+		lineageTag: e9f8a8cf-bb64-4dc3-b35a-36c297f3ee91
+
+	measure Scope_End_Date =
+			
+			CALCULATE(
+			    MIN( Fact_Forecast_Quantity_daily_spread[Remaining Early Finish]),
+			    ALLSELECTED( Dim_Date[Date] )
+			)
+		formatString: General Date
+		displayFolder: 9_Date
+		lineageTag: 68b4e459-8164-457a-b844-28e50d99d237
 
 	column Column
 		isHidden

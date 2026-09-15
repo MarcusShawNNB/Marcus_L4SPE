@@ -1,0 +1,42 @@
+table CumDesignQtyByDate
+	lineageTag: 0915da37-ddfd-4cbc-b8ac-ddccfc684262
+
+	column Date
+		formatString: General Date
+		lineageTag: f3885e17-c209-42fb-aae6-12c73edab07e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dim_Date[Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CumQty
+		lineageTag: 932da3d8-c85d-46b9-b3c2-837ddc9abfee
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [CumQty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CumDesignQtyByDate = calculated
+		mode: import
+		source =
+				
+				VAR AllDates = ALL( Dim_Date[Date] )
+				RETURN
+				    ADDCOLUMNS(
+				        AllDates,
+				        "CumQty",
+				        VAR CurDate = Dim_Date[Date]
+				        RETURN
+				            CALCULATE(
+				                [cum_sum_design_quantity_p6_by_day],
+				                AllDates,
+				                Dim_Date[Date] <= CurDate
+				            )
+				    )
+
+	annotation PBI_Id = 4b43fbeccf8d4772b7a85794f287136f
+

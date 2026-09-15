@@ -1,0 +1,44 @@
+table Dim_Project_Commodity
+	lineageTag: 73c45395-602e-44c4-96ab-06899a148800
+
+	column Project
+		lineageTag: 59f2dcc5-e99a-41ee-bcce-bf408551ded4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Project]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Commodity
+		lineageTag: d4836e0a-d5d6-4cda-8b16-afd367121864
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Commodity]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectCommodityKey =
+			
+			'Dim_Project_Commodity'[Project] & "|" & 'Dim_Project_Commodity'[Commodity]
+		lineageTag: 681c5f04-7c04-4de4-821b-de464608b1cc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Project_Commodity = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    DISTINCT(
+				        UNION(
+				            SELECTCOLUMNS( 'Supporting_MEH % Complete_2026', "Project", [Project_Final], "Commodity", [Dim_ECS] ),
+				            SELECTCOLUMNS( Fact_Booked_Hours, "Project", [Project Adjusted], "Commodity", [Commodity] )
+				        )
+				    ),
+				    NOT ISBLANK( [Project] ) && [Project] <> "" &&
+				    NOT ISBLANK( [Commodity] ) && [Commodity] <> ""
+				)
+
+	annotation PBI_Id = ca4ad8918a5e4c2cbf2b8c2025df35fd
+

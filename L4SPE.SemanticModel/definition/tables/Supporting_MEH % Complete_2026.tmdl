@@ -69,7 +69,7 @@ table 'Supporting_MEH % Complete_2026'
 			
 			VAR _CurrentProject = 'Supporting_MEH % Complete_2026'[Project]
 			VAR _CurrentActivity = 'Supporting_MEH % Complete_2026'[Activity Name]
-			RETURN
+			VAR _RawResult =
 			    IF(
 			        NOT(ISBLANK(_CurrentProject)) && _CurrentProject <> "",
 			        _CurrentProject,
@@ -82,6 +82,12 @@ table 'Supporting_MEH % Complete_2026'
 			                Dim_ECS[final_project_name] <> ""
 			            )
 			        )
+			    )
+			RETURN
+			    IF(
+			        LEFT(_RawResult, 2) = "UU",
+			        "U" & MID(_RawResult, 3, LEN(_RawResult) - 2),
+			        _RawResult
 			    )
 		lineageTag: c16642bd-4965-4621-88d2-a6c8d210c6cc
 		summarizeBy: none
@@ -101,6 +107,20 @@ table 'Supporting_MEH % Complete_2026'
 		lineageTag: 39a91b5f-0bff-4fb7-8e40-f2d5bc16c209
 		summarizeBy: none
 		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectCommodityKey =
+			
+			'Supporting_MEH % Complete_2026'[Project_Final] & "|" & 'Supporting_MEH % Complete_2026'[Dim_ECS]
+		lineageTag: b410665e-2f11-4615-8aa5-4f737e640029
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Room = RELATED(Dim_ECS[Room])
+		lineageTag: 135dfa3e-944c-4f9f-a092-76279146abce
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

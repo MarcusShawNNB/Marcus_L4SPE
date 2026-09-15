@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "44abcac1b95cd9a9e8b7",
+  "name": "7215bb24032b909a772c",
   "position": {
-    "x": 58.62068965517242,
-    "y": 98.275862068965523,
+    "x": 41.379310344827587,
+    "y": 117.24137931034484,
     "z": 0,
     "height": 603.448275862069,
-    "width": 1034.4827586206898,
+    "width": 1200,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "Dim_ECS.Room",
-              "nativeQueryRef": "Room",
-              "active": true
+              "nativeQueryRef": "Room"
             },
             {
               "field": {
@@ -42,13 +41,78 @@
                 }
               },
               "queryRef": "Dim_ECS.Planning Commodity",
-              "nativeQueryRef": "Planning Commodity",
-              "active": true
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+              "nativeQueryRef": "Planning Commodity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "Remaining Early Start"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.Remaining Early Start",
+              "nativeQueryRef": "Remaining Early Start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "25% Complete"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.25% Complete",
+              "nativeQueryRef": "25% Complete"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "50% Complete"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.50% Complete",
+              "nativeQueryRef": "50% Complete"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "75% Complete"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.75% Complete",
+              "nativeQueryRef": "75% Complete"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Forecast_Quantity_daily_spread"
+                    }
+                  },
+                  "Property": "Max_Finish"
+                }
+              },
+              "queryRef": "Fact_Forecast_Quantity_daily_spread.Max_Finish",
+              "nativeQueryRef": "Max_Finish"
+            },
             {
               "field": {
                 "Measure": {
@@ -57,65 +121,16 @@
                       "Entity": "L4SPE Measures"
                     }
                   },
-                  "Property": "Design_25pct_Date"
+                  "Property": "% Complete"
                 }
               },
-              "queryRef": "L4SPE Measures.Design_25pct_Date",
-              "nativeQueryRef": "Design_25pct_Date"
+              "queryRef": "L4SPE Measures.% Complete",
+              "nativeQueryRef": "% Complete"
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "Dim_ECS.Room"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_ECS"
-                    }
-                  },
-                  "Property": "Room"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Dim_ECS.Planning Commodity"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'0HGS0102ZL-'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
-      }
-    ],
     "objects": {
       "columnWidth": [
         {
@@ -210,48 +225,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "5650f0d8205eb681d600",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Room"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "43527d3e4deb0358ce9a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_ECS"
-              }
-            },
-            "Property": "Planning Commodity"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5d8bde8d507326a4c02b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "L4SPE Measures"
-              }
-            },
-            "Property": "Design_25pct_Date"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

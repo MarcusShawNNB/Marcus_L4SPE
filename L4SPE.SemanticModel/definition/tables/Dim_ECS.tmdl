@@ -1304,6 +1304,20 @@ table Dim_ECS
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Install Status' =
+			
+			VAR HasDate =
+			    CALCULATE(
+			        NOT ISBLANK( MAX( Dim_ECS[actual_installed_date] ) ),
+			        USERELATIONSHIP( Dim_Date[Date], Dim_ECS[actual_installed_date] )
+			    )
+			RETURN
+			    IF( HasDate, "Installed", "Not Installed" )
+		lineageTag: abb411ec-658b-47f1-b995-2b244a051271
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'Adj_unit Hierarchy'
 		lineageTag: 45748b43-cc06-42bb-8697-8e25b13c768d
 
